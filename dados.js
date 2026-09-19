@@ -115,9 +115,9 @@ const DADOS = {
       não são 16:9.
       São mais altos para o aspeto do menu original.
     */
-    alturaAnoDesktop: 310,
-    alturaAnoTabletHorizontal: 260,
-    alturaAnoTelemovelHorizontal: 190,
+    alturaAnoDesktop: 335,
+    alturaAnoTabletHorizontal: 285,
+    alturaAnoTelemovelHorizontal: 205,
 
     raioAno: 23,
     raioDestaques: 26,
@@ -270,6 +270,28 @@ button {
 }
 
 /* ============================================================
+   NUVEM — imagem real do projeto
+   ============================================================ */
+
+.camada-nuvem {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 285px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.camada-nuvem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: .96;
+}
+
+/* ============================================================
    CABEÇALHO
    ============================================================ */
 
@@ -376,7 +398,9 @@ button {
 
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 14px;
+  align-items: stretch;
 }
 
 .ano {
@@ -1256,52 +1280,7 @@ function criarDestaques() {
 
 document.addEventListener("DOMContentLoaded", () => {
   inserirCSS();
-  criarCamadaNuvem();
   preencherTextos();
   criarCartoesAno();
   criarDestaques();
 });
-
-
-/* ============================================================
-   NUVEM REAL DO PROJETO
-   ============================================================ */
-.camada-nuvem {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 300px;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-.camada-nuvem img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  opacity: .96;
-}
-.cabecalho,
-.area-menu,
-.destaques,
-.rodape {
-  z-index: 1;
-}
-
-
-function criarCamadaNuvem() {
-  const camada = document.createElement("div");
-  camada.className = "camada-nuvem";
-  camada.setAttribute("aria-hidden", "true");
-
-  const img = document.createElement("img");
-  img.src = DADOS.nuvem;
-  img.alt = "";
-  img.draggable = false;
-
-  camada.appendChild(img);
-  document.getElementById("app").prepend(camada);
-}
