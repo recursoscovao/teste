@@ -1,55 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recursos do Cão — Menu de Anos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos do Cão</title>
 </head>
 <body>
-  <main id="app" class="app" aria-label="Recursos do Cão">
-    <header class="topbar">
-      <button class="round-button home-button" type="button" aria-label="Início" data-action="home"></button>
+  <main id="app">
 
-      <div class="brand">
-        <div class="brand-image" aria-hidden="true"></div>
-        <div>
-          <h1 data-brand-title></h1>
-          <p data-brand-subtitle></p>
+    <header class="cabecalho">
+      <div class="marca">
+        <div class="marca-sol" aria-hidden="true"></div>
+        <div class="marca-texto">
+          <h1 data-marca></h1>
+          <p data-submarca></p>
         </div>
       </div>
-
-      <button class="round-button settings-button" type="button" aria-label="Definições" data-action="settings"></button>
     </header>
 
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-decoration hero-decoration-left" aria-hidden="true"></div>
-      <div class="hero-decoration hero-decoration-right" aria-hidden="true"></div>
-      <h2 id="page-title" data-page-title></h2>
-      <p data-page-subtitle></p>
-    </section>
+    <section class="area-menu" aria-labelledby="titulo-menu">
+      <div class="decoracao decoracao-esquerda" aria-hidden="true"></div>
+      <div class="decoracao decoracao-direita" aria-hidden="true"></div>
 
-    <section class="year-grid" aria-label="Escolha o ano">
-      <template id="year-card-template">
-        <article class="year-card">
-          <button class="year-card-button" type="button">
-            <div class="year-image" aria-hidden="true"></div>
-            <div class="year-name"></div>
-            <div class="year-age"></div>
-          </button>
-        </article>
-      </template>
-    </section>
-
-    <footer class="bottom-bar">
-      <div class="bottom-message">
-        <span class="bottom-icon" aria-hidden="true"></span>
-        <span data-footer-message></span>
+      <div class="titulo-menu">
+        <h2 id="titulo-menu" data-titulo-menu></h2>
       </div>
-      <div class="bottom-info">
-        <span class="info-icon" aria-hidden="true"></span>
-        <span data-footer-info></span>
+
+      <div class="anos" id="anos">
+        <template id="modelo-ano">
+          <article class="ano">
+            <button class="botao-ano" type="button">
+              <div class="icone-ano"></div>
+              <div class="nome-ano"></div>
+              <div class="idade-ano"></div>
+            </button>
+          </article>
+        </template>
+      </div>
+    </section>
+
+    <footer class="rodape">
+      <div class="rodape-item">
+        <span class="estrela" aria-hidden="true"></span>
+        <span data-mensagem></span>
+      </div>
+      <div class="rodape-item rodape-info">
+        <span class="info" aria-hidden="true">i</span>
+        <span data-informacao></span>
       </div>
     </footer>
+
   </main>
 
   <script src="dados.js"></script>
