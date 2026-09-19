@@ -29,7 +29,7 @@
     icon4.png
     rastros.png
     gatos&caes.png
-    dominio.png
+    dominorio.png
     semaforo.png
     quelhas.png
     avanco.png
@@ -73,7 +73,7 @@ const DADOS = {
     destaques: {
       rastros: "icons/rastros.png",
       gatosCaes: "icons/gatos&caes.png",
-      dominio: "icons/dominio.png",
+      dominorio: "icons/dominorio.png",
       semaforo: "icons/semaforo.png",
       quelhas: "icons/quelhas.png",
       avanco: "icons/avanco.png"
