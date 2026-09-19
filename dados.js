@@ -1,27 +1,38 @@
 /*
 ================================================================
-  RECURSOS DO CÃO — MENU PRINCIPAL
+ RECURSOS DO CÃO — DADOS E APRESENTAÇÃO
 ================================================================
 
-  index.html = estrutura.
-  dados.js   = dados + cores + imagens + CSS + comportamento.
+ A estrutura HTML está em index.html.
 
-  ÍCONES DOS ANOS:
-    icons/pre.png
-    icons/1ano.png
-    icons/2ano.png
-    icons/3ano.png
-    icons/4ano.png
+ Este ficheiro concentra:
+ - textos
+ - cores
+ - dimensões
+ - caminhos de TODOS os icons
+ - definição dos anos
+ - definição dos jogos em destaque
+ - CSS
+ - comportamento
 
-  Os cartões dos anos NÃO usam 16:9.
-  PC / tablet horizontal:
-      5 cartões lado a lado, icon em cima e texto em baixo.
-  Tablet vertical / telemóvel vertical:
-      1 cartão por linha, icon à esquerda e texto à direita.
+ Os PNG existentes na pasta /icons são usados diretamente.
 
-  Os icons têm uma caixa visual comum, por isso ficam todos
-  alinhados e com tamanho aparente consistente mesmo que os
-  PNG tenham áreas transparentes diferentes.
+ Estrutura esperada:
+
+ /index.html
+ /dados.js
+ /icons/
+    iconpre.png
+    icon1.png
+    icon2.png
+    icon3.png
+    icon4.png
+    rastros.png
+    gatos&caes.png
+    dominio.png
+    semaforo.png
+    quelhas.png
+    avanco.png
 */
 
 const DADOS = {
@@ -30,69 +41,107 @@ const DADOS = {
     titulo: "Recursos do Cão",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolha o ano",
-    tituloJogos: "Jogos em destaque",
     mensagem: "Escolha o ano e comece a aprender!",
     informacao: "Recursos educativos para o 1.º ciclo"
   },
 
+  /* ==========================================================
+     ICONS — todos centralizados aqui
+     ========================================================== */
+  icons: {
+    anos: {
+      pre: "icons/iconpre.png",
+      ano1: "icons/icon1.png",
+      ano2: "icons/icon2.png",
+      ano3: "icons/icon3.png",
+      ano4: "icons/icon4.png"
+    },
+
+    destaques: {
+      rastros: "icons/rastros.png",
+      gatosCaes: "icons/gatos&caes.png",
+      dominio: "icons/dominio.png",
+      semaforo: "icons/semaforo.png",
+      quelhas: "icons/quelhas.png",
+      avanco: "icons/avanco.png"
+    }
+  },
+
+  /* ==========================================================
+     CORES
+     ========================================================== */
   cores: {
-    fundo: "#EAF7FF",
-    ceu1: "#59CFF2",
-    ceu2: "#AEEBFA",
+    fundo: "#EAF5FC",
+    ceu1: "#78DDF7",
+    ceu2: "#BCEEF9",
 
     texto: "#07569A",
-    textoEscuro: "#073F79",
+    textoEscuro: "#064B8A",
     branco: "#FFFFFF",
 
-    amarelo: "#FFB817",
-    amareloEscuro: "#E99500",
+    amarelo: "#FFBA16",
+    amarelo2: "#EF8709",
 
-    azul: "#19B9F0",
-    azulEscuro: "#0878C7",
+    azul: "#20B9EF",
+    azul2: "#087AC9",
 
-    verde: "#49C83E",
-    verdeEscuro: "#15983A",
+    verde: "#45C83D",
+    verde2: "#169A3A",
 
-    roxo: "#A84BED",
-    roxoEscuro: "#7131B5",
+    roxo: "#A74BEF",
+    roxo2: "#7434B8",
 
-    rosa: "#F3379B",
-    rosaEscuro: "#C51770",
+    rosa: "#F43A9D",
+    rosa2: "#C81970",
 
-    creme: "#FFF7D8",
-    cremeBorda: "#EFCB77",
+    creme: "#FFF9E1",
+    creme2: "#F5D996",
 
-    linha: "#A4D9FA",
-    painel: "#FFFFFF",
+    linha: "#A5D9F8",
 
-    sombra: "rgba(8,76,126,.20)",
-    sombraForte: "rgba(8,76,126,.30)"
+    sombra: "rgba(15, 88, 139, .20)",
+    sombraForte: "rgba(15, 88, 139, .30)"
   },
 
+  /* ==========================================================
+     DIMENSÕES
+     ========================================================== */
   dimensoes: {
-    larguraMaxima: 1500,
-    raioCartaoAno: 20,
-    raioJogos: 27,
-    gapAnos: 12,
-    gapJogos: 18
+    larguraMaxima: 1650,
+
+    /*
+      Cartões dos anos:
+      não são 16:9.
+      São mais altos para o aspeto do menu original.
+    */
+    alturaAnoDesktop: 310,
+    alturaAnoTabletHorizontal: 260,
+    alturaAnoTelemovelHorizontal: 190,
+
+    raioAno: 23,
+    raioDestaques: 26,
+
+    tamanhoIconAnoDesktop: 145,
+    tamanhoIconAnoTablet: 112,
+    tamanhoIconAnoTelemovelHorizontal: 78,
+
+    /* Ícones de destaque deliberadamente mais pequenos */
+    tamanhoIconJogo: 84,
+    tamanhoIconJogoTablet: 72,
+    tamanhoIconJogoTelemovel: 58
   },
 
-  imagens: {
-    pre: "icons/pre.png",
-    ano1: "icons/1ano.png",
-    ano2: "icons/2ano.png",
-    ano3: "icons/3ano.png",
-    ano4: "icons/4ano.png"
-  },
-
+  /* ==========================================================
+     ANOS
+     ========================================================== */
   anos: [
     {
       id: "pre",
       nome: "Pré-Escolar",
       idade: "3 – 5 anos",
       icon: "pre",
-      cor: "#FFB817",
-      cor2: "#F28C0A",
+      cor: "#FFBA16",
+      cor2: "#EF8709",
       pagina: "pre-escolar.html"
     },
     {
@@ -100,8 +149,8 @@ const DADOS = {
       nome: "1.º Ano",
       idade: "6 – 7 anos",
       icon: "ano1",
-      cor: "#1ABAF0",
-      cor2: "#087AC8",
+      cor: "#20B9EF",
+      cor2: "#087AC9",
       pagina: "ano-1.html"
     },
     {
@@ -109,8 +158,8 @@ const DADOS = {
       nome: "2.º Ano",
       idade: "7 – 8 anos",
       icon: "ano2",
-      cor: "#49C83E",
-      cor2: "#179B3B",
+      cor: "#45C83D",
+      cor2: "#169A3A",
       pagina: "ano-2.html"
     },
     {
@@ -118,8 +167,8 @@ const DADOS = {
       nome: "3.º Ano",
       idade: "8 – 9 anos",
       icon: "ano3",
-      cor: "#A84BED",
-      cor2: "#7131B5",
+      cor: "#A74BEF",
+      cor2: "#7434B8",
       pagina: "ano-3.html"
     },
     {
@@ -127,161 +176,23 @@ const DADOS = {
       nome: "4.º Ano",
       idade: "9 – 10 anos",
       icon: "ano4",
-      cor: "#F3379B",
-      cor2: "#C51770",
+      cor: "#F43A9D",
+      cor2: "#C81970",
       pagina: "ano-4.html"
     }
   ],
 
-  /*
-    Estes são os 6 exemplos da faixa "Jogos em destaque"
-    mostrada na referência.
-
-    imagem pode ser substituída diretamente por um PNG quando
-    os teus previews dos jogos estiverem disponíveis.
-  */
-  jogos: [
-    {
-      id: "rastros",
-      nome: "Rastros",
-      imagem: "gerarPreviewRastros",
-      pagina: "#"
-    },
-    {
-      id: "gatos-caes",
-      nome: "Gatos&Cães",
-      imagem: "gerarPreviewGatos",
-      pagina: "#"
-    },
-    {
-      id: "dominio",
-      nome: "Dominório",
-      imagem: "gerarPreviewDominorio",
-      pagina: "#"
-    },
-    {
-      id: "semaforo",
-      nome: "Semáforo",
-      imagem: "gerarPreviewSemaforo",
-      pagina: "#"
-    },
-    {
-      id: "damas",
-      nome: "Quellas",
-      imagem: "gerarPreviewQuellas",
-      pagina: "#"
-    },
-    {
-      id: "avanco",
-      nome: "Avanço",
-      imagem: "gerarPreviewAvanco",
-      pagina: "#"
-    }
+  /* ==========================================================
+     JOGOS EM DESTAQUE
+     ========================================================== */
+  destaques: [
+    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5 },
+    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5 },
+    { id: "dominio", nome: "Dominório", icon: "dominio", estrelas: 5 },
+    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5 },
+    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5 },
+    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5 }
   ]
-};
-
-
-/* ============================================================
-   PREVIEWS SVG DOS JOGOS
-   ============================================================ */
-
-function svg(markup) {
-  return "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(markup.trim());
-}
-
-const PREVIEWS = {
-
-  gerarPreviewRastros: svg(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
-      <rect width="120" height="100" rx="2" fill="#DCEAF5"/>
-      <path d="M0 20h120M0 40h120M0 60h120M0 80h120M24 0v100M48 0v100M72 0v100M96 0v100"
-            stroke="#7C9BB1" stroke-width="1"/>
-      <circle cx="63" cy="43" r="6" fill="#111"/>
-      <circle cx="40" cy="61" r="5" fill="#fff" stroke="#111" stroke-width="1"/>
-      <text x="104" y="13" font-family="Arial" font-size="7" fill="#5590BF">2</text>
-      <text x="12" y="91" font-family="Arial" font-size="7" fill="#5590BF">1</text>
-    </svg>
-  `),
-
-  gerarPreviewGatos: svg(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
-      <rect width="120" height="100" fill="#FFF0C8"/>
-      <path d="M0 20h120M0 40h120M0 60h120M0 80h120M20 0v100M40 0v100M60 0v100M80 0v100M100 0v100"
-            stroke="#B99E6A" stroke-width="1"/>
-      <path d="M25 20l5-8 6 8 7-3v10H23V17zM54 20l5-8 6 8 7-3v10H52V17z"
-            fill="#161616"/>
-      <path d="M54 40l5-6 5 6 5-2v9H49v-9z" fill="#111"/>
-      <text x="55" y="70" font-family="Arial" font-size="10">×</text>
-      <text x="72" y="55" font-family="Arial" font-size="10">×</text>
-      <text x="91" y="91" font-family="Arial" font-size="8">🐶</text>
-    </svg>
-  `),
-
-  gerarPreviewDominorio: svg(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
-      <rect width="120" height="100" fill="#D9F0DD"/>
-      <path d="M0 20h120M0 40h120M0 60h120M0 80h120M24 0v100M48 0v100M72 0v100M96 0v100"
-            stroke="#83B88D" stroke-width="1"/>
-      <rect x="36" y="1" width="22" height="43" rx="4" fill="#4CB83F" stroke="#238F32"/>
-      <circle cx="48" cy="13" r="2.4" fill="#fff"/>
-      <circle cx="48" cy="29" r="2.4" fill="#fff"/>
-      <circle cx="48" cy="35" r="2.4" fill="#fff"/>
-      <rect x="61" y="58" width="43" height="22" rx="4" fill="#F04421" stroke="#C82D16"/>
-      <circle cx="70" cy="69" r="2.4" fill="#fff"/>
-      <circle cx="80" cy="65" r="2.4" fill="#fff"/>
-      <circle cx="80" cy="73" r="2.4" fill="#fff"/>
-      <circle cx="91" cy="65" r="2.4" fill="#fff"/>
-      <circle cx="91" cy="73" r="2.4" fill="#fff"/>
-    </svg>
-  `),
-
-  gerarPreviewSemaforo: svg(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
-      <rect width="120" height="100" fill="#E6E0F0"/>
-      <path d="M0 20h120M0 40h120M0 60h120M0 80h120M24 0v100M48 0v100M72 0v100M96 0v100"
-            stroke="#9A8BA9" stroke-width="1"/>
-      <circle cx="16" cy="15" r="10" fill="#FF3346"/>
-      <circle cx="103" cy="15" r="10" fill="#FF3346"/>
-      <circle cx="47" cy="50" r="10" fill="#FFF32F"/>
-      <circle cx="76" cy="50" r="10" fill="#FFF32F"/>
-      <circle cx="16" cy="82" r="10" fill="#72BC39"/>
-      <circle cx="103" cy="82" r="10" fill="#72BC39"/>
-    </svg>
-  `),
-
-  gerarPreviewQuellas: svg(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
-      <rect width="120" height="100" fill="#D7EEEE"/>
-      <path d="M0 20h120M0 40h120M0 60h120M0 80h120M24 0v100M48 0v100M72 0v100M96 0v100"
-            stroke="#7EA7AA" stroke-width="1"/>
-      <g fill="#111">
-        <circle cx="68" cy="9" r="5"/><circle cx="82" cy="9" r="5"/><circle cx="96" cy="9" r="5"/>
-        <circle cx="68" cy="22" r="5"/><circle cx="82" cy="22" r="5"/><circle cx="96" cy="22" r="5"/>
-        <circle cx="96" cy="35" r="5"/><circle cx="96" cy="48" r="5"/><circle cx="96" cy="61" r="5"/>
-      </g>
-      <g fill="#fff" stroke="#555">
-        <circle cx="10" cy="68" r="5"/><circle cx="23" cy="68" r="5"/>
-        <circle cx="10" cy="81" r="5"/><circle cx="23" cy="81" r="5"/>
-      </g>
-    </svg>
-  `),
-
-  gerarPreviewAvanco: svg(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
-      <rect width="120" height="100" fill="#E7E0F0"/>
-      <path d="M0 20h120M0 40h120M0 60h120M0 80h120M20 0v100M40 0v100M60 0v100M80 0v100M100 0v100"
-            stroke="#9B8DA8" stroke-width="1"/>
-      <g fill="#111">
-        <circle cx="10" cy="10" r="5"/><circle cx="23" cy="10" r="5"/><circle cx="36" cy="10" r="5"/><circle cx="49" cy="10" r="5"/><circle cx="62" cy="10" r="5"/><circle cx="75" cy="10" r="5"/><circle cx="88" cy="10" r="5"/><circle cx="101" cy="10" r="5"/>
-        <circle cx="10" cy="23" r="5"/><circle cx="23" cy="23" r="5"/><circle cx="36" cy="23" r="5"/><circle cx="49" cy="23" r="5"/><circle cx="62" cy="23" r="5"/><circle cx="75" cy="23" r="5"/><circle cx="88" cy="23" r="5"/><circle cx="101" cy="23" r="5"/>
-      </g>
-      <g fill="#fff" stroke="#777">
-        <circle cx="10" cy="68" r="5"/><circle cx="23" cy="68" r="5"/><circle cx="36" cy="68" r="5"/><circle cx="49" cy="68" r="5"/><circle cx="62" cy="68" r="5"/><circle cx="75" cy="68" r="5"/><circle cx="88" cy="68" r="5"/><circle cx="101" cy="68" r="5"/>
-        <circle cx="10" cy="81" r="5"/><circle cx="23" cy="81" r="5"/><circle cx="36" cy="81" r="5"/><circle cx="49" cy="81" r="5"/><circle cx="62" cy="81" r="5"/><circle cx="75" cy="81" r="5"/><circle cx="88" cy="81" r="5"/><circle cx="101" cy="81" r="5"/>
-      </g>
-    </svg>
-  `)
 };
 
 
@@ -294,11 +205,16 @@ const CSS = `
   --fundo: ${DADOS.cores.fundo};
   --ceu1: ${DADOS.cores.ceu1};
   --ceu2: ${DADOS.cores.ceu2};
+
   --texto: ${DADOS.cores.texto};
   --texto-escuro: ${DADOS.cores.textoEscuro};
   --branco: ${DADOS.cores.branco};
-  --amarelo: ${DADOS.cores.amarelo};
+
+  --creme: ${DADOS.cores.creme};
+  --creme2: ${DADOS.cores.creme2};
+
   --linha: ${DADOS.cores.linha};
+
   --sombra: ${DADOS.cores.sombra};
   --sombra-forte: ${DADOS.cores.sombraForte};
 }
@@ -307,12 +223,13 @@ const CSS = `
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
+html {
   min-height: 100%;
+  background: var(--fundo);
 }
 
 body {
+  margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
 
@@ -331,117 +248,102 @@ button {
 }
 
 #app {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
   width: min(100%, ${DADOS.dimensoes.larguraMaxima}px);
   min-height: 100vh;
   margin: 0 auto;
-  padding: 12px 18px 18px;
+  padding: 13px 20px 16px;
+
+  position: relative;
+  overflow: hidden;
 
   background:
     linear-gradient(
       180deg,
-      var(--ceu1) 0px,
-      var(--ceu2) 170px,
-      #E9F7FF 390px,
+      var(--ceu1) 0,
+      var(--ceu2) 19%,
+      #EAF5FC 38%,
       var(--fundo) 100%
     );
 }
 
 /* ============================================================
-   NUVENS — volumosas e com várias camadas para parecerem
-   nuvens reais, em vez de simples círculos.
+   NUVENS — várias camadas, mais orgânicas
    ============================================================ */
 
-.ceu {
+#app::before,
+#app::after {
+  content: "";
   position: absolute;
-  z-index: -1;
-  inset: 0;
   pointer-events: none;
-  overflow: hidden;
+  z-index: 0;
+  opacity: .72;
+  filter: blur(.15px);
 }
 
-.nuvem {
-  position: absolute;
-  width: 190px;
-  height: 48px;
-
-  border-radius: 50px;
-
-  opacity: .82;
+#app::before {
+  width: 430px;
+  height: 90px;
+  top: 2px;
+  left: -55px;
 
   background:
     radial-gradient(
-      ellipse at 24% 65%,
-      #FFFFFF 0 23px,
-      rgba(255,255,255,.97) 24px,
-      rgba(255,255,255,.80) 39px,
-      transparent 40px
+      ellipse at 18% 75%,
+      rgba(255,255,255,.95) 0 34px,
+      transparent 35px
     ),
     radial-gradient(
-      ellipse at 47% 45%,
-      #FFFFFF 0 34px,
-      rgba(255,255,255,.94) 35px,
-      rgba(255,255,255,.65) 52px,
-      transparent 53px
+      ellipse at 33% 50%,
+      rgba(255,255,255,.96) 0 57px,
+      transparent 58px
     ),
     radial-gradient(
-      ellipse at 70% 63%,
-      #FFFFFF 0 25px,
-      rgba(255,255,255,.94) 26px,
-      rgba(255,255,255,.55) 43px,
+      ellipse at 51% 68%,
+      rgba(255,255,255,.93) 0 43px,
       transparent 44px
     ),
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.96),
-      rgba(238,250,255,.82)
+    radial-gradient(
+      ellipse at 69% 72%,
+      rgba(255,255,255,.88) 0 30px,
+      transparent 31px
     );
-
-  filter: blur(.15px) drop-shadow(0 7px 8px rgba(70,137,166,.12));
 }
 
-.nuvem::after {
-  content: "";
-  position: absolute;
-  left: 25px;
-  right: 25px;
-  bottom: -5px;
-  height: 18px;
+#app::after {
+  width: 520px;
+  height: 105px;
+  right: -80px;
+  top: 20px;
 
-  border-radius: 50%;
-
-  background: rgba(255,255,255,.72);
-  filter: blur(5px);
+  background:
+    radial-gradient(
+      ellipse at 20% 70%,
+      rgba(255,255,255,.72) 0 32px,
+      transparent 33px
+    ),
+    radial-gradient(
+      ellipse at 39% 45%,
+      rgba(255,255,255,.78) 0 58px,
+      transparent 59px
+    ),
+    radial-gradient(
+      ellipse at 58% 66%,
+      rgba(255,255,255,.70) 0 45px,
+      transparent 46px
+    ),
+    radial-gradient(
+      ellipse at 77% 75%,
+      rgba(255,255,255,.64) 0 31px,
+      transparent 32px
+    );
 }
 
-.nuvem-1 {
-  top: 33px;
-  left: -35px;
-  transform: scale(1.05);
-}
-
-.nuvem-2 {
-  top: 75px;
-  right: -58px;
-  transform: scale(.78);
-  opacity: .58;
-}
-
-.nuvem-3 {
-  top: 150px;
-  left: 29%;
-  transform: scale(.54);
-  opacity: .43;
-}
-
-.nuvem-4 {
-  top: 180px;
-  right: 18%;
-  transform: scale(.43);
-  opacity: .34;
+.cabecalho,
+.area-menu,
+.destaques,
+.rodape {
+  position: relative;
+  z-index: 1;
 }
 
 /* ============================================================
@@ -449,14 +351,11 @@ button {
    ============================================================ */
 
 .cabecalho {
-  height: 78px;
+  height: 82px;
 
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  position: relative;
-  z-index: 2;
+  justify-content: center;
 }
 
 .marca {
@@ -466,41 +365,40 @@ button {
 }
 
 .marca-sol {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 58px;
+  width: 62px;
+  height: 62px;
   position: relative;
+  flex: 0 0 62px;
 }
 
 .marca-sol::before {
   content: "☀";
-
   position: absolute;
   inset: 0;
 
   display: grid;
   place-items: center;
 
-  color: #FFBB17;
-  font-size: 62px;
+  color: #FFBA16;
+  font-size: 65px;
   line-height: 1;
 
   filter:
     drop-shadow(0 2px 0 rgba(255,255,255,.8))
-    drop-shadow(0 3px 2px rgba(102,75,0,.16));
+    drop-shadow(0 3px 2px rgba(100,80,0,.13));
 }
 
 .marca-texto h1 {
   margin: 0;
 
-  color: #07579D;
+  color: #07579B;
 
-  font-size: clamp(27px, 3.1vw, 45px);
-  line-height: .95;
+  font-size: clamp(28px, 3vw, 45px);
+  line-height: .98;
   font-weight: 900;
-  letter-spacing: -.8px;
+  letter-spacing: -.9px;
 
-  text-shadow: 0 2px 0 rgba(255,255,255,.88);
+  text-shadow: 0 2px 0 rgba(255,255,255,.8);
 }
 
 .marca-texto p {
@@ -508,37 +406,31 @@ button {
 
   color: #0963A6;
 
-  font-size: clamp(12px, 1.2vw, 18px);
+  font-size: clamp(13px, 1.2vw, 18px);
   line-height: 1;
   font-weight: 800;
 }
 
 /* ============================================================
-   MENU DOS ANOS
+   TÍTULO
    ============================================================ */
 
-.area-menu {
-  position: relative;
-  z-index: 2;
-}
-
 .titulo-menu {
-  width: max-content;
-  margin: 6px auto 18px;
-  padding: 8px 30px 9px;
+  width: fit-content;
+  margin: 1px auto 19px;
+  padding: 8px 30px;
 
-  border: 2px solid rgba(222,157,39,.47);
-  border-radius: 15px;
+  border: 2px solid rgba(222,157,39,.42);
+  border-radius: 16px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #FFFDEC 0%,
-      #FFF0C7 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #FFFDEC,
+    var(--creme)
+  );
 
   box-shadow:
-    0 3px 8px rgba(111,81,17,.13),
+    0 3px 7px rgba(118,88,17,.12),
     inset 0 1px 0 rgba(255,255,255,.95);
 }
 
@@ -547,7 +439,7 @@ button {
 
   color: #74440C;
 
-  font-size: clamp(17px, 1.7vw, 26px);
+  font-size: clamp(18px, 1.7vw, 27px);
   line-height: 1;
   font-weight: 900;
 }
@@ -557,9 +449,11 @@ button {
    ============================================================ */
 
 .anos {
+  width: 100%;
+
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: ${DADOS.dimensoes.gapAnos}px;
+  gap: 14px;
 }
 
 .ano {
@@ -567,54 +461,51 @@ button {
 }
 
 .botao-ano {
-  --cor-1: #19B9F0;
-  --cor-2: #0878C7;
-
   width: 100%;
-  height: 185px;
+  height: ${DADOS.dimensoes.alturaAnoDesktop}px;
 
-  padding: 13px 12px 12px;
+  padding: 18px 12px 14px;
 
-  border: 3px solid rgba(255,255,255,.92);
-  border-radius: ${DADOS.dimensoes.raioCartaoAno}px;
+  border: 3px solid rgba(255,255,255,.94);
+  border-radius: ${DADOS.dimensoes.raioAno}px;
+
+  color: #fff;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
-  color: #fff;
+  position: relative;
+  overflow: hidden;
 
   cursor: pointer;
 
   background:
     linear-gradient(
-      150deg,
-      var(--cor-1) 0%,
-      var(--cor-2) 100%
+      145deg,
+      var(--cor-1),
+      var(--cor-2)
     );
 
   box-shadow:
-    0 8px 14px var(--sombra),
-    inset 0 1px 1px rgba(255,255,255,.72),
-    inset 0 -3px 6px rgba(0,0,0,.08);
-
-  position: relative;
-  overflow: hidden;
+    0 9px 15px var(--sombra),
+    inset 0 1px 1px rgba(255,255,255,.7);
 
   transition:
-    transform .16s ease,
-    box-shadow .16s ease;
+    transform .15s ease,
+    box-shadow .15s ease;
 }
 
 .botao-ano::before {
   content: "";
-
   position: absolute;
-  width: 150%;
-  height: 100%;
-  left: -70%;
-  top: -64%;
+
+  width: 170%;
+  height: 110%;
+
+  left: -95%;
+  top: -63%;
 
   border-radius: 50%;
 
@@ -624,225 +515,191 @@ button {
 
 .botao-ano::after {
   content: "";
-
   position: absolute;
-  width: 70px;
-  height: 70px;
-  top: -34px;
-  right: -27px;
+
+  width: 90px;
+  height: 90px;
+
+  right: -34px;
+  top: -35px;
 
   border-radius: 50%;
-  background: rgba(255,255,255,.12);
+
+  background: rgba(255,255,255,.10);
+  pointer-events: none;
 }
 
 .botao-ano:hover {
   transform: translateY(-4px);
 
   box-shadow:
-    0 12px 19px var(--sombra-forte),
-    inset 0 1px 1px rgba(255,255,255,.78);
+    0 13px 20px var(--sombra-forte),
+    inset 0 1px 1px rgba(255,255,255,.75);
+}
+
+.botao-ano:active {
+  transform: translateY(-1px);
 }
 
 .icone-ano {
-  width: 104px;
-  height: 104px;
+  width: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
+  height: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
 
-  flex: 0 0 104px;
+  flex: 0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 
   position: relative;
   z-index: 1;
 }
 
 .icone-ano img {
-  /*
-    Caixa igual para todos.
-    object-fit contain evita que um PNG grande ocupe mais
-    espaço visual do que outro.
-  */
-  width: 92px;
-  height: 92px;
+  width: 100%;
+  height: 100%;
 
-  object-fit: contain;
   display: block;
 
+  object-fit: contain;
+
   filter:
-    drop-shadow(0 5px 3px rgba(0,0,0,.15));
+    drop-shadow(0 5px 3px rgba(0,0,0,.16));
 }
 
 .texto-ano {
   position: relative;
   z-index: 1;
 
-  width: 100%;
-
   text-align: center;
 }
 
 .nome-ano {
-  font-size: clamp(17px, 1.55vw, 24px);
-  line-height: 1;
+  font-size: clamp(19px, 1.65vw, 26px);
+  line-height: 1.05;
   font-weight: 900;
 
   text-shadow: 0 2px 1px rgba(0,0,0,.17);
 }
 
 .idade-ano {
-  margin-top: 6px;
+  margin-top: 7px;
 
-  font-size: clamp(11px, 1.02vw, 15px);
+  font-size: clamp(13px, 1.1vw, 17px);
   line-height: 1;
+
   font-weight: 800;
+
+  text-shadow: 0 1px 1px rgba(0,0,0,.12);
 }
 
 /* ============================================================
    JOGOS EM DESTAQUE
    ============================================================ */
 
-.jogos-destaque {
-  margin-top: 25px;
-  padding: 28px 28px 24px;
+.destaques {
+  margin-top: 20px;
 
-  border-radius: ${DADOS.dimensoes.raioJogos}px;
+  padding: 23px 28px 25px;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.98),
-      rgba(255,255,255,.94)
-    );
+  border-radius: ${DADOS.dimensoes.raioDestaques}px;
+
+  background: rgba(255,255,255,.93);
 
   box-shadow:
-    0 7px 18px rgba(30,102,148,.12),
-    inset 0 0 0 1px rgba(205,229,244,.55);
+    0 7px 18px rgba(25,100,150,.10),
+    inset 0 1px 0 rgba(255,255,255,1);
 }
 
-.titulo-seccao {
+.titulo-destaques {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
 
-  margin: 0 30px 28px;
+  margin: 0 30px 25px;
 }
 
-.titulo-linha {
+.titulo-destaques .linha {
   height: 3px;
-  border-radius: 10px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #A7D6F7 12%,
-      #A7D6F7 88%,
-      transparent
-    );
+  background: #A7D5FA;
+  border-radius: 99px;
 }
 
-.titulo-seccao h2 {
+.titulo-destaques h2 {
   margin: 0;
 
-  display: flex;
-  align-items: center;
-  gap: 11px;
+  color: #064F91;
 
-  white-space: nowrap;
-
-  color: #084F92;
-
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(19px, 1.65vw, 26px);
   line-height: 1;
   font-weight: 900;
+  white-space: nowrap;
+
+  text-align: center;
 }
 
-.gamepad {
-  font-size: 29px;
-  filter: drop-shadow(0 2px 1px rgba(0,0,0,.13));
+.titulo-destaques h2 span {
+  margin-right: 7px;
+  font-size: .92em;
 }
 
-.jogos-grid {
+.jogos {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: ${DADOS.dimensoes.gapJogos}px;
+  gap: 20px;
+
+  align-items: start;
 }
 
 .jogo {
   min-width: 0;
-}
-
-.botao-jogo {
-  width: 100%;
-
-  padding: 0;
-
-  border: 0;
-  background: transparent;
-
-  color: #074F94;
-
-  cursor: pointer;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  transition: transform .15s ease;
+  text-align: center;
 }
 
-.botao-jogo:hover {
-  transform: translateY(-3px);
-}
-
-.preview-jogo {
-  width: min(100%, 120px);
-  aspect-ratio: 1 / .82;
+.icone-jogo {
+  width: ${DADOS.dimensoes.tamanhoIconJogo}px;
+  height: ${DADOS.dimensoes.tamanhoIconJogo}px;
 
   display: grid;
   place-items: center;
 
-  overflow: hidden;
-
-  border: 1px solid rgba(70,100,125,.35);
-
-  background: #E5EDF3;
-
-  box-shadow:
-    0 2px 5px rgba(40,80,110,.11);
+  margin-bottom: 10px;
 }
 
-.preview-jogo img {
+.icone-jogo img {
   width: 100%;
   height: 100%;
 
+  object-fit: contain;
+
   display: block;
-  object-fit: cover;
 }
 
 .nome-jogo {
-  margin-top: 14px;
+  min-height: 25px;
 
-  font-size: clamp(14px, 1.25vw, 20px);
-  line-height: 1;
+  color: #064F91;
+
+  font-size: clamp(15px, 1.25vw, 20px);
+  line-height: 1.05;
   font-weight: 900;
-
-  white-space: nowrap;
 }
 
-.estrelas-jogo {
-  margin-top: 10px;
+.estrelas {
+  margin-top: 7px;
 
   color: #FFB400;
 
   font-family: Arial, sans-serif;
-  font-size: clamp(15px, 1.25vw, 20px);
+  font-size: clamp(15px, 1.15vw, 18px);
   line-height: 1;
-  letter-spacing: 1px;
 
-  white-space: nowrap;
+  letter-spacing: 1px;
 }
 
 /* ============================================================
@@ -850,25 +707,26 @@ button {
    ============================================================ */
 
 .rodape {
-  margin-top: 17px;
-  padding: 8px 16px;
+  width: 100%;
 
-  min-height: 52px;
+  min-height: 53px;
+
+  margin-top: 15px;
+  padding: 8px 17px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 15px;
   align-items: center;
 
-  border: 2px solid ${DADOS.cores.linha};
-  border-radius: 15px;
+  border: 2px solid var(--linha);
+  border-radius: 14px;
 
   background: rgba(255,255,255,.78);
 
-  box-shadow:
-    0 4px 10px rgba(16,103,150,.08);
+  box-shadow: 0 4px 10px rgba(16,103,150,.08);
 
-  font-size: 13px;
+  font-size: clamp(11px, 1vw, 14px);
   font-weight: 800;
 }
 
@@ -880,14 +738,12 @@ button {
 
 .rodape-info {
   justify-content: flex-end;
-  color: #17649D;
 }
 
 .estrela {
-  color: #FFB817;
-  font-size: 26px;
+  color: #FFB400;
+  font-size: 25px;
   line-height: 1;
-  text-shadow: 0 1px 0 #D98A00;
 }
 
 .info {
@@ -900,19 +756,51 @@ button {
   border-radius: 50%;
 
   color: #fff;
-  background: #0879C8;
+  background: #087AC9;
 
-  font: 900 17px Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
 }
 
 /* ============================================================
    TABLET HORIZONTAL
    ============================================================ */
 
-@media (max-width: 1100px) and (min-width: 701px) {
+@media (max-width: 1100px) and (min-width: 601px) and (orientation: landscape) {
   #app {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 9px 13px 12px;
+  }
+
+  .cabecalho {
+    height: 64px;
+  }
+
+  .marca-sol {
+    width: 49px;
+    height: 49px;
+    flex-basis: 49px;
+  }
+
+  .marca-sol::before {
+    font-size: 52px;
+  }
+
+  .marca-texto h1 {
+    font-size: 28px;
+  }
+
+  .marca-texto p {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .titulo-menu {
+    margin-bottom: 12px;
+    padding: 7px 24px;
+  }
+
+  .titulo-menu h2 {
+    font-size: 18px;
   }
 
   .anos {
@@ -920,92 +808,285 @@ button {
   }
 
   .botao-ano {
-    height: 145px;
-    padding: 8px 6px;
+    height: ${DADOS.dimensoes.alturaAnoTabletHorizontal}px;
+    padding: 10px 7px 9px;
     border-width: 2px;
+    border-radius: 16px;
   }
 
   .icone-ano {
-    width: 78px;
-    height: 78px;
-    flex-basis: 78px;
-  }
-
-  .icone-ano img {
-    width: 70px;
-    height: 70px;
+    width: ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
+    height: ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
+    flex-basis: ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
   }
 
   .nome-ano {
-    font-size: clamp(12px, 1.7vw, 17px);
+    font-size: clamp(13px, 1.8vw, 19px);
   }
 
   .idade-ano {
     margin-top: 4px;
-    font-size: clamp(8px, 1.1vw, 11px);
+    font-size: clamp(9px, 1.15vw, 13px);
   }
 
-  .jogos-destaque {
-    padding: 21px 17px 18px;
-    margin-top: 18px;
+  .destaques {
+    margin-top: 12px;
+    padding: 15px 16px 17px;
   }
 
-  .titulo-seccao {
-    margin-bottom: 20px;
-    gap: 15px;
+  .titulo-destaques {
+    margin-bottom: 15px;
+    gap: 16px;
   }
 
-  .jogos-grid {
-    gap: 9px;
+  .titulo-destaques h2 {
+    font-size: 18px;
   }
 
-  .preview-jogo {
-    max-width: 94px;
+  .jogos {
+    gap: 10px;
+  }
+
+  .icone-jogo {
+    width: ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
+    height: ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
+    margin-bottom: 5px;
   }
 
   .nome-jogo {
-    margin-top: 9px;
     font-size: 12px;
   }
 
-  .estrelas-jogo {
-    margin-top: 7px;
+  .estrelas {
+    margin-top: 4px;
     font-size: 13px;
+  }
+
+  .rodape {
+    margin-top: 9px;
+    min-height: 42px;
   }
 }
 
 /* ============================================================
-   TABLET VERTICAL
+   TELEMÓVEL HORIZONTAL
+   ============================================================
+
+   Intencionalmente segue a mesma composição do tablet horizontal:
+   - 5 cartões em linha
+   - icon em cima
+   - texto por baixo
+   - jogos em 6 colunas
    ============================================================ */
 
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 600px) and (min-height: 360px) and (orientation: landscape) {
+  #app {
+    padding: 7px 10px 9px;
+  }
+
+  .cabecalho {
+    height: 50px;
+  }
+
+  .marca {
+    gap: 6px;
+  }
+
+  .marca-sol {
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
+  }
+
+  .marca-sol::before {
+    font-size: 42px;
+  }
+
+  .marca-texto h1 {
+    font-size: 22px;
+  }
+
+  .marca-texto p {
+    margin-top: 2px;
+    font-size: 8px;
+  }
+
+  .titulo-menu {
+    margin-bottom: 8px;
+    padding: 5px 18px;
+    border-radius: 10px;
+  }
+
+  .titulo-menu h2 {
+    font-size: 14px;
+  }
+
+  .anos {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .botao-ano {
+    height: ${DADOS.dimensoes.alturaAnoTelemovelHorizontal}px;
+
+    padding: 6px 4px 5px;
+
+    border-width: 2px;
+    border-radius: 12px;
+  }
+
+  .icone-ano {
+    width: ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
+    height: ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
+    flex-basis: ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
+  }
+
+  .nome-ano {
+    font-size: clamp(9px, 2.7vw, 14px);
+  }
+
+  .idade-ano {
+    margin-top: 3px;
+    font-size: clamp(7px, 1.8vw, 10px);
+  }
+
+  .destaques {
+    margin-top: 8px;
+    padding: 9px 9px 10px;
+    border-radius: 16px;
+  }
+
+  .titulo-destaques {
+    margin: 0 7px 8px;
+    gap: 8px;
+  }
+
+  .titulo-destaques .linha {
+    height: 2px;
+  }
+
+  .titulo-destaques h2 {
+    font-size: 13px;
+  }
+
+  .titulo-destaques h2 span {
+    margin-right: 3px;
+  }
+
+  .jogos {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .icone-jogo {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 3px;
+  }
+
+  .nome-jogo {
+    min-height: 14px;
+    font-size: 8px;
+  }
+
+  .estrelas {
+    margin-top: 2px;
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .rodape {
+    margin-top: 7px;
+    min-height: 31px;
+    padding: 4px 7px;
+    gap: 5px;
+    font-size: 7px;
+    border-radius: 9px;
+  }
+
+  .rodape-item {
+    gap: 4px;
+  }
+
+  .estrela {
+    font-size: 15px;
+  }
+
+  .info {
+    width: 16px;
+    height: 16px;
+    font-size: 11px;
+  }
+}
+
+/* ============================================================
+   TABLET / TELEMÓVEL VERTICAL
+   ============================================================
+
+   Um cartão por linha:
+   icon à esquerda + texto à direita.
+   ============================================================ */
+
+@media (max-width: 900px) and (orientation: portrait) {
+  #app {
+    padding: 10px 12px 13px;
+  }
+
+  .cabecalho {
+    height: 66px;
+  }
+
+  .marca-sol {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+  }
+
+  .marca-sol::before {
+    font-size: 51px;
+  }
+
+  .marca-texto h1 {
+    font-size: 25px;
+  }
+
+  .marca-texto p {
+    font-size: 10px;
+  }
+
+  .titulo-menu {
+    margin-bottom: 12px;
+    padding: 7px 21px;
+  }
+
+  .titulo-menu h2 {
+    font-size: 17px;
+  }
+
   .anos {
     grid-template-columns: 1fr;
     gap: 9px;
   }
 
-  /*
-    Aqui deixa de ser cartão vertical:
-    icon à esquerda + texto à direita.
-  */
   .botao-ano {
-    height: 112px;
-    padding: 8px 20px;
+    width: 100%;
+    height: 126px;
 
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 18px;
+    padding: 10px 18px;
+
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    grid-template-rows: 1fr;
+
+    column-gap: 15px;
+
+    border-radius: 17px;
   }
 
   .icone-ano {
-    width: 86px;
-    height: 86px;
-    flex: 0 0 86px;
-  }
-
-  .icone-ano img {
-    width: 78px;
-    height: 78px;
+    width: 92px;
+    height: 92px;
+    flex: none;
   }
 
   .texto-ano {
@@ -1013,44 +1094,64 @@ button {
   }
 
   .nome-ano {
-    font-size: 21px;
+    font-size: 22px;
   }
 
   .idade-ano {
-    font-size: 13px;
     margin-top: 6px;
+    font-size: 13px;
   }
 
-  .jogos-grid {
+  .destaques {
+    margin-top: 12px;
+    padding: 14px 12px 16px;
+  }
+
+  .titulo-destaques {
+    margin: 0 10px 14px;
+    gap: 10px;
+  }
+
+  .titulo-destaques h2 {
+    font-size: 17px;
+  }
+
+  .jogos {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 25px;
+    row-gap: 18px;
+  }
+
+  .icone-jogo {
+    width: ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
+    height: ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
+  }
+
+  .nome-jogo {
+    font-size: 13px;
+  }
+
+  .estrelas {
+    font-size: 13px;
+  }
+
+  .rodape {
+    margin-top: 11px;
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .rodape-info {
+    justify-content: flex-start;
   }
 }
 
 /* ============================================================
-   TELEMÓVEL VERTICAL
+   TELEMÓVEL VERTICAL PEQUENO
    ============================================================ */
 
-@media (max-width: 600px) {
-  #app {
-    padding: 8px 9px 12px;
-
-    background:
-      linear-gradient(
-        180deg,
-        var(--ceu1) 0,
-        var(--ceu2) 130px,
-        #E9F7FF 290px,
-        var(--fundo) 390px
-      );
-  }
-
+@media (max-width: 600px) and (orientation: portrait) {
   .cabecalho {
     height: 59px;
-  }
-
-  .marca {
-    gap: 6px;
   }
 
   .marca-sol {
@@ -1064,160 +1165,82 @@ button {
   }
 
   .marca-texto h1 {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .marca-texto p {
-    margin-top: 4px;
     font-size: 9px;
   }
 
   .titulo-menu {
-    margin: 4px auto 11px;
-    padding: 7px 20px 8px;
-    border-radius: 13px;
+    padding: 6px 18px;
+    border-radius: 11px;
   }
 
   .titulo-menu h2 {
-    font-size: 16px;
-  }
-
-  .anos {
-    grid-template-columns: 1fr;
-    gap: 7px;
+    font-size: 15px;
   }
 
   .botao-ano {
-    /*
-      Não 16:9.
-      Um cartão baixo, largo e confortável para toque.
-    */
-    height: 88px;
-
-    padding: 7px 15px;
-
-    border-width: 2px;
+    height: 94px;
+    grid-template-columns: 76px 1fr;
+    column-gap: 10px;
+    padding: 7px 12px;
     border-radius: 14px;
-
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 13px;
   }
 
   .icone-ano {
     width: 70px;
     height: 70px;
-    flex: 0 0 70px;
-  }
-
-  .icone-ano img {
-    width: 63px;
-    height: 63px;
-  }
-
-  .texto-ano {
-    text-align: left;
   }
 
   .nome-ano {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .idade-ano {
-    margin-top: 5px;
-    font-size: 10px;
+    margin-top: 4px;
+    font-size: 11px;
   }
 
-  .jogos-destaque {
-    margin-top: 14px;
-    padding: 17px 10px 16px;
-    border-radius: 20px;
+  .destaques {
+    padding: 10px 8px 12px;
+    border-radius: 17px;
   }
 
-  .titulo-seccao {
-    grid-template-columns: 1fr;
-    gap: 7px;
-    margin: 0 5px 18px;
+  .titulo-destaques {
+    margin-bottom: 11px;
   }
 
-  .titulo-seccao h2 {
-    justify-content: center;
-    font-size: 19px;
+  .titulo-destaques h2 {
+    font-size: 14px;
   }
 
-  .titulo-linha {
-    height: 2px;
+  .jogos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 13px;
   }
 
-  .jogos-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 23px 11px;
-  }
-
-  .preview-jogo {
-    width: min(100%, 105px);
+  .icone-jogo {
+    width: ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
+    height: ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
   }
 
   .nome-jogo {
-    margin-top: 9px;
-    font-size: 14px;
+    font-size: 11px;
   }
 
-  .estrelas-jogo {
-    margin-top: 7px;
-    font-size: 14px;
-  }
-
-  .rodape {
-    grid-template-columns: 1fr;
-    gap: 5px;
-
-    margin-top: 12px;
-    padding: 7px 9px;
-
+  .estrelas {
     font-size: 10px;
   }
 
-  .rodape-info {
-    justify-content: flex-start;
-  }
-}
-
-/* ============================================================
-   ECRÃ MUITO PEQUENO
-   ============================================================ */
-
-@media (max-width: 360px) {
-  .marca-texto h1 {
-    font-size: 21px;
-  }
-
-  .botao-ano {
-    height: 82px;
-  }
-
-  .icone-ano {
-    width: 64px;
-    height: 64px;
-    flex-basis: 64px;
-  }
-
-  .icone-ano img {
-    width: 57px;
-    height: 57px;
-  }
-
-  .nome-ano {
-    font-size: 15px;
-  }
-
-  .idade-ano {
+  .rodape {
     font-size: 9px;
   }
 }
 
-.botao-ano:focus-visible,
-.botao-jogo:focus-visible {
+/* foco */
+.botao-ano:focus-visible {
   outline: 4px solid rgba(255,255,255,.95);
   outline-offset: 3px;
 }
@@ -1225,7 +1248,7 @@ button {
 
 
 /* ============================================================
-   MOTOR
+   JAVASCRIPT
    ============================================================ */
 
 function inserirCSS() {
@@ -1235,55 +1258,40 @@ function inserirCSS() {
 }
 
 function preencherTextos() {
-  document.querySelector("[data-marca]").textContent =
-    DADOS.pagina.titulo;
-
-  document.querySelector("[data-submarca]").textContent =
-    DADOS.pagina.subtitulo;
-
-  document.querySelector("[data-titulo-menu]").textContent =
-    DADOS.pagina.tituloMenu;
-
-  document.querySelector("[data-titulo-jogos]").textContent =
-    DADOS.pagina.tituloJogos;
-
-  document.querySelector("[data-mensagem]").textContent =
-    DADOS.pagina.mensagem;
-
-  document.querySelector("[data-informacao]").textContent =
-    DADOS.pagina.informacao;
+  document.querySelector("[data-marca]").textContent = DADOS.pagina.titulo;
+  document.querySelector("[data-submarca]").textContent = DADOS.pagina.subtitulo;
+  document.querySelector("[data-titulo-menu]").textContent = DADOS.pagina.tituloMenu;
+  document.querySelector("[data-mensagem]").textContent = DADOS.pagina.mensagem;
+  document.querySelector("[data-informacao]").textContent = DADOS.pagina.informacao;
 }
 
-function criarCartoesAnos() {
+function criarCartoesAno() {
   const zona = document.querySelector("#anos");
   const modelo = document.querySelector("#modelo-ano");
 
   DADOS.anos.forEach((ano) => {
     const fragmento = modelo.content.cloneNode(true);
 
+    const artigo = fragmento.querySelector(".ano");
     const botao = fragmento.querySelector(".botao-ano");
-    const imagemBox = fragmento.querySelector(".icone-ano");
+    const caixaIcon = fragmento.querySelector(".icone-ano");
+
+    artigo.dataset.ano = ano.id;
 
     botao.style.setProperty("--cor-1", ano.cor);
     botao.style.setProperty("--cor-2", ano.cor2);
 
-    botao.setAttribute(
-      "aria-label",
-      `${ano.nome}, ${ano.idade}`
-    );
+    botao.setAttribute("aria-label", `${ano.nome}, ${ano.idade}`);
 
-    const imagem = document.createElement("img");
-    imagem.src = DADOS.imagens[ano.icon];
-    imagem.alt = "";
-    imagem.draggable = false;
+    const img = document.createElement("img");
+    img.src = DADOS.icons.anos[ano.icon];
+    img.alt = "";
+    img.draggable = false;
 
-    imagemBox.appendChild(imagem);
+    caixaIcon.appendChild(img);
 
-    fragmento.querySelector(".nome-ano").textContent =
-      ano.nome;
-
-    fragmento.querySelector(".idade-ano").textContent =
-      ano.idade;
+    fragmento.querySelector(".nome-ano").textContent = ano.nome;
+    fragmento.querySelector(".idade-ano").textContent = ano.idade;
 
     botao.addEventListener("click", () => {
       window.location.href = ano.pagina;
@@ -1293,31 +1301,27 @@ function criarCartoesAnos() {
   });
 }
 
-function criarJogos() {
+function criarDestaques() {
   const zona = document.querySelector("#jogos");
   const modelo = document.querySelector("#modelo-jogo");
 
-  DADOS.jogos.forEach((jogo) => {
+  DADOS.destaques.forEach((jogo) => {
     const fragmento = modelo.content.cloneNode(true);
 
-    const botao = fragmento.querySelector(".botao-jogo");
-    const preview = fragmento.querySelector(".preview-jogo");
+    const img = fragmento.querySelector(".icone-jogo img");
+    const nome = fragmento.querySelector(".nome-jogo");
+    const estrelas = fragmento.querySelector(".estrelas");
 
-    const imagem = document.createElement("img");
-    imagem.src = PREVIEWS[jogo.imagem];
-    imagem.alt = "";
-    imagem.draggable = false;
+    img.src = DADOS.icons.destaques[jogo.icon];
+    img.alt = jogo.nome;
 
-    preview.appendChild(imagem);
+    nome.textContent = jogo.nome;
 
-    fragmento.querySelector(".nome-jogo").textContent =
-      jogo.nome;
-
-    botao.addEventListener("click", () => {
-      if (jogo.pagina && jogo.pagina !== "#") {
-        window.location.href = jogo.pagina;
-      }
-    });
+    estrelas.textContent = "★".repeat(jogo.estrelas);
+    estrelas.setAttribute(
+      "aria-label",
+      `${jogo.estrelas} estrelas`
+    );
 
     zona.appendChild(fragmento);
   });
@@ -1326,6 +1330,6 @@ function criarJogos() {
 document.addEventListener("DOMContentLoaded", () => {
   inserirCSS();
   preencherTextos();
-  criarCartoesAnos();
-  criarJogos();
+  criarCartoesAno();
+  criarDestaques();
 });
