@@ -121,14 +121,14 @@ const DADOS = {
     raioAno: 23,
     raioDestaques: 26,
 
-    tamanhoIconAnoDesktop: 145,
-    tamanhoIconAnoTablet: 112,
-    tamanhoIconAnoTelemovelHorizontal: 78,
+    tamanhoIconAnoDesktop: 104,
+    tamanhoIconAnoTablet: 82,
+    tamanhoIconAnoTelemovelHorizontal: 60,
 
     /* Ícones de destaque deliberadamente mais pequenos */
-    tamanhoIconJogo: 84,
-    tamanhoIconJogoTablet: 72,
-    tamanhoIconJogoTelemovel: 58
+    tamanhoIconJogo: 76,
+    tamanhoIconJogoTablet: 64,
+    tamanhoIconJogoTelemovel: 54
   },
 
   /* ==========================================================
@@ -234,8 +234,10 @@ body {
   overflow-x: hidden;
 
   font-family:
-    "Trebuchet MS",
+    "Nunito",
+    "Quicksand",
     "Arial Rounded MT Bold",
+    "Trebuchet MS",
     Arial,
     sans-serif;
 
@@ -574,9 +576,11 @@ button {
 }
 
 .nome-ano {
-  font-size: clamp(19px, 1.65vw, 26px);
+  font-family: "Nunito", "Quicksand", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: clamp(21px, 1.8vw, 29px);
   line-height: 1.05;
-  font-weight: 900;
+  font-weight: 800;
+  letter-spacing: -.25px;
 
   text-shadow: 0 2px 1px rgba(0,0,0,.17);
 }
@@ -584,10 +588,12 @@ button {
 .idade-ano {
   margin-top: 7px;
 
-  font-size: clamp(13px, 1.1vw, 17px);
+  font-family: "Nunito", "Quicksand", "Trebuchet MS", sans-serif;
+  font-size: clamp(14px, 1.2vw, 18px);
   line-height: 1;
 
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: .15px;
 
   text-shadow: 0 1px 1px rgba(0,0,0,.12);
 }
@@ -790,7 +796,7 @@ button {
   }
 
   .marca-texto p {
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 4px;
   }
 
@@ -800,7 +806,7 @@ button {
   }
 
   .titulo-menu h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .anos {
@@ -821,12 +827,12 @@ button {
   }
 
   .nome-ano {
-    font-size: clamp(13px, 1.8vw, 19px);
+    font-size: clamp(14px, 2vw, 20px);
   }
 
   .idade-ano {
     margin-top: 4px;
-    font-size: clamp(9px, 1.15vw, 13px);
+    font-size: clamp(10px, 1.3vw, 14px);
   }
 
   .destaques {
@@ -859,7 +865,7 @@ button {
 
   .estrelas {
     margin-top: 4px;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .rodape {
@@ -903,7 +909,7 @@ button {
   }
 
   .marca-texto h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .marca-texto p {
@@ -942,12 +948,12 @@ button {
   }
 
   .nome-ano {
-    font-size: clamp(9px, 2.7vw, 14px);
+    font-size: clamp(10px, 2.9vw, 15px);
   }
 
   .idade-ano {
     margin-top: 3px;
-    font-size: clamp(7px, 1.8vw, 10px);
+    font-size: clamp(8px, 2vw, 11px);
   }
 
   .destaques {
@@ -1075,7 +1081,7 @@ button {
     padding: 10px 18px;
 
     display: grid;
-    grid-template-columns: 105px 1fr;
+    grid-template-columns: 88px 1fr;
     grid-template-rows: 1fr;
 
     column-gap: 15px;
@@ -1084,8 +1090,8 @@ button {
   }
 
   .icone-ano {
-    width: 92px;
-    height: 92px;
+    width: 76px;
+    height: 76px;
     flex: none;
   }
 
@@ -1183,15 +1189,15 @@ button {
 
   .botao-ano {
     height: 94px;
-    grid-template-columns: 76px 1fr;
+    grid-template-columns: 72px 1fr;
     column-gap: 10px;
     padding: 7px 12px;
     border-radius: 14px;
   }
 
   .icone-ano {
-    width: 70px;
-    height: 70px;
+    width: 58px;
+    height: 58px;
   }
 
   .nome-ano {
