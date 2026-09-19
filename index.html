@@ -8,6 +8,13 @@
 <body>
   <main id="app">
 
+    <div class="ceu" aria-hidden="true">
+      <div class="nuvem nuvem-1"></div>
+      <div class="nuvem nuvem-2"></div>
+      <div class="nuvem nuvem-3"></div>
+      <div class="nuvem nuvem-4"></div>
+    </div>
+
     <header class="cabecalho">
       <div class="marca">
         <div class="marca-sol" aria-hidden="true"></div>
@@ -19,9 +26,6 @@
     </header>
 
     <section class="area-menu" aria-labelledby="titulo-menu">
-      <div class="decoracao decoracao-esquerda" aria-hidden="true"></div>
-      <div class="decoracao decoracao-direita" aria-hidden="true"></div>
-
       <div class="titulo-menu">
         <h2 id="titulo-menu" data-titulo-menu></h2>
       </div>
@@ -31,8 +35,33 @@
           <article class="ano">
             <button class="botao-ano" type="button">
               <div class="icone-ano"></div>
-              <div class="nome-ano"></div>
-              <div class="idade-ano"></div>
+              <div class="texto-ano">
+                <div class="nome-ano"></div>
+                <div class="idade-ano"></div>
+              </div>
+            </button>
+          </article>
+        </template>
+      </div>
+    </section>
+
+    <section class="jogos-destaque" aria-labelledby="titulo-jogos">
+      <div class="titulo-seccao">
+        <span class="titulo-linha"></span>
+        <h2 id="titulo-jogos">
+          <span class="gamepad" aria-hidden="true">🎮</span>
+          <span data-titulo-jogos></span>
+        </h2>
+        <span class="titulo-linha"></span>
+      </div>
+
+      <div class="jogos-grid" id="jogos">
+        <template id="modelo-jogo">
+          <article class="jogo">
+            <button class="botao-jogo" type="button">
+              <div class="preview-jogo"></div>
+              <div class="nome-jogo"></div>
+              <div class="estrelas-jogo" aria-label="5 estrelas">★ ★ ★ ★ ★</div>
             </button>
           </article>
         </template>
@@ -41,7 +70,7 @@
 
     <footer class="rodape">
       <div class="rodape-item">
-        <span class="estrela" aria-hidden="true"></span>
+        <span class="estrela" aria-hidden="true">★</span>
         <span data-mensagem></span>
       </div>
       <div class="rodape-item rodape-info">
