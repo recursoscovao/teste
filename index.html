@@ -8,13 +8,6 @@
 <body>
   <main id="app">
 
-    <div class="ceu" aria-hidden="true">
-      <div class="nuvem nuvem-1"></div>
-      <div class="nuvem nuvem-2"></div>
-      <div class="nuvem nuvem-3"></div>
-      <div class="nuvem nuvem-4"></div>
-    </div>
-
     <header class="cabecalho">
       <div class="marca">
         <div class="marca-sol" aria-hidden="true"></div>
@@ -26,6 +19,9 @@
     </header>
 
     <section class="area-menu" aria-labelledby="titulo-menu">
+      <div class="decoracao decoracao-esquerda" aria-hidden="true"></div>
+      <div class="decoracao decoracao-direita" aria-hidden="true"></div>
+
       <div class="titulo-menu">
         <h2 id="titulo-menu" data-titulo-menu></h2>
       </div>
@@ -45,24 +41,21 @@
       </div>
     </section>
 
-    <section class="jogos-destaque" aria-labelledby="titulo-jogos">
-      <div class="titulo-seccao">
-        <span class="titulo-linha"></span>
-        <h2 id="titulo-jogos">
-          <span class="gamepad" aria-hidden="true">🎮</span>
-          <span data-titulo-jogos></span>
-        </h2>
-        <span class="titulo-linha"></span>
+    <section class="destaques" aria-labelledby="titulo-destaques">
+      <div class="titulo-destaques">
+        <span class="linha"></span>
+        <h2 id="titulo-destaques"><span aria-hidden="true">🎮</span> Jogos em destaque</h2>
+        <span class="linha"></span>
       </div>
 
-      <div class="jogos-grid" id="jogos">
+      <div class="jogos" id="jogos">
         <template id="modelo-jogo">
           <article class="jogo">
-            <button class="botao-jogo" type="button">
-              <div class="preview-jogo"></div>
-              <div class="nome-jogo"></div>
-              <div class="estrelas-jogo" aria-label="5 estrelas">★ ★ ★ ★ ★</div>
-            </button>
+            <div class="icone-jogo">
+              <img alt="" draggable="false">
+            </div>
+            <div class="nome-jogo"></div>
+            <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
           </article>
         </template>
       </div>
@@ -80,7 +73,6 @@
     </footer>
 
   </main>
-
   <script src="dados.js"></script>
 </body>
 </html>
