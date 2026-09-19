@@ -17,11 +17,11 @@
   - comportamento de navegação
 
   ICONS:
-    /icons/pre.png
-    /icons/1ano.png
-    /icons/2ano.png
-    /icons/3ano.png
-    /icons/4ano.png
+    /icons/iconpre.png
+    /icons/icon1.png
+    /icons/icon2.png
+    /icons/icon3.png
+    /icons/icon4.png
 
   Os botões mantêm SEMPRE a proporção 16:9.
   No telemóvel, tablet e computador a proporção do cartão
@@ -80,11 +80,11 @@ const DADOS = {
      IMAGENS
      ========================================================== */
   imagens: {
-    pre: "icons/pre.png",
-    ano1: "icons/1ano.png",
-    ano2: "icons/2ano.png",
-    ano3: "icons/3ano.png",
-    ano4: "icons/4ano.png"
+    pre: "icons/iconpre.png",
+    ano1: "icons/icon1.png",
+    ano2: "icons/icon2.png",
+    ano3: "icons/icon3.png",
+    ano4: "icons/icon4.png"
   },
 
   /* ==========================================================
