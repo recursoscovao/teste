@@ -1,6 +1,6 @@
 /*
 ================================================================
- RECURSOS DO CÃO — DADOS E APRESENTAÇÃO
+ RECURSOS Covão — DADOS E APRESENTAÇÃO
 ================================================================
 
  A estrutura HTML está em index.html.
@@ -50,10 +50,10 @@ const DADOS = {
   },
 
   pagina: {
-    titulo: "Recursos do Cão",
+    titulo: "Recursos Covão",
     subtitulo: "Aprender • Explorar • Descobrir",
-    tituloMenu: "Escolha o ano",
-    mensagem: "Escolha o ano e comece a aprender!",
+    tituloMenu: "Escolhe o ano",
+    mensagem: "Escolhe o ano e comece a aprender!",
     informacao: "Recursos educativos para o 1.º ciclo"
   },
 
