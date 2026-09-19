@@ -36,6 +36,7 @@
 */
 
 const DADOS = {
+  nuvem: "icons/nuvem.png",
 
   pagina: {
     titulo: "Recursos do Cão",
@@ -266,86 +267,6 @@ button {
       #EAF5FC 38%,
       var(--fundo) 100%
     );
-}
-
-/* ============================================================
-   NUVENS — várias camadas, mais orgânicas
-   ============================================================ */
-
-#app::before,
-#app::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-  opacity: .72;
-  filter: blur(.15px);
-}
-
-#app::before {
-  width: 430px;
-  height: 90px;
-  top: 2px;
-  left: -55px;
-
-  background:
-    radial-gradient(
-      ellipse at 18% 75%,
-      rgba(255,255,255,.95) 0 34px,
-      transparent 35px
-    ),
-    radial-gradient(
-      ellipse at 33% 50%,
-      rgba(255,255,255,.96) 0 57px,
-      transparent 58px
-    ),
-    radial-gradient(
-      ellipse at 51% 68%,
-      rgba(255,255,255,.93) 0 43px,
-      transparent 44px
-    ),
-    radial-gradient(
-      ellipse at 69% 72%,
-      rgba(255,255,255,.88) 0 30px,
-      transparent 31px
-    );
-}
-
-#app::after {
-  width: 520px;
-  height: 105px;
-  right: -80px;
-  top: 20px;
-
-  background:
-    radial-gradient(
-      ellipse at 20% 70%,
-      rgba(255,255,255,.72) 0 32px,
-      transparent 33px
-    ),
-    radial-gradient(
-      ellipse at 39% 45%,
-      rgba(255,255,255,.78) 0 58px,
-      transparent 59px
-    ),
-    radial-gradient(
-      ellipse at 58% 66%,
-      rgba(255,255,255,.70) 0 45px,
-      transparent 46px
-    ),
-    radial-gradient(
-      ellipse at 77% 75%,
-      rgba(255,255,255,.64) 0 31px,
-      transparent 32px
-    );
-}
-
-.cabecalho,
-.area-menu,
-.destaques,
-.rodape {
-  position: relative;
-  z-index: 1;
 }
 
 /* ============================================================
@@ -1335,7 +1256,52 @@ function criarDestaques() {
 
 document.addEventListener("DOMContentLoaded", () => {
   inserirCSS();
+  criarCamadaNuvem();
   preencherTextos();
   criarCartoesAno();
   criarDestaques();
 });
+
+
+/* ============================================================
+   NUVEM REAL DO PROJETO
+   ============================================================ */
+.camada-nuvem {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 300px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.camada-nuvem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: .96;
+}
+.cabecalho,
+.area-menu,
+.destaques,
+.rodape {
+  z-index: 1;
+}
+
+
+function criarCamadaNuvem() {
+  const camada = document.createElement("div");
+  camada.className = "camada-nuvem";
+  camada.setAttribute("aria-hidden", "true");
+
+  const img = document.createElement("img");
+  img.src = DADOS.nuvem;
+  img.alt = "";
+  img.draggable = false;
+
+  camada.appendChild(img);
+  document.getElementById("app").prepend(camada);
+}
