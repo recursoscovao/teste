@@ -152,10 +152,10 @@ const DADOS = {
     anos: {
 
       pre:
-        "pre-escolar.html",
+        "pre,
 
       ano1:
-        "ano-1.html",
+        "1",
 
       ano2:
         "ano-2.html",
