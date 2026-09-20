@@ -170,7 +170,7 @@ const DADOS = {
       icon: "ano1",
       cor: "#20B9EF",
       cor2: "#087AC9",
-      pagina: "ano-1.html"
+      pagina: "1"
     },
 
     {
