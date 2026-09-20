@@ -160,7 +160,7 @@ const DADOS = {
       icon: "pre",
       cor: "#FFBA16",
       cor2: "#EF8709",
-      pagina: "pre-escolar.html"
+      pagina: "pre"
     },
 
     {
@@ -180,7 +180,7 @@ const DADOS = {
       icon: "ano2",
       cor: "#45C83D",
       cor2: "#169A3A",
-      pagina: "ano-2.html"
+      pagina: "2"
     },
 
     {
@@ -213,7 +213,7 @@ const DADOS = {
       id: "rastros",
       nome: "Rastros",
       icon: "rastros",
-      estrelas: 5
+      pagina: "1"
     },
 
     {
