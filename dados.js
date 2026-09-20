@@ -1,4 +1,3 @@
-```javascript
 /*
 ================================================================
  RECURSOS Covão — DADOS E APRESENTAÇÃO
@@ -11,507 +10,252 @@
  - cores
  - dimensões
  - caminhos de TODOS os icons
- - TODOS os links
  - definição dos anos
  - definição dos jogos em destaque
  - CSS
  - comportamento
 
- ORGANIZAÇÃO:
+ Os PNG existentes na pasta /icons são usados diretamente.
 
- 1. TEXTOS
- 2. ICONS
- 3. LINKS
- 4. NUVENS
- 5. CORES
- 6. DIMENSÕES
- 7. ANOS
- 8. JOGOS EM DESTAQUE
- 9. CSS
-10. JAVASCRIPT
+ Estrutura esperada:
 
- Assim, para alterar um icon:
- → procurar "ICONS"
-
- Para alterar um endereço:
- → procurar "LINKS"
-
-================================================================
+ /index.html
+ /dados.js
+ /icons/
+    iconpre.png
+    icon1.png
+    icon2.png
+    icon3.png
+    icon4.png
+    rastros.png
+    gatos&caes.png
+    dominorio.png
+    semaforo.png
+    quelhas.png
+    avanco.png
 */
 
-
 const DADOS = {
-
-
-  /* ==========================================================
-     1. TEXTOS
-     ========================================================== */
-
-  pagina: {
-
-    titulo: "Recursos Covão",
-
-    subtitulo:
-      "Aprender • Explorar • Descobrir",
-
-    tituloMenu:
-      "Escolhe o ano",
-
-    mensagem:
-      "Escolhe o ano e comece a aprender!",
-
-    informacao:
-      "Recursos educativos para o 1.º ciclo"
-
-  },
-
-
-  /* ==========================================================
-     2. ICONS
-     ==========================================================
-
-     TODOS os caminhos dos PNG ficam aqui.
-
-     Para substituir um icon basta alterar o caminho.
-
-  ========================================================== */
-
-  icons: {
-
-
-    /* --------------------------------------------------------
-       ICONS DOS ANOS
-       -------------------------------------------------------- */
-
-    anos: {
-
-      pre:
-        "icons/iconpre.png",
-
-      ano1:
-        "icons/icon1.png",
-
-      ano2:
-        "icons/icon2.png",
-
-      ano3:
-        "icons/icon3.png",
-
-      ano4:
-        "icons/icon4.png"
-
-    },
-
-
-    /* --------------------------------------------------------
-       ICONS DOS JOGOS EM DESTAQUE
-       -------------------------------------------------------- */
-
-    destaques: {
-
-      rastros:
-        "icons/rastros.png",
-
-      gatosCaes:
-        "icons/gatos&caes.png",
-
-      dominorio:
-        "icons/dominorio.png",
-
-      semaforo:
-        "icons/semaforo.png",
-
-      quelhas:
-        "icons/quelhas.png",
-
-      avanco:
-        "icons/avanco.png"
-
-    },
-
-
-    /* --------------------------------------------------------
-       ICON DAS NUVENS
-       -------------------------------------------------------- */
-
-    nuvem:
-      "icons/nuvem.png"
-
-  },
-
-
-  /* ==========================================================
-     3. LINKS
-     ==========================================================
-
-     TODOS os links ficam aqui.
-
-     Para alterar um endereço não é necessário procurar
-     nada no JavaScript.
-
-  ========================================================== */
-
-  links: {
-
-
-    /* --------------------------------------------------------
-       LINKS DOS ANOS
-       -------------------------------------------------------- */
-
-    anos: {
-
-      pre:
-        "pre-escolar.html",
-
-      ano1:
-        "1",
-
-      ano2:
-        "ano-2.html",
-
-      ano3:
-        "ano-3.html",
-
-      ano4:
-        "ano-4.html"
-
-    },
-
-
-    /* --------------------------------------------------------
-       LINKS DOS JOGOS EM DESTAQUE
-       --------------------------------------------------------
-
-       SUBSTITUIR "#" pelos endereços reais dos jogos.
-
-       Exemplo:
-
-       rastros:
-         "https://recursosdigitaiscovao.github.io/..."
-
-    -------------------------------------------------------- */
-
-    destaques: {
-
-      rastros:
-        "#",
-
-      gatosCaes:
-        "#",
-
-      dominorio:
-        "#",
-
-      semaforo:
-        "#",
-
-      quelhas:
-        "#",
-
-      avanco:
-        "#"
-
-    }
-
-  },
-
-
-  /* ==========================================================
-     4. NUVENS
-     ========================================================== */
+  nuvem: "icons/nuvem.png",
 
   nuvens: {
-
     quantidade: 3,
-
     larguraMin: 72,
-
     larguraMax: 125,
-
     alturaMin: 38,
-
     alturaMax: 66,
-
     topoMin: 24,
-
     topoMax: 145,
-
     margemHorizontal: 12
-
   },
 
+  pagina: {
+    titulo: "Recursos Covão",
+    subtitulo: "Aprender • Explorar • Descobrir",
+    tituloMenu: "Escolhe o ano",
+    mensagem: "Escolhe o ano e comece a aprender!",
+    informacao: "Recursos educativos para o 1.º ciclo"
+  },
 
   /* ==========================================================
-     5. CORES
+     ICONS — todos centralizados aqui
+     ========================================================== */
+
+  icons: {
+    anos: {
+      pre: "icons/iconpre.png",
+      ano1: "icons/icon1.png",
+      ano2: "icons/icon2.png",
+      ano3: "icons/icon3.png",
+      ano4: "icons/icon4.png"
+    },
+
+    destaques: {
+      rastros: "icons/rastros.png",
+      gatosCaes: "icons/gatos&caes.png",
+      dominorio: "icons/dominorio.png",
+      semaforo: "icons/semaforo.png",
+      quelhas: "icons/quelhas.png",
+      avanco: "icons/avanco.png"
+    }
+  },
+
+  /* ==========================================================
+     CORES
      ========================================================== */
 
   cores: {
-
     fundo: "#EAF5FC",
-
     ceu1: "#78DDF7",
-
     ceu2: "#BCEEF9",
 
     texto: "#07569A",
-
     textoEscuro: "#064B8A",
-
     branco: "#FFFFFF",
 
     amarelo: "#FFBA16",
-
     amarelo2: "#EF8709",
 
     azul: "#20B9EF",
-
     azul2: "#087AC9",
 
     verde: "#45C83D",
-
     verde2: "#169A3A",
 
     roxo: "#A74BEF",
-
     roxo2: "#7434B8",
 
     rosa: "#F43A9D",
-
     rosa2: "#C81970",
 
     creme: "#FFF9E1",
-
     creme2: "#F5D996",
 
     linha: "#A5D9F8",
 
-    sombra:
-      "rgba(15, 88, 139, .20)",
-
-    sombraForte:
-      "rgba(15, 88, 139, .30)"
-
+    sombra: "rgba(15, 88, 139, .20)",
+    sombraForte: "rgba(15, 88, 139, .30)"
   },
 
-
   /* ==========================================================
-     6. DIMENSÕES
+     DIMENSÕES
      ========================================================== */
 
   dimensoes: {
-
     larguraMaxima: 1650,
 
+    /*
+      Cartões dos anos:
+      não são 16:9.
+      São mais altos para o aspeto do menu original.
+    */
+
     alturaAnoDesktop: 300,
-
     alturaAnoTabletHorizontal: 245,
-
     alturaAnoTelemovelHorizontal: 175,
 
     raioAno: 23,
-
     raioDestaques: 26,
 
     tamanhoIconAnoDesktop: 128,
-
     tamanhoIconAnoTablet: 100,
-
     tamanhoIconAnoTelemovelHorizontal: 76,
 
+    /* Ícones de destaque deliberadamente mais pequenos */
+
     tamanhoIconJogo: 76,
-
     tamanhoIconJogoTablet: 64,
-
     tamanhoIconJogoTelemovel: 54
-
   },
 
-
   /* ==========================================================
-     7. ANOS
+     ANOS
      ========================================================== */
 
   anos: [
-
     {
       id: "pre",
-
       nome: "Pré-Escolar",
-
       idade: "3 – 5 anos",
-
       icon: "pre",
-
       cor: "#FFBA16",
-
       cor2: "#EF8709",
-
-      link: "pre"
-
+      pagina: "pre-escolar.html"
     },
 
     {
       id: "ano1",
-
       nome: "1.º Ano",
-
       idade: "6 – 7 anos",
-
       icon: "ano1",
-
       cor: "#20B9EF",
-
       cor2: "#087AC9",
-
-      link: "ano1"
-
+      pagina: "ano-1.html"
     },
 
     {
       id: "ano2",
-
       nome: "2.º Ano",
-
       idade: "7 – 8 anos",
-
       icon: "ano2",
-
       cor: "#45C83D",
-
       cor2: "#169A3A",
-
-      link: "ano2"
-
+      pagina: "ano-2.html"
     },
 
     {
       id: "ano3",
-
       nome: "3.º Ano",
-
       idade: "8 – 9 anos",
-
       icon: "ano3",
-
       cor: "#A74BEF",
-
       cor2: "#7434B8",
-
-      link: "ano3"
-
+      pagina: "ano-3.html"
     },
 
     {
       id: "ano4",
-
       nome: "4.º Ano",
-
       idade: "9 – 10 anos",
-
       icon: "ano4",
-
       cor: "#F43A9D",
-
       cor2: "#C81970",
-
-      link: "ano4"
-
+      pagina: "ano-4.html"
     }
-
   ],
 
-
   /* ==========================================================
-     8. JOGOS EM DESTAQUE
+     JOGOS EM DESTAQUE
      ========================================================== */
 
   destaques: [
-
     {
       id: "rastros",
-
       nome: "Rastros",
-
       icon: "rastros",
-
-      link: "rastros",
-
       estrelas: 5
-
     },
 
     {
       id: "gatosCaes",
-
       nome: "Gatos&Cães",
-
       icon: "gatosCaes",
-
-      link: "gatosCaes",
-
       estrelas: 5
-
     },
 
     {
-      id: "dominorio",
-
+      id: "dominio",
       nome: "Dominório",
-
-      icon: "dominorio",
-
-      link: "dominorio",
-
+      icon: "dominio",
       estrelas: 5
-
     },
 
     {
       id: "semaforo",
-
       nome: "Semáforo",
-
       icon: "semaforo",
-
-      link: "semaforo",
-
       estrelas: 5
-
     },
 
     {
       id: "quelhas",
-
       nome: "Quellhas",
-
       icon: "quelhas",
-
-      link: "quelhas",
-
       estrelas: 5
-
     },
 
     {
       id: "avanco",
-
       nome: "Avanço",
-
       icon: "avanco",
-
-      link: "avanco",
-
       estrelas: 5
-
     }
-
   ]
-
 };
 
 
 /* ============================================================
-   9. CSS
+   CSS
    ============================================================ */
 
 const CSS = `
@@ -617,6 +361,13 @@ button {
 }
 
 
+/*
+   Movimento suave das nuvens.
+
+   A posição inicial continua sempre igual.
+   Apenas existe uma pequena deslocação horizontal.
+*/
+
 @keyframes flutuar-nuvem {
 
   0%,
@@ -635,6 +386,10 @@ button {
   }
 }
 
+
+/*
+   Conteúdo sempre à frente das nuvens.
+*/
 
 .cabecalho {
   position: relative;
@@ -1247,6 +1002,10 @@ button {
     gap: 8px;
   }
 
+  /*
+     CARTÕES MAIS BAIXOS NO TABLET HORIZONTAL
+  */
+
   .botao-ano {
     height:
       ${DADOS.dimensoes.alturaAnoTabletHorizontal}px;
@@ -1333,6 +1092,13 @@ button {
 
 /* ============================================================
    TELEMÓVEL HORIZONTAL
+   ============================================================
+
+   Intencionalmente segue a mesma composição do tablet horizontal:
+   - 5 cartões em linha
+   - icon em cima
+   - texto por baixo
+   - jogos em 6 colunas
    ============================================================ */
 
 @media (max-width: 600px)
@@ -1392,6 +1158,10 @@ button {
 
     gap: 5px;
   }
+
+  /*
+     CARTÕES MAIS BAIXOS NO TELEMÓVEL HORIZONTAL
+  */
 
   .botao-ano {
     height:
@@ -1518,6 +1288,10 @@ button {
 
 /* ============================================================
    TABLET / TELEMÓVEL VERTICAL
+   ============================================================
+
+   Um cartão por linha:
+   icon à esquerda + texto à direita.
    ============================================================ */
 
 @media (max-width: 900px)
@@ -1792,13 +1566,28 @@ button {
 
 
 /* ============================================================
-   10. JAVASCRIPT
+   JAVASCRIPT
    ============================================================ */
 
 
-/* ============================================================
-   NUVENS
-   ============================================================ */
+/*
+================================================================
+ NUVENS
+================================================================
+
+ IMPORTANTE:
+
+ As posições são fixas.
+
+ Não existe Math.random() nesta função.
+
+ Assim:
+ - ao abrir a página, as nuvens ficam sempre nos mesmos locais;
+ - ao atualizar a página, continuam nos mesmos locais;
+ - ao mudar de dispositivo, mantêm a posição percentual;
+ - apenas fazem um pequeno movimento horizontal.
+================================================================
+*/
 
 function criarNuvens() {
 
@@ -1852,7 +1641,7 @@ function criarNuvens() {
         "nuvem-pequena";
 
       img.src =
-        DADOS.icons.nuvem;
+        DADOS.nuvem;
 
       img.alt = "";
 
@@ -1878,11 +1667,15 @@ function criarNuvens() {
       img.style.animation =
         `flutuar-nuvem ${posicao.duracao}s ease-in-out infinite`;
 
+      /*
+         Faz com que cada nuvem comece
+         numa fase diferente da animação.
+      */
+
       img.style.animationDelay =
         `${i * -3}s`;
 
       camada.appendChild(img);
-
     });
 }
 
@@ -1900,7 +1693,6 @@ function inserirCSS() {
     CSS;
 
   document.head.appendChild(style);
-
 }
 
 
@@ -1934,7 +1726,6 @@ function preencherTextos() {
     .querySelector("[data-informacao]")
     .textContent =
     DADOS.pagina.informacao;
-
 }
 
 
@@ -1964,10 +1755,8 @@ function criarCartoesAno() {
     const caixaIcon =
       fragmento.querySelector(".icone-ano");
 
-
     artigo.dataset.ano =
       ano.id;
-
 
     botao.style.setProperty(
       "--cor-1",
@@ -1979,12 +1768,10 @@ function criarCartoesAno() {
       ano.cor2
     );
 
-
     botao.setAttribute(
       "aria-label",
       `${ano.nome}, ${ano.idade}`
     );
-
 
     const img =
       document.createElement("img");
@@ -1998,7 +1785,6 @@ function criarCartoesAno() {
 
     caixaIcon.appendChild(img);
 
-
     fragmento
       .querySelector(".nome-ano")
       .textContent =
@@ -2009,33 +1795,19 @@ function criarCartoesAno() {
       .textContent =
       ano.idade;
 
-
-    /* --------------------------------------------------------
-       LINK DO ANO
-       -------------------------------------------------------- */
-
     botao.addEventListener(
       "click",
       () => {
 
-        const endereco =
-          DADOS.links.anos[ano.link];
-
-        if (endereco) {
-
-          window.location.href =
-            endereco;
-
-        }
+        window.location.href =
+          ano.pagina;
 
       }
     );
 
-
     zona.appendChild(fragmento);
 
   });
-
 }
 
 
@@ -2051,38 +1823,25 @@ function criarDestaques() {
   const modelo =
     document.querySelector("#modelo-jogo");
 
-
   DADOS.destaques.forEach((jogo) => {
 
     const fragmento =
       modelo.content.cloneNode(true);
-
-
-    const artigo =
-      fragmento.querySelector(".jogo");
-
 
     const img =
       fragmento.querySelector(
         ".icone-jogo img"
       );
 
-
     const nome =
       fragmento.querySelector(
         ".nome-jogo"
       );
 
-
     const estrelas =
       fragmento.querySelector(
         ".estrelas"
       );
-
-
-    /* --------------------------------------------------------
-       ICON
-       -------------------------------------------------------- */
 
     img.src =
       DADOS.icons.destaques[jogo.icon];
@@ -2090,18 +1849,8 @@ function criarDestaques() {
     img.alt =
       jogo.nome;
 
-
-    /* --------------------------------------------------------
-       NOME
-       -------------------------------------------------------- */
-
     nome.textContent =
       jogo.nome;
-
-
-    /* --------------------------------------------------------
-       ESTRELAS
-       -------------------------------------------------------- */
 
     estrelas.textContent =
       "★".repeat(jogo.estrelas);
@@ -2111,75 +1860,9 @@ function criarDestaques() {
       `${jogo.estrelas} estrelas`
     );
 
-
-    /* --------------------------------------------------------
-       LINK DO JOGO
-       --------------------------------------------------------
-
-       O artigo inteiro fica clicável.
-
-    -------------------------------------------------------- */
-
-    const endereco =
-      DADOS.links.destaques[jogo.link];
-
-
-    if (
-      endereco &&
-      endereco !== "#"
-    ) {
-
-      artigo.style.cursor =
-        "pointer";
-
-      artigo.setAttribute(
-        "tabindex",
-        "0"
-      );
-
-      artigo.setAttribute(
-        "role",
-        "link"
-      );
-
-
-      artigo.addEventListener(
-        "click",
-        () => {
-
-          window.location.href =
-            endereco;
-
-        }
-      );
-
-
-      artigo.addEventListener(
-        "keydown",
-        (evento) => {
-
-          if (
-            evento.key === "Enter" ||
-            evento.key === " "
-          ) {
-
-            evento.preventDefault();
-
-            window.location.href =
-              endereco;
-
-          }
-
-        }
-      );
-
-    }
-
-
     zona.appendChild(fragmento);
 
   });
-
 }
 
 
@@ -2203,4 +1886,3 @@ document.addEventListener(
 
   }
 );
-```
