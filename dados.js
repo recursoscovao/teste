@@ -226,7 +226,7 @@ const DADOS = {
     {
       id: "dominio",
       nome: "Dominório",
-      icon: "dominio",
+      icon: "dominorio.png",
       estrelas: 5
     },
 
