@@ -48,10 +48,10 @@ const DADOS = {
   },
 
   pagina: {
-    titulo: "Recursos Covão",
+    titulo: "1º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
-    tituloMenu: "Escolhe o ano",
-    mensagem: "Escolhe o ano e comece a aprender!",
+    tituloMenu: "Escolhe a área",
+    mensagem: "Escolhe a área e começa a aprender!",
     informacao: "Recursos educativos para o 1.º ciclo"
   },
 
@@ -202,7 +202,7 @@ const DADOS = {
     {
       id: "dominio",
       nome: "Dominório",
-      icon: "dominio",
+      icon: "dominorio",
       estrelas: 5
     },
 
