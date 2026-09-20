@@ -213,42 +213,48 @@ const DADOS = {
       id: "rastros",
       nome: "Rastros",
       icon: "rastros",
-      pagina: "1"
+      estrelas: 5,
+      pagina: "jogos/rastros/index.html"
     },
 
     {
       id: "gatosCaes",
       nome: "Gatos&Cães",
       icon: "gatosCaes",
-      estrelas: 5
+      estrelas: 5,
+      pagina: "jogos/gatos-caes/index.html"
     },
 
     {
       id: "dominio",
       nome: "Dominório",
       icon: "dominorio.png",
-      estrelas: 5
+      estrelas: 5,
+      pagina: "jogos/dominio/index.html"
     },
 
     {
       id: "semaforo",
       nome: "Semáforo",
       icon: "semaforo",
-      estrelas: 5
+      estrelas: 5,
+      pagina: "jogos/semaforo/index.html"
     },
 
     {
       id: "quelhas",
       nome: "Quellhas",
       icon: "quelhas",
-      estrelas: 5
+      estrelas: 5,
+      pagina: "jogos/quelhas/index.html"
     },
 
     {
       id: "avanco",
       nome: "Avanço",
       icon: "avanco",
-      estrelas: 5
+      estrelas: 5,
+      pagina: "jogos/avanco/index.html"
     }
   ]
 };
@@ -1859,6 +1865,45 @@ function criarDestaques() {
       "aria-label",
       `${jogo.estrelas} estrelas`
     );
+
+    /* Link do jogo — sem alterar o aspeto do cartão. */
+    if (jogo.pagina) {
+      const cartao = fragmento.querySelector(".jogo");
+
+      if (cartao) {
+        cartao.style.cursor = "pointer";
+        cartao.setAttribute(
+          "role",
+          "link"
+        );
+        cartao.setAttribute(
+          "tabindex",
+          "0"
+        );
+
+        const abrirJogo = () => {
+          window.location.href = jogo.pagina;
+        };
+
+        cartao.addEventListener(
+          "click",
+          abrirJogo
+        );
+
+        cartao.addEventListener(
+          "keydown",
+          (evento) => {
+            if (
+              evento.key === "Enter" ||
+              evento.key === " "
+            ) {
+              evento.preventDefault();
+              abrirJogo();
+            }
+          }
+        );
+      }
+    }
 
     zona.appendChild(fragmento);
 
