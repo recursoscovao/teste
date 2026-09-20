@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
 
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>1.º Ano — Recursos do Cão</title>
+</head>
+
+<body>
+
+  <main id="app">
+
+    <!-- =====================================================
+         NUVENS
+         ===================================================== -->
+
+    <div
+      class="camada-nuvens"
+      aria-hidden="true">
+    </div>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <header class="cabecalho">
+
+      <!-- MENU HAMBURGUER -->
+
+      <button
+        class="botao-navegacao botao-menu"
+        id="botao-menu"
+        type="button"
+        aria-label="Abrir menu"
+      >
+        <span class="icone-hamburguer">
+          ☰
+        </span>
+      </button>
+
+
+      <!-- IDENTIFICAÇÃO DO 1.º ANO -->
+
+      <div class="marca">
+
+        <div class="marca-icon">
+
+          <img
+            src="icons/icon1.png"
+            alt="1.º Ano"
+            draggable="false"
+          >
+
+        </div>
+
+
+        <div class="marca-texto">
+
+          <h1>
+            1.º Ano
+          </h1>
+
+          <p>
+            Aprender • Explorar • Descobrir
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- VOLTAR -->
+
+      <button
+        class="botao-navegacao botao-voltar"
+        id="botao-voltar"
+        type="button"
+        aria-label="Voltar"
+      >
+        <span class="icone-seta">
+          ←
+        </span>
+      </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         TÍTULO
+         ===================================================== -->
+
+    <section
+      class="titulo-area"
+      aria-labelledby="titulo-area"
+    >
+
+      <div class="titulo-caixa">
+
+        <h2 id="titulo-area">
+          Escolhe uma área
+        </h2>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OS 3 MENUS
+         ===================================================== -->
+
+    <section
+      class="menus"
+      id="menus"
+      aria-label="Áreas de aprendizagem"
+    >
+
+      <!-- MODELO DOS MENUS -->
+
+      <template id="modelo-menu">
+
+        <article class="menu-area">
+
+          <button
+            class="botao-area"
+            type="button"
+          >
+
+            <div class="brilho-area"></div>
+
+            <div class="icone-area">
+
+              <img
+                src=""
+                alt=""
+                draggable="false"
+              >
+
+            </div>
+
+            <div class="texto-area">
+
+              <div class="nome-area"></div>
+
+            </div>
+
+          </button>
+
+        </article>
+
+      </template>
+
+    </section>
+
+
+    <!-- =====================================================
+         MENSAGEM
+         ===================================================== -->
+
+    <section class="mensagem">
+
+      <div class="mensagem-caixa">
+
+        <span class="mensagem-estrela">
+          ★
+        </span>
+
+        <span id="mensagem-texto">
+          Escolhe uma área e começa a aprender!
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RODAPÉ
+         ===================================================== -->
+
+    <footer class="rodape">
+
+      <span>
+        Recursos do Cão
+      </span>
+
+      <span>
+        1.º Ano
+      </span>
+
+    </footer>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       DADOS + JAVASCRIPT
+       ======================================================= -->
+
+  <script src="dados.js"></script>
+
+</body>
+
+</html>
