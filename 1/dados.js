@@ -1,1831 +1,1506 @@
-/*
-================================================================
- RECURSOS Covão — DADOS E APRESENTAÇÃO
-================================================================
+/* =========================================================
+   RECURSOS COVÃO
+   Página de seleção de áreas
+   Português | Matemática | Estudo do Meio
+   ========================================================= */
 
- A estrutura HTML está em index.html.
 
- Este ficheiro concentra:
- - textos
- - cores
- - dimensões
- - caminhos de TODOS os icons
- - definição dos anos
- - definição dos jogos em destaque
- - CSS
- - comportamento
+/* =========================================================
+   DADOS PRINCIPAIS
+   ========================================================= */
 
- Os PNG existentes na pasta /icons são usados diretamente.
+const pagina = {
 
- Estrutura esperada:
+  titulo: "1.º Ano",
 
- /index.html
- /dados.js
- /icons/
-    icon1.png
-    icon2.png
-    icon3.png
-    rastros.png
-    gatos&caes.png
-    dominorio.png
-    semaforo.png
-    quelhas.png
-    avanco.png
-*/
+  marca: "Recursos Covão",
 
-const DADOS = {
-  nuvem: "icons/nuvem.png",
+  submarca: "Aprender pode ser divertido!",
 
-  nuvens: {
-    quantidade: 3,
-    larguraMin: 72,
-    larguraMax: 125,
-    alturaMin: 38,
-    alturaMax: 66,
-    topoMin: 24,
-    topoMax: 145,
-    margemHorizontal: 12
-  },
+  tituloMenu: "Escolhe uma área",
 
-  pagina: {
-    titulo: "1º Ano",
-    subtitulo: "Aprender • Explorar • Descobrir",
-    tituloMenu: "Escolhe a área",
-    mensagem: "Escolhe a área e começa a aprender!",
-    informacao: "Recursos educativos para o 1.º ciclo"
-  },
+  mensagem: "Aprender, descobrir e divertir!",
 
-  /* ==========================================================
-     ICONS — todos centralizados aqui
-     ========================================================== */
+  informacao: "Recursos digitais educativos"
 
-  icons: {
-    anos: {
-      ano1: "icons/icon1.png",
-      ano2: "icons/icon2.png",
-      ano3: "icons/icon3.png"
-    },
 
-    destaques: {
-      rastros: "icons/rastros.png",
-      gatosCaes: "icons/gatos&caes.png",
-      dominorio: "icons/dominorio.png",
-      semaforo: "icons/semaforo.png",
-      quelhas: "icons/quelhas.png",
-      avanco: "icons/avanco.png"
-    }
-  },
-
-  /* ==========================================================
-     CORES
-     ========================================================== */
-
-  cores: {
-    fundo: "#EAF5FC",
-    ceu1: "#78DDF7",
-    ceu2: "#BCEEF9",
-
-    texto: "#07569A",
-    textoEscuro: "#064B8A",
-    branco: "#FFFFFF",
-
-    amarelo: "#FFBA16",
-    amarelo2: "#EF8709",
-
-    azul: "#20B9EF",
-    azul2: "#087AC9",
-
-    verde: "#45C83D",
-    verde2: "#169A3A",
-
-    roxo: "#A74BEF",
-    roxo2: "#7434B8",
-
-    rosa: "#F43A9D",
-    rosa2: "#C81970",
-
-    creme: "#FFF9E1",
-    creme2: "#F5D996",
-
-    linha: "#A5D9F8",
-
-    sombra: "rgba(15, 88, 139, .20)",
-    sombraForte: "rgba(15, 88, 139, .30)"
-  },
-
-  /* ==========================================================
-     DIMENSÕES
-     ========================================================== */
-
-  dimensoes: {
-    larguraMaxima: 1650,
-
-    /*
-      Cartões dos anos:
-      não são 16:9.
-      São mais altos para o aspeto do menu original.
-    */
-
-    alturaAnoDesktop: 300,
-    alturaAnoTabletHorizontal: 245,
-    alturaAnoTelemovelHorizontal: 175,
-
-    raioAno: 23,
-    raioDestaques: 26,
-
-    tamanhoIconAnoDesktop: 128,
-    tamanhoIconAnoTablet: 100,
-    tamanhoIconAnoTelemovelHorizontal: 76,
-
-    /* Ícones de destaque deliberadamente mais pequenos */
-
-    tamanhoIconJogo: 76,
-    tamanhoIconJogoTablet: 64,
-    tamanhoIconJogoTelemovel: 54
-  },
-
-  /* ==========================================================
-     ANOS
-     ========================================================== */
-
-  anos: [
-    {
-      id: "ano1",
-      nome: "1.º Ano",
-      idade: "6 – 7 anos",
-      icon: "ano1",
-      cor: "#20B9EF",
-      cor2: "#087AC9",
-      pagina: "ano-1.html"
-    },
-
-    {
-      id: "ano2",
-      nome: "2.º Ano",
-      idade: "7 – 8 anos",
-      icon: "ano2",
-      cor: "#45C83D",
-      cor2: "#169A3A",
-      pagina: "ano-2.html"
-    },
-
-    {
-      id: "ano3",
-      nome: "3.º Ano",
-      idade: "8 – 9 anos",
-      icon: "ano3",
-      cor: "#A74BEF",
-      cor2: "#7434B8",
-      pagina: "ano-3.html"
-    }
-  ],
-
-  /* ==========================================================
-     JOGOS EM DESTAQUE
-     ========================================================== */
-
-  destaques: [
-    {
-      id: "rastros",
-      nome: "Rastros",
-      icon: "rastros",
-      estrelas: 5
-    },
-
-    {
-      id: "gatosCaes",
-      nome: "Gatos&Cães",
-      icon: "gatosCaes",
-      estrelas: 5
-    },
-
-    {
-      id: "dominio",
-      nome: "Dominório",
-      icon: "dominorio",
-      estrelas: 5
-    },
-
-    {
-      id: "semaforo",
-      nome: "Semáforo",
-      icon: "semaforo",
-      estrelas: 5
-    },
-
-    {
-      id: "quelhas",
-      nome: "Quellhas",
-      icon: "quelhas",
-      estrelas: 5
-    },
-
-    {
-      id: "avanco",
-      nome: "Avanço",
-      icon: "avanco",
-      estrelas: 5
-    }
-  ]
 };
 
 
-/* ============================================================
-   CSS
-   ============================================================ */
+/* =========================================================
+   ÍCONES
+   ========================================================= */
 
-const CSS = `
-:root {
-  --fundo: ${DADOS.cores.fundo};
-  --ceu1: ${DADOS.cores.ceu1};
-  --ceu2: ${DADOS.cores.ceu2};
+const icons = {
 
-  --texto: ${DADOS.cores.texto};
-  --texto-escuro: ${DADOS.cores.textoEscuro};
-  --branco: ${DADOS.cores.branco};
+  areas: {
 
-  --creme: ${DADOS.cores.creme};
-  --creme2: ${DADOS.cores.creme2};
+    portugues: "../icons/pt.png",
 
-  --linha: ${DADOS.cores.linha};
+    matematica: "../icons/mat.png",
 
-  --sombra: ${DADOS.cores.sombra};
-  --sombra-forte: ${DADOS.cores.sombraForte};
-}
+    estudoMeio: "../icons/em.png"
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  min-height: 100%;
-  background: var(--fundo);
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-
-  font-family:
-    "Nunito",
-    "Quicksand",
-    "Arial Rounded MT Bold",
-    "Trebuchet MS",
-    Arial,
-    sans-serif;
-
-  color: var(--texto);
-  background: var(--fundo);
-}
-
-button {
-  font: inherit;
-}
-
-#app {
-  width: min(100%, ${DADOS.dimensoes.larguraMaxima}px);
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 13px 20px 16px;
-
-  position: relative;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--ceu1) 0,
-      var(--ceu2) 19%,
-      #EAF5FC 38%,
-      var(--fundo) 100%
-    );
-}
+  },
 
 
-/* ============================================================
-   NUVENS
-   ============================================================ */
+  destaques: {
 
-.camada-nuvens {
-  position: absolute;
-  inset: 0;
+    rastros: "../icons/rastros.png",
 
-  overflow: hidden;
-  pointer-events: none;
+    gatosCaes: "../icons/gatos&caes.png",
 
-  z-index: 0;
-}
+    dominio: "../icons/dominorio.png",
 
-.nuvem-pequena {
-  position: absolute;
+    semaforo: "../icons/semaforo.png",
 
-  display: block;
+    quelhas: "../icons/quelhas.png",
 
-  object-fit: contain;
+    avanco: "../icons/avanco.png"
 
-  opacity: .88;
-
-  filter:
-    drop-shadow(0 2px 1px rgba(80,130,160,.08));
-
-  z-index: 0;
-
-  transform:
-    translate(-50%, -50%)
-    rotate(var(--rotacao-nuvem));
-}
-
-
-/*
-   Movimento suave das nuvens.
-
-   A posição inicial continua sempre igual.
-   Apenas existe uma pequena deslocação horizontal.
-*/
-
-@keyframes flutuar-nuvem {
-
-  0%,
-  100% {
-    transform:
-      translate(-50%, -50%)
-      translateX(0)
-      rotate(var(--rotacao-nuvem));
   }
 
-  50% {
-    transform:
-      translate(-50%, -50%)
-      translateX(18px)
-      rotate(var(--rotacao-nuvem));
+};
+
+
+/* =========================================================
+   ÁREAS
+   ========================================================= */
+
+const areas = [
+
+  {
+
+    id: "portugues",
+
+    nome: "Português",
+
+    descricao: "Ler • Escrever • Comunicar",
+
+    icon: "portugues",
+
+    cor: "#20B9EF",
+
+    cor2: "#087AC9",
+
+    pagina: "portugues.html"
+
+  },
+
+
+  {
+
+    id: "matematica",
+
+    nome: "Matemática",
+
+    descricao: "Pensar • Calcular • Resolver",
+
+    icon: "matematica",
+
+    cor: "#45C83D",
+
+    cor2: "#169A3A",
+
+    pagina: "matematica.html"
+
+  },
+
+
+  {
+
+    id: "estudoMeio",
+
+    nome: "Estudo do Meio",
+
+    descricao: "Conhecer • Explorar • Descobrir",
+
+    icon: "estudoMeio",
+
+    cor: "#A74BEF",
+
+    cor2: "#7434B8",
+
+    pagina: "estudo-do-meio.html"
+
   }
-}
 
+];
 
-/*
-   Conteúdo sempre à frente das nuvens.
-*/
 
-.cabecalho {
-  position: relative;
-  z-index: 1;
-
-  height: 82px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.titulo-menu {
-  position: relative;
-  z-index: 1;
-}
-
-.anos {
-  position: relative;
-  z-index: 1;
-}
-
-.destaques {
-  position: relative;
-  z-index: 1;
-}
-
-.rodape {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ============================================================
-   CABEÇALHO
-   ============================================================ */
-
-.marca {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.marca-sol {
-  width: 62px;
-  height: 62px;
-
-  position: relative;
-
-  flex: 0 0 62px;
-}
-
-.marca-sol::before {
-  content: "☀";
-
-  position: absolute;
-  inset: 0;
-
-  display: grid;
-  place-items: center;
-
-  color: #FFBA16;
-
-  font-size: 65px;
-  line-height: 1;
-
-  filter:
-    drop-shadow(0 2px 0 rgba(255,255,255,.8))
-    drop-shadow(0 3px 2px rgba(100,80,0,.13));
-}
-
-.marca-texto h1 {
-  margin: 0;
-
-  color: #07579B;
-
-  font-size: clamp(28px, 3vw, 45px);
-
-  line-height: .98;
-
-  font-weight: 900;
-
-  letter-spacing: -.9px;
-
-  text-shadow:
-    0 2px 0 rgba(255,255,255,.8);
-}
-
-.marca-texto p {
-  margin: 6px 0 0;
-
-  color: #0963A6;
-
-  font-size: clamp(13px, 1.2vw, 18px);
-
-  line-height: 1;
-
-  font-weight: 800;
-}
-
-
-/* ============================================================
-   TÍTULO
-   ============================================================ */
-
-.titulo-menu {
-  width: fit-content;
-
-  margin: 1px auto 19px;
-
-  padding: 8px 30px;
-
-  border: 2px solid rgba(222,157,39,.42);
-
-  border-radius: 16px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #FFFDEC,
-      var(--creme)
-    );
-
-  box-shadow:
-    0 3px 7px rgba(118,88,17,.12),
-    inset 0 1px 0 rgba(255,255,255,.95);
-}
-
-.titulo-menu h2 {
-  margin: 0;
-
-  color: #74440C;
-
-  font-size: clamp(18px, 1.7vw, 27px);
-
-  line-height: 1;
-
-  font-weight: 900;
-}
-
-
-/* ============================================================
-   CARTÕES DOS ANOS (Agora 3 colunas)
-   ============================================================ */
-
-.anos {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 14px;
-}
-
-.ano {
-  min-width: 0;
-}
-
-.botao-ano {
-  width: 100%;
-
-  height:
-    ${DADOS.dimensoes.alturaAnoDesktop}px;
-
-  padding: 18px 12px 14px;
-
-  border:
-    3px solid rgba(255,255,255,.94);
-
-  border-radius:
-    ${DADOS.dimensoes.raioAno}px;
-
-  color: #fff;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  position: relative;
-
-  overflow: hidden;
-
-  cursor: pointer;
-
-  background:
-    linear-gradient(
-      145deg,
-      var(--cor-1),
-      var(--cor-2)
-    );
-
-  box-shadow:
-    0 9px 15px var(--sombra),
-    inset 0 1px 1px rgba(255,255,255,.7);
-
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease;
-}
-
-.botao-ano::before {
-  content: "";
-
-  position: absolute;
-
-  width: 170%;
-  height: 110%;
-
-  left: -95%;
-  top: -63%;
-
-  border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.15);
-
-  pointer-events: none;
-}
-
-.botao-ano::after {
-  content: "";
-
-  position: absolute;
-
-  width: 90px;
-  height: 90px;
-
-  right: -34px;
-  top: -35px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.10);
-
-  pointer-events: none;
-}
-
-.botao-ano:hover {
-  transform:
-    translateY(-4px);
-
-  box-shadow:
-    0 13px 20px var(--sombra-forte),
-    inset 0 1px 1px rgba(255,255,255,.75);
-}
-
-.botao-ano:active {
-  transform:
-    translateY(-1px);
-}
-
-.icone-ano {
-  width:
-    ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
-
-  height:
-    ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
-
-  flex:
-    0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
-
-  display: grid;
-
-  place-items: center;
-
-  position: relative;
-
-  z-index: 1;
-}
-
-.icone-ano img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(0 5px 3px rgba(0,0,0,.16));
-}
-
-.texto-ano {
-  position: relative;
-
-  z-index: 1;
-
-  text-align: center;
-}
-
-.nome-ano {
-  font-family:
-    "Nunito",
-    "Quicksand",
-    "Arial Rounded MT Bold",
-    "Trebuchet MS",
-    sans-serif;
-
-  font-size:
-    clamp(21px, 1.8vw, 29px);
-
-  line-height: 1.05;
-
-  font-weight: 800;
-
-  letter-spacing: -.25px;
-
-  text-shadow:
-    0 2px 1px rgba(0,0,0,.17);
-}
-
-.idade-ano {
-  margin-top: 7px;
-
-  font-family:
-    "Nunito",
-    "Quicksand",
-    "Trebuchet MS",
-    sans-serif;
-
-  font-size:
-    clamp(14px, 1.2vw, 18px);
-
-  line-height: 1;
-
-  font-weight: 700;
-
-  letter-spacing: .15px;
-
-  text-shadow:
-    0 1px 1px rgba(0,0,0,.12);
-}
-
-
-/* ============================================================
+/* =========================================================
    JOGOS EM DESTAQUE
-   ============================================================ */
+   ========================================================= */
 
-.destaques {
-  margin-top: 20px;
+const destaques = [
 
-  padding: 23px 28px 25px;
+  {
 
-  border-radius:
-    ${DADOS.dimensoes.raioDestaques}px;
+    id: "rastros",
 
-  background:
-    rgba(255,255,255,.93);
+    nome: "Rastros",
 
-  box-shadow:
-    0 7px 18px rgba(25,100,150,.10),
-    inset 0 1px 0 rgba(255,255,255,1);
-}
+    icon: "rastros",
 
-.titulo-destaques {
-  display: grid;
+    pagina: "jogos/rastros.html"
 
-  grid-template-columns:
-    1fr auto 1fr;
+  },
 
-  align-items: center;
 
-  gap: 28px;
+  {
 
-  margin: 0 30px 25px;
-}
+    id: "gatosCaes",
 
-.titulo-destaques .linha {
-  height: 3px;
+    nome: "Gatos & Cães",
 
-  background: #A7D5FA;
+    icon: "gatosCaes",
 
-  border-radius: 99px;
-}
+    pagina: "jogos/gatos-caes.html"
 
-.titulo-destaques h2 {
-  margin: 0;
+  },
 
-  color: #064F91;
 
-  font-size:
-    clamp(19px, 1.65vw, 26px);
+  {
 
-  line-height: 1;
+    id: "dominio",
 
-  font-weight: 900;
+    nome: "Dominório",
 
-  white-space: nowrap;
+    icon: "dominio",
 
-  text-align: center;
-}
+    pagina: "jogos/dominorio.html"
 
-.titulo-destaques h2 span {
-  margin-right: 7px;
+  },
 
-  font-size: .92em;
-}
 
-.jogos {
-  display: grid;
+  {
 
-  grid-template-columns:
-    repeat(6, minmax(0, 1fr));
+    id: "semaforo",
 
-  gap: 20px;
+    nome: "Semáforo",
 
-  align-items: start;
-}
+    icon: "semaforo",
 
-.jogo {
-  min-width: 0;
+    pagina: "jogos/semaforo.html"
 
-  display: flex;
+  },
 
-  flex-direction: column;
 
-  align-items: center;
+  {
 
-  text-align: center;
-}
+    id: "quelhas",
 
-.icone-jogo {
-  width:
-    ${DADOS.dimensoes.tamanhoIconJogo}px;
+    nome: "Quelhas",
 
-  height:
-    ${DADOS.dimensoes.tamanhoIconJogo}px;
+    icon: "quelhas",
 
-  display: grid;
+    pagina: "jogos/quelhas.html"
 
-  place-items: center;
+  },
 
-  margin-bottom: 10px;
-}
 
-.icone-jogo img {
-  width: 100%;
-  height: 100%;
+  {
 
-  object-fit: contain;
+    id: "avanco",
 
-  display: block;
-}
+    nome: "Avanço",
 
-.nome-jogo {
-  min-height: 25px;
+    icon: "avanco",
 
-  color: #064F91;
+    pagina: "jogos/avanco.html"
 
-  font-size:
-    clamp(15px, 1.25vw, 20px);
-
-  line-height: 1.05;
-
-  font-weight: 900;
-}
-
-.estrelas {
-  margin-top: 7px;
-
-  color: #FFB400;
-
-  font-family: Arial, sans-serif;
-
-  font-size:
-    clamp(15px, 1.15vw, 18px);
-
-  line-height: 1;
-
-  letter-spacing: 1px;
-}
-
-
-/* ============================================================
-   RODAPÉ
-   ============================================================ */
-
-.rodape {
-  width: 100%;
-
-  min-height: 53px;
-
-  margin-top: 15px;
-
-  padding: 8px 17px;
-
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 15px;
-
-  align-items: center;
-
-  border:
-    2px solid var(--linha);
-
-  border-radius: 14px;
-
-  background:
-    rgba(255,255,255,.78);
-
-  box-shadow:
-    0 4px 10px rgba(16,103,150,.08);
-
-  font-size:
-    clamp(11px, 1vw, 14px);
-
-  font-weight: 800;
-}
-
-.rodape-item {
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-}
-
-.rodape-info {
-  justify-content: flex-end;
-}
-
-.estrela {
-  color: #FFB400;
-
-  font-size: 25px;
-
-  line-height: 1;
-}
-
-.info {
-  width: 25px;
-  height: 25px;
-
-  display: grid;
-
-  place-items: center;
-
-  border-radius: 50%;
-
-  color: #fff;
-
-  background: #087AC9;
-
-  font-family: Arial, sans-serif;
-
-  font-weight: 900;
-}
-
-
-/* ============================================================
-   TABLET HORIZONTAL
-   ============================================================ */
-
-@media (max-width: 1100px)
-  and (min-width: 601px)
-  and (orientation: landscape) {
-
-  #app {
-    padding:
-      9px 13px 12px;
-  }
-
-  .cabecalho {
-    height: 64px;
-  }
-
-  .marca-sol {
-    width: 49px;
-    height: 49px;
-
-    flex-basis: 49px;
-  }
-
-  .marca-sol::before {
-    font-size: 52px;
-  }
-
-  .marca-texto h1 {
-    font-size: 28px;
-  }
-
-  .marca-texto p {
-    font-size: 12px;
-
-    margin-top: 4px;
-  }
-
-  .titulo-menu {
-    margin-bottom: 12px;
-
-    padding:
-      7px 24px;
-  }
-
-  .titulo-menu h2 {
-    font-size: 20px;
-  }
-
-  .anos {
-    gap: 8px;
-  }
-
-  .botao-ano {
-    height:
-      ${DADOS.dimensoes.alturaAnoTabletHorizontal}px;
-
-    padding:
-      10px 7px 9px;
-
-    border-width: 2px;
-
-    border-radius: 16px;
-  }
-
-  .icone-ano {
-    width:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-
-    flex-basis:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-  }
-
-  .nome-ano {
-    font-size:
-      clamp(14px, 2vw, 20px);
-  }
-
-  .idade-ano {
-    margin-top: 4px;
-
-    font-size:
-      clamp(10px, 1.3vw, 14px);
-  }
-
-  .destaques {
-    margin-top: 12px;
-
-    padding:
-      15px 16px 17px;
-  }
-
-  .titulo-destaques {
-    margin-bottom: 15px;
-
-    gap: 16px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 18px;
-  }
-
-  .jogos {
-    gap: 10px;
-  }
-
-  .icone-jogo {
-    width:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-
-    margin-bottom: 5px;
-  }
-
-  .nome-jogo {
-    font-size: 12px;
-  }
-
-  .estrelas {
-    margin-top: 4px;
-
-    font-size: 15px;
-  }
-
-  .rodape {
-    margin-top: 9px;
-
-    min-height: 42px;
-  }
-}
-
-
-/* ============================================================
-   TELEMÓVEL HORIZONTAL
-   ============================================================ */
-
-@media (max-width: 600px)
-  and (min-height: 360px)
-  and (orientation: landscape) {
-
-  #app {
-    padding:
-      7px 10px 9px;
-  }
-
-  .cabecalho {
-    height: 50px;
-  }
-
-  .marca {
-    gap: 6px;
-  }
-
-  .marca-sol {
-    width: 39px;
-    height: 39px;
-
-    flex-basis: 39px;
-  }
-
-  .marca-sol::before {
-    font-size: 42px;
-  }
-
-  .marca-texto h1 {
-    font-size: 24px;
-  }
-
-  .marca-texto p {
-    margin-top: 2px;
-
-    font-size: 8px;
-  }
-
-  .titulo-menu {
-    margin-bottom: 8px;
-
-    padding:
-      5px 18px;
-
-    border-radius: 10px;
-  }
-
-  .titulo-menu h2 {
-    font-size: 14px;
-  }
-
-  .anos {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
-    gap: 5px;
-  }
-
-  .botao-ano {
-    height:
-      ${DADOS.dimensoes.alturaAnoTelemovelHorizontal}px;
-
-    padding:
-      6px 4px 5px;
-
-    border-width: 2px;
-
-    border-radius: 12px;
-  }
-
-  .icone-ano {
-    width:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-
-    flex-basis:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-  }
-
-  .nome-ano {
-    font-size:
-      clamp(10px, 2.9vw, 15px);
-  }
-
-  .idade-ano {
-    margin-top: 3px;
-
-    font-size:
-      clamp(8px, 2vw, 11px);
-  }
-
-  .destaques {
-    margin-top: 8px;
-
-    padding:
-      9px 9px 10px;
-
-    border-radius: 16px;
-  }
-
-  .titulo-destaques {
-    margin:
-      0 7px 8px;
-
-    gap: 8px;
-  }
-
-  .titulo-destaques .linha {
-    height: 2px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 13px;
-  }
-
-  .titulo-destaques h2 span {
-    margin-right: 3px;
   }
-
-  .jogos {
-    grid-template-columns:
-      repeat(6, minmax(0, 1fr));
-
-    gap: 4px;
-  }
-
-  .icone-jogo {
-    width: 52px;
-    height: 52px;
-
-    margin-bottom: 3px;
-  }
-
-  .nome-jogo {
-    min-height: 14px;
-
-    font-size: 8px;
-  }
-
-  .estrelas {
-    margin-top: 2px;
-
-    font-size: 8px;
-
-    letter-spacing: 0;
-  }
-
-  .rodape {
-    margin-top: 7px;
-
-    min-height: 31px;
-
-    padding:
-      4px 7px;
-
-    gap: 5px;
-
-    font-size: 7px;
-
-    border-radius: 9px;
-  }
-
-  .rodape-item {
-    gap: 4px;
-  }
-
-  .estrela {
-    font-size: 15px;
-  }
-
-  .info {
-    width: 16px;
-    height: 16px;
-
-    font-size: 11px;
-  }
-}
-
-
-/* ============================================================
-   TABLET / TELEMÓVEL VERTICAL
-   ============================================================ */
-
-@media (max-width: 900px)
-  and (orientation: portrait) {
-
-  #app {
-    padding:
-      10px 12px 13px;
-  }
-
-  .cabecalho {
-    height: 66px;
-  }
-
-  .marca-sol {
-    width: 48px;
-    height: 48px;
-
-    flex-basis: 48px;
-  }
-
-  .marca-sol::before {
-    font-size: 51px;
-  }
-
-  .marca-texto h1 {
-    font-size: 25px;
-  }
-
-  .marca-texto p {
-    font-size: 10px;
-  }
-
-  .titulo-menu {
-    margin-bottom: 12px;
-
-    padding:
-      7px 21px;
-  }
-
-  .titulo-menu h2 {
-    font-size: 17px;
-  }
-
-  .anos {
-    grid-template-columns: 1fr;
-
-    gap: 9px;
-  }
-
-  .botao-ano {
-    width: 100%;
-
-    height: 126px;
-
-    padding:
-      10px 18px;
-
-    display: grid;
-
-    grid-template-columns:
-      88px 1fr;
-
-    grid-template-rows: 1fr;
-
-    column-gap: 15px;
-
-    border-radius: 17px;
-  }
-
-  .icone-ano {
-    width: 76px;
-    height: 76px;
-
-    flex: none;
-  }
-
-  .texto-ano {
-    text-align: left;
-  }
-
-  .nome-ano {
-    font-size: 22px;
-  }
-
-  .idade-ano {
-    margin-top: 6px;
-
-    font-size: 13px;
-  }
-
-  .destaques {
-    margin-top: 12px;
-
-    padding:
-      14px 12px 16px;
-  }
-
-  .titulo-destaques {
-    margin:
-      0 10px 14px;
-
-    gap: 10px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 17px;
-  }
-
-  .jogos {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
-    row-gap: 18px;
-  }
-
-  .icone-jogo {
-    width:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-  }
-
-  .nome-jogo {
-    font-size: 13px;
-  }
-
-  .estrelas {
-    font-size: 13px;
-  }
-
-  .rodape {
-    margin-top: 11px;
-
-    grid-template-columns: 1fr;
-
-    gap: 5px;
-  }
-
-  .rodape-info {
-    justify-content: flex-start;
-  }
-}
-
-
-/* ============================================================
-   TELEMÓVEL VERTICAL PEQUENO
-   ============================================================ */
-
-@media (max-width: 600px)
-  and (orientation: portrait) {
-
-  .cabecalho {
-    height: 59px;
-  }
-
-  .marca-sol {
-    width: 43px;
-    height: 43px;
-
-    flex-basis: 43px;
-  }
-
-  .marca-sol::before {
-    font-size: 46px;
-  }
-
-  .marca-texto h1 {
-    font-size: 22px;
-  }
-
-  .marca-texto p {
-    font-size: 9px;
-  }
-
-  .titulo-menu {
-    padding:
-      6px 18px;
-
-    border-radius: 11px;
-  }
-
-  .titulo-menu h2 {
-    font-size: 15px;
-  }
-
-  .botao-ano {
-    height: 94px;
-
-    grid-template-columns:
-      72px 1fr;
-
-    column-gap: 10px;
-
-    padding:
-      7px 12px;
-
-    border-radius: 14px;
-  }
-
-  .icone-ano {
-    width: 58px;
-    height: 58px;
-  }
-
-  .nome-ano {
-    font-size: 18px;
-  }
-
-  .idade-ano {
-    margin-top: 4px;
-
-    font-size: 11px;
-  }
-
-  .destaques {
-    padding:
-      10px 8px 12px;
-
-    border-radius: 17px;
-  }
-
-  .titulo-destaques {
-    margin-bottom: 11px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 14px;
-  }
-
-  .jogos {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
-    row-gap: 13px;
-  }
-
-  .icone-jogo {
-    width:
-      ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
-  }
-
-  .nome-jogo {
-    font-size: 11px;
-  }
-
-  .estrelas {
-    font-size: 10px;
-  }
-
-  .rodape {
-    font-size: 9px;
-  }
-}
-
-
-/* ============================================================
-   FOCO
-   ============================================================ */
-
-.botao-ano:focus-visible {
-  outline:
-    4px solid rgba(255,255,255,.95);
-
-  outline-offset: 3px;
-}
-`;
-
-
-/* ============================================================
-   JAVASCRIPT
-   ============================================================ */
-
-
-/*
-================================================================
- NUVENS
-================================================================
-
- IMPORTANTE:
 
- As posições são fixas.
+];
 
- Não existe Math.random() nesta função.
 
- Assim:
- - ao abrir a página, as nuvens ficam sempre nos mesmos locais;
- - ao atualizar a página, continuam nos mesmos locais;
- - ao mudar de dispositivo, mantêm a posição percentual;
- - apenas fazem um pequeno movimento horizontal.
-================================================================
-*/
+/* =========================================================
+   CRIAR NUVENS
+   ========================================================= */
 
 function criarNuvens() {
 
-  const camada =
-    document.querySelector(".camada-nuvens");
+  const camada = document.querySelector(".camada-nuvens");
 
   if (!camada) return;
 
-  const cfg =
-    DADOS.nuvens;
 
-  const posicoes = [
+  const quantidade = 7;
 
-    {
-      left: 12,
-      top: 48,
-      largura: 105,
-      altura: 54,
-      rotacao: -2,
-      duracao: 18
-    },
 
-    {
-      left: 50,
-      top: 92,
-      largura: 88,
-      altura: 46,
-      rotacao: 1,
-      duracao: 22
-    },
+  for (let i = 0; i < quantidade; i++) {
 
-    {
-      left: 86,
-      top: 42,
-      largura: 118,
-      altura: 60,
-      rotacao: 2,
-      duracao: 20
-    }
+    const nuvem = document.createElement("img");
 
-  ];
+    nuvem.src = "../icons/nuvem.png";
 
-  posicoes
-    .slice(0, cfg.quantidade)
-    .forEach((posicao, i) => {
+    nuvem.alt = "";
 
-      const img =
-        document.createElement("img");
+    nuvem.className = "nuvem";
 
-      img.className =
-        "nuvem-pequena";
+    nuvem.setAttribute("aria-hidden", "true");
 
-      img.src =
-        DADOS.nuvem;
 
-      img.alt = "";
+    nuvem.style.left = `${Math.random() * 100}%`;
 
-      img.draggable = false;
+    nuvem.style.top = `${5 + Math.random() * 35}%`;
 
-      img.style.left =
-        `${posicao.left}%`;
+    nuvem.style.width = `${70 + Math.random() * 100}px`;
 
-      img.style.top =
-        `${posicao.top}px`;
+    nuvem.style.animationDelay = `${Math.random() * 8}s`;
 
-      img.style.width =
-        `${posicao.largura}px`;
+    nuvem.style.animationDuration = `${18 + Math.random() * 15}s`;
 
-      img.style.height =
-        `${posicao.altura}px`;
 
-      img.style.setProperty(
-        "--rotacao-nuvem",
-        `${posicao.rotacao}deg`
-      );
+    camada.appendChild(nuvem);
 
-      img.style.animation =
-        `flutuar-nuvem ${posicao.duracao}s ease-in-out infinite`;
+  }
 
-      /*
-         Faz com que cada nuvem comece
-         numa fase diferente da animação.
-      */
-
-      img.style.animationDelay =
-        `${i * -3}s`;
-
-      camada.appendChild(img);
-    });
 }
 
 
-/* ============================================================
+/* =========================================================
    INSERIR CSS
-   ============================================================ */
+   ========================================================= */
 
 function inserirCSS() {
 
-  const style =
-    document.createElement("style");
+  const style = document.createElement("style");
 
-  style.textContent =
-    CSS;
+
+  style.textContent = `
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+
+    body {
+
+      font-family: "Nunito", "Arial Rounded MT Bold", Arial, sans-serif;
+
+      background:
+        linear-gradient(
+          180deg,
+          #75D9FF 0%,
+          #BCEEFF 45%,
+          #EAF9FF 100%
+        );
+
+      color: #17466B;
+
+      overflow-x: hidden;
+
+    }
+
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 20% 15%,
+          rgba(255,255,255,.45),
+          transparent 25%
+        );
+
+      z-index: -1;
+
+    }
+
+
+    /* =====================================================
+       APP
+       ===================================================== */
+
+    #app {
+
+      min-height: 100vh;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+    /* =====================================================
+       NUVENS
+       ===================================================== */
+
+    .camada-nuvens {
+
+      position: absolute;
+
+      inset: 0;
+
+      overflow: hidden;
+
+      pointer-events: none;
+
+      z-index: 0;
+
+    }
+
+
+    .nuvem {
+
+      position: absolute;
+
+      opacity: .75;
+
+      user-select: none;
+
+      animation:
+        moverNuvem linear infinite;
+
+    }
+
+
+    @keyframes moverNuvem {
+
+      from {
+        transform: translateX(-30px);
+      }
+
+      to {
+        transform: translateX(100px);
+      }
+
+    }
+
+
+    /* =====================================================
+       CABEÇALHO
+       ===================================================== */
+
+    .cabecalho {
+
+      position: relative;
+
+      z-index: 2;
+
+      padding: 25px 25px 10px;
+
+    }
+
+
+    .marca {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 18px;
+
+    }
+
+
+    .marca-sol {
+
+      width: 72px;
+
+      height: 72px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          #FFF76A 0%,
+          #FFD83D 65%,
+          #FFB52B 100%
+        );
+
+      box-shadow:
+        0 5px 0 rgba(224,155,0,.25),
+        0 0 25px rgba(255,230,60,.45);
+
+      position: relative;
+
+      flex-shrink: 0;
+
+    }
+
+
+    .marca-sol::before {
+
+      content: "☀";
+
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 42px;
+
+      color: #FFF;
+
+    }
+
+
+    .marca-texto {
+
+      text-align: left;
+
+    }
+
+
+    .marca-texto h1 {
+
+      font-size: clamp(28px, 5vw, 46px);
+
+      font-weight: 900;
+
+      color: #0358A9;
+
+      line-height: 1;
+
+      text-shadow:
+        2px 3px 0 rgba(255,255,255,.8);
+
+    }
+
+
+    .marca-texto p {
+
+      margin-top: 6px;
+
+      font-size: clamp(14px, 2.5vw, 20px);
+
+      font-weight: 700;
+
+      color: #28749D;
+
+    }
+
+
+    /* =====================================================
+       ÁREA DO MENU
+       ===================================================== */
+
+    .area-menu {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: min(1180px, 94%);
+
+      margin: 15px auto 0;
+
+    }
+
+
+    .titulo-menu {
+
+      display: flex;
+
+      justify-content: center;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .titulo-menu h2 {
+
+      background: #0358A9;
+
+      color: white;
+
+      padding: 12px 35px;
+
+      border-radius: 40px;
+
+      font-size: clamp(20px, 3vw, 30px);
+
+      font-weight: 900;
+
+      box-shadow:
+        0 6px 0 rgba(3,88,169,.25);
+
+      text-align: center;
+
+    }
+
+
+    /* =====================================================
+       DECORAÇÕES
+       ===================================================== */
+
+    .decoracao {
+
+      position: absolute;
+
+      width: 100px;
+
+      height: 100px;
+
+      border-radius: 50%;
+
+      opacity: .18;
+
+      pointer-events: none;
+
+    }
+
+
+    .decoracao-esquerda {
+
+      left: -60px;
+
+      top: 60px;
+
+      background: #20B9EF;
+
+    }
+
+
+    .decoracao-direita {
+
+      right: -60px;
+
+      bottom: 20px;
+
+      background: #A74BEF;
+
+    }
+
+
+    /* =====================================================
+       CARTÕES DAS ÁREAS
+       ===================================================== */
+
+    .areas {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 25px;
+
+    }
+
+
+    .area {
+
+      min-width: 0;
+
+    }
+
+
+    .botao-area {
+
+      width: 100%;
+
+      min-height: 220px;
+
+      border: 0;
+
+      border-radius: 28px;
+
+      padding: 25px 20px;
+
+      cursor: pointer;
+
+      background: white;
+
+      box-shadow:
+        0 8px 0 rgba(0,80,140,.15),
+        0 12px 25px rgba(0,90,140,.15);
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 15px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+      font-family: inherit;
+
+    }
+
+
+    .botao-area:hover {
+
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 13px 0 rgba(0,80,140,.15),
+        0 18px 30px rgba(0,90,140,.2);
+
+    }
+
+
+    .botao-area:active {
+
+      transform: translateY(2px);
+
+      box-shadow:
+        0 5px 0 rgba(0,80,140,.15),
+        0 8px 15px rgba(0,90,140,.15);
+
+    }
+
+
+    .botao-area:focus-visible {
+
+      outline: 4px solid #FFD83D;
+
+      outline-offset: 4px;
+
+    }
+
+
+    .icone-area {
+
+      width: 125px;
+
+      height: 125px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    .icone-area img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: contain;
+
+      user-select: none;
+
+      pointer-events: none;
+
+    }
+
+
+    .texto-area {
+
+      text-align: center;
+
+    }
+
+
+    .nome-area {
+
+      font-size: clamp(23px, 3vw, 31px);
+
+      font-weight: 900;
+
+      color: #0358A9;
+
+    }
+
+
+    .descricao-area {
+
+      margin-top: 5px;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      color: #6A8BA0;
+
+    }
+
+
+    /* =====================================================
+       JOGOS EM DESTAQUE
+       ===================================================== */
+
+    .destaques {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: min(1180px, 94%);
+
+      margin: 45px auto 0;
+
+    }
+
+
+    .titulo-destaques {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .titulo-destaques h2 {
+
+      color: #0358A9;
+
+      font-size: clamp(19px, 3vw, 27px);
+
+      font-weight: 900;
+
+      white-space: nowrap;
+
+    }
+
+
+    .linha {
+
+      flex: 1;
+
+      height: 4px;
+
+      background: rgba(3,88,169,.25);
+
+      border-radius: 5px;
+
+    }
+
+
+    .jogos {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+      gap: 15px;
+
+    }
+
+
+    .jogo {
+
+      background: white;
+
+      border-radius: 20px;
+
+      padding: 15px 10px;
+
+      text-align: center;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 5px 0 rgba(0,80,140,.12),
+        0 8px 15px rgba(0,90,140,.10);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+      outline: none;
+
+    }
+
+
+    .jogo:hover {
+
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 9px 0 rgba(0,80,140,.12),
+        0 14px 20px rgba(0,90,140,.15);
+
+    }
+
+
+    .jogo:focus-visible {
+
+      outline: 4px solid #FFD83D;
+
+      outline-offset: 3px;
+
+    }
+
+
+    .icone-jogo {
+
+      width: 90px;
+
+      height: 90px;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    .icone-jogo img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: contain;
+
+      user-select: none;
+
+      pointer-events: none;
+
+    }
+
+
+    .nome-jogo {
+
+      margin-top: 8px;
+
+      font-size: 16px;
+
+      font-weight: 900;
+
+      color: #0358A9;
+
+      min-height: 20px;
+
+    }
+
+
+    .estrelas {
+
+      margin-top: 4px;
+
+      font-size: 14px;
+
+      letter-spacing: 1px;
+
+      color: #FFD23F;
+
+    }
+
+
+    /* =====================================================
+       RODAPÉ
+       ===================================================== */
+
+    .rodape {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: min(1180px, 94%);
+
+      margin: 40px auto 0;
+
+      padding: 20px 10px 30px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+
+      color: #39728F;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+    }
+
+
+    .rodape-item {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+    }
+
+
+    .estrela {
+
+      color: #FFC928;
+
+      font-size: 20px;
+
+    }
+
+
+    .info {
+
+      width: 22px;
+
+      height: 22px;
+
+      border-radius: 50%;
+
+      background: #0358A9;
+
+      color: white;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-weight: 900;
+
+      font-size: 14px;
+
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .areas {
+
+        gap: 18px;
+
+      }
+
+
+      .botao-area {
+
+        min-height: 200px;
+
+        padding: 20px 15px;
+
+      }
+
+
+      .icone-area {
+
+        width: 105px;
+
+        height: 105px;
+
+      }
+
+
+      .jogos {
+
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+
+      }
+
+    }
+
+
+    /* =====================================================
+       TELEMÓVEL
+       ===================================================== */
+
+    @media (max-width: 650px) {
+
+      .cabecalho {
+
+        padding-top: 18px;
+
+      }
+
+
+      .marca {
+
+        gap: 10px;
+
+      }
+
+
+      .marca-sol {
+
+        width: 55px;
+
+        height: 55px;
+
+      }
+
+
+      .marca-sol::before {
+
+        font-size: 32px;
+
+      }
+
+
+      .areas {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+      }
+
+
+      .botao-area {
+
+        min-height: 145px;
+
+        flex-direction: row;
+
+        justify-content: flex-start;
+
+        padding: 15px 25px;
+
+        text-align: left;
+
+      }
+
+
+      .icone-area {
+
+        width: 90px;
+
+        height: 90px;
+
+        flex-shrink: 0;
+
+      }
+
+
+      .texto-area {
+
+        text-align: left;
+
+      }
+
+
+      .nome-area {
+
+        font-size: 24px;
+
+      }
+
+
+      .descricao-area {
+
+        font-size: 14px;
+
+      }
+
+
+      .titulo-destaques {
+
+        gap: 8px;
+
+      }
+
+
+      .titulo-destaques h2 {
+
+        font-size: 19px;
+
+      }
+
+
+      .jogos {
+
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+      }
+
+
+      .icone-jogo {
+
+        width: 75px;
+
+        height: 75px;
+
+      }
+
+
+      .nome-jogo {
+
+        font-size: 15px;
+
+      }
+
+
+      .rodape {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        margin-top: 25px;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       TELEMÓVEL PEQUENO
+       ===================================================== */
+
+    @media (max-width: 380px) {
+
+      .botao-area {
+
+        padding: 12px 15px;
+
+      }
+
+
+      .icone-area {
+
+        width: 75px;
+
+        height: 75px;
+
+      }
+
+
+      .nome-area {
+
+        font-size: 21px;
+
+      }
+
+
+      .descricao-area {
+
+        font-size: 12px;
+
+      }
+
+
+      .jogos {
+
+        gap: 9px;
+
+      }
+
+    }
+
+  `;
+
 
   document.head.appendChild(style);
+
 }
 
 
-/* ============================================================
+/* =========================================================
    PREENCHER TEXTOS
-   ============================================================ */
+   ========================================================= */
 
 function preencherTextos() {
 
-  document
-    .querySelector("[data-marca]")
-    .textContent =
-    DADOS.pagina.titulo;
+  const marca = document.querySelector("[data-marca]");
 
-  document
-    .querySelector("[data-submarca]")
-    .textContent =
-    DADOS.pagina.subtitulo;
+  const submarca = document.querySelector("[data-submarca]");
 
-  document
-    .querySelector("[data-titulo-menu]")
-    .textContent =
-    DADOS.pagina.tituloMenu;
+  const tituloMenu = document.querySelector("[data-titulo-menu]");
 
-  document
-    .querySelector("[data-mensagem]")
-    .textContent =
-    DADOS.pagina.mensagem;
+  const mensagem = document.querySelector("[data-mensagem]");
 
-  document
-    .querySelector("[data-informacao]")
-    .textContent =
-    DADOS.pagina.informacao;
+  const informacao = document.querySelector("[data-informacao]");
+
+
+  if (marca) {
+
+    marca.textContent = pagina.marca;
+
+  }
+
+
+  if (submarca) {
+
+    submarca.textContent = pagina.submarca;
+
+  }
+
+
+  if (tituloMenu) {
+
+    tituloMenu.textContent = pagina.tituloMenu;
+
+  }
+
+
+  if (mensagem) {
+
+    mensagem.textContent = pagina.mensagem;
+
+  }
+
+
+  if (informacao) {
+
+    informacao.textContent = pagina.informacao;
+
+  }
+
 }
 
 
-/* ============================================================
-   CRIAR CARTÕES DOS ANOS
-   ============================================================ */
+/* =========================================================
+   CRIAR CARTÕES DAS ÁREAS
+   ========================================================= */
 
-function criarCartoesAno() {
+function criarCartoesAreas() {
 
-  const zona =
-    document.querySelector("#anos");
+  const container = document.getElementById("areas");
 
-  const modelo =
-    document.querySelector("#modelo-ano");
+  const template = document.getElementById("modelo-area");
 
-  DADOS.anos.forEach((ano) => {
 
-    const fragmento =
-      modelo.content.cloneNode(true);
+  if (!container || !template) return;
+
+
+  areas.forEach((area) => {
+
+    const clone =
+      template.content.cloneNode(true);
+
 
     const artigo =
-      fragmento.querySelector(".ano");
+      clone.querySelector(".area");
 
     const botao =
-      fragmento.querySelector(".botao-ano");
+      clone.querySelector(".botao-area");
 
-    const caixaIcon =
-      fragmento.querySelector(".icone-ano");
+    const imagem =
+      clone.querySelector(".icone-area img");
 
-    artigo.dataset.ano =
-      ano.id;
+    const nome =
+      clone.querySelector(".nome-area");
+
+    const descricao =
+      clone.querySelector(".descricao-area");
+
+
+    /* ÍCONE */
+
+    imagem.src = icons.areas[area.icon];
+
+    imagem.alt = area.nome;
+
+
+    /* TEXTO */
+
+    nome.textContent = area.nome;
+
+    descricao.textContent = area.descricao;
+
+
+    /* COR DO CARTÃO */
 
     botao.style.setProperty(
-      "--cor-1",
-      ano.cor
+      "--cor-area",
+      area.cor
     );
 
     botao.style.setProperty(
-      "--cor-2",
-      ano.cor2
+      "--cor-area2",
+      area.cor2
     );
+
+
+    /* ACESSIBILIDADE */
 
     botao.setAttribute(
       "aria-label",
-      `${ano.nome}, ${ano.idade}`
+      `Abrir ${area.nome}`
     );
 
-    const img =
-      document.createElement("img");
 
-    img.src =
-      DADOS.icons.anos[ano.icon];
+    /* NAVEGAÇÃO */
 
-    img.alt = "";
+    botao.addEventListener("click", () => {
 
-    img.draggable = false;
+      if (area.pagina) {
 
-    caixaIcon.appendChild(img);
-
-    fragmento
-      .querySelector(".nome-ano")
-      .textContent =
-      ano.nome;
-
-    fragmento
-      .querySelector(".idade-ano")
-      .textContent =
-      ano.idade;
-
-    botao.addEventListener(
-      "click",
-      () => {
-
-        window.location.href =
-          ano.pagina;
+        window.location.href = area.pagina;
 
       }
-    );
 
-    zona.appendChild(fragmento);
+    });
+
+
+    artigo.dataset.area = area.id;
+
+
+    container.appendChild(clone);
 
   });
+
 }
 
 
-/* ============================================================
-   CRIAR DESTAQUES
-   ============================================================ */
+/* =========================================================
+   CRIAR JOGOS EM DESTAQUE
+   ========================================================= */
 
 function criarDestaques() {
 
-  const zona =
-    document.querySelector("#jogos");
+  const container =
+    document.getElementById("jogos");
 
-  const modelo =
-    document.querySelector("#modelo-jogo");
+  const template =
+    document.getElementById("modelo-jogo");
 
-  DADOS.destaques.forEach((jogo) => {
 
-    const fragmento =
-      modelo.content.cloneNode(true);
+  if (!container || !template) return;
 
-    const img =
-      fragmento.querySelector(
-        ".icone-jogo img"
-      );
+
+  destaques.forEach((jogo) => {
+
+    const clone =
+      template.content.cloneNode(true);
+
+
+    const artigo =
+      clone.querySelector(".jogo");
+
+    const imagem =
+      clone.querySelector(".icone-jogo img");
 
     const nome =
-      fragmento.querySelector(
-        ".nome-jogo"
-      );
+      clone.querySelector(".nome-jogo");
 
-    const estrelas =
-      fragmento.querySelector(
-        ".estrelas"
-      );
 
-    img.src =
-      DADOS.icons.destaques[jogo.icon];
+    /* ÍCONE */
 
-    img.alt =
+    imagem.src =
+      icons.destaques[jogo.icon];
+
+    imagem.alt =
       jogo.nome;
+
+
+    /* NOME */
 
     nome.textContent =
       jogo.nome;
 
-    estrelas.textContent =
-      "★".repeat(jogo.estrelas);
 
-    estrelas.setAttribute(
-      "aria-label",
-      `${jogo.estrelas} estrelas`
+    /* ACESSIBILIDADE */
+
+    artigo.setAttribute(
+      "role",
+      "link"
     );
 
-    zona.appendChild(fragmento);
+    artigo.setAttribute(
+      "tabindex",
+      "0"
+    );
+
+    artigo.setAttribute(
+      "aria-label",
+      `Abrir jogo ${jogo.nome}`
+    );
+
+
+    /* CLIQUE */
+
+    artigo.addEventListener(
+      "click",
+      () => {
+
+        if (jogo.pagina) {
+
+          window.location.href =
+            jogo.pagina;
+
+        }
+
+      }
+    );
+
+
+    /* TECLADO */
+
+    artigo.addEventListener(
+      "keydown",
+      (evento) => {
+
+        if (
+          evento.key === "Enter" ||
+          evento.key === " "
+        ) {
+
+          evento.preventDefault();
+
+          if (jogo.pagina) {
+
+            window.location.href =
+              jogo.pagina;
+
+          }
+
+        }
+
+      }
+    );
+
+
+    container.appendChild(clone);
 
   });
+
 }
 
 
-/* ============================================================
+/* =========================================================
    INICIALIZAÇÃO
-   ============================================================ */
+   ========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -1833,11 +1508,11 @@ document.addEventListener(
 
     inserirCSS();
 
-    criarNuvens();
-
     preencherTextos();
 
-    criarCartoesAno();
+    criarNuvens();
+
+    criarCartoesAreas();
 
     criarDestaques();
 
