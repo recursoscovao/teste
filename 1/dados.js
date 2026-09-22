@@ -89,6 +89,8 @@ const DADOS = {
     ceu1: "#78DDF7",
     ceu2: "#BCEEF9",
 
+    cabecalho: "#0358A9",
+
     texto: "#07569A",
     textoEscuro: "#064B8A",
     branco: "#FFFFFF",
@@ -124,12 +126,6 @@ const DADOS = {
   dimensoes: {
     larguraMaxima: 1650,
 
-    /*
-      Cartões dos anos:
-      não são 16:9.
-      São mais altos para o aspeto do menu original.
-    */
-
     alturaAnoDesktop: 300,
     alturaAnoTabletHorizontal: 245,
     alturaAnoTelemovelHorizontal: 175,
@@ -140,8 +136,6 @@ const DADOS = {
     tamanhoIconAnoDesktop: 150,
     tamanhoIconAnoTablet: 115,
     tamanhoIconAnoTelemovelHorizontal: 86,
-
-    /* Ícones de destaque deliberadamente mais pequenos */
 
     tamanhoIconJogo: 76,
     tamanhoIconJogoTablet: 64,
@@ -226,7 +220,7 @@ const DADOS = {
     },
 
     {
-      id: "dominio",
+      id: "dominorio",
       nome: "Dominório",
       icon: "dominorio",
       estrelas: 5,
@@ -269,6 +263,7 @@ const CSS = `
   --fundo: ${DADOS.cores.fundo};
   --ceu1: ${DADOS.cores.ceu1};
   --ceu2: ${DADOS.cores.ceu2};
+  --cabecalho: ${DADOS.cores.cabecalho};
 
   --texto: ${DADOS.cores.texto};
   --texto-escuro: ${DADOS.cores.textoEscuro};
@@ -366,14 +361,6 @@ button {
     rotate(var(--rotacao-nuvem));
 }
 
-
-/*
-   Movimento suave das nuvens.
-
-   A posição inicial continua sempre igual.
-   Apenas existe uma pequena deslocação horizontal.
-*/
-
 @keyframes flutuar-nuvem {
 
   0%,
@@ -402,6 +389,8 @@ button {
   z-index: 1;
 
   height: 82px;
+
+  background: var(--cabecalho);
 
   display: flex;
   align-items: center;
@@ -470,7 +459,7 @@ button {
 .marca-texto h1 {
   margin: 0;
 
-  color: #07579B;
+  color: #FFFFFF;
 
   font-size: clamp(28px, 3vw, 45px);
 
@@ -487,7 +476,7 @@ button {
 .marca-texto p {
   margin: 6px 0 0;
 
-  color: #0963A6;
+  color: #FFFFFF;
 
   font-size: clamp(13px, 1.2vw, 18px);
 
@@ -1011,10 +1000,6 @@ button {
     gap: 8px;
   }
 
-  /*
-     CARTÕES MAIS BAIXOS NO TABLET HORIZONTAL
-  */
-
   .botao-ano {
     height:
       ${DADOS.dimensoes.alturaAnoTabletHorizontal}px;
@@ -1101,13 +1086,6 @@ button {
 
 /* ============================================================
    TELEMÓVEL HORIZONTAL
-   ============================================================
-
-   Intencionalmente segue a mesma composição do tablet horizontal:
-   - 5 cartões em linha
-   - icon em cima
-   - texto por baixo
-   - jogos em 6 colunas
    ============================================================ */
 
 @media (max-width: 600px)
@@ -1167,10 +1145,6 @@ button {
 
     gap: 5px;
   }
-
-  /*
-     CARTÕES MAIS BAIXOS NO TELEMÓVEL HORIZONTAL
-  */
 
   .botao-ano {
     height:
@@ -1297,10 +1271,6 @@ button {
 
 /* ============================================================
    TABLET / TELEMÓVEL VERTICAL
-   ============================================================
-
-   Um cartão por linha:
-   icon à esquerda + texto à direita.
    ============================================================ */
 
 @media (max-width: 900px)
@@ -1676,11 +1646,6 @@ function criarNuvens() {
       img.style.animation =
         `flutuar-nuvem ${posicao.duracao}s ease-in-out infinite`;
 
-      /*
-         Faz com que cada nuvem comece
-         numa fase diferente da animação.
-      */
-
       img.style.animationDelay =
         `${i * -3}s`;
 
@@ -1872,22 +1837,32 @@ function criarDestaques() {
     );
 
     /* Link do jogo — sem alterar o aspeto do cartão. */
+
     if (jogo.pagina) {
-      const cartao = fragmento.querySelector(".jogo");
+
+      const cartao =
+        fragmento.querySelector(".jogo");
 
       if (cartao) {
-        cartao.style.cursor = "pointer";
+
+        cartao.style.cursor =
+          "pointer";
+
         cartao.setAttribute(
           "role",
           "link"
         );
+
         cartao.setAttribute(
           "tabindex",
           "0"
         );
 
         const abrirJogo = () => {
-          window.location.href = jogo.pagina;
+
+          window.location.href =
+            jogo.pagina;
+
         };
 
         cartao.addEventListener(
@@ -1898,16 +1873,22 @@ function criarDestaques() {
         cartao.addEventListener(
           "keydown",
           (evento) => {
+
             if (
               evento.key === "Enter" ||
               evento.key === " "
             ) {
+
               evento.preventDefault();
+
               abrirJogo();
             }
+
           }
         );
+
       }
+
     }
 
     zona.appendChild(fragmento);
