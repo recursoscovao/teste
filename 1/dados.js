@@ -1,41 +1,33 @@
+```javascript
 /*
 ================================================================
  RECURSOS Covão — DADOS E APRESENTAÇÃO
 ================================================================
-
- A estrutura HTML está em index.html.
+ Estrutura HTML: index.html
 
  Este ficheiro concentra:
  - textos
  - cores
  - dimensões
- - caminhos de TODOS os icons
- - definição dos anos
- - definição dos jogos em destaque
+ - caminhos dos icons
+ - anos
+ - jogos em destaque
  - CSS
  - comportamento
-
- Os PNG existentes na pasta /icons são usados diretamente.
-
- Estrutura esperada:
-
- /index.html
- /dados.js
- /icons/
-    iconpre.png
-    icon1.png
-    icon2.png
-    icon3.png
-    icon4.png
-    rastros.png
-    gatos&caes.png
-    dominorio.png
-    semaforo.png
-    quelhas.png
-    avanco.png
+================================================================
 */
 
+
+/* ==============================================================
+   DADOS GERAIS
+   ============================================================== */
+
 const DADOS = {
+
+  /* --------------------------------------------------------------
+     NUVENS
+     -------------------------------------------------------------- */
+
   nuvem: "../icons/nuvem.png",
 
   nuvens: {
@@ -49,6 +41,11 @@ const DADOS = {
     margemHorizontal: 12
   },
 
+
+  /* --------------------------------------------------------------
+     TEXTOS DA PÁGINA
+     -------------------------------------------------------------- */
+
   pagina: {
     titulo: "Recursos Covão",
     subtitulo: "Aprender • Explorar • Descobrir",
@@ -57,11 +54,14 @@ const DADOS = {
     informacao: "Recursos educativos para o 1.º ciclo"
   },
 
-  /* ==========================================================
-     ICONS — todos centralizados aqui
-     ========================================================== */
+
+  /* --------------------------------------------------------------
+     ICONS
+     Todos os caminhos ficam centralizados aqui.
+     -------------------------------------------------------------- */
 
   icons: {
+
     anos: {
       pre: "../icons/iconpre.png",
       ano1: "../icons/pt.png",
@@ -78,13 +78,16 @@ const DADOS = {
       quelhas: "../icons/quelhas.png",
       avanco: "../icons/avanco.png"
     }
+
   },
 
-  /* ==========================================================
+
+  /* --------------------------------------------------------------
      CORES
-     ========================================================== */
+     -------------------------------------------------------------- */
 
   cores: {
+
     fundo: "#EAF5FC",
     ceu1: "#78DDF7",
     ceu2: "#BCEEF9",
@@ -117,13 +120,16 @@ const DADOS = {
 
     sombra: "rgba(15, 88, 139, .20)",
     sombraForte: "rgba(15, 88, 139, .30)"
+
   },
 
-  /* ==========================================================
+
+  /* --------------------------------------------------------------
      DIMENSÕES
-     ========================================================== */
+     -------------------------------------------------------------- */
 
   dimensoes: {
+
     larguraMaxima: 1650,
 
     alturaAnoDesktop: 300,
@@ -140,13 +146,16 @@ const DADOS = {
     tamanhoIconJogo: 76,
     tamanhoIconJogoTablet: 64,
     tamanhoIconJogoTelemovel: 54
+
   },
 
-  /* ==========================================================
+
+  /* --------------------------------------------------------------
      ANOS
-     ========================================================== */
+     -------------------------------------------------------------- */
 
   anos: [
+
     {
       id: "pre",
       nome: "Pré-Escolar",
@@ -196,13 +205,16 @@ const DADOS = {
       cor2: "#C81970",
       pagina: "ano-4.html"
     }
+
   ],
 
-  /* ==========================================================
+
+  /* --------------------------------------------------------------
      JOGOS EM DESTAQUE
-     ========================================================== */
+     -------------------------------------------------------------- */
 
   destaques: [
+
     {
       id: "rastros",
       nome: "Rastros",
@@ -250,30 +262,33 @@ const DADOS = {
       estrelas: 5,
       pagina: "jogos/avanco/index.html"
     }
+
   ]
+
 };
 
 
-/* ============================================================
+/* ==============================================================
    CSS
-   ============================================================ */
+   ============================================================== */
 
 const CSS = `
+
+/* ==============================================================
+   BASE
+   ============================================================== */
+
 :root {
   --fundo: ${DADOS.cores.fundo};
   --ceu1: ${DADOS.cores.ceu1};
   --ceu2: ${DADOS.cores.ceu2};
   --cabecalho: ${DADOS.cores.cabecalho};
-
   --texto: ${DADOS.cores.texto};
   --texto-escuro: ${DADOS.cores.textoEscuro};
   --branco: ${DADOS.cores.branco};
-
   --creme: ${DADOS.cores.creme};
   --creme2: ${DADOS.cores.creme2};
-
   --linha: ${DADOS.cores.linha};
-
   --sombra: ${DADOS.cores.sombra};
   --sombra-forte: ${DADOS.cores.sombraForte};
 }
@@ -291,7 +306,6 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-
   font-family:
     "Nunito",
     "Quicksand",
@@ -299,7 +313,6 @@ body {
     "Trebuchet MS",
     Arial,
     sans-serif;
-
   color: var(--texto);
   background: var(--fundo);
 }
@@ -308,12 +321,16 @@ button {
   font: inherit;
 }
 
+
+/* ==============================================================
+   APLICAÇÃO
+   ============================================================== */
+
 #app {
   width: min(100%, ${DADOS.dimensoes.larguraMaxima}px);
   min-height: 100vh;
   margin: 0 auto;
-  padding: 13px 20px 16px;
-
+  padding: 0;
   position: relative;
   overflow: hidden;
 
@@ -328,27 +345,22 @@ button {
 }
 
 
-/* ============================================================
-   NUVENS
-   ============================================================ */
+/* ==============================================================
+   CAMADA DAS NUVENS
+   ============================================================== */
 
 .camada-nuvens {
   position: absolute;
   inset: 0;
-
   overflow: hidden;
   pointer-events: none;
-
   z-index: 0;
 }
 
 .nuvem-pequena {
   position: absolute;
-
   display: block;
-
   object-fit: contain;
-
   opacity: .88;
 
   filter:
@@ -377,18 +389,33 @@ button {
       translateX(18px)
       rotate(var(--rotacao-nuvem));
   }
+
 }
 
 
-/*
-   Conteúdo sempre à frente das nuvens.
-*/
+/* ==============================================================
+   CONTEÚDO À FRENTE DAS NUVENS
+   ============================================================== */
 
-.cabecalho {
+.cabecalho,
+.titulo-menu,
+.anos,
+.destaques,
+.rodape {
   position: relative;
   z-index: 1;
+}
 
+
+/* ==============================================================
+   CABEÇALHO
+   ============================================================== */
+
+.cabecalho {
+  width: 100%;
   height: 82px;
+  margin: 0;
+  padding: 0;
 
   background: var(--cabecalho);
 
@@ -396,31 +423,6 @@ button {
   align-items: center;
   justify-content: center;
 }
-
-.titulo-menu {
-  position: relative;
-  z-index: 1;
-}
-
-.anos {
-  position: relative;
-  z-index: 1;
-}
-
-.destaques {
-  position: relative;
-  z-index: 1;
-}
-
-.rodape {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ============================================================
-   CABEÇALHO
-   ============================================================ */
 
 .marca {
   display: flex;
@@ -431,15 +433,12 @@ button {
 .marca-sol {
   width: 62px;
   height: 62px;
-
   position: relative;
-
   flex: 0 0 62px;
 }
 
 .marca-sol::before {
   content: "☀";
-
   position: absolute;
   inset: 0;
 
@@ -447,7 +446,6 @@ button {
   place-items: center;
 
   color: #FFBA16;
-
   font-size: 65px;
   line-height: 1;
 
@@ -458,15 +456,11 @@ button {
 
 .marca-texto h1 {
   margin: 0;
-
   color: #FFFFFF;
 
   font-size: clamp(28px, 3vw, 45px);
-
   line-height: .98;
-
   font-weight: 900;
-
   letter-spacing: -.9px;
 
   text-shadow:
@@ -475,30 +469,24 @@ button {
 
 .marca-texto p {
   margin: 6px 0 0;
-
   color: #FFFFFF;
 
   font-size: clamp(13px, 1.2vw, 18px);
-
   line-height: 1;
-
   font-weight: 800;
 }
 
 
-/* ============================================================
+/* ==============================================================
    TÍTULO
-   ============================================================ */
+   ============================================================== */
 
 .titulo-menu {
   width: fit-content;
-
-  margin: 1px auto 19px;
-
+  margin: 14px auto 19px;
   padding: 8px 30px;
 
   border: 2px solid rgba(222,157,39,.42);
-
   border-radius: 16px;
 
   background:
@@ -515,33 +503,28 @@ button {
 
 .titulo-menu h2 {
   margin: 0;
-
   color: #74440C;
 
   font-size: clamp(18px, 1.7vw, 27px);
-
   line-height: 1;
-
   font-weight: 900;
 }
 
 
-/* ============================================================
+/* ==============================================================
    CARTÕES DOS ANOS
-   ============================================================ */
+   ============================================================== */
 
 .anos {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 
   display: grid;
-
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
   gap: 14px;
-
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .ano {
@@ -550,30 +533,21 @@ button {
 
 .botao-ano {
   width: 100%;
-
-  height:
-    ${DADOS.dimensoes.alturaAnoDesktop}px;
+  height: ${DADOS.dimensoes.alturaAnoDesktop}px;
 
   padding: 18px 12px 14px;
 
-  border:
-    3px solid rgba(255,255,255,.94);
-
-  border-radius:
-    ${DADOS.dimensoes.raioAno}px;
+  border: 3px solid rgba(255,255,255,.94);
+  border-radius: ${DADOS.dimensoes.raioAno}px;
 
   color: #fff;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: space-between;
 
   position: relative;
-
   overflow: hidden;
 
   cursor: pointer;
@@ -596,26 +570,21 @@ button {
 
 .botao-ano::before {
   content: "";
-
   position: absolute;
 
   width: 170%;
   height: 110%;
-
   left: -95%;
   top: -63%;
 
   border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.15);
+  background: rgba(255,255,255,.15);
 
   pointer-events: none;
 }
 
 .botao-ano::after {
   content: "";
-
   position: absolute;
 
   width: 90px;
@@ -625,16 +594,13 @@ button {
   top: -35px;
 
   border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.10);
+  background: rgba(255,255,255,.10);
 
   pointer-events: none;
 }
 
 .botao-ano:hover {
-  transform:
-    translateY(-4px);
+  transform: translateY(-4px);
 
   box-shadow:
     0 13px 20px var(--sombra-forte),
@@ -642,35 +608,26 @@ button {
 }
 
 .botao-ano:active {
-  transform:
-    translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .icone-ano {
-  width:
-    ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
+  width: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
+  height: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
 
-  height:
-    ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
-
-  flex:
-    0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
+  flex: 0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
 
   display: grid;
-
   place-items: center;
 
   position: relative;
-
   z-index: 1;
 }
 
 .icone-ano img {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: contain;
 
   filter:
@@ -679,9 +636,7 @@ button {
 
 .texto-ano {
   position: relative;
-
   z-index: 1;
-
   text-align: center;
 }
 
@@ -693,13 +648,9 @@ button {
     "Trebuchet MS",
     sans-serif;
 
-  font-size:
-    clamp(21px, 1.8vw, 29px);
-
+  font-size: clamp(21px, 1.8vw, 29px);
   line-height: 1.05;
-
   font-weight: 800;
-
   letter-spacing: -.25px;
 
   text-shadow:
@@ -715,13 +666,9 @@ button {
     "Trebuchet MS",
     sans-serif;
 
-  font-size:
-    clamp(14px, 1.2vw, 18px);
-
+  font-size: clamp(14px, 1.2vw, 18px);
   line-height: 1;
-
   font-weight: 700;
-
   letter-spacing: .15px;
 
   text-shadow:
@@ -729,20 +676,17 @@ button {
 }
 
 
-/* ============================================================
+/* ==============================================================
    JOGOS EM DESTAQUE
-   ============================================================ */
+   ============================================================== */
 
 .destaques {
   margin-top: 20px;
-
   padding: 23px 28px 25px;
 
-  border-radius:
-    ${DADOS.dimensoes.raioDestaques}px;
+  border-radius: ${DADOS.dimensoes.raioDestaques}px;
 
-  background:
-    rgba(255,255,255,.93);
+  background: rgba(255,255,255,.93);
 
   box-shadow:
     0 7px 18px rgba(25,100,150,.10),
@@ -751,12 +695,9 @@ button {
 
 .titulo-destaques {
   display: grid;
-
-  grid-template-columns:
-    1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr;
 
   align-items: center;
-
   gap: 28px;
 
   margin: 0 30px 25px;
@@ -764,43 +705,33 @@ button {
 
 .titulo-destaques .linha {
   height: 3px;
-
   background: #A7D5FA;
-
   border-radius: 99px;
 }
 
 .titulo-destaques h2 {
   margin: 0;
-
   color: #064F91;
 
-  font-size:
-    clamp(19px, 1.65vw, 26px);
-
+  font-size: clamp(19px, 1.65vw, 26px);
   line-height: 1;
-
   font-weight: 900;
 
   white-space: nowrap;
-
   text-align: center;
 }
 
 .titulo-destaques h2 span {
   margin-right: 7px;
-
   font-size: .92em;
 }
 
 .jogos {
   display: grid;
-
   grid-template-columns:
     repeat(6, minmax(0, 1fr));
 
   gap: 20px;
-
   align-items: start;
 }
 
@@ -808,23 +739,17 @@ button {
   min-width: 0;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
 
   text-align: center;
 }
 
 .icone-jogo {
-  width:
-    ${DADOS.dimensoes.tamanhoIconJogo}px;
-
-  height:
-    ${DADOS.dimensoes.tamanhoIconJogo}px;
+  width: ${DADOS.dimensoes.tamanhoIconJogo}px;
+  height: ${DADOS.dimensoes.tamanhoIconJogo}px;
 
   display: grid;
-
   place-items: center;
 
   margin-bottom: 10px;
@@ -835,83 +760,61 @@ button {
   height: 100%;
 
   object-fit: contain;
-
   display: block;
 }
 
 .nome-jogo {
   min-height: 25px;
-
   color: #064F91;
 
-  font-size:
-    clamp(15px, 1.25vw, 20px);
-
+  font-size: clamp(15px, 1.25vw, 20px);
   line-height: 1.05;
-
   font-weight: 900;
 }
 
 .estrelas {
   margin-top: 7px;
-
   color: #FFB400;
 
   font-family: Arial, sans-serif;
-
-  font-size:
-    clamp(15px, 1.15vw, 18px);
-
+  font-size: clamp(15px, 1.15vw, 18px);
   line-height: 1;
-
   letter-spacing: 1px;
 }
 
 
-/* ============================================================
+/* ==============================================================
    RODAPÉ
-   ============================================================ */
+   ============================================================== */
 
 .rodape {
   width: 100%;
-
   min-height: 53px;
 
   margin-top: 15px;
-
   padding: 8px 17px;
 
   display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   gap: 15px;
-
   align-items: center;
 
-  border:
-    2px solid var(--linha);
-
+  border: 2px solid var(--linha);
   border-radius: 14px;
 
-  background:
-    rgba(255,255,255,.78);
+  background: rgba(255,255,255,.78);
 
   box-shadow:
     0 4px 10px rgba(16,103,150,.08);
 
-  font-size:
-    clamp(11px, 1vw, 14px);
-
+  font-size: clamp(11px, 1vw, 14px);
   font-weight: 800;
 }
 
 .rodape-item {
   display: flex;
-
   align-items: center;
-
   gap: 8px;
 }
 
@@ -921,9 +824,7 @@ button {
 
 .estrela {
   color: #FFB400;
-
   font-size: 25px;
-
   line-height: 1;
 }
 
@@ -932,32 +833,26 @@ button {
   height: 25px;
 
   display: grid;
-
   place-items: center;
 
   border-radius: 50%;
 
   color: #fff;
-
   background: #087AC9;
 
   font-family: Arial, sans-serif;
-
   font-weight: 900;
 }
 
 
-/* ============================================================
+/* ==============================================================
    TABLET HORIZONTAL
-   ============================================================ */
+   ============================================================== */
 
-@media (max-width: 1100px)
-  and (min-width: 601px)
-  and (orientation: landscape) {
+@media (max-width: 1100px) and (min-width: 601px) and (orientation: landscape) {
 
   #app {
-    padding:
-      9px 13px 12px;
+    padding: 0 13px 12px;
   }
 
   .cabecalho {
@@ -967,7 +862,6 @@ button {
   .marca-sol {
     width: 49px;
     height: 49px;
-
     flex-basis: 49px;
   }
 
@@ -981,939 +875,14 @@ button {
 
   .marca-texto p {
     font-size: 12px;
-
     margin-top: 4px;
   }
 
   .titulo-menu {
     margin-bottom: 12px;
-
-    padding:
-      7px 24px;
+    padding: 7px 24px;
   }
 
   .titulo-menu h2 {
-    font-size: 20px;
-  }
-
-  .anos {
-    gap: 8px;
-  }
-
-  .botao-ano {
-    height:
-      ${DADOS.dimensoes.alturaAnoTabletHorizontal}px;
-
-    padding:
-      10px 7px 9px;
-
-    border-width: 2px;
-
-    border-radius: 16px;
-  }
-
-  .icone-ano {
-    width:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-
-    flex-basis:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-  }
-
-  .nome-ano {
-    font-size:
-      clamp(14px, 2vw, 20px);
-  }
-
-  .idade-ano {
-    margin-top: 4px;
-
-    font-size:
-      clamp(10px, 1.3vw, 14px);
-  }
-
-  .destaques {
-    margin-top: 12px;
-
-    padding:
-      15px 16px 17px;
-  }
-
-  .titulo-destaques {
-    margin-bottom: 15px;
-
-    gap: 16px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 18px;
-  }
-
-  .jogos {
-    gap: 10px;
-  }
-
-  .icone-jogo {
-    width:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-
-    margin-bottom: 5px;
-  }
-
-  .nome-jogo {
-    font-size: 12px;
-  }
-
-  .estrelas {
-    margin-top: 4px;
-
-    font-size: 15px;
-  }
-
-  .rodape {
-    margin-top: 9px;
-
-    min-height: 42px;
-  }
-}
-
-
-/* ============================================================
-   TELEMÓVEL HORIZONTAL
-   ============================================================ */
-
-@media (max-width: 600px)
-  and (min-height: 360px)
-  and (orientation: landscape) {
-
-  #app {
-    padding:
-      7px 10px 9px;
-  }
-
-  .cabecalho {
-    height: 50px;
-  }
-
-  .marca {
-    gap: 6px;
-  }
-
-  .marca-sol {
-    width: 39px;
-    height: 39px;
-
-    flex-basis: 39px;
-  }
-
-  .marca-sol::before {
-    font-size: 42px;
-  }
-
-  .marca-texto h1 {
-    font-size: 24px;
-  }
-
-  .marca-texto p {
-    margin-top: 2px;
-
-    font-size: 8px;
-  }
-
-  .titulo-menu {
-    margin-bottom: 8px;
-
-    padding:
-      5px 18px;
-
-    border-radius: 10px;
-  }
-
-  .titulo-menu h2 {
-    font-size: 14px;
-  }
-
-  .anos {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
-    gap: 5px;
-  }
-
-  .botao-ano {
-    height:
-      ${DADOS.dimensoes.alturaAnoTelemovelHorizontal}px;
-
-    padding:
-      6px 4px 5px;
-
-    border-width: 2px;
-
-    border-radius: 12px;
-  }
-
-  .icone-ano {
-    width:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-
-    flex-basis:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-  }
-
-  .nome-ano {
-    font-size:
-      clamp(10px, 2.9vw, 15px);
-  }
-
-  .idade-ano {
-    margin-top: 3px;
-
-    font-size:
-      clamp(8px, 2vw, 11px);
-  }
-
-  .destaques {
-    margin-top: 8px;
-
-    padding:
-      9px 9px 10px;
-
-    border-radius: 16px;
-  }
-
-  .titulo-destaques {
-    margin:
-      0 7px 8px;
-
-    gap: 8px;
-  }
-
-  .titulo-destaques .linha {
-    height: 2px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 13px;
-  }
-
-  .titulo-destaques h2 span {
-    margin-right: 3px;
-  }
-
-  .jogos {
-    grid-template-columns:
-      repeat(6, minmax(0, 1fr));
-
-    gap: 4px;
-  }
-
-  .icone-jogo {
-    width: 52px;
-    height: 52px;
-
-    margin-bottom: 3px;
-  }
-
-  .nome-jogo {
-    min-height: 14px;
-
-    font-size: 8px;
-  }
-
-  .estrelas {
-    margin-top: 2px;
-
-    font-size: 8px;
-
-    letter-spacing: 0;
-  }
-
-  .rodape {
-    margin-top: 7px;
-
-    min-height: 31px;
-
-    padding:
-      4px 7px;
-
-    gap: 5px;
-
-    font-size: 7px;
-
-    border-radius: 9px;
-  }
-
-  .rodape-item {
-    gap: 4px;
-  }
-
-  .estrela {
-    font-size: 15px;
-  }
-
-  .info {
-    width: 16px;
-    height: 16px;
-
-    font-size: 11px;
-  }
-}
-
-
-/* ============================================================
-   TABLET / TELEMÓVEL VERTICAL
-   ============================================================ */
-
-@media (max-width: 900px)
-  and (orientation: portrait) {
-
-  #app {
-    padding:
-      10px 12px 13px;
-  }
-
-  .cabecalho {
-    height: 66px;
-  }
-
-  .marca-sol {
-    width: 48px;
-    height: 48px;
-
-    flex-basis: 48px;
-  }
-
-  .marca-sol::before {
-    font-size: 51px;
-  }
-
-  .marca-texto h1 {
-    font-size: 25px;
-  }
-
-  .marca-texto p {
-    font-size: 10px;
-  }
-
-  .titulo-menu {
-    margin-bottom: 12px;
-
-    padding:
-      7px 21px;
-  }
-
-  .titulo-menu h2 {
-    font-size: 17px;
-  }
-
-  .anos {
-    grid-template-columns: 1fr;
-
-    gap: 9px;
-  }
-
-  .botao-ano {
-    width: 100%;
-
-    height: 126px;
-
-    padding:
-      10px 18px;
-
-    display: grid;
-
-    grid-template-columns:
-      88px 1fr;
-
-    grid-template-rows: 1fr;
-
-    column-gap: 15px;
-
-    border-radius: 17px;
-  }
-
-  .icone-ano {
-    width: 84px;
-    height: 84px;
-
-    flex: none;
-  }
-
-  .texto-ano {
-    text-align: left;
-  }
-
-  .nome-ano {
-    font-size: 22px;
-  }
-
-  .idade-ano {
-    margin-top: 6px;
-
-    font-size: 13px;
-  }
-
-  .destaques {
-    margin-top: 12px;
-
-    padding:
-      14px 12px 16px;
-  }
-
-  .titulo-destaques {
-    margin:
-      0 10px 14px;
-
-    gap: 10px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 17px;
-  }
-
-  .jogos {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
-    row-gap: 18px;
-  }
-
-  .icone-jogo {
-    width:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
-  }
-
-  .nome-jogo {
-    font-size: 13px;
-  }
-
-  .estrelas {
-    font-size: 13px;
-  }
-
-  .rodape {
-    margin-top: 11px;
-
-    grid-template-columns: 1fr;
-
-    gap: 5px;
-  }
-
-  .rodape-info {
-    justify-content: flex-start;
-  }
-}
-
-
-/* ============================================================
-   TELEMÓVEL VERTICAL PEQUENO
-   ============================================================ */
-
-@media (max-width: 600px)
-  and (orientation: portrait) {
-
-  .cabecalho {
-    height: 59px;
-  }
-
-  .marca-sol {
-    width: 43px;
-    height: 43px;
-
-    flex-basis: 43px;
-  }
-
-  .marca-sol::before {
-    font-size: 46px;
-  }
-
-  .marca-texto h1 {
-    font-size: 22px;
-  }
-
-  .marca-texto p {
-    font-size: 9px;
-  }
-
-  .titulo-menu {
-    padding:
-      6px 18px;
-
-    border-radius: 11px;
-  }
-
-  .titulo-menu h2 {
-    font-size: 15px;
-  }
-
-  .botao-ano {
-    height: 94px;
-
-    grid-template-columns:
-      72px 1fr;
-
-    column-gap: 10px;
-
-    padding:
-      7px 12px;
-
-    border-radius: 14px;
-  }
-
-  .icone-ano {
-    width: 64px;
-    height: 64px;
-  }
-
-  .nome-ano {
-    font-size: 18px;
-  }
-
-  .idade-ano {
-    margin-top: 4px;
-
-    font-size: 11px;
-  }
-
-  .destaques {
-    padding:
-      10px 8px 12px;
-
-    border-radius: 17px;
-  }
-
-  .titulo-destaques {
-    margin-bottom: 11px;
-  }
-
-  .titulo-destaques h2 {
-    font-size: 14px;
-  }
-
-  .jogos {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
-    row-gap: 13px;
-  }
-
-  .icone-jogo {
-    width:
-      ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
-  }
-
-  .nome-jogo {
-    font-size: 11px;
-  }
-
-  .estrelas {
-    font-size: 10px;
-  }
-
-  .rodape {
-    font-size: 9px;
-  }
-}
-
-
-/* ============================================================
-   FOCO
-   ============================================================ */
-
-.botao-ano:focus-visible {
-  outline:
-    4px solid rgba(255,255,255,.95);
-
-  outline-offset: 3px;
-}
-`;
-
-
-/* ============================================================
-   JAVASCRIPT
-   ============================================================ */
-
-
-/*
-================================================================
- NUVENS
-================================================================
-
- IMPORTANTE:
-
- As posições são fixas.
-
- Não existe Math.random() nesta função.
-
- Assim:
- - ao abrir a página, as nuvens ficam sempre nos mesmos locais;
- - ao atualizar a página, continuam nos mesmos locais;
- - ao mudar de dispositivo, mantêm a posição percentual;
- - apenas fazem um pequeno movimento horizontal.
-================================================================
-*/
-
-function criarNuvens() {
-
-  const camada =
-    document.querySelector(".camada-nuvens");
-
-  if (!camada) return;
-
-  const cfg =
-    DADOS.nuvens;
-
-  const posicoes = [
-
-    {
-      left: 12,
-      top: 48,
-      largura: 105,
-      altura: 54,
-      rotacao: -2,
-      duracao: 18
-    },
-
-    {
-      left: 50,
-      top: 92,
-      largura: 88,
-      altura: 46,
-      rotacao: 1,
-      duracao: 22
-    },
-
-    {
-      left: 86,
-      top: 42,
-      largura: 118,
-      altura: 60,
-      rotacao: 2,
-      duracao: 20
-    }
-
-  ];
-
-  posicoes
-    .slice(0, cfg.quantidade)
-    .forEach((posicao, i) => {
-
-      const img =
-        document.createElement("img");
-
-      img.className =
-        "nuvem-pequena";
-
-      img.src =
-        DADOS.nuvem;
-
-      img.alt = "";
-
-      img.draggable = false;
-
-      img.style.left =
-        `${posicao.left}%`;
-
-      img.style.top =
-        `${posicao.top}px`;
-
-      img.style.width =
-        `${posicao.largura}px`;
-
-      img.style.height =
-        `${posicao.altura}px`;
-
-      img.style.setProperty(
-        "--rotacao-nuvem",
-        `${posicao.rotacao}deg`
-      );
-
-      img.style.animation =
-        `flutuar-nuvem ${posicao.duracao}s ease-in-out infinite`;
-
-      img.style.animationDelay =
-        `${i * -3}s`;
-
-      camada.appendChild(img);
-    });
-}
-
-
-/* ============================================================
-   INSERIR CSS
-   ============================================================ */
-
-function inserirCSS() {
-
-  const style =
-    document.createElement("style");
-
-  style.textContent =
-    CSS;
-
-  document.head.appendChild(style);
-}
-
-
-/* ============================================================
-   PREENCHER TEXTOS
-   ============================================================ */
-
-function preencherTextos() {
-
-  document
-    .querySelector("[data-marca]")
-    .textContent =
-    DADOS.pagina.titulo;
-
-  document
-    .querySelector("[data-submarca]")
-    .textContent =
-    DADOS.pagina.subtitulo;
-
-  document
-    .querySelector("[data-titulo-menu]")
-    .textContent =
-    DADOS.pagina.tituloMenu;
-
-  document
-    .querySelector("[data-mensagem]")
-    .textContent =
-    DADOS.pagina.mensagem;
-
-  document
-    .querySelector("[data-informacao]")
-    .textContent =
-    DADOS.pagina.informacao;
-}
-
-
-/* ============================================================
-   CRIAR CARTÕES DOS ANOS
-   ============================================================ */
-
-function criarCartoesAno() {
-
-  const zona =
-    document.querySelector("#anos");
-
-  const modelo =
-    document.querySelector("#modelo-ano");
-
-  DADOS.anos
-    .filter((ano) => ano.id !== "pre" && ano.id !== "ano4")
-    .forEach((ano) => {
-
-    const fragmento =
-      modelo.content.cloneNode(true);
-
-    const artigo =
-      fragmento.querySelector(".ano");
-
-    const botao =
-      fragmento.querySelector(".botao-ano");
-
-    const caixaIcon =
-      fragmento.querySelector(".icone-ano");
-
-    artigo.dataset.ano =
-      ano.id;
-
-    botao.style.setProperty(
-      "--cor-1",
-      ano.cor
-    );
-
-    botao.style.setProperty(
-      "--cor-2",
-      ano.cor2
-    );
-
-    botao.setAttribute(
-      "aria-label",
-      `${ano.nome}, ${ano.idade}`
-    );
-
-    const img =
-      document.createElement("img");
-
-    img.src =
-      DADOS.icons.anos[ano.icon];
-
-    img.alt = "";
-
-    img.draggable = false;
-
-    caixaIcon.appendChild(img);
-
-    fragmento
-      .querySelector(".nome-ano")
-      .textContent =
-      ano.nome;
-
-    fragmento
-      .querySelector(".idade-ano")
-      .textContent =
-      ano.idade;
-
-    botao.addEventListener(
-      "click",
-      () => {
-
-        window.location.href =
-          ano.pagina;
-
-      }
-    );
-
-    zona.appendChild(fragmento);
-
-  });
-}
-
-
-/* ============================================================
-   CRIAR DESTAQUES
-   ============================================================ */
-
-function criarDestaques() {
-
-  const zona =
-    document.querySelector("#jogos");
-
-  const modelo =
-    document.querySelector("#modelo-jogo");
-
-  DADOS.destaques.forEach((jogo) => {
-
-    const fragmento =
-      modelo.content.cloneNode(true);
-
-    const img =
-      fragmento.querySelector(
-        ".icone-jogo img"
-      );
-
-    const nome =
-      fragmento.querySelector(
-        ".nome-jogo"
-      );
-
-    const estrelas =
-      fragmento.querySelector(
-        ".estrelas"
-      );
-
-    img.src =
-      DADOS.icons.destaques[jogo.icon];
-
-    img.alt =
-      jogo.nome;
-
-    nome.textContent =
-      jogo.nome;
-
-    estrelas.textContent =
-      "★".repeat(jogo.estrelas);
-
-    estrelas.setAttribute(
-      "aria-label",
-      `${jogo.estrelas} estrelas`
-    );
-
-    /* Link do jogo — sem alterar o aspeto do cartão. */
-
-    if (jogo.pagina) {
-
-      const cartao =
-        fragmento.querySelector(".jogo");
-
-      if (cartao) {
-
-        cartao.style.cursor =
-          "pointer";
-
-        cartao.setAttribute(
-          "role",
-          "link"
-        );
-
-        cartao.setAttribute(
-          "tabindex",
-          "0"
-        );
-
-        const abrirJogo = () => {
-
-          window.location.href =
-            jogo.pagina;
-
-        };
-
-        cartao.addEventListener(
-          "click",
-          abrirJogo
-        );
-
-        cartao.addEventListener(
-          "keydown",
-          (evento) => {
-
-            if (
-              evento.key === "Enter" ||
-              evento.key === " "
-            ) {
-
-              evento.preventDefault();
-
-              abrirJogo();
-            }
-
-          }
-        );
-
-      }
-
-    }
-
-    zona.appendChild(fragmento);
-
-  });
-}
-
-
-/* ============================================================
-   INICIALIZAÇÃO
-   ============================================================ */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    inserirCSS();
-
-    criarNuvens();
-
-    preencherTextos();
-
-    criarCartoesAno();
-
-    criarDestaques();
-
-  }
-);
+    font-size: 2
+```
