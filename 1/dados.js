@@ -23,36 +23,13 @@ const DADOS = {
 
 
   /* ============================================================
-     NUVENS
-     ============================================================ */
-
-  nuvem: "../icons/nuvem.png",
-
-  nuvens: {
-
-    quantidade: 3,
-
-    larguraMin: 72,
-    larguraMax: 125,
-
-    alturaMin: 38,
-    alturaMax: 66,
-
-    topoMin: 24,
-    topoMax: 145,
-
-    margemHorizontal: 12
-
-  },
-
-
-  /* ============================================================
      TEXTOS
      ============================================================ */
 
   pagina: {
 
-    titulo: "1.º Ano",
+    titulo:
+      "1.º Ano",
 
     subtitulo:
       "Aprender • Explorar • Descobrir",
@@ -91,7 +68,7 @@ const DADOS = {
 
 
     /* ----------------------------------------------------------
-       ÁREAS DO 1.º ANO
+       ICONS DOS CARTÕES
        ---------------------------------------------------------- */
 
     anos: {
@@ -113,6 +90,9 @@ const DADOS = {
        ---------------------------------------------------------- */
 
     menuAnos: {
+
+      inicio:
+        "../icons/inicio.png",
 
       pre:
         "../icons/iconpre.png",
@@ -234,7 +214,7 @@ const DADOS = {
 
 
     /* ----------------------------------------------------------
-       CORES ANTIGAS / APOIO
+       CORES DE APOIO
        ---------------------------------------------------------- */
 
     amarelo:
@@ -310,19 +290,23 @@ const DADOS = {
       26,
 
 
-    /* ICONS DOS CARTÕES — AUMENTADOS */
+    /* ----------------------------------------------------------
+       ICONS DOS CARTÕES
+       ---------------------------------------------------------- */
 
     tamanhoIconAnoDesktop:
-      148,
+      170,
 
     tamanhoIconAnoTablet:
-      115,
+      130,
 
     tamanhoIconAnoTelemovelHorizontal:
-      88,
+      96,
 
 
-    /* ICONS DOS JOGOS */
+    /* ----------------------------------------------------------
+       ICONS DOS JOGOS
+       ---------------------------------------------------------- */
 
     tamanhoIconJogo:
       76,
@@ -424,6 +408,22 @@ const DADOS = {
      ============================================================ */
 
   menuAnos: [
+
+    {
+      id:
+        "inicio",
+
+      nome:
+        "Início",
+
+      icon:
+        "inicio",
+
+      pagina:
+        "../"
+
+    },
+
 
     {
       id:
@@ -637,6 +637,7 @@ const DADOS = {
 
 const CSS = `
 
+
 /* ============================================================
    VARIÁVEIS
    ============================================================ */
@@ -717,7 +718,9 @@ body{
 
 
 button{
+
   font:inherit;
+
 }
 
 
@@ -754,75 +757,6 @@ button{
       #EAF5FC 38%,
       var(--fundo) 100%
     );
-
-}
-
-
-/* ============================================================
-   NUVENS
-   ============================================================ */
-
-.camada-nuvens{
-
-  position:absolute;
-
-  inset:0;
-
-  overflow:hidden;
-
-  pointer-events:none;
-
-  z-index:0;
-
-}
-
-
-.nuvem-pequena{
-
-  position:absolute;
-
-  display:block;
-
-  object-fit:contain;
-
-  opacity:.88;
-
-  filter:
-    drop-shadow(
-      0 2px 1px
-      rgba(80,130,160,.08)
-    );
-
-  z-index:0;
-
-  transform:
-    translate(-50%,-50%)
-    rotate(var(--rotacao-nuvem));
-
-}
-
-
-@keyframes flutuar-nuvem{
-
-  0%,
-  100%{
-
-    transform:
-      translate(-50%,-50%)
-      translateX(0)
-      rotate(var(--rotacao-nuvem));
-
-  }
-
-
-  50%{
-
-    transform:
-      translate(-50%,-50%)
-      translateX(18px)
-      rotate(var(--rotacao-nuvem));
-
-  }
 
 }
 
@@ -874,7 +808,7 @@ button{
 
 
 /* ============================================================
-   BOTÕES MENU E SETA
+   BOTÕES DO CABEÇALHO
    ============================================================ */
 
 .botao-menu,
@@ -893,8 +827,7 @@ button{
 
   padding:0;
 
-  border:
-    0;
+  border:0;
 
   border-radius:50%;
 
@@ -1017,7 +950,8 @@ button{
     2px solid
     #A5D9F8;
 
-  border-radius:0 0 18px 18px;
+  border-radius:
+    0 0 18px 18px;
 
   box-shadow:
     0 8px 18px
@@ -1052,10 +986,6 @@ button{
 }
 
 
-/* ============================================================
-   TÍTULO DO MENU
-   ============================================================ */
-
 .menu-acordeao-titulo{
 
   padding:
@@ -1078,10 +1008,6 @@ button{
 
 }
 
-
-/* ============================================================
-   LISTA DE ANOS
-   ============================================================ */
 
 .menu-anos{
 
@@ -1152,7 +1078,8 @@ button{
 
   height:43px;
 
-  flex:0 0 43px;
+  flex:
+    0 0 43px;
 
   display:flex;
 
@@ -1310,7 +1237,7 @@ button{
   width:fit-content;
 
   margin:
-    1px
+    20px
     auto
     19px;
 
@@ -1401,7 +1328,7 @@ button{
     ${DADOS.dimensoes.alturaAnoDesktop}px;
 
   padding:
-    14px
+    10px
     10px
     12px;
 
@@ -2235,6 +2162,8 @@ and (orientation:landscape){
 
   .titulo-menu{
 
+    margin-top:20px;
+
     margin-bottom:8px;
 
     padding:
@@ -2438,6 +2367,8 @@ and (orientation:portrait){
 
   .titulo-menu{
 
+    margin-top:20px;
+
     margin-bottom:12px;
 
     padding:
@@ -2485,9 +2416,11 @@ and (orientation:portrait){
 
   .icone-ano{
 
-    width:90px;
+    width:100px;
 
-    height:90px;
+    height:100px;
+
+    flex-basis:100px;
 
   }
 
@@ -2691,6 +2624,8 @@ and (orientation:portrait){
 
   .titulo-menu{
 
+    margin-top:20px;
+
     padding:
       6px
       18px;
@@ -2731,9 +2666,11 @@ and (orientation:portrait){
 
   .icone-ano{
 
-    width:68px;
+    width:72px;
 
-    height:68px;
+    height:72px;
+
+    flex-basis:72px;
 
   }
 
@@ -2807,142 +2744,18 @@ and (orientation:portrait){
 
 
 /* ==============================================================
-   NUVENS
-   ============================================================== */
-
-function criarNuvens(){
-
-  const camada =
-    document.querySelector(
-      ".camada-nuvens"
-    );
-
-
-  if(!camada)
-    return;
-
-
-  const posicoes = [
-
-    {
-      left:12,
-      top:48,
-      largura:105,
-      altura:54,
-      rotacao:-2,
-      duracao:18
-    },
-
-    {
-      left:50,
-      top:92,
-      largura:88,
-      altura:46,
-      rotacao:1,
-      duracao:22
-    },
-
-    {
-      left:86,
-      top:42,
-      largura:118,
-      altura:60,
-      rotacao:2,
-      duracao:20
-    }
-
-  ];
-
-
-  posicoes
-    .slice(
-      0,
-      DADOS.nuvens.quantidade
-    )
-    .forEach(
-      (posicao,i)=>{
-
-        const img =
-          document.createElement(
-            "img"
-          );
-
-
-        img.className =
-          "nuvem-pequena";
-
-
-        img.src =
-          DADOS.nuvem;
-
-
-        img.alt =
-          "";
-
-
-        img.draggable =
-          false;
-
-
-        img.style.left =
-          `${posicao.left}%`;
-
-
-        img.style.top =
-          `${posicao.top}px`;
-
-
-        img.style.width =
-          `${posicao.largura}px`;
-
-
-        img.style.height =
-          `${posicao.altura}px`;
-
-
-        img.style.setProperty(
-          "--rotacao-nuvem",
-          `${posicao.rotacao}deg`
-        );
-
-
-        img.style.animation =
-          `flutuar-nuvem ${posicao.duracao}s ease-in-out infinite`;
-
-
-        img.style.animationDelay =
-          `${i * -3}s`;
-
-
-        camada.appendChild(
-          img
-        );
-
-      }
-    );
-
-}
-
-
-/* ==============================================================
    INSERIR CSS
    ============================================================== */
 
 function inserirCSS(){
 
   const style =
-    document.createElement(
-      "style"
-    );
-
+    document.createElement("style");
 
   style.textContent =
     CSS;
 
-
-  document.head.appendChild(
-    style
-  );
+  document.head.appendChild(style);
 
 }
 
@@ -2954,41 +2767,31 @@ function inserirCSS(){
 function preencherTextos(){
 
   document
-    .querySelector(
-      "[data-marca]"
-    )
+    .querySelector("[data-marca]")
     .textContent =
     DADOS.pagina.titulo;
 
 
   document
-    .querySelector(
-      "[data-submarca]"
-    )
+    .querySelector("[data-submarca]")
     .textContent =
     DADOS.pagina.subtitulo;
 
 
   document
-    .querySelector(
-      "[data-titulo-menu]"
-    )
+    .querySelector("[data-titulo-menu]")
     .textContent =
     DADOS.pagina.tituloMenu;
 
 
   document
-    .querySelector(
-      "[data-mensagem]"
-    )
+    .querySelector("[data-mensagem]")
     .textContent =
     DADOS.pagina.mensagem;
 
 
   document
-    .querySelector(
-      "[data-informacao]"
-    )
+    .querySelector("[data-informacao]")
     .textContent =
     DADOS.pagina.informacao;
 
@@ -3002,42 +2805,29 @@ function preencherTextos(){
 function criarCartoesAno(){
 
   const zona =
-    document.querySelector(
-      "#anos"
-    );
-
+    document.querySelector("#anos");
 
   const modelo =
-    document.querySelector(
-      "#modelo-ano"
-    );
+    document.querySelector("#modelo-ano");
 
 
   DADOS.anos.forEach(
     (ano)=>{
 
       const fragmento =
-        modelo.content.cloneNode(
-          true
-        );
+        modelo.content.cloneNode(true);
 
 
       const artigo =
-        fragmento.querySelector(
-          ".ano"
-        );
+        fragmento.querySelector(".ano");
 
 
       const botao =
-        fragmento.querySelector(
-          ".botao-ano"
-        );
+        fragmento.querySelector(".botao-ano");
 
 
       const caixaIcon =
-        fragmento.querySelector(
-          ".icone-ano"
-        );
+        fragmento.querySelector(".icone-ano");
 
 
       artigo.dataset.ano =
@@ -3063,15 +2853,11 @@ function criarCartoesAno(){
 
 
       const img =
-        document.createElement(
-          "img"
-        );
+        document.createElement("img");
 
 
       img.src =
-        DADOS.icons.anos[
-          ano.icon
-        ];
+        DADOS.icons.anos[ano.icon];
 
 
       img.alt =
@@ -3082,23 +2868,17 @@ function criarCartoesAno(){
         false;
 
 
-      caixaIcon.appendChild(
-        img
-      );
+      caixaIcon.appendChild(img);
 
 
       fragmento
-        .querySelector(
-          ".nome-ano"
-        )
+        .querySelector(".nome-ano")
         .textContent =
         ano.nome;
 
 
       fragmento
-        .querySelector(
-          ".idade-ano"
-        )
+        .querySelector(".idade-ano")
         .textContent =
         ano.idade;
 
@@ -3114,9 +2894,7 @@ function criarCartoesAno(){
       );
 
 
-      zona.appendChild(
-        fragmento
-      );
+      zona.appendChild(fragmento);
 
     }
   );
@@ -3125,60 +2903,43 @@ function criarCartoesAno(){
 
 
 /* ==============================================================
-   MENU HAMBÚRGUER
+   MENU DOS ANOS
    ============================================================== */
 
 function criarMenuAnos(){
 
   const zona =
-    document.querySelector(
-      "#menu-anos"
-    );
-
+    document.querySelector("#menu-anos");
 
   const modelo =
-    document.querySelector(
-      "#modelo-menu-ano"
-    );
+    document.querySelector("#modelo-menu-ano");
 
 
   DADOS.menuAnos.forEach(
     (ano)=>{
 
       const fragmento =
-        modelo.content.cloneNode(
-          true
-        );
+        modelo.content.cloneNode(true);
 
 
       const botao =
-        fragmento.querySelector(
-          ".menu-ano"
-        );
+        fragmento.querySelector(".menu-ano");
 
 
       const caixaIcon =
-        fragmento.querySelector(
-          ".menu-ano-icon"
-        );
+        fragmento.querySelector(".menu-ano-icon");
 
 
       const nome =
-        fragmento.querySelector(
-          ".menu-ano-nome"
-        );
+        fragmento.querySelector(".menu-ano-nome");
 
 
       const img =
-        document.createElement(
-          "img"
-        );
+        document.createElement("img");
 
 
       img.src =
-        DADOS.icons.menuAnos[
-          ano.icon
-        ];
+        DADOS.icons.menuAnos[ano.icon];
 
 
       img.alt =
@@ -3189,9 +2950,7 @@ function criarMenuAnos(){
         false;
 
 
-      caixaIcon.appendChild(
-        img
-      );
+      caixaIcon.appendChild(img);
 
 
       nome.textContent =
@@ -3209,9 +2968,7 @@ function criarMenuAnos(){
       );
 
 
-      zona.appendChild(
-        fragmento
-      );
+      zona.appendChild(fragmento);
 
     }
   );
@@ -3226,19 +2983,21 @@ function criarMenuAnos(){
 function configurarMenu(){
 
   const botao =
-    document.querySelector(
-      ".botao-menu"
-    );
+    document.querySelector(".botao-menu");
 
 
   const menu =
-    document.querySelector(
-      ".menu-acordeao"
-    );
+    document.querySelector(".menu-acordeao");
 
 
-  if(!botao || !menu)
+  if(
+    !botao ||
+    !menu
+  ){
+
     return;
+
+  }
 
 
   botao.addEventListener(
@@ -3249,9 +3008,7 @@ function configurarMenu(){
 
 
       const aberto =
-        menu.classList.toggle(
-          "aberto"
-        );
+        menu.classList.toggle("aberto");
 
 
       botao.setAttribute(
@@ -3278,9 +3035,7 @@ function configurarMenu(){
         !botao.contains(evento.target)
       ){
 
-        menu.classList.remove(
-          "aberto"
-        );
+        menu.classList.remove("aberto");
 
 
         botao.setAttribute(
@@ -3309,24 +3064,17 @@ function configurarMenu(){
 function criarDestaques(){
 
   const zona =
-    document.querySelector(
-      "#jogos"
-    );
-
+    document.querySelector("#jogos");
 
   const modelo =
-    document.querySelector(
-      "#modelo-jogo"
-    );
+    document.querySelector("#modelo-jogo");
 
 
   DADOS.destaques.forEach(
     (jogo)=>{
 
       const fragmento =
-        modelo.content.cloneNode(
-          true
-        );
+        modelo.content.cloneNode(true);
 
 
       const img =
@@ -3401,9 +3149,7 @@ function criarDestaques(){
       }
 
 
-      zona.appendChild(
-        fragmento
-      );
+      zona.appendChild(fragmento);
 
     }
   );
@@ -3420,8 +3166,6 @@ document.addEventListener(
   ()=>{
 
     inserirCSS();
-
-    criarNuvens();
 
     preencherTextos();
 
