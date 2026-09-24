@@ -3,18 +3,16 @@
  RECURSOS Covão — DADOS E APRESENTAÇÃO
 ================================================================
 
- A estrutura HTML está em index.html.
-
  Este ficheiro concentra:
 
  - textos
  - cores
  - dimensões
- - caminhos de TODOS os icons
+ - caminhos dos icons
  - definição das áreas
  - definição dos jogos em destaque
  - CSS
- - comportamento
+ - comportamento JavaScript
 
  Estrutura:
 
@@ -50,7 +48,6 @@ const DADOS = {
 
   nuvem: "../icons/nuvem.png",
 
-
   nuvens: {
 
     quantidade: 3,
@@ -70,7 +67,7 @@ const DADOS = {
 
 
   /* ============================================================
-     TEXTOS DA PÁGINA
+     TEXTOS
      ============================================================ */
 
   pagina: {
@@ -94,13 +91,6 @@ const DADOS = {
 
   /* ============================================================
      ICONS
-     ============================================================
-
-     Todos os caminhos dos icons ficam aqui.
-
-     Assim, se quiseres trocar um icon no futuro,
-     basta alterar o caminho neste bloco.
-
      ============================================================ */
 
   icons: {
@@ -173,9 +163,11 @@ const DADOS = {
 
   cores: {
 
+    /* Fundo geral */
     fundo:
       "#EAF5FC",
 
+    /* Céu geral */
     ceu1:
       "#78DDF7",
 
@@ -183,6 +175,15 @@ const DADOS = {
       "#BCEEF9",
 
 
+    /* Cabeçalho */
+    header:
+      "#BCEEF9",
+
+    headerTopo:
+      "#78DDF7",
+
+
+    /* Textos */
     texto:
       "#07569A",
 
@@ -193,6 +194,7 @@ const DADOS = {
       "#FFFFFF",
 
 
+    /* Amarelo */
     amarelo:
       "#FFBA16",
 
@@ -200,6 +202,7 @@ const DADOS = {
       "#EF8709",
 
 
+    /* Azul */
     azul:
       "#20B9EF",
 
@@ -207,6 +210,7 @@ const DADOS = {
       "#087AC9",
 
 
+    /* Verde */
     verde:
       "#45C83D",
 
@@ -214,6 +218,7 @@ const DADOS = {
       "#169A3A",
 
 
+    /* Roxo */
     roxo:
       "#A74BEF",
 
@@ -221,6 +226,7 @@ const DADOS = {
       "#7434B8",
 
 
+    /* Rosa */
     rosa:
       "#F43A9D",
 
@@ -228,6 +234,7 @@ const DADOS = {
       "#C81970",
 
 
+    /* Creme */
     creme:
       "#FFF9E1",
 
@@ -235,10 +242,12 @@ const DADOS = {
       "#F5D996",
 
 
+    /* Linhas */
     linha:
       "#A5D9F8",
 
 
+    /* Sombras */
     sombra:
       "rgba(15, 88, 139, .20)",
 
@@ -257,7 +266,6 @@ const DADOS = {
     larguraMaxima:
       1650,
 
-
     alturaAnoDesktop:
       300,
 
@@ -267,13 +275,11 @@ const DADOS = {
     alturaAnoTelemovelHorizontal:
       175,
 
-
     raioAno:
       23,
 
     raioDestaques:
       26,
-
 
     tamanhoIconAnoDesktop:
       128,
@@ -283,7 +289,6 @@ const DADOS = {
 
     tamanhoIconAnoTelemovelHorizontal:
       76,
-
 
     tamanhoIconJogo:
       76,
@@ -302,7 +307,6 @@ const DADOS = {
      ============================================================ */
 
   anos: [
-
 
     {
       id:
@@ -386,7 +390,6 @@ const DADOS = {
      ============================================================ */
 
   destaques: [
-
 
     {
       id:
@@ -525,6 +528,10 @@ const CSS = `
 
   --ceu2:${DADOS.cores.ceu2};
 
+  --header:${DADOS.cores.header};
+
+  --header-topo:${DADOS.cores.headerTopo};
+
   --texto:${DADOS.cores.texto};
 
   --texto-escuro:${DADOS.cores.textoEscuro};
@@ -554,10 +561,12 @@ const CSS = `
 
 
 html{
+
   min-height:100%;
 
   background:
     var(--fundo);
+
 }
 
 
@@ -725,6 +734,23 @@ button{
 
   justify-content:center;
 
+  /* FUNDO DO CABEÇALHO */
+
+  background:
+    linear-gradient(
+      180deg,
+      ${DADOS.cores.headerTopo} 0%,
+      ${DADOS.cores.header} 100%
+    );
+
+  border-bottom:
+    2px solid
+    rgba(255,255,255,.55);
+
+  box-shadow:
+    0 2px 7px
+    rgba(15,88,139,.12);
+
 }
 
 
@@ -749,12 +775,13 @@ button{
   padding:0;
 
   border:
-    4px solid #0358A9;
+    4px solid
+    #0358A9;
 
   border-radius:50%;
 
   background:
-    rgba(255,255,255,.22);
+    rgba(255,255,255,.25);
 
   cursor:pointer;
 
@@ -768,10 +795,6 @@ button{
 
 }
 
-
-/* ============================================================
-   POSIÇÃO DOS BOTÕES
-   ============================================================ */
 
 .botao-menu{
 
@@ -788,7 +811,7 @@ button{
 
 
 /* ============================================================
-   ICON DO MENU
+   ICON MENU
    ============================================================ */
 
 .botao-menu::before{
@@ -815,7 +838,7 @@ button{
 
 
 /* ============================================================
-   ICON DA SETA
+   ICON SETA
    ============================================================ */
 
 .botao-seta::before{
@@ -849,7 +872,7 @@ button{
 .botao-seta:hover{
 
   background:
-    rgba(255,255,255,.45);
+    rgba(255,255,255,.48);
 
   transform:
     translateY(-50%)
@@ -1002,7 +1025,7 @@ button{
 
 
 /* ============================================================
-   TÍTULO "ESCOLHE A ÁREA"
+   TÍTULO ESCOLHE A ÁREA
    ============================================================ */
 
 .titulo-menu{
@@ -2377,8 +2400,6 @@ and (orientation:portrait){
 
     height:76px;
 
-    flex:none;
-
   }
 
 
@@ -2731,7 +2752,6 @@ and (orientation:portrait){
    CRIAR NUVENS
    ============================================================== */
 
-
 function criarNuvens(){
 
   const camada =
@@ -2748,15 +2768,7 @@ function criarNuvens(){
     DADOS.nuvens;
 
 
-  /*
-    Posições fixas.
-
-    Assim as nuvens não mudam de lugar
-    sempre que a página é atualizada.
-  */
-
   const posicoes = [
-
 
     {
       left:12,
@@ -2767,7 +2779,6 @@ function criarNuvens(){
       duracao:18
     },
 
-
     {
       left:50,
       top:92,
@@ -2776,7 +2787,6 @@ function criarNuvens(){
       rotacao:1,
       duracao:22
     },
-
 
     {
       left:86,
@@ -2797,7 +2807,6 @@ function criarNuvens(){
     )
     .forEach(
       (posicao,i)=>{
-
 
         const img =
           document.createElement(
@@ -2865,7 +2874,6 @@ function criarNuvens(){
    INSERIR CSS
    ============================================================== */
 
-
 function inserirCSS(){
 
   const style =
@@ -2889,9 +2897,7 @@ function inserirCSS(){
    PREENCHER TEXTOS
    ============================================================== */
 
-
 function preencherTextos(){
-
 
   document
     .querySelector(
@@ -2939,7 +2945,6 @@ function preencherTextos(){
    CRIAR CARTÕES DAS ÁREAS
    ============================================================== */
 
-
 function criarCartoesAno(){
 
   const zona =
@@ -2956,7 +2961,6 @@ function criarCartoesAno(){
 
   DADOS.anos.forEach(
     (ano)=>{
-
 
       const fragmento =
         modelo.content.cloneNode(
@@ -3000,7 +3004,7 @@ function criarCartoesAno(){
 
       botao.setAttribute(
         "aria-label",
-        `${ano.nome}, ${ano.idade}`
+        ano.nome
       );
 
 
@@ -3070,7 +3074,6 @@ function criarCartoesAno(){
    CRIAR JOGOS EM DESTAQUE
    ============================================================== */
 
-
 function criarDestaques(){
 
   const zona =
@@ -3087,7 +3090,6 @@ function criarDestaques(){
 
   DADOS.destaques.forEach(
     (jogo)=>{
-
 
       const fragmento =
         modelo.content.cloneNode(
@@ -3139,11 +3141,6 @@ function criarDestaques(){
       );
 
 
-      /*
-        O cartão funciona como link,
-        mas mantém o mesmo aspeto.
-      */
-
       if(jogo.pagina){
 
         const cartao =
@@ -3172,8 +3169,10 @@ function criarDestaques(){
 
           const abrirJogo =
             ()=>{
+
               window.location.href =
                 jogo.pagina;
+
             };
 
 
@@ -3186,7 +3185,6 @@ function criarDestaques(){
           cartao.addEventListener(
             "keydown",
             (evento)=>{
-
 
               if(
                 evento.key === "Enter" ||
@@ -3220,7 +3218,6 @@ function criarDestaques(){
 /* ==============================================================
    INICIALIZAÇÃO
    ============================================================== */
-
 
 document.addEventListener(
   "DOMContentLoaded",
