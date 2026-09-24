@@ -123,10 +123,6 @@ const DADOS = {
 
   cores: {
 
-    /* ----------------------------------------------------------
-       FUNDO PRINCIPAL
-       ---------------------------------------------------------- */
-
     fundo: "#EAF5FC",
 
     /* Azul mais claro na parte superior */
@@ -1720,6 +1716,8 @@ function inserirCSS() {
       }
 
 
+      /* 90% no horizontal */
+
       .anos{
 
         width:90%;
@@ -1860,6 +1858,8 @@ function inserirCSS() {
 
       }
 
+
+      /* 90% no horizontal */
 
       .anos{
 
@@ -2012,9 +2012,16 @@ function inserirCSS() {
       }
 
 
+      /* --------------------------------------------------------
+         CARTÕES — TABLET VERTICAL
+
+         5px de margem de cada lado
+         Raio menor
+         -------------------------------------------------------- */
+
       .anos{
 
-        width:100%;
+        width:calc(100% - 10px);
 
         grid-template-columns:1fr;
 
@@ -2026,6 +2033,8 @@ function inserirCSS() {
       .botao-ano{
 
         height:126px;
+
+        border-radius:20px;
 
         flex-direction:row;
 
@@ -2200,9 +2209,16 @@ function inserirCSS() {
       }
 
 
+      /* --------------------------------------------------------
+         CARTÕES — TELEMÓVEL VERTICAL
+
+         5px de margem de cada lado
+         Raio menor
+         -------------------------------------------------------- */
+
       .anos{
 
-        width:100%;
+        width:calc(100% - 10px);
 
         grid-template-columns:1fr;
 
@@ -2214,6 +2230,8 @@ function inserirCSS() {
       .botao-ano{
 
         height:100px;
+
+        border-radius:18px;
 
         padding:9px 17px;
 
