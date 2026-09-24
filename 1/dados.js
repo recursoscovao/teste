@@ -129,10 +129,7 @@ const DADOS = {
 
     fundo: "#EAF5FC",
 
-    /*
-       Azul mais claro no topo do degradê.
-       Alterado para suavizar a parte superior.
-    */
+    /* Azul mais claro na parte superior */
 
     ceu1: "#A6EAF8",
 
@@ -249,7 +246,7 @@ const DADOS = {
 
     alturaAnoTelemovelHorizontal: 175,
 
-    raioAno: 23,
+    raioAno: 32,
 
     raioDestaques: 26,
 
@@ -1189,7 +1186,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       CARTÕES DOS ANOS
+       CARTÕES DAS ÁREAS
        ========================================================== */
 
     .anos{
@@ -1230,7 +1227,7 @@ function inserirCSS() {
 
       padding:22px;
 
-      border:0;
+      border:4px solid #FFFFFF;
 
       border-radius:${DADOS.dimensoes.raioAno}px;
 
@@ -1264,7 +1261,7 @@ function inserirCSS() {
 
       box-shadow:
 
-        0 7px 15px ${DADOS.cores.sombra};
+        0 6px 12px ${DADOS.cores.sombra};
 
       transition:
 
@@ -2015,10 +2012,6 @@ function inserirCSS() {
       }
 
 
-      /*
-         No tablet vertical mantém-se 100% da largura.
-      */
-
       .anos{
 
         width:100%;
@@ -2207,10 +2200,6 @@ function inserirCSS() {
       }
 
 
-      /*
-         No telemóvel vertical mantém-se 100% da largura.
-      */
-
       .anos{
 
         width:100%;
@@ -2374,48 +2363,62 @@ function inserirCSS() {
 function preencherTextos() {
 
 
-  const marca = document.querySelector("[data-marca]");
+  const marca =
+    document.querySelector("[data-marca]");
 
-  const submarca = document.querySelector("[data-submarca]");
 
-  const titulo = document.querySelector("[data-titulo-menu]");
+  const submarca =
+    document.querySelector("[data-submarca]");
 
-  const mensagem = document.querySelector("[data-mensagem]");
 
-  const informacao = document.querySelector("[data-informacao]");
+  const titulo =
+    document.querySelector("[data-titulo-menu]");
+
+
+  const mensagem =
+    document.querySelector("[data-mensagem]");
+
+
+  const informacao =
+    document.querySelector("[data-informacao]");
 
 
   if (marca) {
 
-    marca.textContent = DADOS.pagina.titulo;
+    marca.textContent =
+      DADOS.pagina.titulo;
 
   }
 
 
   if (submarca) {
 
-    submarca.textContent = DADOS.pagina.subtitulo;
+    submarca.textContent =
+      DADOS.pagina.subtitulo;
 
   }
 
 
   if (titulo) {
 
-    titulo.textContent = DADOS.pagina.tituloMenu;
+    titulo.textContent =
+      DADOS.pagina.tituloMenu;
 
   }
 
 
   if (mensagem) {
 
-    mensagem.textContent = DADOS.pagina.mensagem;
+    mensagem.textContent =
+      DADOS.pagina.mensagem;
 
   }
 
 
   if (informacao) {
 
-    informacao.textContent = DADOS.pagina.informacao;
+    informacao.textContent =
+      DADOS.pagina.informacao;
 
   }
 
@@ -2429,9 +2432,12 @@ function preencherTextos() {
 function criarCartoesAno() {
 
 
-  const recipiente = document.getElementById("anos");
+  const recipiente =
+    document.getElementById("anos");
 
-  const modelo = document.getElementById("modelo-ano");
+
+  const modelo =
+    document.getElementById("modelo-ano");
 
 
   if (!recipiente || !modelo) return;
@@ -2443,28 +2449,49 @@ function criarCartoesAno() {
   DADOS.anos.forEach(ano => {
 
 
-    const cartao = modelo.content.cloneNode(true);
+    const cartao =
+      modelo.content.cloneNode(true);
 
 
-    const botao = cartao.querySelector(".botao-ano");
-
-    const icone = cartao.querySelector(".icone-ano");
-
-    const texto = cartao.querySelector(".nome-ano");
-
-    const idade = cartao.querySelector(".idade-ano");
+    const botao =
+      cartao.querySelector(".botao-ano");
 
 
-    botao.style.setProperty("--cor-1", ano.cor);
+    const icone =
+      cartao.querySelector(".icone-ano");
 
-    botao.style.setProperty("--cor-2", ano.cor2);
+
+    const texto =
+      cartao.querySelector(".nome-ano");
 
 
-    const imagem = document.createElement("img");
+    const idade =
+      cartao.querySelector(".idade-ano");
 
-    imagem.src = DADOS.icons.anos[ano.icon];
 
-    imagem.alt = ano.nome;
+    botao.style.setProperty(
+      "--cor-1",
+      ano.cor
+    );
+
+
+    botao.style.setProperty(
+      "--cor-2",
+      ano.cor2
+    );
+
+
+    const imagem =
+      document.createElement("img");
+
+
+    imagem.src =
+      DADOS.icons.anos[ano.icon];
+
+
+    imagem.alt =
+      ano.nome;
+
 
     imagem.draggable = false;
 
@@ -2472,16 +2499,23 @@ function criarCartoesAno() {
     icone.appendChild(imagem);
 
 
-    texto.textContent = ano.nome;
+    texto.textContent =
+      ano.nome;
 
-    idade.textContent = ano.idade;
+
+    idade.textContent =
+      ano.idade;
 
 
-    botao.addEventListener("click", () => {
+    botao.addEventListener(
+      "click",
+      () => {
 
-      window.location.href = ano.pagina;
+        window.location.href =
+          ano.pagina;
 
-    });
+      }
+    );
 
 
     recipiente.appendChild(cartao);
@@ -2498,9 +2532,12 @@ function criarCartoesAno() {
 function criarMenuAnos() {
 
 
-  const recipiente = document.getElementById("menu-anos");
+  const recipiente =
+    document.getElementById("menu-anos");
 
-  const modelo = document.getElementById("modelo-menu-ano");
+
+  const modelo =
+    document.getElementById("modelo-menu-ano");
 
 
   if (!recipiente || !modelo) return;
@@ -2512,22 +2549,32 @@ function criarMenuAnos() {
   DADOS.menuAnos.forEach(ano => {
 
 
-    const item = modelo.content.cloneNode(true);
+    const item =
+      modelo.content.cloneNode(true);
 
 
-    const botao = item.querySelector(".menu-ano");
-
-    const icone = item.querySelector(".menu-ano-icon");
-
-    const nome = item.querySelector(".menu-ano-nome");
+    const botao =
+      item.querySelector(".menu-ano");
 
 
-    const imagem = document.createElement("img");
+    const icone =
+      item.querySelector(".menu-ano-icon");
 
 
-    imagem.src = DADOS.icons.menuAnos[ano.icon];
+    const nome =
+      item.querySelector(".menu-ano-nome");
+
+
+    const imagem =
+      document.createElement("img");
+
+
+    imagem.src =
+      DADOS.icons.menuAnos[ano.icon];
+
 
     imagem.alt = "";
+
 
     imagem.draggable = false;
 
@@ -2535,14 +2582,19 @@ function criarMenuAnos() {
     icone.appendChild(imagem);
 
 
-    nome.textContent = ano.nome;
+    nome.textContent =
+      ano.nome;
 
 
-    botao.addEventListener("click", () => {
+    botao.addEventListener(
+      "click",
+      () => {
 
-      window.location.href = ano.pagina;
+        window.location.href =
+          ano.pagina;
 
-    });
+      }
+    );
 
 
     recipiente.appendChild(item);
@@ -2559,11 +2611,16 @@ function criarMenuAnos() {
 function configurarMenu() {
 
 
-  const botaoMenu = document.querySelector(".botao-menu");
+  const botaoMenu =
+    document.querySelector(".botao-menu");
 
-  const menu = document.querySelector(".menu-acordeao");
 
-  const botaoSeta = document.querySelector(".botao-seta");
+  const menu =
+    document.querySelector(".menu-acordeao");
+
+
+  const botaoSeta =
+    document.querySelector(".botao-seta");
 
 
   /* ------------------------------------------------------------
@@ -2573,76 +2630,73 @@ function configurarMenu() {
   if (botaoMenu && menu) {
 
 
-    botaoMenu.addEventListener("click", event => {
-
-      event.stopPropagation();
-
-
-      const aberto =
-        menu.classList.toggle("aberto");
+    botaoMenu.addEventListener(
+      "click",
+      event => {
 
 
-      botaoMenu.setAttribute(
-
-        "aria-expanded",
-
-        aberto ? "true" : "false"
-
-      );
+        event.stopPropagation();
 
 
-      menu.setAttribute(
+        const aberto =
+          menu.classList.toggle(
+            "aberto"
+          );
 
-        "aria-hidden",
 
-        aberto ? "false" : "true"
+        botaoMenu.setAttribute(
+          "aria-expanded",
+          aberto ? "true" : "false"
+        );
 
-      );
 
-    });
+        menu.setAttribute(
+          "aria-hidden",
+          aberto ? "false" : "true"
+        );
+
+      }
+    );
 
 
     /* ----------------------------------------------------------
        FECHAR AO CLICAR FORA
        ---------------------------------------------------------- */
 
-    document.addEventListener("click", event => {
+    document.addEventListener(
+      "click",
+      event => {
 
 
-      if (
+        if (
 
-        menu.classList.contains("aberto") &&
+          menu.classList.contains("aberto") &&
 
-        !menu.contains(event.target) &&
+          !menu.contains(event.target) &&
 
-        !botaoMenu.contains(event.target)
+          !botaoMenu.contains(event.target)
 
-      ) {
-
-
-        menu.classList.remove("aberto");
+        ) {
 
 
-        botaoMenu.setAttribute(
-
-          "aria-expanded",
-
-          "false"
-
-        );
+          menu.classList.remove("aberto");
 
 
-        menu.setAttribute(
+          botaoMenu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-          "aria-hidden",
 
-          "true"
+          menu.setAttribute(
+            "aria-hidden",
+            "true"
+          );
 
-        );
+        }
 
       }
-
-    });
+    );
 
   }
 
@@ -2654,27 +2708,15 @@ function configurarMenu() {
   if (botaoSeta) {
 
 
-    botaoSeta.addEventListener("click", () => {
+    botaoSeta.addEventListener(
+      "click",
+      () => {
 
+        window.location.href =
+          "../";
 
-      /*
-       * ../ significa sempre subir exatamente
-       * uma pasta relativamente à página atual.
-       *
-       * Exemplos:
-       *
-       * /jogos/1/pt/  → /jogos/1/
-       *
-       * /jogos/1/mat/ → /jogos/1/
-       *
-       * /jogos/1/em/  → /jogos/1/
-       *
-       * /jogos/1/     → /jogos/
-       */
-
-      window.location.href = "../";
-
-    });
+      }
+    );
 
   }
 
@@ -2688,9 +2730,12 @@ function configurarMenu() {
 function criarDestaques() {
 
 
-  const recipiente = document.getElementById("jogos");
+  const recipiente =
+    document.getElementById("jogos");
 
-  const modelo = document.getElementById("modelo-jogo");
+
+  const modelo =
+    document.getElementById("modelo-jogo");
 
 
   if (!recipiente || !modelo) return;
@@ -2702,26 +2747,45 @@ function criarDestaques() {
   DADOS.destaques.forEach(jogo => {
 
 
-    const item = modelo.content.cloneNode(true);
+    const item =
+      modelo.content.cloneNode(true);
 
 
-    const cartao = item.querySelector(".jogo");
-
-    const imagem = item.querySelector(".icone-jogo img");
-
-    const nome = item.querySelector(".nome-jogo");
-
-    const estrelas = item.querySelector(".estrelas");
+    const cartao =
+      item.querySelector(".jogo");
 
 
-    imagem.src = DADOS.icons.destaques[jogo.icon];
+    const imagem =
+      item.querySelector(
+        ".icone-jogo img"
+      );
 
-    imagem.alt = jogo.nome;
+
+    const nome =
+      item.querySelector(
+        ".nome-jogo"
+      );
+
+
+    const estrelas =
+      item.querySelector(
+        ".estrelas"
+      );
+
+
+    imagem.src =
+      DADOS.icons.destaques[jogo.icon];
+
+
+    imagem.alt =
+      jogo.nome;
+
 
     imagem.draggable = false;
 
 
-    nome.textContent = jogo.nome;
+    nome.textContent =
+      jogo.nome;
 
 
     estrelas.textContent =
@@ -2729,19 +2793,20 @@ function criarDestaques() {
 
 
     estrelas.setAttribute(
-
       "aria-label",
-
       `${jogo.estrelas} estrelas`
-
     );
 
 
-    cartao.addEventListener("click", () => {
+    cartao.addEventListener(
+      "click",
+      () => {
 
-      window.location.href = jogo.pagina;
+        window.location.href =
+          jogo.pagina;
 
-    });
+      }
+    );
 
 
     recipiente.appendChild(item);
@@ -2755,25 +2820,27 @@ function criarDestaques() {
    INICIALIZAÇÃO
    ============================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
 
-  inserirCSS();
+    inserirCSS();
 
 
-  preencherTextos();
+    preencherTextos();
 
 
-  criarCartoesAno();
+    criarCartoesAno();
 
 
-  criarMenuAnos();
+    criarMenuAnos();
 
 
-  configurarMenu();
+    configurarMenu();
 
 
-  criarDestaques();
+    criarDestaques();
 
-
-});
+  }
+);
