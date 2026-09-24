@@ -95,7 +95,7 @@ const DADOS = {
 
 
     /* ----------------------------------------------------------
-       ICONS DOS JOGOS EM DESTAQUE
+       ICONS DOS JOGOS
        ---------------------------------------------------------- */
 
     destaques: {
@@ -125,16 +125,9 @@ const DADOS = {
 
     fundo: "#EAF5FC",
 
-    /* Azul mais claro na parte superior */
-
     ceu1: "#A6EAF8",
 
     ceu2: "#D4F4FB",
-
-
-    /* ----------------------------------------------------------
-       HEADER
-       ---------------------------------------------------------- */
 
     header: "#D4F4FB",
 
@@ -142,48 +135,23 @@ const DADOS = {
 
     azulHeader: "#0358A9",
 
-
-    /* ----------------------------------------------------------
-       TEXTOS
-       ---------------------------------------------------------- */
-
     texto: "#07569A",
 
     textoEscuro: "#064B8A",
 
     branco: "#FFFFFF",
 
-
-    /* ----------------------------------------------------------
-       PORTUGUÊS
-       ---------------------------------------------------------- */
-
     portugues: "#11CBFC",
 
     portugues2: "#079BC8",
-
-
-    /* ----------------------------------------------------------
-       MATEMÁTICA
-       ---------------------------------------------------------- */
 
     matematica: "#FD6746",
 
     matematica2: "#D94328",
 
-
-    /* ----------------------------------------------------------
-       ESTUDO DO MEIO
-       ---------------------------------------------------------- */
-
     estudoMeio: "#62D733",
 
     estudoMeio2: "#36A918",
-
-
-    /* ----------------------------------------------------------
-       CORES EXTRA
-       ---------------------------------------------------------- */
 
     amarelo: "#FFBA16",
 
@@ -205,19 +173,9 @@ const DADOS = {
 
     rosa2: "#C81970",
 
-
-    /* ----------------------------------------------------------
-       CREME
-       ---------------------------------------------------------- */
-
     creme: "#FFF9E1",
 
     creme2: "#F5D996",
-
-
-    /* ----------------------------------------------------------
-       LINHAS / SOMBRAS
-       ---------------------------------------------------------- */
 
     linha: "#A5D9F8",
 
@@ -242,20 +200,22 @@ const DADOS = {
 
     alturaAnoTelemovelHorizontal: 175,
 
-    raioAno: 32,
+    /* Valor retirado do código original */
+
+    raioAno: 23,
 
     raioDestaques: 26,
 
 
     /* ----------------------------------------------------------
-       ICONS DAS ÁREAS
+       ICONS DOS CARTÕES
        ---------------------------------------------------------- */
 
     tamanhoIconAnoDesktop: 170,
 
-    tamanhoIconAnoTablet: 130,
+    tamanhoIconAnoTablet: 100,
 
-    tamanhoIconAnoTelemovelHorizontal: 96,
+    tamanhoIconAnoTelemovelHorizontal: 76,
 
 
     /* ----------------------------------------------------------
@@ -523,14 +483,12 @@ const DADOS = {
 
 
 /* ==============================================================
-   CRIAR CSS
+   CSS
    ============================================================== */
 
 function inserirCSS() {
 
-
   const estilo = document.createElement("style");
-
 
   estilo.textContent = `
 
@@ -723,7 +681,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       ICON HAMBÚRGUER
+       HAMBÚRGUER
        ========================================================== */
 
     .botao-menu::before{
@@ -752,7 +710,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       ICON SETA
+       SETA
        ========================================================== */
 
     .botao-seta::before{
@@ -781,7 +739,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       MARCA CENTRAL
+       MARCA
        ========================================================== */
 
     .marca{
@@ -1072,7 +1030,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       ÁREA — TÍTULO
+       ÁREA
        ========================================================== */
 
     .area-menu{
@@ -1182,7 +1140,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       CARTÕES DAS ÁREAS
+       CARTÕES
        ========================================================== */
 
     .anos{
@@ -1379,7 +1337,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       JOGOS EM DESTAQUE
+       JOGOS
        ========================================================== */
 
     .destaques{
@@ -1646,7 +1604,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       TABLET — HORIZONTAL
+       TABLET HORIZONTAL
        ========================================================== */
 
     @media (min-width:601px) and (max-width:1100px) and (orientation:landscape){
@@ -1716,8 +1674,6 @@ function inserirCSS() {
       }
 
 
-      /* 90% no horizontal */
-
       .anos{
 
         width:90%;
@@ -1769,7 +1725,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       TELEMÓVEL — HORIZONTAL
+       TELEMÓVEL HORIZONTAL
        ========================================================== */
 
     @media (max-width:900px) and (orientation:landscape){
@@ -1859,8 +1815,6 @@ function inserirCSS() {
       }
 
 
-      /* 90% no horizontal */
-
       .anos{
 
         width:90%;
@@ -1942,7 +1896,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       TABLET — VERTICAL
+       TABLET VERTICAL
        ========================================================== */
 
     @media (max-width:900px) and (orientation:portrait){
@@ -2015,8 +1969,9 @@ function inserirCSS() {
       /* --------------------------------------------------------
          CARTÕES — TABLET VERTICAL
 
-         5px de margem de cada lado
-         Raio menor
+         5px de cada lado
+         Raio original: 23px
+         Ícone original: 100px
          -------------------------------------------------------- */
 
       .anos{
@@ -2034,26 +1989,28 @@ function inserirCSS() {
 
         height:126px;
 
-        border-radius:20px;
+        border:4px solid #FFFFFF;
+
+        border-radius:${DADOS.dimensoes.raioAno}px;
 
         flex-direction:row;
 
         justify-content:flex-start;
 
-        padding:13px 24px;
+        padding:10px 16px;
 
-        gap:18px;
+        gap:14px;
 
       }
 
 
       .icone-ano{
 
-        width:100px;
+        width:${DADOS.dimensoes.tamanhoIconAnoTablet}px;
 
-        height:100px;
+        height:${DADOS.dimensoes.tamanhoIconAnoTablet}px;
 
-        flex:0 0 100px;
+        flex:0 0 ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
 
       }
 
@@ -2067,7 +2024,14 @@ function inserirCSS() {
 
       .nome-ano{
 
-        font-size:25px;
+        font-size:24px;
+
+      }
+
+
+      .idade-ano{
+
+        font-size:11px;
 
       }
 
@@ -2082,7 +2046,7 @@ function inserirCSS() {
 
 
     /* ==========================================================
-       TELEMÓVEL — VERTICAL
+       TELEMÓVEL VERTICAL
        ========================================================== */
 
     @media (max-width:600px) and (orientation:portrait){
@@ -2212,8 +2176,9 @@ function inserirCSS() {
       /* --------------------------------------------------------
          CARTÕES — TELEMÓVEL VERTICAL
 
-         5px de margem de cada lado
-         Raio menor
+         5px de cada lado
+         Raio original: 23px
+         Ícone original: 76px
          -------------------------------------------------------- */
 
       .anos{
@@ -2231,11 +2196,13 @@ function inserirCSS() {
 
         height:100px;
 
-        border-radius:18px;
+        border:4px solid #FFFFFF;
 
-        padding:9px 17px;
+        border-radius:${DADOS.dimensoes.raioAno}px;
 
-        gap:13px;
+        padding:8px 12px;
+
+        gap:10px;
 
         flex-direction:row;
 
@@ -2246,11 +2213,11 @@ function inserirCSS() {
 
       .icone-ano{
 
-        width:72px;
+        width:${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
 
-        height:72px;
+        height:${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
 
-        flex:0 0 72px;
+        flex:0 0 ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
 
       }
 
@@ -2623,7 +2590,7 @@ function criarMenuAnos() {
 
 
 /* ==============================================================
-   CONFIGURAR MENU HAMBÚRGUER + SETA
+   CONFIGURAR MENU + SETA
    ============================================================== */
 
 function configurarMenu() {
@@ -2652,14 +2619,11 @@ function configurarMenu() {
       "click",
       event => {
 
-
         event.stopPropagation();
 
 
         const aberto =
-          menu.classList.toggle(
-            "aberto"
-          );
+          menu.classList.toggle("aberto");
 
 
         botaoMenu.setAttribute(
@@ -2720,7 +2684,7 @@ function configurarMenu() {
 
 
   /* ------------------------------------------------------------
-     SETA — RETROCEDER UMA PASTA
+     SETA — RECUAR UMA PASTA
      ------------------------------------------------------------ */
 
   if (botaoSeta) {
@@ -2730,8 +2694,7 @@ function configurarMenu() {
       "click",
       () => {
 
-        window.location.href =
-          "../";
+        window.location.href = "../";
 
       }
     );
@@ -2842,21 +2805,15 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-
     inserirCSS();
-
 
     preencherTextos();
 
-
     criarCartoesAno();
-
 
     criarMenuAnos();
 
-
     configurarMenu();
-
 
     criarDestaques();
 
