@@ -257,10 +257,10 @@ const DADOS = {
       "#A5D9F8",
 
     sombra:
-      "rgba(15, 88, 139, .20)",
+      "rgba(15,88,139,.20)",
 
     sombraForte:
-      "rgba(15, 88, 139, .30)"
+      "rgba(15,88,139,.30)"
 
   },
 
@@ -290,9 +290,7 @@ const DADOS = {
       26,
 
 
-    /* ----------------------------------------------------------
-       ICONS DOS CARTÕES
-       ---------------------------------------------------------- */
+    /* ICONS DOS CARTÕES */
 
     tamanhoIconAnoDesktop:
       170,
@@ -304,9 +302,7 @@ const DADOS = {
       96,
 
 
-    /* ----------------------------------------------------------
-       ICONS DOS JOGOS
-       ---------------------------------------------------------- */
+    /* ICONS DOS JOGOS */
 
     tamanhoIconJogo:
       76,
@@ -718,9 +714,7 @@ body{
 
 
 button{
-
   font:inherit;
-
 }
 
 
@@ -863,13 +857,23 @@ button{
 }
 
 
+/* ------------------------------------------------------------
+   ICON HAMBÚRGUER — MAIS PEQUENO
+   ------------------------------------------------------------ */
+
 .botao-menu::before{
 
   content:"";
 
   position:absolute;
 
-  inset:0;
+  width:56%;
+
+  height:56%;
+
+  left:22%;
+
+  top:22%;
 
   background-image:
     url("${DADOS.icons.menu}");
@@ -878,10 +882,14 @@ button{
 
   background-repeat:no-repeat;
 
-  background-size:70%;
+  background-size:contain;
 
 }
 
+
+/* ------------------------------------------------------------
+   ICON SETA
+   ------------------------------------------------------------ */
 
 .botao-seta::before{
 
@@ -889,7 +897,13 @@ button{
 
   position:absolute;
 
-  inset:0;
+  width:68%;
+
+  height:68%;
+
+  left:16%;
+
+  top:16%;
 
   background-image:
     url("${DADOS.icons.seta}");
@@ -898,7 +912,7 @@ button{
 
   background-repeat:no-repeat;
 
-  background-size:70%;
+  background-size:contain;
 
 }
 
@@ -928,7 +942,7 @@ button{
 
 
 /* ============================================================
-   MENU ACORDEÃO
+   MENU HAMBÚRGUER
    ============================================================ */
 
 .menu-acordeao{
@@ -939,9 +953,9 @@ button{
 
   left:18px;
 
-  width:280px;
+  width:300px;
 
-  padding:10px;
+  padding:0;
 
   background:
     rgba(255,255,255,.98);
@@ -950,24 +964,34 @@ button{
     2px solid
     #A5D9F8;
 
+  border-top:
+    4px solid
+    ${DADOS.cores.azulHeader};
+
   border-radius:
-    0 0 18px 18px;
+    0 0 20px 20px;
 
   box-shadow:
-    0 8px 18px
-    rgba(15,88,139,.22);
+    0 10px 25px
+    rgba(15,88,139,.24);
 
   opacity:0;
 
   visibility:hidden;
 
   transform:
-    translateY(-12px);
+    translateY(-12px)
+    scale(.98);
+
+  transform-origin:
+    top left;
 
   transition:
     opacity .22s ease,
     transform .22s ease,
     visibility .22s ease;
+
+  overflow:hidden;
 
   z-index:15;
 
@@ -981,33 +1005,70 @@ button{
   visibility:visible;
 
   transform:
-    translateY(0);
+    translateY(0)
+    scale(1);
+
+}
+
+
+/* ============================================================
+   CABEÇALHO DO MENU
+   ============================================================ */
+
+.menu-acordeao-topo{
+
+  padding:
+    12px
+    14px
+    10px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      180deg,
+      #F5FCFF,
+      #EAF7FD
+    );
+
+  border-bottom:
+    1px solid
+    #D6EDF9;
 
 }
 
 
 .menu-acordeao-titulo{
 
-  padding:
-    8px
-    10px
-    10px;
-
   color:
     #07569A;
 
-  font-size:18px;
+  font-size:19px;
+
+  line-height:1.1;
 
   font-weight:900;
 
-  text-align:center;
+}
 
-  border-bottom:
-    2px solid
-    #E0F2FC;
+
+.menu-acordeao-subtitulo{
+
+  margin-top:4px;
+
+  color:
+    #4B8CB7;
+
+  font-size:11px;
+
+  font-weight:700;
 
 }
 
+
+/* ============================================================
+   LISTA DO MENU
+   ============================================================ */
 
 .menu-anos{
 
@@ -1015,9 +1076,10 @@ button{
 
   flex-direction:column;
 
-  gap:5px;
+  gap:4px;
 
-  padding-top:7px;
+  padding:
+    8px;
 
 }
 
@@ -1026,7 +1088,7 @@ button{
 
   width:100%;
 
-  min-height:54px;
+  min-height:55px;
 
   padding:
     5px
@@ -1036,11 +1098,13 @@ button{
 
   align-items:center;
 
-  gap:12px;
+  gap:13px;
 
-  border:0;
+  border:
+    1px solid
+    transparent;
 
-  border-radius:12px;
+  border-radius:14px;
 
   background:
     transparent;
@@ -1055,8 +1119,10 @@ button{
   font-weight:800;
 
   transition:
-    background .15s ease,
-    transform .15s ease;
+    background .16s ease,
+    border-color .16s ease,
+    transform .16s ease,
+    box-shadow .16s ease;
 
 }
 
@@ -1064,22 +1130,42 @@ button{
 .menu-ano:hover{
 
   background:
-    #EAF5FC;
+    #EAF7FD;
+
+  border-color:
+    #C9E8F7;
 
   transform:
     translateX(3px);
 
+  box-shadow:
+    0 2px 6px
+    rgba(15,88,139,.08);
+
 }
 
 
+.menu-ano:active{
+
+  transform:
+    translateX(1px)
+    scale(.99);
+
+}
+
+
+/* ============================================================
+   ICONS DO MENU
+   ============================================================ */
+
 .menu-ano-icon{
 
-  width:43px;
+  width:45px;
 
-  height:43px;
+  height:45px;
 
   flex:
-    0 0 43px;
+    0 0 45px;
 
   display:flex;
 
@@ -1097,6 +1183,8 @@ button{
   height:100%;
 
   object-fit:contain;
+
+  display:block;
 
 }
 
@@ -1919,6 +2007,19 @@ and (orientation:landscape){
   }
 
 
+  .botao-menu::before{
+
+    width:55%;
+
+    height:55%;
+
+    left:22.5%;
+
+    top:22.5%;
+
+  }
+
+
   .marca-sol{
 
     width:45px;
@@ -1946,7 +2047,7 @@ and (orientation:landscape){
 
     left:12px;
 
-    width:250px;
+    width:260px;
 
   }
 
@@ -2105,6 +2206,19 @@ and (orientation:landscape){
   }
 
 
+  .botao-menu::before{
+
+    width:54%;
+
+    height:54%;
+
+    left:23%;
+
+    top:23%;
+
+  }
+
+
   .marca-sol{
 
     width:34px;
@@ -2132,7 +2246,7 @@ and (orientation:landscape){
 
     left:8px;
 
-    width:225px;
+    width:235px;
 
   }
 
@@ -2279,7 +2393,7 @@ and (orientation:landscape){
 
 
 /* ============================================================
-   TELEMÓVEL VERTICAL
+   TABLET / TELEMÓVEL VERTICAL
    ============================================================ */
 
 @media
@@ -2330,6 +2444,19 @@ and (orientation:portrait){
   }
 
 
+  .botao-menu::before{
+
+    width:54%;
+
+    height:54%;
+
+    left:23%;
+
+    top:23%;
+
+  }
+
+
   .marca-sol{
 
     width:48px;
@@ -2360,7 +2487,7 @@ and (orientation:portrait){
     width:
       calc(100% - 20px);
 
-    max-width:330px;
+    max-width:340px;
 
   }
 
@@ -2383,9 +2510,13 @@ and (orientation:portrait){
   }
 
 
+  /* ----------------------------------------------------------
+     AQUI VOLTAMOS À LARGURA ORIGINAL
+     ---------------------------------------------------------- */
+
   .anos{
 
-    width:90%;
+    width:100%;
 
     grid-template-columns:
       1fr;
@@ -2559,6 +2690,19 @@ and (orientation:portrait){
   }
 
 
+  .botao-menu::before{
+
+    width:53%;
+
+    height:53%;
+
+    left:23.5%;
+
+    top:23.5%;
+
+  }
+
+
   .marca{
 
     gap:5px;
@@ -2640,9 +2784,13 @@ and (orientation:portrait){
   }
 
 
+  /* ----------------------------------------------------------
+     TAMBÉM SEM REDUÇÃO DE 10% NO TELEMÓVEL
+     ---------------------------------------------------------- */
+
   .anos{
 
-    width:90%;
+    width:100%;
 
   }
 
@@ -2807,6 +2955,7 @@ function criarCartoesAno(){
   const zona =
     document.querySelector("#anos");
 
+
   const modelo =
     document.querySelector("#modelo-ano");
 
@@ -2911,8 +3060,11 @@ function criarMenuAnos(){
   const zona =
     document.querySelector("#menu-anos");
 
+
   const modelo =
-    document.querySelector("#modelo-menu-ano");
+    document.querySelector(
+      "#modelo-menu-ano"
+    );
 
 
   DADOS.menuAnos.forEach(
@@ -2923,15 +3075,21 @@ function criarMenuAnos(){
 
 
       const botao =
-        fragmento.querySelector(".menu-ano");
+        fragmento.querySelector(
+          ".menu-ano"
+        );
 
 
       const caixaIcon =
-        fragmento.querySelector(".menu-ano-icon");
+        fragmento.querySelector(
+          ".menu-ano-icon"
+        );
 
 
       const nome =
-        fragmento.querySelector(".menu-ano-nome");
+        fragmento.querySelector(
+          ".menu-ano-nome"
+        );
 
 
       const img =
@@ -2939,7 +3097,9 @@ function criarMenuAnos(){
 
 
       img.src =
-        DADOS.icons.menuAnos[ano.icon];
+        DADOS.icons.menuAnos[
+          ano.icon
+        ];
 
 
       img.alt =
@@ -2968,7 +3128,9 @@ function criarMenuAnos(){
       );
 
 
-      zona.appendChild(fragmento);
+      zona.appendChild(
+        fragmento
+      );
 
     }
   );
@@ -2983,11 +3145,15 @@ function criarMenuAnos(){
 function configurarMenu(){
 
   const botao =
-    document.querySelector(".botao-menu");
+    document.querySelector(
+      ".botao-menu"
+    );
 
 
   const menu =
-    document.querySelector(".menu-acordeao");
+    document.querySelector(
+      ".menu-acordeao"
+    );
 
 
   if(
@@ -3008,7 +3174,9 @@ function configurarMenu(){
 
 
       const aberto =
-        menu.classList.toggle("aberto");
+        menu.classList.toggle(
+          "aberto"
+        );
 
 
       botao.setAttribute(
@@ -3031,11 +3199,17 @@ function configurarMenu(){
     (evento)=>{
 
       if(
-        !menu.contains(evento.target) &&
-        !botao.contains(evento.target)
+        !menu.contains(
+          evento.target
+        ) &&
+        !botao.contains(
+          evento.target
+        )
       ){
 
-        menu.classList.remove("aberto");
+        menu.classList.remove(
+          "aberto"
+        );
 
 
         botao.setAttribute(
@@ -3064,17 +3238,24 @@ function configurarMenu(){
 function criarDestaques(){
 
   const zona =
-    document.querySelector("#jogos");
+    document.querySelector(
+      "#jogos"
+    );
+
 
   const modelo =
-    document.querySelector("#modelo-jogo");
+    document.querySelector(
+      "#modelo-jogo"
+    );
 
 
   DADOS.destaques.forEach(
     (jogo)=>{
 
       const fragmento =
-        modelo.content.cloneNode(true);
+        modelo.content.cloneNode(
+          true
+        );
 
 
       const img =
@@ -3149,7 +3330,9 @@ function criarDestaques(){
       }
 
 
-      zona.appendChild(fragmento);
+      zona.appendChild(
+        fragmento
+      );
 
     }
   );
