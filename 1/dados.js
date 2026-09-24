@@ -9,31 +9,11 @@
  - cores
  - dimensões
  - caminhos dos icons
- - definição das áreas
- - definição dos jogos em destaque
+ - áreas
+ - anos do menu
+ - jogos em destaque
  - CSS
- - comportamento JavaScript
-
- Estrutura:
-
- /1/
-    index.html
-    dados.js
-
- /icons/
-    menu.png
-    seta.png
-    icon1.png
-    pt.png
-    mat.png
-    em.png
-    nuvem.png
-    rastros.png
-    gatos&caes.png
-    dominorio.png
-    semaforo.png
-    quelhas.png
-    avanco.png
+ - JavaScript
 
 ================================================================
 */
@@ -111,7 +91,7 @@ const DADOS = {
 
 
     /* ----------------------------------------------------------
-       ÁREAS
+       ÁREAS DO 1.º ANO
        ---------------------------------------------------------- */
 
     anos: {
@@ -124,6 +104,30 @@ const DADOS = {
 
       estudoMeio:
         "../icons/em.png"
+
+    },
+
+
+    /* ----------------------------------------------------------
+       ICONS DO MENU DOS ANOS
+       ---------------------------------------------------------- */
+
+    menuAnos: {
+
+      pre:
+        "../icons/iconpre.png",
+
+      ano1:
+        "../icons/icon1.png",
+
+      ano2:
+        "../icons/icon2.png",
+
+      ano3:
+        "../icons/icon3.png",
+
+      ano4:
+        "../icons/icon4.png"
 
     },
 
@@ -163,11 +167,9 @@ const DADOS = {
 
   cores: {
 
-    /* Fundo geral */
     fundo:
       "#EAF5FC",
 
-    /* Céu geral */
     ceu1:
       "#78DDF7",
 
@@ -175,7 +177,10 @@ const DADOS = {
       "#BCEEF9",
 
 
-    /* Cabeçalho */
+    /* ----------------------------------------------------------
+       CABEÇALHO
+       ---------------------------------------------------------- */
+
     header:
       "#BCEEF9",
 
@@ -183,7 +188,18 @@ const DADOS = {
       "#78DDF7",
 
 
-    /* Textos */
+    /* ----------------------------------------------------------
+       BOTÕES DO CABEÇALHO
+       ---------------------------------------------------------- */
+
+    azulHeader:
+      "#0358A9",
+
+
+    /* ----------------------------------------------------------
+       TEXTOS
+       ---------------------------------------------------------- */
+
     texto:
       "#07569A",
 
@@ -194,60 +210,72 @@ const DADOS = {
       "#FFFFFF",
 
 
-    /* Amarelo */
+    /* ----------------------------------------------------------
+       CORES DOS CARTÕES
+       ---------------------------------------------------------- */
+
+    portugues:
+      "#11CBFC",
+
+    portugues2:
+      "#079BC8",
+
+    matematica:
+      "#FD6746",
+
+    matematica2:
+      "#D94328",
+
+    estudoMeio:
+      "#62D733",
+
+    estudoMeio2:
+      "#36A918",
+
+
+    /* ----------------------------------------------------------
+       CORES ANTIGAS / APOIO
+       ---------------------------------------------------------- */
+
     amarelo:
       "#FFBA16",
 
     amarelo2:
       "#EF8709",
 
-
-    /* Azul */
     azul:
       "#20B9EF",
 
     azul2:
       "#087AC9",
 
-
-    /* Verde */
     verde:
       "#45C83D",
 
     verde2:
       "#169A3A",
 
-
-    /* Roxo */
     roxo:
       "#A74BEF",
 
     roxo2:
       "#7434B8",
 
-
-    /* Rosa */
     rosa:
       "#F43A9D",
 
     rosa2:
       "#C81970",
 
-
-    /* Creme */
     creme:
       "#FFF9E1",
 
     creme2:
       "#F5D996",
 
-
-    /* Linhas */
     linha:
       "#A5D9F8",
 
-
-    /* Sombras */
     sombra:
       "rgba(15, 88, 139, .20)",
 
@@ -281,14 +309,20 @@ const DADOS = {
     raioDestaques:
       26,
 
+
+    /* ICONS DOS CARTÕES — AUMENTADOS */
+
     tamanhoIconAnoDesktop:
-      128,
+      148,
 
     tamanhoIconAnoTablet:
-      100,
+      115,
 
     tamanhoIconAnoTelemovelHorizontal:
-      76,
+      88,
+
+
+    /* ICONS DOS JOGOS */
 
     tamanhoIconJogo:
       76,
@@ -303,7 +337,7 @@ const DADOS = {
 
 
   /* ============================================================
-     ÁREAS
+     ÁREAS DO 1.º ANO
      ============================================================ */
 
   anos: [
@@ -322,10 +356,10 @@ const DADOS = {
         "portugues",
 
       cor:
-        "#F43A9D",
+        "#11CBFC",
 
       cor2:
-        "#C81970",
+        "#079BC8",
 
       pagina:
         "pt/"
@@ -347,10 +381,10 @@ const DADOS = {
         "matematica",
 
       cor:
-        "#20B9EF",
+        "#FD6746",
 
       cor2:
-        "#087AC9",
+        "#D94328",
 
       pagina:
         "mat/"
@@ -372,13 +406,101 @@ const DADOS = {
         "estudoMeio",
 
       cor:
-        "#45C83D",
+        "#62D733",
 
       cor2:
-        "#169A3A",
+        "#36A918",
 
       pagina:
         "em/"
+
+    }
+
+  ],
+
+
+  /* ============================================================
+     ANOS DO MENU HAMBÚRGUER
+     ============================================================ */
+
+  menuAnos: [
+
+    {
+      id:
+        "pre",
+
+      nome:
+        "Pré-Escolar",
+
+      icon:
+        "pre",
+
+      pagina:
+        "../pre/"
+
+    },
+
+
+    {
+      id:
+        "ano1",
+
+      nome:
+        "1.º Ano",
+
+      icon:
+        "ano1",
+
+      pagina:
+        "../1/"
+
+    },
+
+
+    {
+      id:
+        "ano2",
+
+      nome:
+        "2.º Ano",
+
+      icon:
+        "ano2",
+
+      pagina:
+        "../2/"
+
+    },
+
+
+    {
+      id:
+        "ano3",
+
+      nome:
+        "3.º Ano",
+
+      icon:
+        "ano3",
+
+      pagina:
+        "../3/"
+
+    },
+
+
+    {
+      id:
+        "ano4",
+
+      nome:
+        "4.º Ano",
+
+      icon:
+        "ano4",
+
+      pagina:
+        "../4/"
 
     }
 
@@ -512,7 +634,6 @@ const DADOS = {
 /* ==============================================================
    CSS
    ============================================================== */
-
 
 const CSS = `
 
@@ -714,7 +835,7 @@ button{
 
   position:relative;
 
-  z-index:2;
+  z-index:10;
 
   height:82px;
 
@@ -733,8 +854,6 @@ button{
   align-items:center;
 
   justify-content:center;
-
-  /* FUNDO DO CABEÇALHO */
 
   background:
     linear-gradient(
@@ -755,7 +874,7 @@ button{
 
 
 /* ============================================================
-   BOTÃO MENU
+   BOTÕES MENU E SETA
    ============================================================ */
 
 .botao-menu,
@@ -775,23 +894,24 @@ button{
   padding:0;
 
   border:
-    4px solid
-    #0358A9;
+    0;
 
   border-radius:50%;
 
   background:
-    rgba(255,255,255,.25);
+    ${DADOS.cores.azulHeader};
 
   cursor:pointer;
 
   box-shadow:
-    0 2px 5px
-    rgba(15,88,139,.12);
+    0 3px 7px
+    rgba(0,0,0,.18);
 
   transition:
     transform .15s ease,
-    background .15s ease;
+    box-shadow .15s ease;
+
+  z-index:20;
 
 }
 
@@ -810,10 +930,6 @@ button{
 }
 
 
-/* ============================================================
-   ICON MENU
-   ============================================================ */
-
 .botao-menu::before{
 
   content:"";
@@ -825,21 +941,14 @@ button{
   background-image:
     url("${DADOS.icons.menu}");
 
-  background-position:
-    center;
+  background-position:center;
 
-  background-repeat:
-    no-repeat;
+  background-repeat:no-repeat;
 
-  background-size:
-    70%;
+  background-size:70%;
 
 }
 
-
-/* ============================================================
-   ICON SETA
-   ============================================================ */
 
 .botao-seta::before{
 
@@ -852,31 +961,25 @@ button{
   background-image:
     url("${DADOS.icons.seta}");
 
-  background-position:
-    center;
+  background-position:center;
 
-  background-repeat:
-    no-repeat;
+  background-repeat:no-repeat;
 
-  background-size:
-    70%;
+  background-size:70%;
 
 }
 
 
-/* ============================================================
-   EFEITOS DOS BOTÕES
-   ============================================================ */
-
 .botao-menu:hover,
 .botao-seta:hover{
 
-  background:
-    rgba(255,255,255,.48);
-
   transform:
     translateY(-50%)
-    scale(1.04);
+    scale(1.05);
+
+  box-shadow:
+    0 5px 10px
+    rgba(0,0,0,.22);
 
 }
 
@@ -886,26 +989,200 @@ button{
 
   transform:
     translateY(-50%)
-    scale(.97);
-
-}
-
-
-.botao-menu:focus-visible,
-.botao-seta:focus-visible{
-
-  outline:
-    3px solid
-    rgba(255,255,255,.95);
-
-  outline-offset:
-    3px;
+    scale(.96);
 
 }
 
 
 /* ============================================================
-   MARCA CENTRAL
+   MENU ACORDEÃO
+   ============================================================ */
+
+.menu-acordeao{
+
+  position:absolute;
+
+  top:72px;
+
+  left:18px;
+
+  width:280px;
+
+  padding:10px;
+
+  background:
+    rgba(255,255,255,.98);
+
+  border:
+    2px solid
+    #A5D9F8;
+
+  border-radius:0 0 18px 18px;
+
+  box-shadow:
+    0 8px 18px
+    rgba(15,88,139,.22);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transform:
+    translateY(-12px);
+
+  transition:
+    opacity .22s ease,
+    transform .22s ease,
+    visibility .22s ease;
+
+  z-index:15;
+
+}
+
+
+.menu-acordeao.aberto{
+
+  opacity:1;
+
+  visibility:visible;
+
+  transform:
+    translateY(0);
+
+}
+
+
+/* ============================================================
+   TÍTULO DO MENU
+   ============================================================ */
+
+.menu-acordeao-titulo{
+
+  padding:
+    8px
+    10px
+    10px;
+
+  color:
+    #07569A;
+
+  font-size:18px;
+
+  font-weight:900;
+
+  text-align:center;
+
+  border-bottom:
+    2px solid
+    #E0F2FC;
+
+}
+
+
+/* ============================================================
+   LISTA DE ANOS
+   ============================================================ */
+
+.menu-anos{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:5px;
+
+  padding-top:7px;
+
+}
+
+
+.menu-ano{
+
+  width:100%;
+
+  min-height:54px;
+
+  padding:
+    5px
+    10px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  border:0;
+
+  border-radius:12px;
+
+  background:
+    transparent;
+
+  color:
+    #07569A;
+
+  cursor:pointer;
+
+  text-align:left;
+
+  font-weight:800;
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
+
+}
+
+
+.menu-ano:hover{
+
+  background:
+    #EAF5FC;
+
+  transform:
+    translateX(3px);
+
+}
+
+
+.menu-ano-icon{
+
+  width:43px;
+
+  height:43px;
+
+  flex:0 0 43px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+
+.menu-ano-icon img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:contain;
+
+}
+
+
+.menu-ano-nome{
+
+  font-size:17px;
+
+}
+
+
+/* ============================================================
+   MARCA
    ============================================================ */
 
 .marca{
@@ -1086,12 +1363,15 @@ button{
 
 
 /* ============================================================
-   CARTÕES DAS ÁREAS
+   CARTÕES
    ============================================================ */
 
 .anos{
 
-  width:100%;
+  width:90%;
+
+  margin:
+    0 auto;
 
   display:grid;
 
@@ -1101,7 +1381,7 @@ button{
       minmax(0,1fr)
     );
 
-  gap:14px;
+  gap:18px;
 
 }
 
@@ -1121,9 +1401,9 @@ button{
     ${DADOS.dimensoes.alturaAnoDesktop}px;
 
   padding:
-    18px
-    12px
-    14px;
+    14px
+    10px
+    12px;
 
   border:
     3px solid
@@ -1243,7 +1523,7 @@ button{
 
 
 /* ============================================================
-   ICON DAS ÁREAS
+   ICONS DOS CARTÕES
    ============================================================ */
 
 .icone-ano{
@@ -1289,7 +1569,7 @@ button{
 
 
 /* ============================================================
-   TEXTO DAS ÁREAS
+   TEXTO DOS CARTÕES
    ============================================================ */
 
 .texto-ano{
@@ -1336,12 +1616,6 @@ button{
 
   margin-top:7px;
 
-  font-family:
-    "Nunito",
-    "Quicksand",
-    "Trebuchet MS",
-    sans-serif;
-
   font-size:
     clamp(
       14px,
@@ -1352,12 +1626,6 @@ button{
   line-height:1;
 
   font-weight:700;
-
-  letter-spacing:.15px;
-
-  text-shadow:
-    0 1px 1px
-    rgba(0,0,0,.12);
 
 }
 
@@ -1393,7 +1661,7 @@ button{
 
 
 /* ============================================================
-   TÍTULO DOS DESTAQUES
+   TÍTULO DESTAQUES
    ============================================================ */
 
 .titulo-destaques{
@@ -1498,10 +1766,6 @@ button{
 }
 
 
-/* ============================================================
-   ICON DOS JOGOS
-   ============================================================ */
-
 .icone-jogo{
 
   width:
@@ -1531,10 +1795,6 @@ button{
 
 }
 
-
-/* ============================================================
-   NOME DOS JOGOS
-   ============================================================ */
 
 .nome-jogo{
 
@@ -1653,8 +1913,6 @@ button{
 
   font-size:25px;
 
-  line-height:1;
-
 }
 
 
@@ -1721,29 +1979,16 @@ and (orientation:landscape){
 
     height:50px;
 
-    border-width:3px;
-
   }
 
 
   .botao-menu{
-
     left:12px;
-
   }
 
 
   .botao-seta{
-
     right:12px;
-
-  }
-
-
-  .marca{
-
-    gap:6px;
-
   }
 
 
@@ -1759,48 +2004,31 @@ and (orientation:landscape){
 
 
   .marca-texto h1{
-
     font-size:28px;
-
   }
 
 
   .marca-texto p{
-
     font-size:12px;
-
-    margin-top:4px;
-
   }
 
 
-  .titulo-menu{
+  .menu-acordeao{
 
-    margin-bottom:12px;
+    top:58px;
 
-    padding:
-      7px
-      24px;
+    left:12px;
 
-  }
-
-
-  .titulo-menu h2{
-
-    font-size:20px;
+    width:250px;
 
   }
 
 
   .anos{
 
-    grid-template-columns:
-      repeat(
-        3,
-        minmax(0,1fr)
-      );
+    width:90%;
 
-    gap:8px;
+    gap:10px;
 
   }
 
@@ -1809,15 +2037,6 @@ and (orientation:landscape){
 
     height:
       ${DADOS.dimensoes.alturaAnoTabletHorizontal}px;
-
-    padding:
-      10px
-      7px
-      9px;
-
-    border-width:2px;
-
-    border-radius:16px;
 
   }
 
@@ -1838,26 +2057,7 @@ and (orientation:landscape){
 
   .nome-ano{
 
-    font-size:
-      clamp(
-        14px,
-        2vw,
-        20px
-      );
-
-  }
-
-
-  .idade-ano{
-
-    margin-top:4px;
-
-    font-size:
-      clamp(
-        10px,
-        1.3vw,
-        14px
-      );
+    font-size:20px;
 
   }
 
@@ -1884,16 +2084,12 @@ and (orientation:landscape){
 
 
   .titulo-destaques h2{
-
     font-size:18px;
-
   }
 
 
   .jogos{
-
     gap:10px;
-
   }
 
 
@@ -1905,24 +2101,16 @@ and (orientation:landscape){
     height:
       ${DADOS.dimensoes.tamanhoIconJogoTablet}px;
 
-    margin-bottom:5px;
-
   }
 
 
   .nome-jogo{
-
     font-size:12px;
-
   }
 
 
   .estrelas{
-
-    margin-top:4px;
-
     font-size:15px;
-
   }
 
 
@@ -1977,29 +2165,16 @@ and (orientation:landscape){
 
     height:42px;
 
-    border-width:3px;
-
   }
 
 
   .botao-menu{
-
     left:8px;
-
   }
 
 
   .botao-seta{
-
     right:8px;
-
-  }
-
-
-  .marca{
-
-    gap:5px;
-
   }
 
 
@@ -2015,18 +2190,46 @@ and (orientation:landscape){
 
 
   .marca-texto h1{
-
     font-size:22px;
-
   }
 
 
   .marca-texto p{
-
-    margin-top:2px;
-
     font-size:8px;
+  }
 
+
+  .menu-acordeao{
+
+    top:45px;
+
+    left:8px;
+
+    width:225px;
+
+  }
+
+
+  .menu-ano{
+
+    min-height:45px;
+
+  }
+
+
+  .menu-ano-icon{
+
+    width:36px;
+
+    height:36px;
+
+    flex-basis:36px;
+
+  }
+
+
+  .menu-ano-nome{
+    font-size:14px;
   }
 
 
@@ -2038,25 +2241,17 @@ and (orientation:landscape){
       5px
       18px;
 
-    border-radius:10px;
-
   }
 
 
   .titulo-menu h2{
-
     font-size:14px;
-
   }
 
 
   .anos{
 
-    grid-template-columns:
-      repeat(
-        3,
-        minmax(0,1fr)
-      );
+    width:90%;
 
     gap:5px;
 
@@ -2067,15 +2262,6 @@ and (orientation:landscape){
 
     height:
       ${DADOS.dimensoes.alturaAnoTelemovelHorizontal}px;
-
-    padding:
-      6px
-      4px
-      5px;
-
-    border-width:2px;
-
-    border-radius:12px;
 
   }
 
@@ -2095,28 +2281,7 @@ and (orientation:landscape){
 
 
   .nome-ano{
-
-    font-size:
-      clamp(
-        10px,
-        2.9vw,
-        15px
-      );
-
-  }
-
-
-  .idade-ano{
-
-    margin-top:3px;
-
-    font-size:
-      clamp(
-        8px,
-        2vw,
-        11px
-      );
-
+    font-size:15px;
   }
 
 
@@ -2125,11 +2290,7 @@ and (orientation:landscape){
     margin-top:8px;
 
     padding:
-      9px
-      9px
-      10px;
-
-    border-radius:16px;
+      9px;
 
   }
 
@@ -2146,37 +2307,13 @@ and (orientation:landscape){
   }
 
 
-  .titulo-destaques .linha{
-
-    height:2px;
-
-  }
-
-
   .titulo-destaques h2{
-
     font-size:13px;
-
-  }
-
-
-  .titulo-destaques h2 span{
-
-    margin-right:3px;
-
   }
 
 
   .jogos{
-
-    grid-template-columns:
-      repeat(
-        6,
-        minmax(0,1fr)
-      );
-
     gap:4px;
-
   }
 
 
@@ -2186,28 +2323,16 @@ and (orientation:landscape){
 
     height:52px;
 
-    margin-bottom:3px;
-
   }
 
 
   .nome-jogo{
-
-    min-height:14px;
-
     font-size:8px;
-
   }
 
 
   .estrelas{
-
-    margin-top:2px;
-
     font-size:8px;
-
-    letter-spacing:0;
-
   }
 
 
@@ -2217,40 +2342,7 @@ and (orientation:landscape){
 
     min-height:31px;
 
-    padding:
-      4px
-      7px;
-
-    gap:5px;
-
     font-size:7px;
-
-    border-radius:9px;
-
-  }
-
-
-  .rodape-item{
-
-    gap:4px;
-
-  }
-
-
-  .estrela{
-
-    font-size:15px;
-
-  }
-
-
-  .info{
-
-    width:16px;
-
-    height:16px;
-
-    font-size:11px;
 
   }
 
@@ -2258,7 +2350,7 @@ and (orientation:landscape){
 
 
 /* ============================================================
-   TABLET / TELEMÓVEL VERTICAL
+   TELEMÓVEL VERTICAL
    ============================================================ */
 
 @media
@@ -2296,22 +2388,16 @@ and (orientation:portrait){
 
     height:48px;
 
-    border-width:3px;
-
   }
 
 
   .botao-menu{
-
     left:10px;
-
   }
 
 
   .botao-seta{
-
     right:10px;
-
   }
 
 
@@ -2327,15 +2413,25 @@ and (orientation:portrait){
 
 
   .marca-texto h1{
-
     font-size:25px;
-
   }
 
 
   .marca-texto p{
-
     font-size:10px;
+  }
+
+
+  .menu-acordeao{
+
+    top:60px;
+
+    left:10px;
+
+    width:
+      calc(100% - 20px);
+
+    max-width:330px;
 
   }
 
@@ -2352,13 +2448,13 @@ and (orientation:portrait){
 
 
   .titulo-menu h2{
-
     font-size:17px;
-
   }
 
 
   .anos{
+
+    width:90%;
 
     grid-template-columns:
       1fr;
@@ -2370,8 +2466,6 @@ and (orientation:portrait){
 
   .botao-ano{
 
-    width:100%;
-
     height:126px;
 
     padding:
@@ -2381,48 +2475,30 @@ and (orientation:portrait){
     display:grid;
 
     grid-template-columns:
-      88px
-      1fr;
-
-    grid-template-rows:
+      105px
       1fr;
 
     column-gap:15px;
-
-    border-radius:17px;
 
   }
 
 
   .icone-ano{
 
-    width:76px;
+    width:90px;
 
-    height:76px;
+    height:90px;
 
   }
 
 
   .texto-ano{
-
     text-align:left;
-
   }
 
 
   .nome-ano{
-
     font-size:22px;
-
-  }
-
-
-  .idade-ano{
-
-    margin-top:6px;
-
-    font-size:13px;
-
   }
 
 
@@ -2451,9 +2527,7 @@ and (orientation:portrait){
 
 
   .titulo-destaques h2{
-
     font-size:17px;
-
   }
 
 
@@ -2482,16 +2556,12 @@ and (orientation:portrait){
 
 
   .nome-jogo{
-
     font-size:13px;
-
   }
 
 
   .estrelas{
-
     font-size:13px;
-
   }
 
 
@@ -2508,16 +2578,14 @@ and (orientation:portrait){
 
 
   .rodape-info{
-
     justify-content:flex-start;
-
   }
 
 }
 
 
 /* ============================================================
-   TELEMÓVEL VERTICAL
+   TELEMÓVEL VERTICAL PEQUENO
    ============================================================ */
 
 @media
@@ -2545,22 +2613,16 @@ and (orientation:portrait){
 
     height:43px;
 
-    border-width:3px;
-
   }
 
 
   .botao-menu{
-
     left:7px;
-
   }
 
 
   .botao-seta{
-
     right:7px;
-
   }
 
 
@@ -2583,16 +2645,47 @@ and (orientation:portrait){
 
 
   .marca-texto h1{
-
     font-size:22px;
-
   }
 
 
   .marca-texto p{
-
     font-size:9px;
+  }
 
+
+  .menu-acordeao{
+
+    top:53px;
+
+    left:7px;
+
+    width:
+      calc(100% - 14px);
+
+  }
+
+
+  .menu-ano{
+
+    min-height:48px;
+
+  }
+
+
+  .menu-ano-icon{
+
+    width:38px;
+
+    height:38px;
+
+    flex-basis:38px;
+
+  }
+
+
+  .menu-ano-nome{
+    font-size:15px;
   }
 
 
@@ -2608,18 +2701,23 @@ and (orientation:portrait){
 
 
   .titulo-menu h2{
-
     font-size:15px;
+  }
+
+
+  .anos{
+
+    width:90%;
 
   }
 
 
   .botao-ano{
 
-    height:94px;
+    height:100px;
 
     grid-template-columns:
-      72px
+      78px
       1fr;
 
     column-gap:10px;
@@ -2628,33 +2726,25 @@ and (orientation:portrait){
       7px
       12px;
 
-    border-radius:14px;
-
   }
 
 
   .icone-ano{
 
-    width:58px;
+    width:68px;
 
-    height:58px;
+    height:68px;
 
   }
 
 
   .nome-ano{
-
     font-size:18px;
-
   }
 
 
   .idade-ano{
-
-    margin-top:4px;
-
     font-size:11px;
-
   }
 
 
@@ -2665,22 +2755,11 @@ and (orientation:portrait){
       8px
       12px;
 
-    border-radius:17px;
-
-  }
-
-
-  .titulo-destaques{
-
-    margin-bottom:11px;
-
   }
 
 
   .titulo-destaques h2{
-
     font-size:14px;
-
   }
 
 
@@ -2709,39 +2788,18 @@ and (orientation:portrait){
 
 
   .nome-jogo{
-
     font-size:11px;
-
   }
 
 
   .estrelas{
-
     font-size:10px;
-
   }
 
 
   .rodape{
-
     font-size:9px;
-
   }
-
-}
-
-
-/* ============================================================
-   FOCO
-   ============================================================ */
-
-.botao-ano:focus-visible{
-
-  outline:
-    4px solid
-    rgba(255,255,255,.95);
-
-  outline-offset:3px;
 
 }
 
@@ -2749,7 +2807,7 @@ and (orientation:portrait){
 
 
 /* ==============================================================
-   CRIAR NUVENS
+   NUVENS
    ============================================================== */
 
 function criarNuvens(){
@@ -2762,10 +2820,6 @@ function criarNuvens(){
 
   if(!camada)
     return;
-
-
-  const cfg =
-    DADOS.nuvens;
 
 
   const posicoes = [
@@ -2803,7 +2857,7 @@ function criarNuvens(){
   posicoes
     .slice(
       0,
-      cfg.quantidade
+      DADOS.nuvens.quantidade
     )
     .forEach(
       (posicao,i)=>{
@@ -2894,7 +2948,7 @@ function inserirCSS(){
 
 
 /* ==============================================================
-   PREENCHER TEXTOS
+   TEXTOS
    ============================================================== */
 
 function preencherTextos(){
@@ -2942,7 +2996,7 @@ function preencherTextos(){
 
 
 /* ==============================================================
-   CRIAR CARTÕES DAS ÁREAS
+   CARTÕES DAS ÁREAS
    ============================================================== */
 
 function criarCartoesAno(){
@@ -3071,7 +3125,185 @@ function criarCartoesAno(){
 
 
 /* ==============================================================
-   CRIAR JOGOS EM DESTAQUE
+   MENU HAMBÚRGUER
+   ============================================================== */
+
+function criarMenuAnos(){
+
+  const zona =
+    document.querySelector(
+      "#menu-anos"
+    );
+
+
+  const modelo =
+    document.querySelector(
+      "#modelo-menu-ano"
+    );
+
+
+  DADOS.menuAnos.forEach(
+    (ano)=>{
+
+      const fragmento =
+        modelo.content.cloneNode(
+          true
+        );
+
+
+      const botao =
+        fragmento.querySelector(
+          ".menu-ano"
+        );
+
+
+      const caixaIcon =
+        fragmento.querySelector(
+          ".menu-ano-icon"
+        );
+
+
+      const nome =
+        fragmento.querySelector(
+          ".menu-ano-nome"
+        );
+
+
+      const img =
+        document.createElement(
+          "img"
+        );
+
+
+      img.src =
+        DADOS.icons.menuAnos[
+          ano.icon
+        ];
+
+
+      img.alt =
+        "";
+
+
+      img.draggable =
+        false;
+
+
+      caixaIcon.appendChild(
+        img
+      );
+
+
+      nome.textContent =
+        ano.nome;
+
+
+      botao.addEventListener(
+        "click",
+        ()=>{
+
+          window.location.href =
+            ano.pagina;
+
+        }
+      );
+
+
+      zona.appendChild(
+        fragmento
+      );
+
+    }
+  );
+
+}
+
+
+/* ==============================================================
+   COMPORTAMENTO DO MENU
+   ============================================================== */
+
+function configurarMenu(){
+
+  const botao =
+    document.querySelector(
+      ".botao-menu"
+    );
+
+
+  const menu =
+    document.querySelector(
+      ".menu-acordeao"
+    );
+
+
+  if(!botao || !menu)
+    return;
+
+
+  botao.addEventListener(
+    "click",
+    (evento)=>{
+
+      evento.stopPropagation();
+
+
+      const aberto =
+        menu.classList.toggle(
+          "aberto"
+        );
+
+
+      botao.setAttribute(
+        "aria-expanded",
+        aberto
+      );
+
+
+      menu.setAttribute(
+        "aria-hidden",
+        !aberto
+      );
+
+    }
+  );
+
+
+  document.addEventListener(
+    "click",
+    (evento)=>{
+
+      if(
+        !menu.contains(evento.target) &&
+        !botao.contains(evento.target)
+      ){
+
+        menu.classList.remove(
+          "aberto"
+        );
+
+
+        botao.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+
+        menu.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* ==============================================================
+   JOGOS EM DESTAQUE
    ============================================================== */
 
 function criarDestaques(){
@@ -3141,66 +3373,30 @@ function criarDestaques(){
       );
 
 
-      if(jogo.pagina){
-
-        const cartao =
-          fragmento.querySelector(
-            ".jogo"
-          );
+      const cartao =
+        fragmento.querySelector(
+          ".jogo"
+        );
 
 
-        if(cartao){
+      if(
+        jogo.pagina &&
+        cartao
+      ){
 
-          cartao.style.cursor =
-            "pointer";
-
-
-          cartao.setAttribute(
-            "role",
-            "link"
-          );
+        cartao.style.cursor =
+          "pointer";
 
 
-          cartao.setAttribute(
-            "tabindex",
-            "0"
-          );
+        cartao.addEventListener(
+          "click",
+          ()=>{
 
+            window.location.href =
+              jogo.pagina;
 
-          const abrirJogo =
-            ()=>{
-
-              window.location.href =
-                jogo.pagina;
-
-            };
-
-
-          cartao.addEventListener(
-            "click",
-            abrirJogo
-          );
-
-
-          cartao.addEventListener(
-            "keydown",
-            (evento)=>{
-
-              if(
-                evento.key === "Enter" ||
-                evento.key === " "
-              ){
-
-                evento.preventDefault();
-
-                abrirJogo();
-
-              }
-
-            }
-          );
-
-        }
+          }
+        );
 
       }
 
@@ -3230,6 +3426,10 @@ document.addEventListener(
     preencherTextos();
 
     criarCartoesAno();
+
+    criarMenuAnos();
+
+    configurarMenu();
 
     criarDestaques();
 
