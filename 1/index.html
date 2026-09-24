@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>1.º Ano</title>
 </head>
 
@@ -10,49 +12,114 @@
 
   <main id="app">
 
-    <div class="camada-nuvens" aria-hidden="true"></div>
+    <!-- ======================================================
+         NUVENS
+         ====================================================== -->
+
+    <div
+      class="camada-nuvens"
+      aria-hidden="true">
+    </div>
+
+
+    <!-- ======================================================
+         CABEÇALHO
+         ====================================================== -->
 
     <header class="cabecalho">
 
+      <!-- MENU -->
+      <button
+        class="botao-menu"
+        type="button"
+        aria-label="Abrir menu">
+      </button>
+
+
+      <!-- MARCA CENTRAL -->
       <div class="marca">
 
-        <div class="marca-sol" aria-hidden="true"></div>
+        <div
+          class="marca-sol"
+          aria-hidden="true">
+        </div>
 
         <div class="marca-texto">
+
           <h1 data-marca></h1>
+
           <p data-submarca></p>
+
         </div>
 
       </div>
 
+
+      <!-- SETA -->
+      <button
+        class="botao-seta"
+        type="button"
+        aria-label="Avançar">
+      </button>
+
     </header>
 
 
-    <section class="area-menu" aria-labelledby="titulo-menu">
+    <!-- ======================================================
+         ESCOLHE A ÁREA
+         ====================================================== -->
 
-      <div class="decoracao decoracao-esquerda" aria-hidden="true"></div>
-      <div class="decoracao decoracao-direita" aria-hidden="true"></div>
+    <section
+      class="area-menu"
+      aria-labelledby="titulo-menu">
 
-      <div class="titulo-menu">
-        <h2 id="titulo-menu" data-titulo-menu></h2>
+
+      <div
+        class="decoracao decoracao-esquerda"
+        aria-hidden="true">
+      </div>
+
+      <div
+        class="decoracao decoracao-direita"
+        aria-hidden="true">
       </div>
 
 
-      <div class="anos" id="anos">
+      <div class="titulo-menu">
+
+        <h2
+          id="titulo-menu"
+          data-titulo-menu>
+        </h2>
+
+      </div>
+
+
+      <div
+        class="anos"
+        id="anos">
+
 
         <template id="modelo-ano">
 
           <article class="ano">
 
-            <button class="botao-ano" type="button">
+            <button
+              class="botao-ano"
+              type="button">
 
-              <div class="icone-ano"></div>
+
+              <div class="icone-ano">
+              </div>
+
 
               <div class="texto-ano">
 
-                <div class="nome-ano"></div>
+                <div class="nome-ano">
+                </div>
 
-                <div class="idade-ano"></div>
+                <div class="idade-ano">
+                </div>
 
               </div>
 
@@ -67,15 +134,25 @@
     </section>
 
 
-    <section class="destaques" aria-labelledby="titulo-destaques">
+    <!-- ======================================================
+         JOGOS EM DESTAQUE
+         ====================================================== -->
+
+    <section
+      class="destaques"
+      aria-labelledby="titulo-destaques">
+
 
       <div class="titulo-destaques">
 
         <span class="linha"></span>
 
         <h2 id="titulo-destaques">
+
           <span aria-hidden="true">🎮</span>
+
           Jogos em destaque
+
         </h2>
 
         <span class="linha"></span>
@@ -83,7 +160,10 @@
       </div>
 
 
-      <div class="jogos" id="jogos">
+      <div
+        class="jogos"
+        id="jogos">
+
 
         <template id="modelo-jogo">
 
@@ -93,18 +173,21 @@
 
               <img
                 alt=""
-                draggable="false"
-              >
+                draggable="false">
 
             </div>
 
-            <div class="nome-jogo"></div>
+
+            <div class="nome-jogo">
+            </div>
+
 
             <div
               class="estrelas"
-              aria-label="5 estrelas"
-            >
+              aria-label="5 estrelas">
+
               ★★★★★
+
             </div>
 
           </article>
@@ -116,14 +199,18 @@
     </section>
 
 
+    <!-- ======================================================
+         RODAPÉ
+         ====================================================== -->
+
     <footer class="rodape">
+
 
       <div class="rodape-item">
 
         <span
           class="estrela"
-          aria-hidden="true"
-        >
+          aria-hidden="true">
           ★
         </span>
 
@@ -136,8 +223,7 @@
 
         <span
           class="info"
-          aria-hidden="true"
-        >
+          aria-hidden="true">
           i
         </span>
 
@@ -145,12 +231,19 @@
 
       </div>
 
+
     </footer>
+
 
   </main>
 
 
+  <!-- ========================================================
+       DADOS + CSS + JAVASCRIPT
+       ======================================================== -->
+
   <script src="dados.js"></script>
 
 </body>
+
 </html>
