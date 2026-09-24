@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>1.º Ano</title>
 </head>
 
@@ -28,15 +27,53 @@
 
     <header class="cabecalho">
 
-      <!-- MENU -->
+      <!-- MENU HAMBÚRGUER -->
+
       <button
         class="botao-menu"
         type="button"
-        aria-label="Abrir menu">
+        aria-label="Abrir menu"
+        aria-expanded="false">
       </button>
 
 
+      <!-- MENU ACORDEÃO -->
+
+      <div
+        class="menu-acordeao"
+        aria-hidden="true">
+
+        <div class="menu-acordeao-titulo">
+          Escolhe o ano
+        </div>
+
+        <div
+          class="menu-anos"
+          id="menu-anos">
+
+          <template id="modelo-menu-ano">
+
+            <button
+              class="menu-ano"
+              type="button">
+
+              <div class="menu-ano-icon">
+              </div>
+
+              <span class="menu-ano-nome">
+              </span>
+
+            </button>
+
+          </template>
+
+        </div>
+
+      </div>
+
+
       <!-- MARCA CENTRAL -->
+
       <div class="marca">
 
         <div
@@ -56,6 +93,7 @@
 
 
       <!-- SETA -->
+
       <button
         class="botao-seta"
         type="button"
@@ -72,7 +110,6 @@
     <section
       class="area-menu"
       aria-labelledby="titulo-menu">
-
 
       <div
         class="decoracao decoracao-esquerda"
@@ -99,7 +136,6 @@
         class="anos"
         id="anos">
 
-
         <template id="modelo-ano">
 
           <article class="ano">
@@ -108,10 +144,8 @@
               class="botao-ano"
               type="button">
 
-
               <div class="icone-ano">
               </div>
-
 
               <div class="texto-ano">
 
@@ -142,17 +176,13 @@
       class="destaques"
       aria-labelledby="titulo-destaques">
 
-
       <div class="titulo-destaques">
 
         <span class="linha"></span>
 
         <h2 id="titulo-destaques">
-
           <span aria-hidden="true">🎮</span>
-
           Jogos em destaque
-
         </h2>
 
         <span class="linha"></span>
@@ -163,7 +193,6 @@
       <div
         class="jogos"
         id="jogos">
-
 
         <template id="modelo-jogo">
 
@@ -177,17 +206,13 @@
 
             </div>
 
-
             <div class="nome-jogo">
             </div>
-
 
             <div
               class="estrelas"
               aria-label="5 estrelas">
-
               ★★★★★
-
             </div>
 
           </article>
@@ -232,13 +257,12 @@
 
     </footer>
 
-
   </main>
 
 
-  <!-- ========================================================
+  <!-- ======================================================
        DADOS + CSS + JAVASCRIPT
-       ======================================================== -->
+       ====================================================== -->
 
   <script src="dados.js"></script>
 
