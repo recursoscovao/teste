@@ -1,5 +1,6 @@
 const DADOS = {
   pagina: {
+    browserTitulo: "2.º Ano - Recursos Educativos",
     titulo: "2.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
@@ -8,7 +9,7 @@ const DADOS = {
   },
 
   icons: {
-    cabecalho: "../icons/icon2.png",
+    cabecalho: "../icons/icon1.png",
     menu: "../icons/menu.png",
     seta: "../icons/seta.png",
     anos: {
@@ -70,23 +71,17 @@ const DADOS = {
   dimensoes: {
     larguraMaxima: 1650,
     alturaAnoDesktop: 300,
-    alturaAnoTabletHorizontal: 245,
-    alturaAnoTelemovelHorizontal: 175,
     raioAno: 23,
     raioDestaques: 26,
     tamanhoIconAnoDesktop: 170,
-    tamanhoIconAnoTablet: 100,
-    tamanhoIconAnoTelemovelHorizontal: 76,
-    tamanhoIconJogo: 76,
-    tamanhoIconJogoTablet: 64,
-    tamanhoIconJogoTelemovel: 54
+    tamanhoIconJogo: 76
   },
 
   anos: [
     {
       id: "portugues",
       nome: "Português",
-      idade: "7 - 8 anos",
+      idade: "6 - 7 anos",
       icon: "portugues",
       cor: "#11CBFC",
       cor2: "#079BC8",
@@ -95,7 +90,7 @@ const DADOS = {
     {
       id: "matematica",
       nome: "Matemática",
-      idade: "7 - 8 anos",
+      idade: "",
       icon: "matematica",
       cor: "#FD6746",
       cor2: "#D94328",
