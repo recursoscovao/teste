@@ -243,7 +243,7 @@ const DADOS = {
 
       nome: "Português",
 
-      idade: "",
+      idade: "6 - 7 anos",
 
       icon: "portugues",
 
