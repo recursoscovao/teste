@@ -284,7 +284,7 @@ button {
   min-height: 100vh;
   width: min(100%, ${DADOS.dimensoes.larguraMaxima}px);
   margin: 0 auto;
-  padding: 13px 20px 16px;
+  padding: 0 0 16px;
   position: relative;
   overflow: hidden;
 
@@ -694,7 +694,8 @@ button {
 
   width: 100%;
 
-  padding: 0;
+  margin-top: 20px;
+  padding: 0 20px;
 }
 
 .titulo-menu {
@@ -759,7 +760,7 @@ button {
 
 .decoracao-esquerda {
 
-  left: 4%;
+  left: calc(4% + 20px);
   top: 66px;
 
   background:
@@ -771,7 +772,7 @@ button {
 
 .decoracao-direita {
 
-  right: 4%;
+  right: calc(4% + 20px);
   top: 66px;
 
   background:
@@ -976,12 +977,14 @@ button {
 
 
 /* ============================================================
-   JOGOS EM DESTAQUE (Design exato do ficheiro 1)
+   JOGOS EM DESTAQUE
    ============================================================ */
 
 .destaques {
 
   margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 23px 28px 25px;
   border-radius: ${DADOS.dimensoes.raioDestaques}px;
   background: rgba(255,255,255,.93);
@@ -1093,14 +1096,16 @@ button {
 
 
 /* ============================================================
-   FOOTER (Design exato do ficheiro 1)
+   FOOTER
    ============================================================ */
 
 .rodape {
 
-  width: 100%;
+  width: calc(100% - 40px);
   min-height: 53px;
   margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 8px 17px;
   display: grid;
   grid-template-columns: 1fr 1fr;
