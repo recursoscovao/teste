@@ -2,22 +2,14 @@
 <html lang="pt-PT">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1.º Ano</title>
-
 </head>
-
 
 <body>
 
   <main id="app">
-
 
     <!-- ======================================================
          CABEÇALHO
@@ -25,28 +17,16 @@
 
     <header class="cabecalho">
 
-
-      <!-- ----------------------------------------------------
-           MENU HAMBÚRGUER
-           ---------------------------------------------------- -->
-
       <button
         class="botao-menu"
         type="button"
         aria-label="Abrir menu"
         aria-expanded="false">
-
       </button>
-
-
-      <!-- ----------------------------------------------------
-           MENU ACORDEÃO
-           ---------------------------------------------------- -->
 
       <div
         class="menu-acordeao"
         aria-hidden="true">
-
 
         <div class="menu-acordeao-topo">
 
@@ -60,11 +40,9 @@
 
         </div>
 
-
         <div
           class="menu-anos"
           id="menu-anos">
-
 
           <template id="modelo-menu-ano">
 
@@ -72,35 +50,24 @@
               class="menu-ano"
               type="button">
 
-              <div class="menu-ano-icon">
-              </div>
+              <div class="menu-ano-icon"></div>
 
-              <span class="menu-ano-nome">
-              </span>
+              <span class="menu-ano-nome"></span>
 
             </button>
 
           </template>
 
-
         </div>
-
 
       </div>
 
-
-      <!-- ----------------------------------------------------
-           MARCA CENTRAL
-           ---------------------------------------------------- -->
-
       <div class="marca">
-
 
         <div
           class="marca-sol"
           aria-hidden="true">
         </div>
-
 
         <div class="marca-texto">
 
@@ -110,45 +77,34 @@
 
         </div>
 
-
       </div>
-
-
-      <!-- ----------------------------------------------------
-           SETA
-           ---------------------------------------------------- -->
 
       <button
         class="botao-seta"
         type="button"
         aria-label="Avançar">
-
       </button>
-
 
     </header>
 
 
     <!-- ======================================================
-         ESCOLHE A ÁREA
+         ÁREA DOS ANOS / DISCIPLINAS
          ====================================================== -->
 
     <section
       class="area-menu"
       aria-labelledby="titulo-menu">
 
-
       <div
         class="decoracao decoracao-esquerda"
         aria-hidden="true">
       </div>
 
-
       <div
         class="decoracao decoracao-direita"
         aria-hidden="true">
       </div>
-
 
       <div class="titulo-menu">
 
@@ -159,49 +115,35 @@
 
       </div>
 
-
       <div
         class="anos"
         id="anos">
 
-
         <template id="modelo-ano">
 
-
           <article class="ano">
-
 
             <button
               class="botao-ano"
               type="button">
 
-
-              <div class="icone-ano">
-              </div>
-
+              <div class="icone-ano"></div>
 
               <div class="texto-ano">
 
-                <div class="nome-ano">
-                </div>
+                <div class="nome-ano"></div>
 
-                <div class="idade-ano">
-                </div>
+                <div class="idade-ano"></div>
 
               </div>
 
-
             </button>
-
 
           </article>
 
-
         </template>
 
-
       </div>
-
 
     </section>
 
@@ -214,40 +156,26 @@
       class="destaques"
       aria-labelledby="titulo-destaques">
 
-
       <div class="titulo-destaques">
 
-
         <span class="linha"></span>
-
 
         <h2 id="titulo-destaques">
-
-          <span aria-hidden="true">
-            🎮
-          </span>
-
+          <span aria-hidden="true">🎮</span>
           Jogos em destaque
-
         </h2>
-
 
         <span class="linha"></span>
 
-
       </div>
-
 
       <div
         class="jogos"
         id="jogos">
 
-
         <template id="modelo-jogo">
 
-
           <article class="jogo">
-
 
             <div class="icone-jogo">
 
@@ -257,28 +185,19 @@
 
             </div>
 
-
-            <div class="nome-jogo">
-            </div>
-
+            <div class="nome-jogo"></div>
 
             <div
               class="estrelas"
               aria-label="5 estrelas">
-
               ★★★★★
-
             </div>
-
 
           </article>
 
-
         </template>
 
-
       </div>
-
 
     </section>
 
@@ -289,57 +208,35 @@
 
     <footer class="rodape">
 
-
       <div class="rodape-item">
-
 
         <span
           class="estrela"
           aria-hidden="true">
-
           ★
-
         </span>
-
 
         <span data-mensagem></span>
 
-
       </div>
 
-
-      <div
-        class="rodape-item rodape-info">
-
+      <div class="rodape-item rodape-info">
 
         <span
           class="info"
           aria-hidden="true">
-
           i
-
         </span>
-
 
         <span data-informacao></span>
 
-
       </div>
-
 
     </footer>
 
-
   </main>
-
-
-  <!-- ======================================================
-       DADOS + CSS + JAVASCRIPT
-       ====================================================== -->
 
   <script src="dados.js"></script>
 
-
 </body>
-
 </html>
