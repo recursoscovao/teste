@@ -1,14 +1,14 @@
 const DADOS = {
   pagina: {
-    titulo: "1.º Ano",
+    titulo: "2.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 1.º ano"
+    informacao: "Recursos educativos para o 2.º ano"
   },
 
   icons: {
-    cabecalho: "../icons/icon1.png",
+    cabecalho: "../icons/icon2.png",
     menu: "../icons/menu.png",
     seta: "../icons/seta.png",
     anos: {
