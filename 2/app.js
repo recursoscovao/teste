@@ -132,7 +132,6 @@ button { font-family: inherit; }
 .estrela { color: #FFB400; font-size: 25px; }
 .info { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #087AC9; font-size: 12px; font-weight: 900; }
 
-/* AJUSTES PARA TELEMÓVEL VERTICAL (ÍCONES DOS CARTÕES OTIMIZADOS E PROPORCIONAIS) */
 @media (max-width: 600px) and (orientation: portrait) {
   .cabecalho { height: 62px; }
   .botao-menu, .botao-seta { width: 43px; height: 43px; }
@@ -143,10 +142,7 @@ button { font-family: inherit; }
   
   .anos { grid-template-columns: 1fr; gap: 8px; }
   .botao-ano { height: 92px; padding: 8px 14px; gap: 10px; flex-direction: row; justify-content: flex-start; }
-  
-  /* Ícone do cartão em tamanho ideal para telemóvel vertical (não fica grande!) */
   .icone-ano { width: 52px; height: 52px; flex: 0 0 52px; }
-  
   .nome-ano { font-size: 18px; }
   .idade-ano { font-size: 11px; margin-top: 2px; }
   
@@ -161,7 +157,6 @@ button { font-family: inherit; }
 }
 
 function preencherTextos() {
-  // Altera o título da aba do browser dinamicamente
   if (DADOS.pagina.browserTitulo) {
     document.title = DADOS.pagina.browserTitulo;
   }
@@ -170,14 +165,14 @@ function preencherTextos() {
   const submarca = document.querySelector("[data-submarca]");
   const titulo = document.querySelector("[data-titulo-menu]");
   const mensagem = document.querySelector("[data-mensagem]");
-  const informacao = document.querySelectorAll("[data-informacao]"); // Suporta múltiplos elementos se necessário
+  const informacoes = document.querySelectorAll("[data-informacao]");
 
   if (marca) marca.textContent = DADOS.pagina.titulo;
   if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
   if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
   if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
   
-  informacao.forEach(el => {
+  informacoes.forEach(el => {
     el.textContent = DADOS.pagina.informacao;
   });
 }
