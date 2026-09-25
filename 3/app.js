@@ -47,11 +47,11 @@ button { font-family: inherit; }
   background-image: url("${DADOS.icons.seta}"); background-size: contain; background-repeat: no-repeat;
 }
 
-.marca { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; max-width: 75%; }
+.marca { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; max-width: 65%; padding: 0 50px; }
 .marca-sol { width: 44px; height: 44px; flex: 0 0 44px; background-image: url("${DADOS.icons.cabecalho}"); background-size: contain; background-repeat: no-repeat; background-position: center; }
-.marca-texto { display: flex; flex-direction: column; justify-content: center; }
-.marca-texto h1 { margin: 0; font-size: clamp(26px, 2.8vw, 42px); line-height: 1; font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-shadow: 0 2px 0 rgba(255,255,255,.8); }
-.marca-texto p { margin: 4px 0 0; font-size: clamp(12px, 1.1vw, 16px); line-height: 1; font-weight: 800; color: ${DADOS.cores.texto}; }
+.marca-texto { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.marca-texto h1 { margin: 0; font-size: clamp(26px, 2.8vw, 42px); line-height: 1; font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-shadow: 0 2px 0 rgba(255,255,255,.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.marca-texto p { margin: 4px 0 0; font-size: clamp(12px, 1.1vw, 16px); line-height: 1; font-weight: 800; color: ${DADOS.cores.texto}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .menu-acordeao {
   position: absolute; top: 72px; left: 18px; width: 300px; padding: 0;
@@ -66,7 +66,7 @@ button { font-family: inherit; }
 .menu-acordeao-topo { padding: 15px 18px 13px; background: linear-gradient(180deg, #F8F2FF, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
 .menu-acordeao-titulo { font-size: 19px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
 .menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #8F52D1; }
-.menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; }
+.menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; max-height: 60vh; overflow-y: auto; }
 .menu-ano {
   width: 100%; min-height: 54px; display: flex; align-items: center; gap: 13px; padding: 6px 11px;
   border: 0; border-radius: 13px; background: #FFFFFF; color: ${DADOS.cores.textoEscuro};
@@ -133,25 +133,47 @@ button { font-family: inherit; }
 .estrela { color: #FFB400; font-size: 25px; }
 .info { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: ${DADOS.cores.azulHeader}; font-size: 12px; font-weight: 900; }
 
+/* ADAPTAÇÕES PARA TABLETS E TELEMÓVEIS (VERTICAL E HORIZONTAL) */
+@media (max-width: 1024px) {
+  .jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
+}
+
+@media (max-width: 768px) {
+  .cabecalho { height: 70px; }
+  .botao-menu, .botao-seta { width: 48px; height: 48px; }
+  .botao-menu { left: 12px; }
+  .botao-seta { right: 12px; }
+  .marca { padding: 0 44px; gap: 8px; max-width: 72%; }
+  .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
+  .marca-texto h1 { font-size: 20px; }
+  .marca-texto p { font-size: 10px; }
+  .menu-acordeao { top: 62px; left: 12px; width: calc(100vw - 24px); max-width: 280px; }
+}
+
 @media (max-width: 600px) and (orientation: portrait) {
   .cabecalho { height: 62px; }
-  .botao-menu, .botao-seta { width: 43px; height: 43px; }
-  .marca-sol { width: 32px; height: 32px; flex: 0 0 32px; }
-  .marca { gap: 8px; }
-  .marca-texto h1 { font-size: 17px; }
-  .marca-texto p { font-size: 9px; margin-top: 2px; }
-  .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 300px; }
+  .botao-menu, .botao-seta { width: 42px; height: 42px; }
+  .botao-menu { left: 10px; }
+  .botao-seta { right: 10px; }
+  .marca { padding: 0 38px; gap: 6px; max-width: 70%; }
+  .marca-sol { width: 30px; height: 30px; flex: 0 0 30px; }
+  .marca-texto h1 { font-size: 16px; }
+  .marca-texto p { font-size: 9px; margin-top: 1px; }
+  .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
-  .anos { grid-template-columns: 1fr; gap: 8px; }
-  .botao-ano { height: 92px; padding: 8px 14px; gap: 10px; flex-direction: row; justify-content: flex-start; }
-  .icone-ano { width: 52px; height: 52px; flex: 0 0 52px; }
-  .nome-ano { font-size: 18px; }
-  .idade-ano { font-size: 11px; margin-top: 2px; }
+  .anos { grid-template-columns: 1fr; gap: 10px; }
+  .botao-ano { height: 90px; padding: 8px 14px; gap: 10px; flex-direction: row; justify-content: flex-start; }
+  .icone-ano { width: 50px; height: 50px; flex: 0 0 50px; }
+  .nome-ano { font-size: 17px; text-align: left; }
+  .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
   
-  .destaques { padding: 12px 10px; border-radius: 17px; }
-  .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 13px; }
-  .nome-jogo { font-size: 11px; }
-  .estrelas { font-size: 10px; }
+  .destaques { padding: 15px 12px; border-radius: 18px; margin: 15px 10px; }
+  .titulo-destaques { margin: 0 10px 18px; gap: 15px; }
+  .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 12px; column-gap: 8px; }
+  .nome-jogo { font-size: 11px; min-height: 20px; }
+  .estrelas { font-size: 10px; margin-top: 3px; }
+
+  .rodape { width: calc(100% - 20px); margin: 10px 10px 0; padding: 8px 12px; font-size: 11px; }
 }
   `;
 
