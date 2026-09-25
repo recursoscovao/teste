@@ -267,7 +267,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100%;
-  font-family: "Nunito", Arial, sans-serif;
+  font-family: "Nunito", "Quicksand", "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
 }
 
 body {
@@ -282,7 +282,9 @@ button {
 
 #app {
   min-height: 100vh;
-  width: 100%;
+  width: min(100%, ${DADOS.dimensoes.larguraMaxima}px);
+  margin: 0 auto;
+  padding: 13px 20px 16px;
   position: relative;
   overflow: hidden;
 
@@ -290,8 +292,8 @@ button {
     linear-gradient(
       180deg,
       ${DADOS.cores.ceu1} 0%,
-      ${DADOS.cores.ceu2} 24%,
-      ${DADOS.cores.fundo} 55%,
+      ${DADOS.cores.ceu2} 19%,
+      #EAF5FC 38%,
       ${DADOS.cores.fundo} 100%
     );
 }
@@ -479,22 +481,24 @@ button {
 
   margin: 0;
 
-  font-size: 26px;
-  line-height: 1.05;
+  font-size: clamp(28px, 3vw, 45px);
+  line-height: .98;
 
   font-weight: 900;
+  letter-spacing: -.9px;
 
   color: ${DADOS.cores.textoEscuro};
+  text-shadow: 0 2px 0 rgba(255,255,255,.8);
 }
 
 .marca-texto p {
 
-  margin: 5px 0 0;
+  margin: 6px 0 0;
 
-  font-size: 13px;
-  line-height: 1.1;
+  font-size: clamp(13px, 1.2vw, 18px);
+  line-height: 1;
 
-  font-weight: 700;
+  font-weight: 800;
 
   color: ${DADOS.cores.texto};
 }
@@ -690,16 +694,14 @@ button {
 
   width: 100%;
 
-  padding:
-    0 0 24px;
+  padding: 0;
 }
 
 .titulo-menu {
 
   width: fit-content;
 
-  margin:
-    20px auto 19px;
+  margin: 1px auto 19px;
 
   padding:
     8px 30px;
@@ -717,21 +719,21 @@ button {
     );
 
   box-shadow:
-    0 4px 10px rgba(120,100,40,.10);
+    0 3px 7px rgba(118,88,17,.12),
+    inset 0 1px 0 rgba(255,255,255,.95);
 }
 
 .titulo-menu h2 {
 
   margin: 0;
 
-  font-size: 22px;
+  font-size: clamp(18px, 1.7vw, 27px);
 
-  line-height: 1.1;
+  line-height: 1;
 
   font-weight: 900;
 
-  color:
-    ${DADOS.cores.textoEscuro};
+  color: #74440C;
 
   text-align: center;
 }
@@ -786,19 +788,14 @@ button {
 
 .anos {
 
-  width: 90%;
-
-  max-width:
-    ${DADOS.dimensoes.larguraMaxima}px;
-
-  margin: 0 auto;
+  width: 100%;
 
   display: grid;
 
   grid-template-columns:
     repeat(3,1fr);
 
-  gap: 18px;
+  gap: 14px;
 }
 
 .ano {
@@ -820,10 +817,10 @@ button {
   height:
     ${DADOS.dimensoes.alturaAnoDesktop}px;
 
-  padding: 22px;
+  padding: 18px 12px 14px;
 
   border:
-    4px solid #FFFFFF;
+    3px solid rgba(255,255,255,.94);
 
   border-radius:
     ${DADOS.dimensoes.raioAno}px;
@@ -841,9 +838,7 @@ button {
 
   align-items: center;
 
-  justify-content: center;
-
-  gap: 9px;
+  justify-content: space-between;
 
   color: #FFFFFF;
 
@@ -852,11 +847,24 @@ button {
   overflow: hidden;
 
   box-shadow:
-    0 6px 12px ${DADOS.cores.sombra};
+    0 9px 15px ${DADOS.cores.sombra},
+    inset 0 1px 1px rgba(255,255,255,.7);
 
   transition:
-    transform .18s ease,
-    box-shadow .18s ease;
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.botao-ano::before {
+  content: "";
+  position: absolute;
+  width: 170%;
+  height: 110%;
+  left: -95%;
+  top: -63%;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  pointer-events: none;
 }
 
 .botao-ano::after {
@@ -865,16 +873,16 @@ button {
 
   position: absolute;
 
-  width: 170px;
-  height: 170px;
+  width: 90px;
+  height: 90px;
 
-  right: -65px;
-  top: -80px;
+  right: -34px;
+  top: -35px;
 
   border-radius: 50%;
 
   background:
-    rgba(255,255,255,.14);
+    rgba(255,255,255,.10);
 
   pointer-events: none;
 }
@@ -885,8 +893,9 @@ button {
     translateY(-4px);
 
   box-shadow:
-    0 11px 20px
-    ${DADOS.cores.sombraForte};
+    0 13px 20px
+    ${DADOS.cores.sombraForte},
+    inset 0 1px 1px rgba(255,255,255,.75);
 }
 
 .botao-ano:active {
@@ -903,10 +912,10 @@ button {
   height:
     ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
 
-  display: flex;
+  flex: 0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
 
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 
   position: relative;
 
@@ -922,7 +931,7 @@ button {
 
   filter:
     drop-shadow(
-      0 4px 4px rgba(0,0,0,.14)
+      0 5px 3px rgba(0,0,0,.16)
     );
 }
 
@@ -937,274 +946,207 @@ button {
 
 .nome-ano {
 
-  font-size: 27px;
+  font-family: "Nunito","Quicksand","Arial Rounded MT Bold","Trebuchet MS",sans-serif;
+  font-size: clamp(21px, 1.8vw, 29px);
 
   line-height: 1.05;
 
-  font-weight: 900;
+  font-weight: 800;
+  letter-spacing: -.25px;
 
   text-shadow:
-    0 2px 2px rgba(0,0,0,.12);
+    0 2px 1px rgba(0,0,0,.17);
 }
 
 .idade-ano {
 
-  margin-top: 4px;
+  margin-top: 7px;
 
-  font-size: 13px;
+  font-family: "Nunito","Quicksand","Trebuchet MS",sans-serif;
+  font-size: clamp(14px, 1.2vw, 18px);
+
+  line-height: 1;
 
   font-weight: 700;
+  letter-spacing: .15px;
 
-  opacity: .92;
+  text-shadow: 0 1px 1px rgba(0,0,0,.12);
+  opacity: 1;
 }
 
 
 /* ============================================================
-   JOGOS EM DESTAQUE
+   JOGOS EM DESTAQUE (Design exato do ficheiro 1)
    ============================================================ */
 
 .destaques {
 
-  width: 100%;
-
-  max-width:
-    ${DADOS.dimensoes.larguraMaxima}px;
-
-  margin: 0 auto;
-
-  padding:
-    8px 5% 26px;
+  margin-top: 20px;
+  padding: 23px 28px 25px;
+  border-radius: ${DADOS.dimensoes.raioDestaques}px;
+  background: rgba(255,255,255,.93);
+  box-shadow:
+    0 7px 18px rgba(25,100,150,.10),
+    inset 0 1px 0 rgba(255,255,255,1);
 }
 
 .titulo-destaques {
 
-  width: 100%;
-
-  display: flex;
-
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-
-  justify-content: center;
-
-  gap: 15px;
-
-  margin-bottom: 18px;
+  gap: 28px;
+  margin: 0 30px 25px;
 }
 
 .titulo-destaques .linha {
 
-  flex: 1;
-
-  max-width: 250px;
-
-  height: 2px;
-
-  background:
-    ${DADOS.cores.linha};
-
-  border-radius: 10px;
+  height: 3px;
+  background: #A7D5FA;
+  border-radius: 99px;
+  max-width: none;
+  flex: none;
 }
 
 .titulo-destaques h2 {
 
   margin: 0;
-
-  font-size: 21px;
-
-  line-height: 1.1;
-
-  color:
-    ${DADOS.cores.textoEscuro};
-
+  color: #064F91;
+  font-size: clamp(19px, 1.65vw, 26px);
+  line-height: 1;
   font-weight: 900;
-
   white-space: nowrap;
+  text-align: center;
+}
+
+.titulo-destaques h2 span {
+  margin-right: 7px;
+  font-size: .92em;
 }
 
 .jogos {
 
   display: grid;
-
-  grid-template-columns:
-    repeat(6,1fr);
-
-  gap: 14px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
 }
 
 .jogo {
 
   min-width: 0;
-
-  min-height: 145px;
-
-  padding:
-    13px 8px 11px;
-
-  border-radius:
-    ${DADOS.dimensoes.raioDestaques}px;
-
-  background: #FFFFFF;
-
-  border:
-    2px solid rgba(165,217,248,.70);
-
-  box-shadow:
-    0 5px 12px rgba(15,88,139,.10);
-
+  min-height: auto;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
-  justify-content: center;
-
+  text-align: center;
   cursor: pointer;
-
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease;
+  transition: none;
 }
 
 .jogo:hover {
-
-  transform:
-    translateY(-4px);
-
-  box-shadow:
-    0 9px 18px
-    rgba(15,88,139,.17);
+  transform: none;
+  box-shadow: none;
 }
 
 .icone-jogo {
 
-  width:
-    ${DADOS.dimensoes.tamanhoIconJogo}px;
-
-  height:
-    ${DADOS.dimensoes.tamanhoIconJogo}px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+  width: ${DADOS.dimensoes.tamanhoIconJogo}px;
+  height: ${DADOS.dimensoes.tamanhoIconJogo}px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
 }
 
 .icone-jogo img {
 
   width: 100%;
   height: 100%;
-
   object-fit: contain;
+  display: block;
 }
 
 .nome-jogo {
 
-  margin-top: 8px;
-
-  font-size: 15px;
-
-  font-weight: 900;
-
-  color:
-    ${DADOS.cores.textoEscuro};
-
-  text-align: center;
-
+  margin-top: 0;
+  min-height: 25px;
+  color: #064F91;
+  font-size: clamp(15px, 1.25vw, 20px);
   line-height: 1.05;
+  font-weight: 900;
+  text-align: center;
 }
 
 .estrelas {
 
-  margin-top: 5px;
-
-  font-size: 13px;
-
+  margin-top: 7px;
+  color: #FFB400;
+  font-family: Arial, sans-serif;
+  font-size: clamp(15px, 1.15vw, 18px);
   line-height: 1;
-
   letter-spacing: 1px;
-
-  color:
-    ${DADOS.cores.amarelo};
 }
 
 
 /* ============================================================
-   FOOTER
+   FOOTER (Design exato do ficheiro 1)
    ============================================================ */
 
 .rodape {
 
   width: 100%;
-
-  min-height: 58px;
-
-  padding:
-    12px 5%;
-
-  display: flex;
-
+  min-height: 53px;
+  margin-top: 15px;
+  padding: 8px 17px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   align-items: center;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #DDF5FC,
-      #C8EDF8
-    );
-
-  border-top:
-    2px solid rgba(165,217,248,.75);
-
-  color:
-    ${DADOS.cores.texto};
-
-  font-size: 13px;
-
+  border: 2px solid ${DADOS.cores.linha};
+  border-radius: 14px;
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 4px 10px rgba(16,103,150,.08);
+  color: ${DADOS.cores.texto};
+  font-size: clamp(11px, 1vw, 14px);
   font-weight: 800;
 }
 
 .rodape-item {
 
   display: flex;
-
   align-items: center;
-
-  gap: 7px;
-
+  gap: 8px;
   min-width: 0;
+}
+
+.rodape-info {
+  justify-content: flex-end;
 }
 
 .estrela {
 
-  color:
-    ${DADOS.cores.amarelo};
-
-  font-size: 17px;
+  color: #FFB400;
+  font-size: 25px;
+  line-height: 1;
 }
 
 .info {
 
-  width: 21px;
-  height: 21px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border:
-    2px solid ${DADOS.cores.texto};
-
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border: none;
   border-radius: 50%;
-
-  font-size: 12px;
-
+  color: #fff;
+  background: #087AC9;
+  font-family: Arial, sans-serif;
   font-weight: 900;
+  font-size: 12px;
 }
 
 
@@ -1246,21 +1188,21 @@ and (orientation:landscape) {
 
   .jogo {
 
-    min-height: 120px;
+    min-height: auto;
   }
 
   .icone-jogo {
 
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
   }
 
   .nome-jogo {
-    font-size: 13px;
+    font-size: 8px;
   }
 
   .rodape {
-    font-size: 11px;
+    font-size: 7px;
   }
 
 }
@@ -1316,8 +1258,7 @@ and (orientation:portrait) {
 
   .anos {
 
-    width:
-      calc(100% - 10px);
+    width: 100%;
 
     grid-template-columns: 1fr;
 
@@ -1328,7 +1269,7 @@ and (orientation:portrait) {
 
     height: 126px;
 
-    border: 4px solid #FFFFFF;
+    border: 3px solid rgba(255,255,255,.94);
 
     border-radius:
       ${DADOS.dimensoes.raioAno}px;
@@ -1337,21 +1278,16 @@ and (orientation:portrait) {
 
     justify-content: flex-start;
 
-    padding: 10px 16px;
+    padding: 10px 18px;
 
-    gap: 14px;
+    gap: 15px;
   }
 
   .icone-ano {
 
-    width:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
-
-    flex-basis:
-      ${DADOS.dimensoes.tamanhoIconAnoTablet}px;
+    width: 76px;
+    height: 76px;
+    flex: none;
   }
 
   .texto-ano {
@@ -1359,11 +1295,12 @@ and (orientation:portrait) {
   }
 
   .nome-ano {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .idade-ano {
-    font-size: 11px;
+    font-size: 13px;
+    margin-top: 6px;
   }
 
   .jogos {
@@ -1466,8 +1403,7 @@ and (orientation:portrait) {
 
   .anos {
 
-    width:
-      calc(100% - 10px);
+    width: 100%;
 
     grid-template-columns: 1fr;
 
@@ -1478,7 +1414,7 @@ and (orientation:portrait) {
 
     height: 100px;
 
-    border: 4px solid #FFFFFF;
+    border: 3px solid rgba(255,255,255,.94);
 
     border-radius:
       ${DADOS.dimensoes.raioAno}px;
@@ -1494,14 +1430,8 @@ and (orientation:portrait) {
 
   .icone-ano {
 
-    width:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-
-    height:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
-
-    flex-basis:
-      ${DADOS.dimensoes.tamanhoIconAnoTelemovelHorizontal}px;
+    width: 58px;
+    height: 58px;
   }
 
   .texto-ano {
@@ -1509,17 +1439,18 @@ and (orientation:portrait) {
   }
 
   .nome-ano {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .idade-ano {
-    font-size: 9px;
+    font-size: 11px;
+    margin-top: 4px;
   }
 
   .destaques {
 
-    padding-left: 4%;
-    padding-right: 4%;
+    padding: 10px 8px 12px;
+    border-radius: 17px;
   }
 
   .titulo-destaques {
@@ -1527,58 +1458,42 @@ and (orientation:portrait) {
   }
 
   .titulo-destaques h2 {
-    font-size: 17px;
-  }
-
-  .titulo-destaques .linha {
-    max-width: none;
+    font-size: 14px;
   }
 
   .jogos {
 
     grid-template-columns:
-      repeat(2,1fr);
+      repeat(3,1fr);
 
-    gap: 9px;
+    row-gap: 13px;
   }
 
   .jogo {
 
-    min-height: 118px;
-
-    border-radius: 20px;
+    min-height: auto;
   }
 
   .icone-jogo {
 
     width:
-      ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
+      ${DADOS.dimensoes.tamanhoIconJogoMobile}px;
 
     height:
-      ${DADOS.dimensoes.tamanhoIconJogoTelemovel}px;
+      ${DADOS.dimensoes.tamanhoIconJogoMobile}px;
   }
 
   .nome-jogo {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .estrelas {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .rodape {
 
-    padding: 10px 4%;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 5px;
-
-    font-size: 10px;
-
-    text-align: center;
+    font-size: 9px;
   }
 
 }
@@ -1886,9 +1801,6 @@ function criarDestaques() {
     const item =
       modelo.content.cloneNode(true);
 
-    const cartao =
-      item.querySelector(".jogo");
-
     const imagem =
       item.querySelector(".icone-jogo img");
 
@@ -1919,15 +1831,33 @@ function criarDestaques() {
     );
 
 
-    cartao.addEventListener(
-      "click",
-      () => {
+    if (jogo.pagina) {
 
-        window.location.href =
-          jogo.pagina;
+      const cartao =
+        item.querySelector(".jogo");
+
+      if (cartao) {
+
+        cartao.style.cursor = "pointer";
+        cartao.setAttribute("role", "link");
+        cartao.setAttribute("tabindex", "0");
+
+        const abrirJogo = () => {
+          window.location.href = jogo.pagina;
+        };
+
+        cartao.addEventListener("click", abrirJogo);
+
+        cartao.addEventListener("keydown", evento => {
+          if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            abrirJogo();
+          }
+        });
 
       }
-    );
+
+    }
 
     recipiente.appendChild(item);
 
