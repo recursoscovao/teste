@@ -86,7 +86,7 @@ const DADOS = {
     {
       id: "portugues",
       nome: "Português",
-      idade: "6 - 7 anos",
+      idade: "7 - 8 anos",
       icon: "portugues",
       cor: "#11CBFC",
       cor2: "#079BC8",
@@ -95,7 +95,7 @@ const DADOS = {
     {
       id: "matematica",
       nome: "Matemática",
-      idade: "",
+      idade: "7 - 8 anos",
       icon: "matematica",
       cor: "#FD6746",
       cor2: "#D94328",
