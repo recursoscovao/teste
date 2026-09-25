@@ -48,9 +48,10 @@ button { font-family: inherit; }
 }
 
 .marca { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; max-width: 75%; }
-.marca-sol { width: 52px; height: 52px; flex: 0 0 52px; background-image: url("${DADOS.icons.cabecalho}"); background-size: contain; background-repeat: no-repeat; }
-.marca-texto h1 { margin: 0; font-size: clamp(28px, 3vw, 45px); line-height: .98; font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-shadow: 0 2px 0 rgba(255,255,255,.8); }
-.marca-texto p { margin: 6px 0 0; font-size: clamp(13px, 1.2vw, 18px); line-height: 1; font-weight: 800; color: ${DADOS.cores.texto}; }
+.marca-sol { width: 44px; height: 44px; flex: 0 0 44px; background-image: url("${DADOS.icons.cabecalho}"); background-size: contain; background-repeat: no-repeat; background-position: center; }
+.marca-texto { display: flex; flex-direction: column; justify-content: center; }
+.marca-texto h1 { margin: 0; font-size: clamp(26px, 2.8vw, 42px); line-height: 1; font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-shadow: 0 2px 0 rgba(255,255,255,.8); }
+.marca-texto p { margin: 4px 0 0; font-size: clamp(12px, 1.1vw, 16px); line-height: 1; font-weight: 800; color: ${DADOS.cores.texto}; }
 
 .menu-acordeao {
   position: absolute; top: 72px; left: 18px; width: 300px; padding: 0;
@@ -135,9 +136,10 @@ button { font-family: inherit; }
 @media (max-width: 600px) and (orientation: portrait) {
   .cabecalho { height: 62px; }
   .botao-menu, .botao-seta { width: 43px; height: 43px; }
-  .marca-sol { width: 36px; height: 36px; }
-  .marca-texto h1 { font-size: 18px; }
-  .marca-texto p { font-size: 9px; margin-top: 3px; }
+  .marca-sol { width: 32px; height: 32px; flex: 0 0 32px; }
+  .marca { gap: 8px; }
+  .marca-texto h1 { font-size: 17px; }
+  .marca-texto p { font-size: 9px; margin-top: 2px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 300px; }
   
   .anos { grid-template-columns: 1fr; gap: 8px; }
