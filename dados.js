@@ -211,7 +211,7 @@ const DADOS = {
       icon: "ano3",
       cor: "#A74BEF",
       cor2: "#7434B8",
-      pagina: "ano-3.html"
+      pagina: "3"
     },
 
     {
@@ -221,7 +221,7 @@ const DADOS = {
       icon: "ano4",
       cor: "#F43A9D",
       cor2: "#C81970",
-      pagina: "ano-4.html"
+      pagina: "4"
     }
 
   ],
