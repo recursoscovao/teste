@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.º Ano - Recursos Educativos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <div id="app">
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+      <button class="botao-menu" aria-label="Menu Principal" aria-expanded="false" aria-controls="menu-acordeao"></button>
+      
+      <div class="marca">
+        <div class="marca-sol" aria-hidden="true"></div>
+        <div class="marca-texto">
+          <h1 data-marca></h1>
+          <p data-submarca></p>
+        </div>
+      </div>
+
+      <button class="botao-seta" aria-label="Voltar"></button>
+
+      <!-- MENU ACORDEÃO (HAMBÚRGUER) -->
+      <nav id="menu-acordeao" class="menu-acordeao" aria-hidden="true">
+        <div class="menu-acordeao-topo">
+          <div class="menu-acordeao-titulo">Menu</div>
+          <div class="menu-acordeao-subtitulo" data-informacao></div>
+        </div>
+        <div id="menu-anos" class="menu-anos">
+          <!-- Os itens do menu serão inseridos dinamicamente aqui -->
+        </div>
+      </nav>
+    </header>
+
+    <!-- ÁREA PRINCIPAL / ANOS -->
+    <main class="area-menu">
+      <div class="decoracao decoracao-esquerda" aria-hidden="true"></div>
+      <div class="decoracao decoracao-direita" aria-hidden="true"></div>
+
+      <div class="titulo-menu">
+        <h2 data-titulo-menu></h2>
+      </div>
+
+      <section id="anos" class="anos">
+        <!-- Os cartões dos anos serão inseridos dinamicamente aqui -->
+      </section>
+    </main>
+
+    <!-- DESTAQUES / JOGOS -->
+    <section class="destaques">
+      <div class="titulo-destaques">
+        <div class="linha"></div>
+        <h2><span>⭐</span> Destaques</h2>
+        <div class="linha"></div>
+      </div>
+
+      <div id="jogos" class="jogos">
+        <!-- Os jogos em destaque serão inseridos dinamicamente aqui -->
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+      <div class="rodape-item">
+        <span class="estrela">★</span>
+        <span data-mensagem></span>
+      </div>
+      <div class="rodape-item rodape-info">
+        <span data-informacao></span>
+        <div class="info">i</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- TEMPLATES PARA O JAVASCRIPT -->
+  <template id="modelo-ano">
+    <div class="ano">
+      <button class="botao-ano">
+        <div class="icone-ano"></div>
+        <div class="texto-ano">
+          <div class="nome-ano"></div>
+          <div class="idade-ano"></div>
+        </div>
+      </button>
+    </div>
+  </template>
+
+  <template id="modelo-menu-ano">
+    <button class="menu-ano">
+      <div class="menu-ano-icon"></div>
+      <span class="menu-ano-nome"></span>
+    </button>
+  </template>
+
+  <template id="modelo-jogo">
+    <div class="jogo" tabindex="0">
+      <div class="icone-jogo">
+        <img src="" alt="">
+      </div>
+      <div class="nome-jogo"></div>
+      <div class="estrelas"></div>
+    </div>
+  </template>
+
+  <!-- SCRIPTS -->
+  <script src="dados.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
