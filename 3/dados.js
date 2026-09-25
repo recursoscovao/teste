@@ -1,15 +1,15 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "3.º Ano - Recursos Educativos",
-    titulo: "3.º Ano",
+    browserTitulo: "1.º Ano - Recursos Educativos",
+    titulo: "1.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 3.º ano"
+    informacao: "Recursos educativos para o 1.º ano"
   },
 
   icons: {
-    cabecalho: "../icons/icon3.png",
+    cabecalho: "../icons/icon1.png",
     menu: "../icons/menu.png",
     seta: "../icons/seta.png",
     anos: {
