@@ -137,7 +137,12 @@ button { font-family: inherit; }
 .rodape-item { display: flex; align-items: center; gap: 8px; }
 .rodape-info { justify-content: flex-end; }
 .estrela { color: #FFB400; font-size: 25px; }
-.info { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: ${DADOS.cores.azulHeader}; font-size: 12px; font-weight: 900; }
+.info { 
+  width: 25px; height: 25px; min-width: 25px; min-height: 25px;
+  display: inline-flex; align-items: center; justify-content: center; 
+  border-radius: 50% !important; color: #fff; background: ${DADOS.cores.azulHeader}; 
+  font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
+}
 
 /* ADAPTAÇÕES PARA MONITORES DE ALTA RESOLUÇÃO / ECRÃS GRANDES */
 @media (min-width: 1651px) {
@@ -174,14 +179,14 @@ button { font-family: inherit; }
   .marca-texto p { font-size: 9px; margin-top: 1px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
-  /* ALINHAMENTO E LARGURA EXATOS DOS CARTÕES COM OS DESTAQUES EM MOBILE */
+  /* ALINHAMENTO E ALTURA DOS CARTÕES EM MOBILE */
   .area-menu { padding: 0 16px; }
   .destaques { margin: 15px 16px; padding: 18px 14px; border-radius: 16px; }
   .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
 
   .anos { grid-template-columns: 1fr; gap: 10px; width: 100%; }
   .botao-ano { 
-    height: 85px; 
+    height: 90px; /* Altura aumentada em 5px conforme pedido */
     padding: 8px 14px; 
     gap: 10px; 
     flex-direction: row; 
@@ -189,7 +194,7 @@ button { font-family: inherit; }
     border-radius: 12px; 
     width: 100%;
   }
-  .icone-ano { width: 45px; height: 45px; flex: 0 0 45px; }
+  .icone-ano { width: 48px; height: 48px; flex: 0 0 48px; }
   .nome-ano { font-size: 17px; text-align: left; }
   .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
   
@@ -197,6 +202,15 @@ button { font-family: inherit; }
   .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 12px; column-gap: 8px; }
   .nome-jogo { font-size: 11px; min-height: 20px; }
   .estrelas { font-size: 10px; margin-top: 3px; }
+  
+  /* GARANTIR QUE O ÍCONE DE INFORMAÇÃO FICA PERFEITAMENTE REDONDO */
+  .info {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    border-radius: 50% !important;
+  }
 }
   `;
 
