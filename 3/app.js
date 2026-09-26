@@ -33,10 +33,16 @@ button { font-family: inherit; }
   width: 58px; height: 58px; padding: 0; border: 0; border-radius: 50%;
   background: ${DADOS.cores.azulHeader}; cursor: pointer;
   box-shadow: 0 3px 7px rgba(0,0,0,.18);
-  transition: transform .18s ease, box-shadow .18s ease; z-index: 25;
+  transition: transform .12s ease, box-shadow .12s ease; z-index: 25;
 }
 .botao-menu { left: 18px; }
 .botao-seta { right: 18px; }
+
+/* EFEITO DE CLIQUE SIMULADO NOS BOTÕES DO HEADER */
+.botao-menu:active, .botao-seta:active {
+  transform: translateY(calc(-50% + 3px)) scale(0.95);
+  box-shadow: 0 1px 3px rgba(0,0,0,.25);
+}
 
 .botao-menu::before {
   content: ""; position: absolute; width: 56%; height: 56%; left: 22%; top: 22%;
@@ -150,7 +156,7 @@ button { font-family: inherit; }
   .menu-acordeao { top: 62px; left: 12px; width: calc(100vw - 24px); max-width: 280px; }
 }
 
-@media (max-width: 600px) and (orientation: portrait) {
+@media (max-width: 900px) and (orientation: portrait), (max-width: 600px) {
   .cabecalho { height: 62px; }
   .botao-menu, .botao-seta { width: 42px; height: 42px; }
   .botao-menu { left: 10px; }
