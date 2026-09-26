@@ -174,19 +174,19 @@ button { font-family: inherit; }
   .marca-texto p { font-size: 9px; margin-top: 1px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
-  /* AJUSTES NOS CARTÕES PARA TELEMÓVEL/TABLET VERTICAL: Menos raio e menos padding lateral */
-  .area-menu { padding: 0 10px; }
-  .destaques { margin: 15px 10px; }
-  .rodape { width: calc(100% - 20px); margin: 10px 10px 0; }
+  /* ALINHAMENTO EXATO DA LARGURA DOS 3 CARTÕES COM OS JOGOS EM DESTAQUE */
+  .area-menu { padding: 0 12px; }
+  .destaques { margin: 15px 12px; }
+  .rodape { width: calc(100% - 24px); margin: 10px 12px 0; }
 
   .anos { grid-template-columns: 1fr; gap: 10px; }
   .botao-ano { 
     height: 90px; 
-    padding: 8px 10px; /* Menos padding esquerda e direita */
+    padding: 8px 12px; 
     gap: 10px; 
     flex-direction: row; 
     justify-content: flex-start; 
-    border-radius: 12px; /* Raio dos cantos reduzido */
+    border-radius: 12px; /* Cantos com menos raio */
   }
   .icone-ano { width: 50px; height: 50px; flex: 0 0 50px; }
   .nome-ano { font-size: 17px; text-align: left; }
