@@ -1,15 +1,15 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "1.º Ano - Recursos Educativos",
-    titulo: "1.º Ano",
+    browserTitulo: "3.º Ano - Recursos Educativos",
+    titulo: "3.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 1.º ano"
+    informacao: "Recursos educativos para o 3.º ano"
   },
 
   icons: {
-    cabecalho: "../icons/icon1.png",
+    cabecalho: "../icons/icon3.png",
     menu: "../icons/menu.png",
     seta: "../icons/seta.png",
     anos: {
@@ -70,10 +70,10 @@ const DADOS = {
 
   dimensoes: {
     larguraMaxima: 1650,
-    alturaAnoDesktop: 300,
+    alturaAnoDesktop: 270, /* Reduzido 10% (de 300 para 270) */
     raioAno: 23,
     raioDestaques: 26,
-    tamanhoIconAnoDesktop: 170,
+    tamanhoIconAnoDesktop: 153, /* Reduzido 10% (de 170 para 153) */
     tamanhoIconJogo: 76
   },
 
@@ -81,7 +81,7 @@ const DADOS = {
     {
       id: "portugues",
       nome: "Português",
-      idade: "6 - 7 anos",
+      idade: "8 - 9 anos",
       icon: "portugues",
       cor: "#11CBFC",
       cor2: "#079BC8",
