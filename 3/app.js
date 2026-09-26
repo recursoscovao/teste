@@ -174,14 +174,14 @@ button { font-family: inherit; }
   .marca-texto p { font-size: 9px; margin-top: 1px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
-  /* ALINHAMENTO PERFEITO DA LARGURA DOS 3 CARTÕES COM OS DESTAQUES */
-  .area-menu { padding: 0 15px; }
-  .destaques { margin: 15px 15px; padding: 15px 12px; border-radius: 16px; }
-  .rodape { width: calc(100% - 30px); margin: 10px 15px 0; padding: 8px 12px; font-size: 11px; }
+  /* ALINHAMENTO E LARGURA EXATOS DOS CARTÕES COM OS DESTAQUES EM MOBILE */
+  .area-menu { padding: 0 16px; }
+  .destaques { margin: 15px 16px; padding: 18px 14px; border-radius: 16px; }
+  .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
 
   .anos { grid-template-columns: 1fr; gap: 10px; width: 100%; }
   .botao-ano { 
-    height: 90px; 
+    height: 85px; 
     padding: 8px 14px; 
     gap: 10px; 
     flex-direction: row; 
@@ -189,7 +189,7 @@ button { font-family: inherit; }
     border-radius: 12px; 
     width: 100%;
   }
-  .icone-ano { width: 50px; height: 50px; flex: 0 0 50px; }
+  .icone-ano { width: 45px; height: 45px; flex: 0 0 45px; }
   .nome-ano { font-size: 17px; text-align: left; }
   .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
   
@@ -202,3 +202,138 @@ button { font-family: inherit; }
 
   document.head.appendChild(estilo);
 }
+
+function preencherTextos() {
+  if (DADOS.pagina.browserTitulo) {
+    document.title = DADOS.pagina.browserTitulo;
+  }
+
+  const marca = document.querySelector("[data-marca]");
+  const submarca = document.querySelector("[data-submarca]");
+  const titulo = document.querySelector("[data-titulo-menu]");
+  const mensagem = document.querySelector("[data-mensagem]");
+  const informacoes = document.querySelectorAll("[data-informacao]");
+
+  if (marca) marca.textContent = DADOS.pagina.titulo;
+  if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
+  if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
+  if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
+  
+  informacoes.forEach(el => {
+    el.textContent = DADOS.pagina.informacao;
+  });
+}
+
+function criarCartoesAno() {
+  const recipiente = document.getElementById("anos");
+  const modelo = document.getElementById("modelo-ano");
+  if (!recipiente || !modelo) return;
+
+  recipiente.innerHTML = "";
+  DADOS.anos.forEach(ano => {
+    const cartao = modelo.content.cloneNode(true);
+    const botao = cartao.querySelector(".botao-ano");
+    const icone = cartao.querySelector(".icone-ano");
+    const texto = cartao.querySelector(".nome-ano");
+    const idade = cartao.querySelector(".idade-ano");
+
+    botao.style.setProperty("--cor-1", ano.cor);
+    botao.style.setProperty("--cor-2", ano.cor2);
+
+    const imagem = document.createElement("img");
+    imagem.src = DADOS.icons.anos[ano.icon];
+    imagem.alt = ano.nome;
+    imagem.draggable = false;
+    icone.appendChild(imagem);
+
+    texto.textContent = ano.nome;
+    idade.textContent = ano.idade;
+
+    botao.addEventListener("click", () => { window.location.href = ano.pagina; });
+    recipiente.appendChild(cartao);
+  });
+}
+
+function criarMenuAnos() {
+  const recipiente = document.getElementById("menu-anos");
+  const modelo = document.getElementById("modelo-menu-ano");
+  if (!recipiente || !modelo) return;
+
+  recipiente.innerHTML = "";
+  DADOS.menuAnos.forEach(ano => {
+    const item = modelo.content.cloneNode(true);
+    const botao = item.querySelector(".menu-ano");
+    const icone = item.querySelector(".menu-ano-icon");
+    const nome = item.querySelector(".menu-ano-nome");
+
+    const imagem = document.createElement("img");
+    imagem.src = DADOS.icons.menuAnos[ano.icon];
+    imagem.alt = "";
+    imagem.draggable = false;
+    icone.appendChild(imagem);
+
+    nome.textContent = ano.nome;
+    botao.addEventListener("click", () => { window.location.href = ano.pagina; });
+    recipiente.appendChild(item);
+  });
+}
+
+function configurarMenu() {
+  const botaoMenu = document.querySelector(".botao-menu");
+  const menu = document.querySelector(".menu-acordeao");
+  const botaoSeta = document.querySelector(".botao-seta");
+
+  if (botaoMenu && menu) {
+    botaoMenu.addEventListener("click", event => {
+      event.stopPropagation();
+      menu.classList.toggle("aberto");
+    });
+    document.addEventListener("click", event => {
+      if (menu.classList.contains("aberto") && !menu.contains(event.target) && !botaoMenu.contains(event.target)) {
+        menu.classList.remove("aberto");
+      }
+    });
+  }
+
+  if (botaoSeta) {
+    botaoSeta.addEventListener("click", () => { window.location.href = "../"; });
+  }
+}
+
+function criarDestaques() {
+  const recipiente = document.getElementById("jogos");
+  const modelo = document.getElementById("modelo-jogo");
+  if (!recipiente || !modelo) return;
+
+  recipiente.innerHTML = "";
+  DADOS.destaques.forEach(jogo => {
+    const item = modelo.content.cloneNode(true);
+    const imagem = item.querySelector(".icone-jogo img");
+    const nome = item.querySelector(".nome-jogo");
+    const estrelas = item.querySelector(".estrelas");
+
+    imagem.src = DADOS.icons.destaques[jogo.icon];
+    imagem.alt = jogo.nome;
+    imagem.draggable = false;
+
+    nome.textContent = jogo.nome;
+    estrelas.textContent = "★".repeat(jogo.estrelas);
+
+    if (jogo.pagina) {
+      const cartao = item.querySelector(".jogo");
+      if (cartao) {
+        cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
+      }
+    }
+    recipiente.appendChild(item);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  inserirCSS();
+  preencherTextos();
+  criarCartoesAno();
+  criarMenuAnos();
+  configurarMenu();
+  criarDestaques();
+});
