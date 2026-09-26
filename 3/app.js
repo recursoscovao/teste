@@ -139,6 +139,13 @@ button { font-family: inherit; }
 .estrela { color: #FFB400; font-size: 25px; }
 .info { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: ${DADOS.cores.azulHeader}; font-size: 12px; font-weight: 900; }
 
+/* ADAPTAÇÕES PARA MONITORES DE ALTA RESOLUÇÃO / ECRÃS GRANDES */
+@media (min-width: 1651px) {
+  #app {
+    max-width: 1800px;
+  }
+}
+
 /* ADAPTAÇÕES PARA TABLETS E TELEMÓVEIS (VERTICAL E HORIZONTAL) */
 @media (max-width: 1024px) {
   .jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
@@ -167,156 +174,33 @@ button { font-family: inherit; }
   .marca-texto p { font-size: 9px; margin-top: 1px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
+  /* AJUSTES NOS CARTÕES PARA TELEMÓVEL/TABLET VERTICAL: Menos raio e menos padding lateral */
+  .area-menu { padding: 0 10px; }
+  .destaques { margin: 15px 10px; }
+  .rodape { width: calc(100% - 20px); margin: 10px 10px 0; }
+
   .anos { grid-template-columns: 1fr; gap: 10px; }
-  .botao-ano { height: 90px; padding: 8px 14px; gap: 10px; flex-direction: row; justify-content: flex-start; }
+  .botao-ano { 
+    height: 90px; 
+    padding: 8px 10px; /* Menos padding esquerda e direita */
+    gap: 10px; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+    border-radius: 12px; /* Raio dos cantos reduzido */
+  }
   .icone-ano { width: 50px; height: 50px; flex: 0 0 50px; }
   .nome-ano { font-size: 17px; text-align: left; }
   .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
   
-  .destaques { padding: 15px 12px; border-radius: 18px; margin: 15px 10px; }
+  .destaques { padding: 15px 12px; border-radius: 16px; }
   .titulo-destaques { margin: 0 10px 18px; gap: 15px; }
   .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 12px; column-gap: 8px; }
   .nome-jogo { font-size: 11px; min-height: 20px; }
   .estrelas { font-size: 10px; margin-top: 3px; }
 
-  .rodape { width: calc(100% - 20px); margin: 10px 10px 0; padding: 8px 12px; font-size: 11px; }
+  .rodape { padding: 8px 12px; font-size: 11px; }
 }
   `;
 
   document.head.appendChild(estilo);
 }
-
-function preencherTextos() {
-  if (DADOS.pagina.browserTitulo) {
-    document.title = DADOS.pagina.browserTitulo;
-  }
-
-  const marca = document.querySelector("[data-marca]");
-  const submarca = document.querySelector("[data-submarca]");
-  const titulo = document.querySelector("[data-titulo-menu]");
-  const mensagem = document.querySelector("[data-mensagem]");
-  const informacoes = document.querySelectorAll("[data-informacao]");
-
-  if (marca) marca.textContent = DADOS.pagina.titulo;
-  if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
-  if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
-  if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
-  
-  informacoes.forEach(el => {
-    el.textContent = DADOS.pagina.informacao;
-  });
-}
-
-function criarCartoesAno() {
-  const recipiente = document.getElementById("anos");
-  const modelo = document.getElementById("modelo-ano");
-  if (!recipiente || !modelo) return;
-
-  recipiente.innerHTML = "";
-  DADOS.anos.forEach(ano => {
-    const cartao = modelo.content.cloneNode(true);
-    const botao = cartao.querySelector(".botao-ano");
-    const icone = cartao.querySelector(".icone-ano");
-    const texto = cartao.querySelector(".nome-ano");
-    const idade = cartao.querySelector(".idade-ano");
-
-    botao.style.setProperty("--cor-1", ano.cor);
-    botao.style.setProperty("--cor-2", ano.cor2);
-
-    const imagem = document.createElement("img");
-    imagem.src = DADOS.icons.anos[ano.icon];
-    imagem.alt = ano.nome;
-    imagem.draggable = false;
-    icone.appendChild(imagem);
-
-    texto.textContent = ano.nome;
-    idade.textContent = ano.idade;
-
-    botao.addEventListener("click", () => { window.location.href = ano.pagina; });
-    recipiente.appendChild(cartao);
-  });
-}
-
-function criarMenuAnos() {
-  const recipiente = document.getElementById("menu-anos");
-  const modelo = document.getElementById("modelo-menu-ano");
-  if (!recipiente || !modelo) return;
-
-  recipiente.innerHTML = "";
-  DADOS.menuAnos.forEach(ano => {
-    const item = modelo.content.cloneNode(true);
-    const botao = item.querySelector(".menu-ano");
-    const icone = item.querySelector(".menu-ano-icon");
-    const nome = item.querySelector(".menu-ano-nome");
-
-    const imagem = document.createElement("img");
-    imagem.src = DADOS.icons.menuAnos[ano.icon];
-    imagem.alt = "";
-    imagem.draggable = false;
-    icone.appendChild(imagem);
-
-    nome.textContent = ano.nome;
-    botao.addEventListener("click", () => { window.location.href = ano.pagina; });
-    recipiente.appendChild(item);
-  });
-}
-
-function configurarMenu() {
-  const botaoMenu = document.querySelector(".botao-menu");
-  const menu = document.querySelector(".menu-acordeao");
-  const botaoSeta = document.querySelector(".botao-seta");
-
-  if (botaoMenu && menu) {
-    botaoMenu.addEventListener("click", event => {
-      event.stopPropagation();
-      menu.classList.toggle("aberto");
-    });
-    document.addEventListener("click", event => {
-      if (menu.classList.contains("aberto") && !menu.contains(event.target) && !botaoMenu.contains(event.target)) {
-        menu.classList.remove("aberto");
-      }
-    });
-  }
-
-  if (botaoSeta) {
-    botaoSeta.addEventListener("click", () => { window.location.href = "../"; });
-  }
-}
-
-function criarDestaques() {
-  const recipiente = document.getElementById("jogos");
-  const modelo = document.getElementById("modelo-jogo");
-  if (!recipiente || !modelo) return;
-
-  recipiente.innerHTML = "";
-  DADOS.destaques.forEach(jogo => {
-    const item = modelo.content.cloneNode(true);
-    const imagem = item.querySelector(".icone-jogo img");
-    const nome = item.querySelector(".nome-jogo");
-    const estrelas = item.querySelector(".estrelas");
-
-    imagem.src = DADOS.icons.destaques[jogo.icon];
-    imagem.alt = jogo.nome;
-    imagem.draggable = false;
-
-    nome.textContent = jogo.nome;
-    estrelas.textContent = "★".repeat(jogo.estrelas);
-
-    if (jogo.pagina) {
-      const cartao = item.querySelector(".jogo");
-      if (cartao) {
-        cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
-      }
-    }
-    recipiente.appendChild(item);
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  inserirCSS();
-  preencherTextos();
-  criarCartoesAno();
-  criarMenuAnos();
-  configurarMenu();
-  criarDestaques();
-});
