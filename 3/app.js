@@ -174,31 +174,29 @@ button { font-family: inherit; }
   .marca-texto p { font-size: 9px; margin-top: 1px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
-  /* ALINHAMENTO EXATO DA LARGURA DOS 3 CARTÕES COM OS JOGOS EM DESTAQUE */
-  .area-menu { padding: 0 12px; }
-  .destaques { margin: 15px 12px; }
-  .rodape { width: calc(100% - 24px); margin: 10px 12px 0; }
+  /* ALINHAMENTO PERFEITO DA LARGURA DOS 3 CARTÕES COM OS DESTAQUES */
+  .area-menu { padding: 0 15px; }
+  .destaques { margin: 15px 15px; padding: 15px 12px; border-radius: 16px; }
+  .rodape { width: calc(100% - 30px); margin: 10px 15px 0; padding: 8px 12px; font-size: 11px; }
 
-  .anos { grid-template-columns: 1fr; gap: 10px; }
+  .anos { grid-template-columns: 1fr; gap: 10px; width: 100%; }
   .botao-ano { 
     height: 90px; 
-    padding: 8px 12px; 
+    padding: 8px 14px; 
     gap: 10px; 
     flex-direction: row; 
     justify-content: flex-start; 
-    border-radius: 12px; /* Cantos com menos raio */
+    border-radius: 12px; 
+    width: 100%;
   }
   .icone-ano { width: 50px; height: 50px; flex: 0 0 50px; }
   .nome-ano { font-size: 17px; text-align: left; }
   .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
   
-  .destaques { padding: 15px 12px; border-radius: 16px; }
   .titulo-destaques { margin: 0 10px 18px; gap: 15px; }
   .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 12px; column-gap: 8px; }
   .nome-jogo { font-size: 11px; min-height: 20px; }
   .estrelas { font-size: 10px; margin-top: 3px; }
-
-  .rodape { padding: 8px 12px; font-size: 11px; }
 }
   `;
 
