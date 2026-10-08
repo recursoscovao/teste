@@ -1,10 +1,10 @@
 const DADOS = {
   pagina: {
     browserTitulo: "1.º Ano - Recursos Educativos",
-    titulo: "1.º Ano",
+    titulo: "Português",
     subtitulo: "Aprender • Explorar • Descobrir",
-    tituloMenu: "Escolhe a área",
-    mensagem: "Escolhe a área e comece a aprender!",
+    tituloMenu: "Escolhe o jogo",
+    mensagem: "Escolhe o jogo e começa a aprender!",
     informacao: "Recursos educativos para o 1.º ano"
   },
 
