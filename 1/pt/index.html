@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Português - Recursos Educativos</title>
+  <title>1.º Ano - Recursos Educativos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Quicksand:wght@700&display=swap" rel="stylesheet">
@@ -35,7 +35,16 @@
   </header>
 
   <div id="app">
-    <!-- JOGOS / DESTAQUES COM 6 CARTÕES POR LINHA -->
+    <!-- ÁREA PRINCIPAL / 3 CARTÕES DAS ÁREAS -->
+    <main class="area-menu">
+      <div class="titulo-menu">
+        <h2 data-titulo-menu></h2>
+      </div>
+
+      <section id="anos" class="anos"></section>
+    </main>
+
+    <!-- JOGOS EM DESTAQUE COM 6 POR LINHA -->
     <section class="destaques">
       <div class="titulo-destaques">
         <div class="linha"></div>
@@ -60,6 +69,18 @@
   </div>
 
   <!-- TEMPLATES -->
+  <template id="modelo-ano">
+    <div class="ano">
+      <button class="botao-ano">
+        <div class="icone-ano"></div>
+        <div class="texto-ano">
+          <div class="nome-ano"></div>
+          <div class="idade-ano"></div>
+        </div>
+      </button>
+    </div>
+  </template>
+
   <template id="modelo-menu-ano">
     <button class="menu-ano">
       <div class="menu-ano-icon"></div>
