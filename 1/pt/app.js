@@ -93,7 +93,7 @@ button { font-family: inherit; }
 .menu-ano-icon img { width: 100%; height: 100%; object-fit: contain; }
 .menu-ano-nome { flex: 1; }
 
-/* SECÇÕES E CARTÕES COM 6 POR LINHA */
+/* 6 CARTÕES POR LINHA */
 .destaques {
   margin: 20px 0; padding: 23px 28px 25px; border-radius: ${DADOS.dimensoes.raioDestaques}px;
   background: rgba(255,255,255,.93); box-shadow: 0 7px 18px rgba(15,139,211,.10);
@@ -238,48 +238,32 @@ function configurarMenu() {
   }
 }
 
-function criarSeccoesJogos() {
-  const container = document.getElementById("container-seccoes");
-  const modeloSeccao = document.getElementById("modelo-seccao");
-  const modeloJogo = document.getElementById("modelo-jogo");
+function criarDestaques() {
+  const recipiente = document.getElementById("jogos");
+  const modelo = document.getElementById("modelo-jogo");
+  if (!recipiente || !modelo) return;
 
-  if (!container || !modeloSeccao || !modeloJogo) return;
+  recipiente.innerHTML = "";
+  DADOS.destaques.forEach(jogo => {
+    const item = modelo.content.cloneNode(true);
+    const imagem = item.querySelector(".icone-jogo img");
+    const nome = item.querySelector(".nome-jogo");
+    const estrelas = item.querySelector(".estrelas");
 
-  container.innerHTML = "";
+    imagem.src = DADOS.icons.destaques[jogo.icon];
+    imagem.alt = jogo.nome;
+    imagem.draggable = false;
 
-  DADOS.seccoesJogos.forEach(seccao => {
-    const blocoSeccao = modeloSeccao.content.cloneNode(true);
-    const iconeSec = blocoSeccao.querySelector(".icone-seccao");
-    const nomeSec = blocoSeccao.querySelector(".nome-seccao");
-    const grelhaJogos = blocoSeccao.querySelector(".jogos");
+    nome.textContent = jogo.nome;
+    estrelas.textContent = "★".repeat(jogo.estrelas);
 
-    if (iconeSec) iconeSec.textContent = seccao.iconeTitulo || "⭐";
-    if (nomeSec) nomeSec.textContent = seccao.titulo;
-
-    seccao.jogos.forEach(jogo => {
-      const itemJogo = modeloJogo.content.cloneNode(true);
-      const imagem = itemJogo.querySelector(".icone-jogo img");
-      const nome = itemJogo.querySelector(".nome-jogo");
-      const estrelas = itemJogo.querySelector(".estrelas");
-
-      // Caminho correto para a pasta iconjogos na mesma diretoria do index.html
-      imagem.src = `iconjogos/${jogo.icon}`;
-      imagem.alt = jogo.nome;
-      imagem.draggable = false;
-
-      nome.textContent = jogo.nome;
-      estrelas.textContent = "★".repeat(jogo.estrelas);
-
-      if (jogo.pagina) {
-        const cartao = itemJogo.querySelector(".jogo");
-        if (cartao) {
-          cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
-        }
+    if (jogo.pagina) {
+      const cartao = item.querySelector(".jogo");
+      if (cartao) {
+        cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
       }
-      grelhaJogos.appendChild(itemJogo);
-    });
-
-    container.appendChild(blocoSeccao);
+    }
+    recipiente.appendChild(item);
   });
 }
 
@@ -288,5 +272,5 @@ document.addEventListener("DOMContentLoaded", () => {
   preencherTextos();
   criarMenuAnos();
   configurarMenu();
-  criarSeccoesJogos();
+  criarDestaques();
 });
