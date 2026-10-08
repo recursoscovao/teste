@@ -1,21 +1,24 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "1.º Ano - Recursos Educativos",
-    titulo: "1.º Ano",
-    subtitulo: "Aprender • Explorar • Descobrir",
-    tituloMenu: "Escolhe a área",
-    mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 1.º ano"
+    browserTitulo: "4.º Ano - Jogos Educativos",
+    titulo: "4.º Ano",
+    subtitulo: "Aprender • Jogar • Descobrir",
+    tituloMenu: "Escolhe o Jogo",
+    mensagem: "Escolhe um jogo e diverte-te a aprender!",
+    informacao: "Jogos educativos para o 4.º ano"
   },
 
   icons: {
-    cabecalho: "../../icons/icon1.png",
+    cabecalho: "../../icons/icon4.png",
     menu: "../../icons/menu.png",
     seta: "../../icons/seta.png",
-    anos: {
-      portugues: "../../icons/pt.png",
-      matematica: "../../icons/mat.png",
-      estudoMeio: "../../icons/em.png"
+    jogos: {
+      jogo1: "iconjogos/jogo1.png",
+      jogo2: "iconjogos/jogo2.png",
+      jogo3: "iconjogos/jogo3.png",
+      jogo4: "iconjogos/jogo4.png",
+      jogo5: "iconjogos/jogo5.png",
+      jogo6: "iconjogos/jogo6.png"
     },
     menuAnos: {
       inicio: "../../icons/inicio.png",
@@ -37,12 +40,8 @@ const DADOS = {
     texto: "#0B4B71",
     textoEscuro: "#062B42",
     branco: "#FFFFFF",
-    portugues: "#11CBFC",
-    portugues2: "#079BC8",
-    matematica: "#FD6746",
-    matematica2: "#D94328",
-    estudoMeio: "#62D733",
-    estudoMeio2: "#36A918",
+    cor1: "#11CBFC",
+    cor2: "#079BC8",
     creme: "#E1F2FA",
     linha: "#B4E4F8",
     sombra: "rgba(15,139,211,.18)",
@@ -51,38 +50,65 @@ const DADOS = {
 
   dimensoes: {
     larguraMaxima: 1200,
-    alturaAnoDesktop: 270,
+    alturaAnoDesktop: 220,
     raioAno: 23,
-    tamanhoIconAnoDesktop: 153
+    tamanhoIconAnoDesktop: 110
   },
 
   anos: [
     {
-      id: "portugues",
-      nome: "Português",
-      idade: "6 - 7 anos",
-      icon: "portugues",
+      id: "jogo1",
+      nome: "Jogo 1",
+      idade: "Subtítulo do Jogo 1",
+      icon: "jogo1",
       cor: "#11CBFC",
       cor2: "#079BC8",
-      pagina: "#"
+      pagina: "jogo1/"
     },
     {
-      id: "matematica",
-      nome: "Matemática",
-      idade: "",
-      icon: "matematica",
+      id: "jogo2",
+      nome: "Jogo 2",
+      idade: "Subtítulo do Jogo 2",
+      icon: "jogo2",
       cor: "#FD6746",
       cor2: "#D94328",
-      pagina: "../mat/"
+      pagina: "jogo2/"
     },
     {
-      id: "estudoMeio",
-      nome: "Estudo do Meio",
-      idade: "",
-      icon: "estudoMeio",
+      id: "jogo3",
+      nome: "Jogo 3",
+      idade: "Subtítulo do Jogo 3",
+      icon: "jogo3",
       cor: "#62D733",
       cor2: "#36A918",
-      pagina: "../em/"
+      pagina: "jogo3/"
+    },
+    {
+      id: "jogo4",
+      nome: "Jogo 4",
+      idade: "Subtítulo do Jogo 4",
+      icon: "jogo4",
+      cor: "#FFB400",
+      cor2: "#E09A00",
+      pagina: "jogo4/"
+    },
+    {
+      id: "jogo5",
+      nome: "Jogo 5",
+      idade: "Subtítulo do Jogo 5",
+      icon: "jogo5",
+      cor: "#9B51E0",
+      cor2: "#7B39C8",
+      pagina: "jogo5/"
+    },
+    {
+      id: "jogo6",
+      nome: "Jogo 6",
+      idade: "Subtítulo do Jogo 6",
+      icon: "jogo6",
+      cor: "#EB5757",
+      cor2: "#C53B3B",
+      pagina: "jogo6/"
     }
   ],
 
