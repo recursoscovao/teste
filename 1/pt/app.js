@@ -102,8 +102,18 @@ button { font-family: inherit; }
 }
 .titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-/* 6 CARTÕES NUMA SÓ LINHA */
-.anos { width: 100%; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; justify-content: center; }
+/* ESTILOS DAS FASES */
+.secao-fase { margin-bottom: 25px; }
+.titulo-fase {
+  font-size: clamp(16px, 1.5vw, 22px);
+  font-weight: 900;
+  color: ${DADOS.cores.textoEscuro};
+  margin: 0 0 12px 4px;
+  text-shadow: 0 1px 1px rgba(255,255,255,.8);
+}
+
+/* CARTÕES */
+.anos { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; justify-content: center; }
 
 .botao-ano {
   position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
@@ -220,33 +230,45 @@ function preencherTextos() {
   });
 }
 
-function criarCartoesAno() {
-  const recipiente = document.getElementById("anos");
-  const modelo = document.getElementById("modelo-ano");
-  if (!recipiente || !modelo) return;
+function criarFasesECartoes() {
+  const recipienteContainer = document.getElementById("fases-container");
+  const modeloFase = document.getElementById("modelo-fase");
+  const modeloAno = document.getElementById("modelo-ano");
+  if (!recipienteContainer || !modeloFase || !modeloAno) return;
 
-  recipiente.innerHTML = "";
-  DADOS.anos.forEach(ano => {
-    const cartao = modelo.content.cloneNode(true);
-    const botao = cartao.querySelector(".botao-ano");
-    const icone = cartao.querySelector(".icone-ano");
-    const texto = cartao.querySelector(".nome-ano");
-    const idade = cartao.querySelector(".idade-ano");
+  recipienteContainer.innerHTML = "";
 
-    botao.style.setProperty("--cor-1", ano.cor);
-    botao.style.setProperty("--cor-2", ano.cor2);
+  DADOS.fases.forEach(fase => {
+    const cloneFase = modeloFase.content.cloneNode(true);
+    const tituloFaseEl = cloneFase.querySelector(".titulo-fase");
+    const containerJogos = cloneFase.querySelector(".anos");
 
-    const imagem = document.createElement("img");
-    imagem.src = DADOS.icons.jogos[ano.icon];
-    imagem.alt = ano.nome;
-    imagem.draggable = false;
-    icone.appendChild(imagem);
+    tituloFaseEl.textContent = fase.tituloFase;
 
-    texto.textContent = ano.nome;
-    idade.textContent = ano.idade;
+    fase.jogos.forEach(jogo => {
+      const cartao = modeloAno.content.cloneNode(true);
+      const botao = cartao.querySelector(".botao-ano");
+      const icone = cartao.querySelector(".icone-ano");
+      const texto = cartao.querySelector(".nome-ano");
+      const idade = cartao.querySelector(".idade-ano");
 
-    botao.addEventListener("click", () => { window.location.href = ano.pagina; });
-    recipiente.appendChild(cartao);
+      botao.style.setProperty("--cor-1", jogo.cor);
+      botao.style.setProperty("--cor-2", jogo.cor2);
+
+      const imagem = document.createElement("img");
+      imagem.src = DADOS.icons.jogos[jogo.icon];
+      imagem.alt = jogo.nome;
+      imagem.draggable = false;
+      icone.appendChild(imagem);
+
+      texto.textContent = jogo.nome;
+      idade.textContent = jogo.idade;
+
+      botao.addEventListener("click", () => { window.location.href = jogo.pagina; });
+      containerJogos.appendChild(cartao);
+    });
+
+    recipienteContainer.appendChild(cloneFase);
   });
 }
 
@@ -299,7 +321,7 @@ function configurarMenu() {
 document.addEventListener("DOMContentLoaded", () => {
   inserirCSS();
   preencherTextos();
-  criarCartoesAno();
+  criarFasesECartoes();
   criarMenuAnos();
   configurarMenu();
 });
