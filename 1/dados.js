@@ -90,7 +90,7 @@ const DADOS = {
     {
       id: "matematica",
       nome: "Matemática",
-      idade: "",
+      idade: "6 - 7 anos",
       icon: "matematica",
       cor: "#FD6746",
       cor2: "#D94328",
@@ -99,7 +99,7 @@ const DADOS = {
     {
       id: "estudoMeio",
       nome: "Estudo do Meio",
-      idade: "",
+      idade: "6 - 7 anos",
       icon: "estudoMeio",
       cor: "#62D733",
       cor2: "#36A918",
