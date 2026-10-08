@@ -36,14 +36,14 @@ const DADOS = {
   },
 
   cores: {
-    fundo: "#F7F2FC",
-    ceu1: "#DAB6F9",
-    ceu2: "#EEDEFD",
-    header: "#EEDEFD",
-    headerTopo: "#DAB6F9",
-    azulHeader: "#AD62EB",
-    texto: "#5E239D",
-    textoEscuro: "#421275",
+    fundo: "#F6F2FC",
+    ceu1: "#D6B6F9",
+    ceu2: "#EFE0FD",
+    header: "#EFE0FD",
+    headerTopo: "#D6B6F9",
+    azulHeader: "#833BC9",
+    texto: "#551C8C",
+    textoEscuro: "#2F0B52",
     branco: "#FFFFFF",
     portugues: "#11CBFC",
     portugues2: "#079BC8",
@@ -57,23 +57,23 @@ const DADOS = {
     azul2: "#087AC9",
     verde: "#45C83D",
     verde2: "#169A3A",
-    roxo: "#AD62EB",
-    roxo2: "#7434B8",
+    roxo: "#833BC9",
+    roxo2: "#512080",
     rosa: "#F43A9D",
     rosa2: "#C81970",
-    creme: "#FFF9E1",
-    creme2: "#F5D996",
-    linha: "#D2B4F8",
-    sombra: "rgba(108,42,195,.18)",
-    sombraForte: "rgba(108,42,195,.28)"
+    creme: "#F4EBFD",
+    creme2: "#D2A6F0",
+    linha: "#DFC1F8",
+    sombra: "rgba(131,59,201,.18)",
+    sombraForte: "rgba(131,59,201,.28)"
   },
 
   dimensoes: {
-    larguraMaxima: 1650,
-    alturaAnoDesktop: 270, /* Reduzido 10% (de 300 para 270) */
+    larguraMaxima: 1200,
+    alturaAnoDesktop: 270,
     raioAno: 23,
     raioDestaques: 26,
-    tamanhoIconAnoDesktop: 153, /* Reduzido 10% (de 170 para 153) */
+    tamanhoIconAnoDesktop: 153,
     tamanhoIconJogo: 76
   },
 
