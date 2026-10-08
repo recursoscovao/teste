@@ -266,7 +266,7 @@ function criarFasesECartoes() {
       botao.style.setProperty("--cor-2", jogo.cor2);
 
       const imagem = document.createElement("img");
-      imagem.src = DADOS.icons.jogos[jogo.icon];
+      imagem.src = jogo.imagem;
       imagem.alt = jogo.nome;
       imagem.draggable = false;
       icone.appendChild(imagem);
