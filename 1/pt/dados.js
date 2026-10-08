@@ -40,9 +40,9 @@ const DADOS = {
 
   dimensoes: {
     larguraMaxima: 1200,
-    alturaAnoDesktop: 220,
+    alturaAnoDesktop: 209,
     raioAno: 23,
-    tamanhoIconAnoDesktop: 110
+    tamanhoIconAnoDesktop: 130
   },
 
   // Todos os elementos do cartão (incluindo o caminho da imagem) ficam diretamente aqui
