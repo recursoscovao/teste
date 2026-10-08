@@ -58,8 +58,8 @@ const DADOS = {
     {
       tituloFase: "Fase 1",
       jogos: [
-        { id: "jogo1", nome: "Jogo 1", idade: "Subtítulo 1", icon: "jogo1", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
-        { id: "jogo2", nome: "Jogo 2", idade: "Subtítulo 2", icon: "jogo2", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo2/" },
+        { id: "jogo1", nome: "Grafismo", idade: "Linhas Retas", icon: "f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
+        { id: "jogo2", nome: "Grafismos", idade: "Linhas curvas", icon: "f1_jogo02pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo2/" },
         { id: "jogo3", nome: "Jogo 3", idade: "Subtítulo 3", icon: "jogo3", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
         { id: "jogo4", nome: "Jogo 4", idade: "Subtítulo 4", icon: "jogo4", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" },
         { id: "jogo5", nome: "Jogo 5", idade: "Subtítulo 5", icon: "jogo5", cor: "#9B51E0", cor2: "#7B39C8", pagina: "jogo5/" },
