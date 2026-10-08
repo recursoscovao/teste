@@ -9,16 +9,24 @@ const DADOS = {
   },
 
   icons: {
-    cabecalho: "../icons/icon1.png",
-    menu: "../icons/menu.png",
-    seta: "../icons/seta.png",
+    cabecalho: "../../icons/pt.png",
+    menu: "../../icons/menu.png",
+    seta: "../../icons/seta.png",
     menuAnos: {
-      inicio: "../icons/inicio.png",
-      pre: "../icons/iconpre.png",
-      ano1: "../icons/icon1.png",
-      ano2: "../icons/icon2.png",
-      ano3: "../icons/icon3.png",
-      ano4: "../icons/icon4.png"
+      inicio: "../../icons/inicio.png",
+      pre: "../../icons/iconpre.png",
+      ano1: "../../icons/icon1.png",
+      ano2: "../../icons/icon2.png",
+      ano3: "../../icons/icon3.png",
+      ano4: "../../icons/icon4.png"
+    },
+    destaques: {
+      rastros: "iconjogos/rastros.png",
+      gatosCaes: "iconjogos/gatos&caes.png",
+      dominorio: "iconjogos/dominorio.png",
+      semaforo: "iconjogos/semaforo.png",
+      quelhas: "iconjogos/quelhas.png",
+      avanco: "iconjogos/avanco.png"
     }
   },
 
@@ -44,39 +52,20 @@ const DADOS = {
   },
 
   menuAnos: [
-    { id: "inicio", nome: "Início", icon: "inicio", pagina: "../" },
-    { id: "pre", nome: "Pré-Escolar", icon: "pre", pagina: "../pre/" },
-    { id: "ano1", nome: "1.º Ano", icon: "ano1", pagina: "../1/" },
-    { id: "ano2", nome: "2.º Ano", icon: "ano2", pagina: "../2/" },
-    { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../3/" },
-    { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../4/" }
+    { id: "inicio", nome: "Início", icon: "inicio", pagina: "../../" },
+    { id: "pre", nome: "Pré-Escolar", icon: "pre", pagina: "../../pre/" },
+    { id: "ano1", nome: "1.º Ano", icon: "ano1", pagina: "../../1/" },
+    { id: "ano2", nome: "2.º Ano", icon: "ano2", pagina: "../../2/" },
+    { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../../3/" },
+    { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../../4/" }
   ],
 
-  // Secções de jogos com 6 cartões por linha e caminhos para a pasta iconjogos
-  seccoesJogos: [
-    {
-      titulo: "Sons, Letras e Formas Básicas",
-      iconeTitulo: "🔵",
-      jogos: [
-        { id: "jogo1", nome: "Jogo 1", icon: "jogo1.png", estrelas: 5, pagina: "#" },
-        { id: "jogo2", nome: "Jogo 2", icon: "jogo2.png", estrelas: 5, pagina: "#" },
-        { id: "jogo3", nome: "Jogo 3", icon: "jogo3.png", estrelas: 5, pagina: "#" },
-        { id: "jogo1", nome: "Jogo 1", icon: "jogo1.png", estrelas: 5, pagina: "#" },
-        { id: "jogo2", nome: "Jogo 2", icon: "jogo2.png", estrelas: 5, pagina: "#" },
-        { id: "jogo3", nome: "Jogo 3", icon: "jogo3.png", estrelas: 5, pagina: "#" }
-      ]
-    },
-    {
-      titulo: "Descobertas e Sequências",
-      iconeTitulo: "🟠",
-      jogos: [
-        { id: "jogo1", nome: "Jogo 1", icon: "jogo1.png", estrelas: 5, pagina: "#" },
-        { id: "jogo2", nome: "Jogo 2", icon: "jogo2.png", estrelas: 5, pagina: "#" },
-        { id: "jogo3", nome: "Jogo 3", icon: "jogo3.png", estrelas: 5, pagina: "#" },
-        { id: "jogo1", nome: "Jogo 1", icon: "jogo1.png", estrelas: 5, pagina: "#" },
-        { id: "jogo2", nome: "Jogo 2", icon: "jogo2.png", estrelas: 5, pagina: "#" },
-        { id: "jogo3", nome: "Jogo 3", icon: "jogo3.png", estrelas: 5, pagina: "#" }
-      ]
-    }
+  destaques: [
+    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jogos/rastros/index.html" },
+    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jogos/gatos-caes/index.html" },
+    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jogos/dominio/index.html" },
+    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jogos/semaforo/index.html" },
+    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jogos/quelhas/index.html" },
+    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jogos/avanco/index.html" }
   ]
 };
