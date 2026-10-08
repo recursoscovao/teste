@@ -35,8 +35,16 @@
   </header>
 
   <div id="app">
-    <!-- CONTENTOR ONDE AS SECÇÕES DE JOGOS SERÃO INSERIDAS -->
-    <div id="container-seccoes"></div>
+    <!-- JOGOS / DESTAQUES COM 6 CARTÕES POR LINHA -->
+    <section class="destaques">
+      <div class="titulo-destaques">
+        <div class="linha"></div>
+        <h2><span>⭐</span> Destaques</h2>
+        <div class="linha"></div>
+      </div>
+
+      <div id="jogos" class="jogos"></div>
+    </section>
 
     <!-- RODAPÉ -->
     <footer class="rodape">
@@ -59,25 +67,14 @@
     </button>
   </template>
 
-  <template id="modelo-seccao">
-    <section class="destaques">
-      <div class="titulo-destaques">
-        <div class="linha"></div>
-        <h2><span class="icone-seccao">⭐</span> <span class="nome-seccao"></span></h2>
-        <div class="linha"></div>
-      </div>
-      <div class="jogos"></div>
-    </section>
-  </template>
-
   <template id="modelo-jogo">
-    <article class="jogo" tabindex="0">
+    <div class="jogo" tabindex="0">
       <div class="icone-jogo">
         <img src="" alt="" draggable="false">
       </div>
       <div class="nome-jogo"></div>
-      <div class="estrelas">★★★★★</div>
-    </article>
+      <div class="estrelas"></div>
+    </div>
   </template>
 
   <!-- SCRIPTS -->
