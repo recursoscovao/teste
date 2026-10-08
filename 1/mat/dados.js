@@ -23,19 +23,19 @@ const DADOS = {
   },
 
   cores: {
-    fundo: "#F2F8FC",
-    ceu1: "#B6E2F9",
-    ceu2: "#DEF3FF",
-    header: "#DEF3FF",
-    headerTopo: "#B6E2F9",
-    azulHeader: "#0F8BD3",
-    texto: "#0B4B71",
-    textoEscuro: "#062B42",
+    fundo: "#FFF5F2",
+    ceu1: "#FCDFD8",
+    ceu2: "#FFEEEC",
+    header: "#FFEEEC",
+    headerTopo: "#FCDFD8",
+    azulHeader: "#EA5436",
+    texto: "#7A2210",
+    textoEscuro: "#4A1308",
     branco: "#FFFFFF",
-    creme: "#E1F2FA",
-    linha: "#B4E4F8",
-    sombra: "rgba(15,139,211,.18)",
-    sombraForte: "rgba(15,139,211,.28)"
+    creme: "#FDE8E4",
+    linha: "#F8C4BA",
+    sombra: "rgba(234,84,54,.18)",
+    sombraForte: "rgba(234,84,54,.28)"
   },
 
   dimensoes: {
@@ -49,18 +49,18 @@ const DADOS = {
     {
       tituloFase: "Fase 1",
       jogos: [
-        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" },
-        { nome: "Grafismos", idade: "Linhas curvas", imagem: "iconjogos/f1_jogo02pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo02pt/" },
-        { nome: "Grafismos", idade: "Letras", imagem: "iconjogos/f1_jogo03pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo03pt/" },
-        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo4/" },
-        { nome: "Jogo 5", idade: "Subtítulo 5", imagem: "iconjogos/jogo5.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo5/" },
-        { nome: "Jogo 6", idade: "Subtítulo 6", imagem: "iconjogos/jogo6.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo6/" }
+        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#EA5436", cor2: "#C0391E", pagina: "f1_jogo01pt/" },
+        { nome: "Grafismos", idade: "Linhas curvas", imagem: "iconjogos/f1_jogo02pt.png", cor: "#EA5436", cor2: "#C0391E", pagina: "f1_jogo02pt/" },
+        { nome: "Grafismos", idade: "Letras", imagem: "iconjogos/f1_jogo03pt.png", cor: "#EA5436", cor2: "#C0391E", pagina: "f1_jogo03pt/" },
+        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#EA5436", cor2: "#C0391E", pagina: "jogo4/" },
+        { nome: "Jogo 5", idade: "Subtítulo 5", imagem: "iconjogos/jogo5.png", cor: "#EA5436", cor2: "#C0391E", pagina: "jogo5/" },
+        { nome: "Jogo 6", idade: "Subtítulo 6", imagem: "iconjogos/jogo6.png", cor: "#EA5436", cor2: "#C0391E", pagina: "jogo6/" }
       ]
     },
     {
       tituloFase: "Fase 2",
       jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
+        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#EA5436", cor2: "#C0391E", pagina: "jogo1/" },
         { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
         { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
         { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" },
@@ -70,7 +70,7 @@ const DADOS = {
     {
       tituloFase: "Fase 3",
       jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
+        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#EA5436", cor2: "#C0391E", pagina: "jogo1/" },
         { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
         { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
         { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" }
@@ -79,7 +79,7 @@ const DADOS = {
     {
       tituloFase: "Fase 4",
       jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
+        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#EA5436", cor2: "#C0391E", pagina: "jogo1/" },
         { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
         { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
         { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" }
