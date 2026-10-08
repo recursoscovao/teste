@@ -1,17 +1,22 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "Português - 1.º Ano",
-    titulo: "Português",
+    browserTitulo: "1.º Ano - Recursos Educativos",
+    titulo: "1.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
-    tituloMenu: "Escolhe o jogo",
-    mensagem: "Escolhe o jogo e começa a aprender!",
+    tituloMenu: "Escolhe a área",
+    mensagem: "Escolhe a área e comece a aprender!",
     informacao: "Recursos educativos para o 1.º ano"
   },
 
   icons: {
-    cabecalho: "../../icons/pt.png",
+    cabecalho: "../../icons/icon1.png",
     menu: "../../icons/menu.png",
     seta: "../../icons/seta.png",
+    anos: {
+      portugues: "../../icons/pt.png",
+      matematica: "../../icons/mat.png",
+      estudoMeio: "../../icons/em.png"
+    },
     menuAnos: {
       inicio: "../../icons/inicio.png",
       pre: "../../icons/iconpre.png",
@@ -40,16 +45,56 @@ const DADOS = {
     texto: "#0B4B71",
     textoEscuro: "#062B42",
     branco: "#FFFFFF",
+    portugues: "#11CBFC",
+    portugues2: "#079BC8",
+    matematica: "#FD6746",
+    matematica2: "#D94328",
+    estudoMeio: "#62D733",
+    estudoMeio2: "#36A918",
+    creme: "#E1F2FA",
     linha: "#B4E4F8",
     sombra: "rgba(15,139,211,.18)",
     sombraForte: "rgba(15,139,211,.28)"
   },
 
   dimensoes: {
-    larguraMaxima: 1650,
+    larguraMaxima: 1200,
+    alturaAnoDesktop: 270,
+    raioAno: 23,
     raioDestaques: 26,
+    tamanhoIconAnoDesktop: 153,
     tamanhoIconJogo: 76
   },
+
+  anos: [
+    {
+      id: "portugues",
+      nome: "Português",
+      idade: "6 - 7 anos",
+      icon: "portugues",
+      cor: "#11CBFC",
+      cor2: "#079BC8",
+      pagina: "#"
+    },
+    {
+      id: "matematica",
+      nome: "Matemática",
+      idade: "",
+      icon: "matematica",
+      cor: "#FD6746",
+      cor2: "#D94328",
+      pagina: "../mat/"
+    },
+    {
+      id: "estudoMeio",
+      nome: "Estudo do Meio",
+      idade: "",
+      icon: "estudoMeio",
+      cor: "#62D733",
+      cor2: "#36A918",
+      pagina: "../em/"
+    }
+  ],
 
   menuAnos: [
     { id: "inicio", nome: "Início", icon: "inicio", pagina: "../../" },
