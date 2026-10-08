@@ -137,21 +137,6 @@ button { font-family: inherit; }
 .nome-ano { font-size: clamp(21px, 1.8vw, 29px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); }
 .idade-ano { margin-top: 7px; font-size: clamp(14px, 1.2vw, 18px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); }
 
-/* JOGOS EM DESTAQUE COM 6 POR LINHA */
-.destaques {
-  margin: 20px; padding: 23px 28px 25px; border-radius: ${DADOS.dimensoes.raioDestaques}px;
-  background: rgba(255,255,255,.93); box-shadow: 0 7px 18px rgba(15,139,211,.10);
-}
-.titulo-destaques { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; margin: 0 30px 25px; }
-.titulo-destaques .linha { height: 3px; background: #96D5F0; border-radius: 99px; }
-.titulo-destaques h2 { margin: 0; color: ${DADOS.cores.textoEscuro}; font-size: clamp(19px, 1.65vw, 26px); font-weight: 900; }
-.jogos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; align-items: start; }
-.jogo { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; }
-.icone-jogo { width: ${DADOS.dimensoes.tamanhoIconJogo}px; height: ${DADOS.dimensoes.tamanhoIconJogo}px; display: grid; place-items: center; margin-bottom: 10px; }
-.icone-jogo img { width: 100%; height: 100%; object-fit: contain; }
-.nome-jogo { margin-top: 0; min-height: 25px; color: ${DADOS.cores.textoEscuro}; font-size: clamp(15px, 1.25vw, 20px); font-weight: 900; }
-.estrelas { margin-top: 7px; color: #FFB400; font-size: clamp(15px, 1.15vw, 18px); letter-spacing: 1px; }
-
 .rodape {
   width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-items: center;
@@ -166,10 +151,6 @@ button { font-family: inherit; }
   display: inline-flex; align-items: center; justify-content: center; 
   border-radius: 50% !important; color: #fff; background: ${DADOS.cores.azulHeader}; 
   font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
-}
-
-@media (max-width: 1024px) {
-  .jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
 }
 
 @media (max-width: 768px) {
@@ -196,7 +177,6 @@ button { font-family: inherit; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
   .area-menu { padding: 0 16px; }
-  .destaques { margin: 15px 16px; padding: 18px 14px; border-radius: 16px; }
   .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
 
   .anos { grid-template-columns: 1fr; gap: 10px; width: 100%; }
@@ -207,11 +187,6 @@ button { font-family: inherit; }
   .icone-ano { width: 48px; height: 48px; flex: 0 0 48px; }
   .nome-ano { font-size: 17px; text-align: left; }
   .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
-  
-  .titulo-destaques { margin: 0 10px 18px; gap: 15px; }
-  .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 12px; column-gap: 8px; }
-  .nome-jogo { font-size: 11px; min-height: 20px; }
-  .estrelas { font-size: 10px; margin-top: 3px; }
   
   .info {
     width: 22px !important; height: 22px !important;
@@ -321,40 +296,10 @@ function configurarMenu() {
   }
 }
 
-function criarDestaques() {
-  const recipiente = document.getElementById("jogos");
-  const modelo = document.getElementById("modelo-jogo");
-  if (!recipiente || !modelo) return;
-
-  recipiente.innerHTML = "";
-  DADOS.destaques.forEach(jogo => {
-    const item = modelo.content.cloneNode(true);
-    const imagem = item.querySelector(".icone-jogo img");
-    const nome = item.querySelector(".nome-jogo");
-    const estrelas = item.querySelector(".estrelas");
-
-    imagem.src = DADOS.icons.destaques[jogo.icon];
-    imagem.alt = jogo.nome;
-    imagem.draggable = false;
-
-    nome.textContent = jogo.nome;
-    estrelas.textContent = "★".repeat(jogo.estrelas);
-
-    if (jogo.pagina) {
-      const cartao = item.querySelector(".jogo");
-      if (cartao) {
-        cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
-      }
-    }
-    recipiente.appendChild(item);
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   inserirCSS();
   preencherTextos();
   criarCartoesAno();
   criarMenuAnos();
   configurarMenu();
-  criarDestaques();
 });
