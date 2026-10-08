@@ -102,15 +102,15 @@ button { font-family: inherit; }
 }
 .titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-/* 3 CARTÕES DAS ÁREAS */
-.anos { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; justify-content: center; }
+/* 6 CARTÕES DAS ÁREAS (GRID DE 2 COLUNAS NO DESKTOP) */
+.anos { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; justify-content: center; }
 
 .botao-ano {
   position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
-  padding: 18px 12px 14px; border: 3px solid rgba(255,255,255,.94);
+  padding: 18px 20px 14px; border: 3px solid rgba(255,255,255,.94);
   border-radius: ${DADOS.dimensoes.raioAno}px;
   background: linear-gradient(145deg, var(--cor-1) 0%, var(--cor-2) 100%);
-  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 20px;
   color: #FFFFFF; cursor: pointer; overflow: hidden;
   box-shadow: 0 9px 15px ${DADOS.cores.sombra};
   transition: transform .15s ease, box-shadow .15s ease;
@@ -133,9 +133,9 @@ button { font-family: inherit; }
   flex: 0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px; display: grid; place-items: center; position: relative; z-index: 1;
 }
 .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 3px rgba(0,0,0,.16)); }
-.texto-ano { position: relative; z-index: 1; text-align: center; }
-.nome-ano { font-size: clamp(21px, 1.8vw, 29px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); }
-.idade-ano { margin-top: 7px; font-size: clamp(14px, 1.2vw, 18px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); }
+.texto-ano { position: relative; z-index: 1; text-align: left; display: flex; flex-direction: column; justify-content: center; }
+.nome-ano { font-size: clamp(21px, 1.8vw, 27px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); }
+.idade-ano { margin-top: 5px; font-size: clamp(13px, 1.1vw, 16px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; }
 
 .rodape {
   width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
@@ -237,7 +237,7 @@ function criarCartoesAno() {
     botao.style.setProperty("--cor-2", ano.cor2);
 
     const imagem = document.createElement("img");
-    imagem.src = DADOS.icons.anos[ano.icon];
+    imagem.src = DADOS.icons.jogos[ano.icon];
     imagem.alt = ano.nome;
     imagem.draggable = false;
     icone.appendChild(imagem);
