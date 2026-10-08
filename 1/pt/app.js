@@ -25,7 +25,7 @@ button { font-family: inherit; }
   min-height: calc(100vh - 82px);
   width: min(100%, ${DADOS.dimensoes.larguraMaxima}px);
   margin: 0 auto;
-  padding: 20px 20px 30px;
+  padding: 15px 20px 25px;
   position: relative;
   overflow: hidden;
   background: transparent;
@@ -82,7 +82,7 @@ button { font-family: inherit; }
 .menu-acordeao-topo { padding: 15px 18px 13px; background: linear-gradient(180deg, #E6F4FA, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
 .menu-acordeao-titulo { font-size: 19px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
 .menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #0F8BD3; }
-.menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; max-height: 65vh; overflow-y: auto; }
+.menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; max-height: 60vh; overflow-y: auto; }
 .menu-ano {
   width: 100%; min-height: 54px; display: flex; align-items: center; gap: 13px; padding: 6px 11px;
   border: 0; border-radius: 13px; background: #FFFFFF; color: ${DADOS.cores.textoEscuro};
@@ -93,60 +93,26 @@ button { font-family: inherit; }
 .menu-ano-icon img { width: 100%; height: 100%; object-fit: contain; }
 .menu-ano-nome { flex: 1; }
 
-/* SECÇÕES E ESTILO DOS CARTÕES (6 POR LINHA) */
-.bloco-seccao { margin-bottom: 35px; }
-
-.cabecalho-seccao {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
-  background: #FFFFFF; width: fit-content; padding: 8px 20px 8px 14px;
-  border-radius: 30px; box-shadow: 0 3px 10px rgba(15,139,211,.08);
+/* SECÇÕES E CARTÕES ORIGINAIS COM 6 POR LINHA */
+.destaques {
+  margin: 20px 0; padding: 23px 28px 25px; border-radius: ${DADOS.dimensoes.raioDestaques}px;
+  background: rgba(255,255,255,.93); box-shadow: 0 7px 18px rgba(15,139,211,.10);
 }
-.ponto-seccao { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.titulo-seccao { margin: 0; font-size: clamp(15px, 1.4vw, 19px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-transform: uppercase; letter-spacing: .5px; }
+.titulo-destaques { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; margin: 0 30px 25px; }
+.titulo-destaques .linha { height: 3px; background: #96D5F0; border-radius: 99px; }
+.titulo-destaques h2 { margin: 0; color: ${DADOS.cores.textoEscuro}; font-size: clamp(19px, 1.65vw, 26px); font-weight: 900; display: flex; align-items: center; gap: 8px; }
 
-/* GRELHA COM 6 CARTÕES POR LINHA */
-.grelha-jogos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+.jogos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.jogo { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; transition: transform .12s ease; }
+.jogo:hover { transform: translateY(-3px); }
 
-.cartao-jogo {
-  background: #FFFFFF; border-radius: 20px; padding: 14px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  box-shadow: 0 6px 16px rgba(15,139,211,.10); border: 2px solid rgba(255,255,255,1);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.cartao-jogo:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(15,139,211,.18);
-}
-
-.imagem-jogo-container {
-  width: 100%; aspect-ratio: 1; background: #F8FBFE; border-radius: 14px;
-  display: grid; place-items: center; padding: 10px; border: 1px solid #EAF2F8;
-}
-.imagem-jogo { width: 100%; height: 100%; object-fit: contain; }
-
-.conteudo-jogo { text-align: center; padding: 10px 0; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-.nome-jogo { margin: 0 0 4px; font-size: clamp(14px, 1.1vw, 17px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; line-height: 1.1; }
-.descricao-jogo { margin: 0; font-size: clamp(11px, 0.9vw, 13px); font-weight: 700; color: #5A7E94; line-height: 1.2; }
-
-.rodape-cartao-jogo { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
-
-.badge-numero {
-  width: 32px; height: 32px; min-width: 32px; border-radius: 50%;
-  display: grid; place-items: center; font-weight: 900; font-size: 14px; color: #FFFFFF;
-  box-shadow: 0 2px 5px rgba(0,0,0,.15);
-}
-
-.botao-jogar {
-  flex-grow: 1; height: 34px; border: 0; border-radius: 17px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 5px;
-  font-weight: 900; font-size: 13px; color: #FFFFFF;
-  box-shadow: 0 3px 6px rgba(0,0,0,.15); transition: filter .12s ease;
-}
-.botao-jogar:hover { filter: brightness(1.1); }
-.icone-play { font-size: 10px; }
+.icone-jogo { width: ${DADOS.dimensoes.tamanhoIconJogo}px; height: ${DADOS.dimensoes.tamanhoIconJogo}px; display: grid; place-items: center; margin-bottom: 10px; }
+.icone-jogo img { width: 100%; height: 100%; object-fit: contain; }
+.nome-jogo { margin-top: 0; min-height: 25px; color: ${DADOS.cores.textoEscuro}; font-size: clamp(15px, 1.25vw, 20px); font-weight: 900; }
+.estrelas { margin-top: 7px; color: #FFB400; font-size: clamp(15px, 1.15vw, 18px); letter-spacing: 1px; }
 
 .rodape {
-  width: 100%; min-height: 53px; margin-top: 25px; padding: 8px 17px;
+  width: 100%; min-height: 53px; margin-top: 20px; padding: 8px 17px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-items: center;
   border: 2px solid ${DADOS.cores.linha}; border-radius: 14px; background: rgba(255,255,255,.78);
   font-size: clamp(11px, 1vw, 14px); font-weight: 800;
@@ -161,8 +127,8 @@ button { font-family: inherit; }
   font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
 }
 
-@media (max-width: 1200px) {
-  .grelha-jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1100px) {
+  .jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
 }
 
 @media (max-width: 768px) {
@@ -170,11 +136,37 @@ button { font-family: inherit; }
   .botao-menu, .botao-seta { width: 48px; height: 48px; }
   .botao-menu { left: 12px; }
   .botao-seta { right: 12px; }
-  .grelha-jogos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .marca { padding: 0 44px; gap: 8px; max-width: 72%; }
+  .marca-sol { width: 42px; height: 42px; flex: 0 0 42px; }
+  .marca-texto h1 { font-size: 20px; }
+  .marca-texto p { font-size: 10px; }
+  .menu-acordeao { top: 62px; left: 12px; width: calc(100vw - 24px); max-width: 280px; }
 }
 
-@media (max-width: 480px) {
-  .grelha-jogos { grid-template-columns: 1fr; }
+@media (max-width: 900px) and (orientation: portrait), (max-width: 600px) {
+  .cabecalho { height: 62px; }
+  .botao-menu, .botao-seta { width: 42px; height: 42px; }
+  .botao-menu { left: 10px; }
+  .botao-seta { right: 10px; }
+  .marca { padding: 0 38px; gap: 6px; max-width: 70%; }
+  .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
+  .marca-texto h1 { font-size: 16px; }
+  .marca-texto p { font-size: 9px; margin-top: 1px; }
+  .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
+  
+  .destaques { margin: 12px 0; padding: 18px 14px; border-radius: 16px; }
+  .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 12px; column-gap: 8px; }
+  .nome-jogo { font-size: 11px; min-height: 20px; }
+  .estrelas { font-size: 10px; margin-top: 3px; }
+  .rodape { margin-top: 10px; padding: 8px 12px; font-size: 11px; }
+  
+  .info {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    border-radius: 50% !important;
+  }
 }
   `;
 
@@ -257,41 +249,34 @@ function criarSeccoesJogos() {
 
   DADOS.seccoesJogos.forEach(seccao => {
     const blocoSeccao = modeloSeccao.content.cloneNode(true);
-    const ponto = blocoSeccao.querySelector(".ponto-seccao");
-    const titulo = blocoSeccao.querySelector(".titulo-seccao");
-    const grelha = blocoSeccao.querySelector(".grelha-jogos");
+    const iconeSec = blocoSeccao.querySelector(".icone-seccao");
+    const nomeSec = blocoSeccao.querySelector(".nome-seccao");
+    const grelhaJogos = blocoSeccao.querySelector(".jogos");
 
-    if (ponto) ponto.style.backgroundColor = seccao.corPonto || "#0F8BD3";
-    if (titulo) titulo.textContent = seccao.titulo;
+    if (iconeSec) iconeSec.textContent = seccao.iconeTitulo || "⭐";
+    if (nomeSec) nomeSec.textContent = seccao.titulo;
 
     seccao.jogos.forEach(jogo => {
-      const cartao = modeloJogo.content.cloneNode(true);
-      const imagem = cartao.querySelector(".imagem-jogo");
-      const nome = cartao.querySelector(".nome-jogo");
-      const descricao = cartao.querySelector(".descricao-jogo");
-      const badge = cartao.querySelector(".badge-numero");
-      const botaoJogar = cartao.querySelector(".botao-jogar");
+      const itemJogo = modeloJogo.content.cloneNode(true);
+      const imagem = itemJogo.querySelector(".icone-jogo img");
+      const nome = itemJogo.querySelector(".nome-jogo");
+      const estrelas = itemJogo.querySelector(".estrelas");
 
-      // Caminho correto para a pasta iconjogos criada na mesma diretoria
+      // Caminho correto para a pasta iconjogos na mesma diretoria do index.html
       imagem.src = `iconjogos/${jogo.icon}`;
       imagem.alt = jogo.nome;
       imagem.draggable = false;
 
       nome.textContent = jogo.nome;
-      descricao.textContent = jogo.descricao;
-      badge.textContent = jogo.numero;
-      badge.style.backgroundColor = seccao.corPonto || "#0F8BD3";
-      botaoJogar.style.backgroundColor = seccao.corPonto || "#0F8BD3";
+      estrelas.textContent = "★".repeat(jogo.estrelas);
 
       if (jogo.pagina) {
-        const artigo = cartao.querySelector(".cartao-jogo");
-        if (artigo) {
-          artigo.style.cursor = "pointer";
-          artigo.addEventListener("click", () => { window.location.href = jogo.pagina; });
+        const cartao = itemJogo.querySelector(".jogo");
+        if (cartao) {
+          cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
         }
       }
-
-      grelha.appendChild(cartao);
+      grelhaJogos.appendChild(itemJogo);
     });
 
     container.appendChild(blocoSeccao);
