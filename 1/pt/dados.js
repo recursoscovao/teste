@@ -1,15 +1,15 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "4.º Ano - Jogos Educativos",
-    titulo: "4.º Ano",
+    browserTitulo: "1.º Ano - Jogos Educativos",
+    titulo: "1.º Ano",
     subtitulo: "Aprender • Jogar • Descobrir",
     tituloMenu: "Escolhe o Jogo",
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
-    informacao: "Jogos educativos para o 4.º ano"
+    informacao: "Jogos educativos para o 1.º ano"
   },
 
   icons: {
-    cabecalho: "../../icons/icon4.png",
+    cabecalho: "../../icons/icon1.png",
     menu: "../../icons/menu.png",
     seta: "../../icons/seta.png",
     jogos: {
@@ -40,8 +40,6 @@ const DADOS = {
     texto: "#0B4B71",
     textoEscuro: "#062B42",
     branco: "#FFFFFF",
-    cor1: "#11CBFC",
-    cor2: "#079BC8",
     creme: "#E1F2FA",
     linha: "#B4E4F8",
     sombra: "rgba(15,139,211,.18)",
@@ -50,7 +48,7 @@ const DADOS = {
 
   dimensoes: {
     larguraMaxima: 1200,
-    alturaAnoDesktop: 220,
+    alturaAnoDesktop: 240,
     raioAno: 23,
     tamanhoIconAnoDesktop: 110
   },
