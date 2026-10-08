@@ -4,10 +4,21 @@ function inserirCSS() {
   estilo.textContent = `
 * { box-sizing: border-box; }
 html, body {
-  margin: 0; padding: 0; width: 100%; min-height: 100%;
+  margin: 0; padding: 0; width: 100%; min-height: 100vh;
   font-family: "Nunito", "Quicksand", "Arial Rounded MT Bold", sans-serif;
 }
-body { background: ${DADOS.cores.fundo}; color: ${DADOS.cores.texto}; overflow-x: hidden; }
+
+html {
+  background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19%, #F2FCFC 38%, ${DADOS.cores.fundo} 100%);
+  background-attachment: fixed;
+}
+
+body { 
+  background: transparent; 
+  color: ${DADOS.cores.texto}; 
+  overflow-x: hidden; 
+}
+
 button { font-family: inherit; }
 
 #app {
@@ -17,7 +28,7 @@ button { font-family: inherit; }
   padding: 0 0 16px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19%, #F2FCFC 38%, ${DADOS.cores.fundo} 100%);
+  background: transparent;
 }
 
 .cabecalho {
@@ -52,7 +63,6 @@ button { font-family: inherit; }
   background-image: url("${DADOS.icons.seta}"); background-size: contain; background-repeat: no-repeat;
 }
 
-/* MARCA / CABEÇALHO: ÍCONE ALINHADO COM A ALTURA DOS DOIS TÍTULOS */
 .marca { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; max-width: 65%; padding: 0 50px; }
 .marca-sol { width: 52px; height: 52px; flex: 0 0 52px; background-image: url("${DADOS.icons.cabecalho}"); background-size: contain; background-repeat: no-repeat; background-position: center; }
 .marca-texto { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
@@ -94,7 +104,6 @@ button { font-family: inherit; }
 
 .anos { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; justify-content: center; }
 
-/* CARTÕES COM O EFEITO BOLA (CAMADAS CIRCULARES EM DESTAQUE) */
 .botao-ano {
   --cor-1: ${DADOS.cores.portugues}; --cor-2: ${DADOS.cores.portugues2};
   position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
@@ -107,7 +116,6 @@ button { font-family: inherit; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
-/* EFEITO BOLA 1 (BRILHO SUPERIOR ESQUERDO) */
 .botao-ano::before {
   content: "";
   position: absolute;
@@ -121,7 +129,6 @@ button { font-family: inherit; }
   z-index: 0;
 }
 
-/* EFEITO BOLA 2 (CIRCULO SECUNDÁRIO SUPERIOR DIREITO) */
 .botao-ano::after {
   content: "";
   position: absolute;
@@ -175,7 +182,6 @@ button { font-family: inherit; }
   font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
 }
 
-/* RESPONSIVIDADE PARA TABLETS E TELEMÓVEIS */
 @media (max-width: 1024px) {
   .jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
 }
