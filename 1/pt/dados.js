@@ -45,7 +45,6 @@ const DADOS = {
     tamanhoIconAnoDesktop: 130
   },
 
-  // Todos os elementos do cartão (incluindo o caminho da imagem) ficam diretamente aqui
   fases: [
     {
       tituloFase: "Fase 1",
