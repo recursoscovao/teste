@@ -53,60 +53,81 @@ const DADOS = {
     tamanhoIconAnoDesktop: 110
   },
 
-  anos: [
+  // Organizado por 4 fases
+  fases: [
     {
-      id: "jogo1",
-      nome: "Jogo 1",
-      idade: "Subtítulo do Jogo 1",
-      icon: "jogo1",
-      cor: "#11CBFC",
-      cor2: "#079BC8",
-      pagina: "jogo1/"
+      tituloFase: "Fase 1: Primeiros Passos",
+      jogos: [
+        {
+          id: "jogo1",
+          nome: "Jogo 1",
+          idade: "Subtítulo do Jogo 1",
+          icon: "jogo1",
+          cor: "#11CBFC",
+          cor2: "#079BC8",
+          pagina: "jogo1/"
+        },
+        {
+          id: "jogo2",
+          nome: "Jogo 2",
+          idade: "Subtítulo do Jogo 2",
+          icon: "jogo2",
+          cor: "#FD6746",
+          cor2: "#D94328",
+          pagina: "jogo2/"
+        }
+      ]
     },
     {
-      id: "jogo2",
-      nome: "Jogo 2",
-      idade: "Subtítulo do Jogo 2",
-      icon: "jogo2",
-      cor: "#FD6746",
-      cor2: "#D94328",
-      pagina: "jogo2/"
+      tituloFase: "Fase 2: Aventura a Dobrar",
+      jogos: [
+        {
+          id: "jogo3",
+          nome: "Jogo 3",
+          idade: "Subtítulo do Jogo 3",
+          icon: "jogo3",
+          cor: "#62D733",
+          cor2: "#36A918",
+          pagina: "jogo3/"
+        },
+        {
+          id: "jogo4",
+          nome: "Jogo 4",
+          idade: "Subtítulo do Jogo 4",
+          icon: "jogo4",
+          cor: "#FFB400",
+          cor2: "#E09A00",
+          pagina: "jogo4/"
+        }
+      ]
     },
     {
-      id: "jogo3",
-      nome: "Jogo 3",
-      idade: "Subtítulo do Jogo 3",
-      icon: "jogo3",
-      cor: "#62D733",
-      cor2: "#36A918",
-      pagina: "jogo3/"
+      tituloFase: "Fase 3: Desafios Divertidos",
+      jogos: [
+        {
+          id: "jogo5",
+          nome: "Jogo 5",
+          idade: "Subtítulo do Jogo 5",
+          icon: "jogo5",
+          cor: "#9B51E0",
+          cor2: "#7B39C8",
+          pagina: "jogo5/"
+        }
+      ]
     },
     {
-      id: "jogo4",
-      nome: "Jogo 4",
-      idade: "Subtítulo do Jogo 4",
-      icon: "jogo4",
-      cor: "#FFB400",
-      cor2: "#E09A00",
-      pagina: "jogo4/"
-    },
-    {
-      id: "jogo5",
-      nome: "Jogo 5",
-      idade: "Subtítulo do Jogo 5",
-      icon: "jogo5",
-      cor: "#9B51E0",
-      cor2: "#7B39C8",
-      pagina: "jogo5/"
-    },
-    {
-      id: "jogo6",
-      nome: "Jogo 6",
-      idade: "Subtítulo do Jogo 6",
-      icon: "jogo6",
-      cor: "#EB5757",
-      cor2: "#C53B3B",
-      pagina: "jogo6/"
+      tituloFase: "Fase 4: Grande Final",
+      jogos: [
+        {
+          id: "jogo6",
+          nome: "Jogo 6",
+          idade: "Subtítulo do Jogo 6",
+          icon: "jogo6",
+          cor: "#EB5757",
+          cor2: "#C53B3B",
+          pagina: "jogo6/"
+        }
+      ]
     }
   ],
 
