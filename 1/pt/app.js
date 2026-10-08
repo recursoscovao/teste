@@ -102,7 +102,7 @@ button { font-family: inherit; }
 }
 .titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-/* ESTILOS DAS FASES */
+/* ESTILOS DAS FASES E CARTÕES COM TAMANHO FIXO (NÃO EXPANDEM) */
 .secao-fase { margin-bottom: 25px; }
 .titulo-fase {
   font-size: clamp(16px, 1.5vw, 22px);
@@ -112,8 +112,18 @@ button { font-family: inherit; }
   text-shadow: 0 1px 1px rgba(255,255,255,.8);
 }
 
-/* CARTÕES */
-.anos { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; justify-content: center; }
+.anos { 
+  width: 100%; 
+  display: grid; 
+  grid-template-columns: repeat(6, 1fr); 
+  gap: 12px; 
+  justify-content: flex-start; 
+}
+
+.ano {
+  width: 100%;
+  min-width: 0;
+}
 
 .botao-ano {
   position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
@@ -144,8 +154,8 @@ button { font-family: inherit; }
 }
 .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 3px rgba(0,0,0,.16)); }
 .texto-ano { position: relative; z-index: 1; text-align: center; width: 100%; }
-.nome-ano { font-size: clamp(14px, 1.3vw, 20px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.idade-ano { margin-top: 3px; font-size: clamp(10px, 0.9vw, 13px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nome-ano { font-size: clamp(13px, 1.1vw, 18px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.idade-ano { margin-top: 3px; font-size: clamp(10px, 0.8vw, 12px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .rodape {
   width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
@@ -189,14 +199,14 @@ button { font-family: inherit; }
   .area-menu { padding: 0 16px; }
   .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
 
-  .anos { grid-template-columns: 1fr; gap: 10px; width: 100%; }
+  .anos { grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%; }
   .botao-ano { 
-    height: 90px; padding: 8px 14px; gap: 10px; flex-direction: row; 
-    justify-content: flex-start; border-radius: 12px; width: 100%;
+    height: 110px; padding: 8px 10px; gap: 6px; flex-direction: column; 
+    justify-content: center; border-radius: 12px; width: 100%;
   }
-  .icone-ano { width: 48px; height: 48px; flex: 0 0 48px; }
-  .nome-ano { font-size: 17px; text-align: left; }
-  .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
+  .icone-ano { width: 45px; height: 45px; flex: 0 0 45px; }
+  .nome-ano { font-size: 13px; text-align: center; }
+  .idade-ano { font-size: 10px; margin-top: 2px; text-align: center; }
   
   .info {
     width: 22px !important; height: 22px !important;
