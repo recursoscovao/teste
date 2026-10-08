@@ -102,15 +102,15 @@ button { font-family: inherit; }
 }
 .titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-/* 6 CARTÕES DAS ÁREAS (GRID DE 2 COLUNAS NO DESKTOP) */
-.anos { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; justify-content: center; }
+/* 6 CARTÕES NUMA SÓ LINHA */
+.anos { width: 100%; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; justify-content: center; }
 
 .botao-ano {
   position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
-  padding: 18px 20px 14px; border: 3px solid rgba(255,255,255,.94);
+  padding: 14px 8px 10px; border: 3px solid rgba(255,255,255,.94);
   border-radius: ${DADOS.dimensoes.raioAno}px;
   background: linear-gradient(145deg, var(--cor-1) 0%, var(--cor-2) 100%);
-  display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
   color: #FFFFFF; cursor: pointer; overflow: hidden;
   box-shadow: 0 9px 15px ${DADOS.cores.sombra};
   transition: transform .15s ease, box-shadow .15s ease;
@@ -133,9 +133,9 @@ button { font-family: inherit; }
   flex: 0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px; display: grid; place-items: center; position: relative; z-index: 1;
 }
 .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 3px rgba(0,0,0,.16)); }
-.texto-ano { position: relative; z-index: 1; text-align: left; display: flex; flex-direction: column; justify-content: center; }
-.nome-ano { font-size: clamp(21px, 1.8vw, 27px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); }
-.idade-ano { margin-top: 5px; font-size: clamp(13px, 1.1vw, 16px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; }
+.texto-ano { position: relative; z-index: 1; text-align: center; width: 100%; }
+.nome-ano { font-size: clamp(14px, 1.3vw, 20px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.idade-ano { margin-top: 3px; font-size: clamp(10px, 0.9vw, 13px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .rodape {
   width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
