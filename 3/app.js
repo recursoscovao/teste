@@ -4,10 +4,21 @@ function inserirCSS() {
   estilo.textContent = `
 * { box-sizing: border-box; }
 html, body {
-  margin: 0; padding: 0; width: 100%; min-height: 100%;
+  margin: 0; padding: 0; width: 100%; min-height: 100vh;
   font-family: "Nunito", "Quicksand", "Arial Rounded MT Bold", sans-serif;
 }
-body { background: ${DADOS.cores.fundo}; color: ${DADOS.cores.texto}; overflow-x: hidden; }
+
+html {
+  background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19%, #F6F2FC 38%, ${DADOS.cores.fundo} 100%);
+  background-attachment: fixed;
+}
+
+body { 
+  background: transparent; 
+  color: ${DADOS.cores.texto}; 
+  overflow-x: hidden; 
+}
+
 button { font-family: inherit; }
 
 #app {
@@ -17,7 +28,7 @@ button { font-family: inherit; }
   padding: 0 0 16px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19%, #F7F2FC 38%, ${DADOS.cores.fundo} 100%);
+  background: transparent;
 }
 
 .cabecalho {
@@ -25,7 +36,7 @@ button { font-family: inherit; }
   background: linear-gradient(180deg, ${DADOS.cores.headerTopo} 0%, ${DADOS.cores.header} 100%);
   display: flex; align-items: center; justify-content: center;
   border-bottom: 2px solid rgba(255,255,255,.65);
-  box-shadow: 0 3px 10px rgba(108,42,195,.12); z-index: 20;
+  box-shadow: 0 3px 10px rgba(131,59,201,.12); z-index: 20;
 }
 
 .botao-menu, .botao-seta {
@@ -38,7 +49,6 @@ button { font-family: inherit; }
 .botao-menu { left: 18px; }
 .botao-seta { right: 18px; }
 
-/* EFEITO DE CLIQUE SIMULADO NOS BOTÕES DO HEADER */
 .botao-menu:active, .botao-seta:active {
   transform: translateY(calc(-50% + 3px)) scale(0.95);
   box-shadow: 0 1px 3px rgba(0,0,0,.25);
@@ -54,16 +64,16 @@ button { font-family: inherit; }
 }
 
 .marca { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; max-width: 65%; padding: 0 50px; }
-.marca-sol { width: 44px; height: 44px; flex: 0 0 44px; background-image: url("${DADOS.icons.cabecalho}"); background-size: contain; background-repeat: no-repeat; background-position: center; }
+.marca-sol { width: 52px; height: 52px; flex: 0 0 52px; background-image: url("${DADOS.icons.cabecalho}"); background-size: contain; background-repeat: no-repeat; background-position: center; }
 .marca-texto { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
-.marca-texto h1 { margin: 0; font-size: clamp(26px, 2.8vw, 42px); line-height: 1; font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-shadow: 0 2px 0 rgba(255,255,255,.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.marca-texto p { margin: 4px 0 0; font-size: clamp(12px, 1.1vw, 16px); line-height: 1; font-weight: 800; color: ${DADOS.cores.texto}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.marca-texto h1 { margin: 0; font-size: clamp(26px, 2.8vw, 42px); line-height: 1.1; font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-shadow: 0 2px 0 rgba(255,255,255,.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.marca-texto p { margin: 3px 0 0; font-size: clamp(12px, 1.1vw, 16px); line-height: 1.1; font-weight: 800; color: ${DADOS.cores.texto}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .menu-acordeao {
   position: absolute; top: 72px; left: 18px; width: 300px; padding: 0;
   background: rgba(255,255,255,.98); border: 2px solid ${DADOS.cores.linha};
   border-top: 4px solid ${DADOS.cores.azulHeader}; border-radius: 0 0 20px 20px;
-  box-shadow: 0 10px 25px rgba(108,42,195,.24);
+  box-shadow: 0 10px 25px rgba(131,59,201,.24);
   opacity: 0; visibility: hidden; transform: translateY(-12px) scale(.98);
   transform-origin: top left; transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
   z-index: 30;
@@ -71,14 +81,14 @@ button { font-family: inherit; }
 .menu-acordeao.aberto { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
 .menu-acordeao-topo { padding: 15px 18px 13px; background: linear-gradient(180deg, #F8F2FF, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
 .menu-acordeao-titulo { font-size: 19px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
-.menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #8F52D1; }
+.menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #833BC9; }
 .menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; max-height: 60vh; overflow-y: auto; }
 .menu-ano {
   width: 100%; min-height: 54px; display: flex; align-items: center; gap: 13px; padding: 6px 11px;
   border: 0; border-radius: 13px; background: #FFFFFF; color: ${DADOS.cores.textoEscuro};
   font-size: 15px; font-weight: 800; text-align: left; cursor: pointer; transition: background .16s ease;
 }
-.menu-ano:hover { background: #F6EFFF; transform: translateX(3px); }
+.menu-ano:hover { background: #F8F2FF; transform: translateX(3px); }
 .menu-ano-icon { width: 45px; height: 45px; flex: 0 0 45px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #FAF5FF; }
 .menu-ano-icon img { width: 100%; height: 100%; object-fit: contain; }
 .menu-ano-nome { flex: 1; }
@@ -86,13 +96,14 @@ button { font-family: inherit; }
 .area-menu { position: relative; width: 100%; margin-top: 20px; padding: 0 20px; }
 .titulo-menu {
   width: fit-content; margin: 1px auto 19px; padding: 8px 30px;
-  border: 2px solid rgba(222,157,39,.42); border-radius: 16px;
-  background: linear-gradient(180deg, #FFFDEC, ${DADOS.cores.creme});
-  box-shadow: 0 3px 7px rgba(118,88,17,.12);
+  border: 2px solid rgba(131,59,201,.32); border-radius: 16px;
+  background: linear-gradient(180deg, #FFFFFF, ${DADOS.cores.creme});
+  box-shadow: 0 3px 7px rgba(131,59,201,.12);
 }
-.titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: #74440C; text-align: center; }
+.titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-.anos { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.anos { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; justify-content: center; }
+
 .botao-ano {
   --cor-1: ${DADOS.cores.portugues}; --cor-2: ${DADOS.cores.portugues2};
   position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
@@ -104,6 +115,33 @@ button { font-family: inherit; }
   box-shadow: 0 9px 15px ${DADOS.cores.sombra};
   transition: transform .15s ease, box-shadow .15s ease;
 }
+
+.botao-ano::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.botao-ano::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 130px;
+  height: 130px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .botao-ano:hover { transform: translateY(-4px); box-shadow: 0 13px 20px ${DADOS.cores.sombraForte}; }
 .icone-ano {
   width: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px; height: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
@@ -116,10 +154,10 @@ button { font-family: inherit; }
 
 .destaques {
   margin: 20px; padding: 23px 28px 25px; border-radius: ${DADOS.dimensoes.raioDestaques}px;
-  background: rgba(255,255,255,.93); box-shadow: 0 7px 18px rgba(108,42,195,.10);
+  background: rgba(255,255,255,.93); box-shadow: 0 7px 18px rgba(131,59,201,.10);
 }
 .titulo-destaques { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; margin: 0 30px 25px; }
-.titulo-destaques .linha { height: 3px; background: #D9B8FC; border-radius: 99px; }
+.titulo-destaques .linha { height: 3px; background: #D2A6F0; border-radius: 99px; }
 .titulo-destaques h2 { margin: 0; color: ${DADOS.cores.textoEscuro}; font-size: clamp(19px, 1.65vw, 26px); font-weight: 900; }
 .jogos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; align-items: start; }
 .jogo { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; }
@@ -144,14 +182,6 @@ button { font-family: inherit; }
   font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
 }
 
-/* ADAPTAÇÕES PARA MONITORES DE ALTA RESOLUÇÃO / ECRÃS GRANDES */
-@media (min-width: 1651px) {
-  #app {
-    max-width: 1800px;
-  }
-}
-
-/* ADAPTAÇÕES PARA TABLETS E TELEMÓVEIS (VERTICAL E HORIZONTAL) */
 @media (max-width: 1024px) {
   .jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
 }
@@ -162,7 +192,7 @@ button { font-family: inherit; }
   .botao-menu { left: 12px; }
   .botao-seta { right: 12px; }
   .marca { padding: 0 44px; gap: 8px; max-width: 72%; }
-  .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
+  .marca-sol { width: 42px; height: 42px; flex: 0 0 42px; }
   .marca-texto h1 { font-size: 20px; }
   .marca-texto p { font-size: 10px; }
   .menu-acordeao { top: 62px; left: 12px; width: calc(100vw - 24px); max-width: 280px; }
@@ -174,19 +204,18 @@ button { font-family: inherit; }
   .botao-menu { left: 10px; }
   .botao-seta { right: 10px; }
   .marca { padding: 0 38px; gap: 6px; max-width: 70%; }
-  .marca-sol { width: 30px; height: 30px; flex: 0 0 30px; }
+  .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
   .marca-texto h1 { font-size: 16px; }
   .marca-texto p { font-size: 9px; margin-top: 1px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
-  /* ALINHAMENTO E ALTURA DOS CARTÕES EM MOBILE */
   .area-menu { padding: 0 16px; }
   .destaques { margin: 15px 16px; padding: 18px 14px; border-radius: 16px; }
   .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
 
   .anos { grid-template-columns: 1fr; gap: 10px; width: 100%; }
   .botao-ano { 
-    height: 90px; /* Altura aumentada em 5px conforme pedido */
+    height: 90px; 
     padding: 8px 14px; 
     gap: 10px; 
     flex-direction: row; 
@@ -203,7 +232,6 @@ button { font-family: inherit; }
   .nome-jogo { font-size: 11px; min-height: 20px; }
   .estrelas { font-size: 10px; margin-top: 3px; }
   
-  /* GARANTIR QUE O ÍCONE DE INFORMAÇÃO FICA PERFEITAMENTE REDONDO */
   .info {
     width: 22px !important;
     height: 22px !important;
