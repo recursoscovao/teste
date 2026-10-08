@@ -115,7 +115,7 @@ button { font-family: inherit; }
 .anos { 
   width: 100%; 
   display: grid; 
-  grid-template-columns: repeat(6, 1fr); 
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
   gap: 12px; 
   justify-content: flex-start; 
 }
