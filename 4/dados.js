@@ -69,7 +69,7 @@ const DADOS = {
   },
 
   dimensoes: {
-    larguraMaxima: 1200, /* Limitado para não esticar demasiado em ecrãs grandes */
+    larguraMaxima: 1200,
     alturaAnoDesktop: 270,
     raioAno: 23,
     raioDestaques: 26,
