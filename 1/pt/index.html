@@ -35,13 +35,14 @@
   </header>
 
   <div id="app">
-    <!-- ÁREA PRINCIPAL / 6 CARTÕES NUMA LINHA -->
+    <!-- ÁREA PRINCIPAL / FASES COM CARTÕES -->
     <main class="area-menu">
       <div class="titulo-menu">
         <h2 data-titulo-menu></h2>
       </div>
 
-      <section id="anos" class="anos"></section>
+      <!-- Onde serão injetadas dinamicamente as 4 fases -->
+      <div id="fases-container"></div>
     </main>
 
     <!-- RODAPÉ -->
@@ -58,6 +59,13 @@
   </div>
 
   <!-- TEMPLATES -->
+  <template id="modelo-fase">
+    <section class="secao-fase">
+      <h3 class="titulo-fase"></h3>
+      <div class="anos"></div>
+    </section>
+  </template>
+
   <template id="modelo-ano">
     <div class="ano">
       <button class="botao-ano">
