@@ -24,14 +24,6 @@ const DADOS = {
       ano2: "../../icons/icon2.png",
       ano3: "../../icons/icon3.png",
       ano4: "../../icons/icon4.png"
-    },
-    destaques: {
-      rastros: "iconjogos/rastros.png",
-      gatosCaes: "iconjogos/gatos&caes.png",
-      dominorio: "iconjogos/dominorio.png",
-      semaforo: "iconjogos/semaforo.png",
-      quelhas: "iconjogos/quelhas.png",
-      avanco: "iconjogos/avanco.png"
     }
   },
 
@@ -61,9 +53,7 @@ const DADOS = {
     larguraMaxima: 1200,
     alturaAnoDesktop: 270,
     raioAno: 23,
-    raioDestaques: 26,
-    tamanhoIconAnoDesktop: 153,
-    tamanhoIconJogo: 76
+    tamanhoIconAnoDesktop: 153
   },
 
   anos: [
@@ -103,14 +93,5 @@ const DADOS = {
     { id: "ano2", nome: "2.º Ano", icon: "ano2", pagina: "../../2/" },
     { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../../3/" },
     { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../../4/" }
-  ],
-
-  destaques: [
-    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jogos/rastros/index.html" },
-    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jogos/gatos-caes/index.html" },
-    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jogos/dominio/index.html" },
-    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jogos/semaforo/index.html" },
-    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jogos/quelhas/index.html" },
-    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jogos/avanco/index.html" }
   ]
 };
