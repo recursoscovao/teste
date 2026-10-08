@@ -102,7 +102,7 @@ button { font-family: inherit; }
 }
 .titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-/* ESTILOS DAS FASES E CARTÕES COM TAMANHO FIXO (NÃO EXPANDEM) */
+/* ESTILOS DAS FASES E CARTÕES */
 .secao-fase { margin-bottom: 25px; }
 .titulo-fase {
   font-size: clamp(16px, 1.5vw, 22px);
@@ -127,7 +127,7 @@ button { font-family: inherit; }
 
 .botao-ano {
   position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
-  padding: 14px 8px 10px; border: 3px solid rgba(255,255,255,.94);
+  padding: 12px 8px 8px; border: 3px solid rgba(255,255,255,.94);
   border-radius: ${DADOS.dimensoes.raioAno}px;
   background: linear-gradient(145deg, var(--cor-1) 0%, var(--cor-2) 100%);
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
@@ -154,8 +154,8 @@ button { font-family: inherit; }
 }
 .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 3px rgba(0,0,0,.16)); }
 .texto-ano { position: relative; z-index: 1; text-align: center; width: 100%; }
-.nome-ano { font-size: clamp(13px, 1.1vw, 18px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.idade-ano { margin-top: 3px; font-size: clamp(10px, 0.8vw, 12px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nome-ano { font-size: clamp(16px, 1.4vw, 21px); font-weight: 900; text-shadow: 0 2px 1px rgba(0,0,0,.17); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.idade-ano { margin-top: 3px; font-size: clamp(12px, 1vw, 15px); font-weight: 800; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .rodape {
   width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
@@ -205,8 +205,8 @@ button { font-family: inherit; }
     justify-content: center; border-radius: 12px; width: 100%;
   }
   .icone-ano { width: 45px; height: 45px; flex: 0 0 45px; }
-  .nome-ano { font-size: 13px; text-align: center; }
-  .idade-ano { font-size: 10px; margin-top: 2px; text-align: center; }
+  .nome-ano { font-size: 15px; text-align: center; }
+  .idade-ano { font-size: 12px; margin-top: 2px; text-align: center; }
   
   .info {
     width: 22px !important; height: 22px !important;
