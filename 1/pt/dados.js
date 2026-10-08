@@ -38,7 +38,9 @@ const DADOS = {
   },
 
   dimensoes: {
-    larguraMaxima: 1400
+    larguraMaxima: 1650,
+    raioDestaques: 26,
+    tamanhoIconJogo: 76
   },
 
   menuAnos: [
@@ -50,30 +52,30 @@ const DADOS = {
     { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../4/" }
   ],
 
-  // Secções de jogos com 6 cartões por linha e estilo baseado na imagem
+  // Secções de jogos com 6 cartões por linha e os mesmos cartões originais
   seccoesJogos: [
     {
       titulo: "Sons, Letras e Formas Básicas",
-      corPonto: "#E91E63",
+      iconeTitulo: "🔵",
       jogos: [
-        { numero: 1, nome: "Grafismos", descricao: "Liga as linhas retas", icon: "grafismos1.png", pagina: "jogos/rastros/index.html" },
-        { numero: 2, nome: "Grafismos", descricao: "Liga as linhas curvas", icon: "grafismos2.png", pagina: "jogos/gatos-caes/index.html" },
-        { numero: 3, nome: "Grafismos das Letras", descricao: "Desenha as letras", icon: "grafismos3.png", pagina: "jogos/dominio/index.html" },
-        { numero: 4, nome: "Primeira Letra", descricao: "Escolhe a letra correta.", icon: "primeira-letra.png", pagina: "jogos/semaforo/index.html" },
-        { numero: 5, nome: "Letra Inicial", descricao: "Qual é a primeira letra desse desenho?", icon: "letra-inicial.png", pagina: "jogos/quelhas/index.html" },
-        { numero: 6, nome: "Toupeira das Letras", descricao: "Bata nas toupeiras corretas.", icon: "toupeira.png", pagina: "jogos/avanco/index.html" }
+        { id: "rastros", nome: "Rastros", icon: "rastros.png", estrelas: 5, pagina: "jogos/rastros/index.html" },
+        { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatos-caes.png", estrelas: 5, pagina: "jogos/gatos-caes/index.html" },
+        { id: "dominio", nome: "Dominório", icon: "dominorio.png", estrelas: 5, pagina: "jogos/dominio/index.html" },
+        { id: "semaforo", nome: "Semáforo", icon: "semaforo.png", estrelas: 5, pagina: "jogos/semaforo/index.html" },
+        { id: "quelhas", nome: "Quellhas", icon: "quelhas.png", estrelas: 5, pagina: "jogos/quelhas/index.html" },
+        { id: "avanco", nome: "Avanço", icon: "avanco.png", pagina: "jogos/avanco/index.html" }
       ]
     },
     {
       titulo: "Descobertas e Sequências",
-      corPonto: "#FF9800",
+      iconeTitulo: "🟠",
       jogos: [
-        { numero: 7, nome: "Estoura-Balão", descricao: "Estoure desenhos correspondentes.", icon: "estoura-balao.png", pagina: "jogos/rastros/index.html" },
-        { numero: 8, nome: "Letra Inicial", descricao: "Qual é a primeira letra desse desenho?", icon: "letra-inicial.png", pagina: "jogos/gatos-caes/index.html" },
-        { numero: 9, nome: "Toupeira das Letras", descricao: "Bata nas toupeiras corretas.", icon: "toupeira.png", pagina: "jogos/dominio/index.html" },
-        { numero: 10, nome: "Estoura-Balão", descricao: "Estoure desenhos correspondentes.", icon: "estoura-balao.png", pagina: "jogos/semaforo/index.html" },
-        { numero: 11, nome: "Letra Inicial", descricao: "Qual é a primeira letra desse desenho?", icon: "letra-inicial.png", pagina: "jogos/quelhas/index.html" },
-        { numero: 12, nome: "Toupeira das Letras", descricao: "Bata nas toupeiras corretas.", icon: "toupeira.png", pagina: "jogos/avanco/index.html" }
+        { id: "rastros", nome: "Rastros", icon: "rastros.png", estrelas: 5, pagina: "jogos/rastros/index.html" },
+        { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatos-caes.png", estrelas: 5, pagina: "jogos/gatos-caes/index.html" },
+        { id: "dominio", nome: "Dominório", icon: "dominorio.png", estrelas: 5, pagina: "jogos/dominio/index.html" },
+        { id: "semaforo", nome: "Semáforo", icon: "semaforo.png", estrelas: 5, pagina: "jogos/semaforo/index.html" },
+        { id: "quelhas", nome: "Quellhas", icon: "quelhas.png", estrelas: 5, pagina: "jogos/quelhas/index.html" },
+        { id: "avanco", nome: "Avanço", icon: "avanco.png", pagina: "jogos/avanco/index.html" }
       ]
     }
   ]
