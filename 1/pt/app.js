@@ -22,10 +22,10 @@ body {
 button { font-family: inherit; }
 
 #app {
-  min-height: calc(100vh - 82px);
+  min-height: 100vh;
   width: min(100%, ${DADOS.dimensoes.larguraMaxima}px);
   margin: 0 auto;
-  padding: 15px 20px 25px;
+  padding: 0 0 16px;
   position: relative;
   overflow: hidden;
   background: transparent;
@@ -93,26 +93,81 @@ button { font-family: inherit; }
 .menu-ano-icon img { width: 100%; height: 100%; object-fit: contain; }
 .menu-ano-nome { flex: 1; }
 
-/* SECÇÕES E CARTÕES ORIGINAIS COM 6 POR LINHA */
+.area-menu { position: relative; width: 100%; margin-top: 20px; padding: 0 20px; }
+.titulo-menu {
+  width: fit-content; margin: 1px auto 19px; padding: 8px 30px;
+  border: 2px solid rgba(15,139,211,.32); border-radius: 16px;
+  background: linear-gradient(180deg, #FFFFFF, ${DADOS.cores.creme});
+  box-shadow: 0 3px 7px rgba(15,139,211,.12);
+}
+.titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
+
+.anos { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; justify-content: center; }
+
+.botao-ano {
+  --cor-1: ${DADOS.cores.portugues}; --cor-2: ${DADOS.cores.portugues2};
+  position: relative; width: 100%; height: ${DADOS.dimensoes.alturaAnoDesktop}px;
+  padding: 18px 12px 14px; border: 3px solid rgba(255,255,255,.94);
+  border-radius: ${DADOS.dimensoes.raioAno}px;
+  background: linear-gradient(145deg, var(--cor-1) 0%, var(--cor-2) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  color: #FFFFFF; cursor: pointer; overflow: hidden;
+  box-shadow: 0 9px 15px ${DADOS.cores.sombra};
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.botao-ano::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.botao-ano::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 130px;
+  height: 130px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.botao-ano:hover { transform: translateY(-4px); box-shadow: 0 13px 20px ${DADOS.cores.sombraForte}; }
+.icone-ano {
+  width: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px; height: ${DADOS.dimensoes.tamanhoIconAnoDesktop}px;
+  flex: 0 0 ${DADOS.dimensoes.tamanhoIconAnoDesktop}px; display: grid; place-items: center; position: relative; z-index: 1;
+}
+.icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 3px rgba(0,0,0,.16)); }
+.texto-ano { position: relative; z-index: 1; text-align: center; }
+.nome-ano { font-size: clamp(21px, 1.8vw, 29px); font-weight: 800; text-shadow: 0 2px 1px rgba(0,0,0,.17); }
+.idade-ano { margin-top: 7px; font-size: clamp(14px, 1.2vw, 18px); font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,.12); }
+
 .destaques {
-  margin: 20px 0; padding: 23px 28px 25px; border-radius: ${DADOS.dimensoes.raioDestaques}px;
+  margin: 20px; padding: 23px 28px 25px; border-radius: ${DADOS.dimensoes.raioDestaques}px;
   background: rgba(255,255,255,.93); box-shadow: 0 7px 18px rgba(15,139,211,.10);
 }
 .titulo-destaques { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 28px; margin: 0 30px 25px; }
 .titulo-destaques .linha { height: 3px; background: #96D5F0; border-radius: 99px; }
-.titulo-destaques h2 { margin: 0; color: ${DADOS.cores.textoEscuro}; font-size: clamp(19px, 1.65vw, 26px); font-weight: 900; display: flex; align-items: center; gap: 8px; }
-
+.titulo-destaques h2 { margin: 0; color: ${DADOS.cores.textoEscuro}; font-size: clamp(19px, 1.65vw, 26px); font-weight: 900; }
 .jogos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; align-items: start; }
-.jogo { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; transition: transform .12s ease; }
-.jogo:hover { transform: translateY(-3px); }
-
+.jogo { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; }
 .icone-jogo { width: ${DADOS.dimensoes.tamanhoIconJogo}px; height: ${DADOS.dimensoes.tamanhoIconJogo}px; display: grid; place-items: center; margin-bottom: 10px; }
 .icone-jogo img { width: 100%; height: 100%; object-fit: contain; }
 .nome-jogo { margin-top: 0; min-height: 25px; color: ${DADOS.cores.textoEscuro}; font-size: clamp(15px, 1.25vw, 20px); font-weight: 900; }
 .estrelas { margin-top: 7px; color: #FFB400; font-size: clamp(15px, 1.15vw, 18px); letter-spacing: 1px; }
 
 .rodape {
-  width: 100%; min-height: 53px; margin-top: 20px; padding: 8px 17px;
+  width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-items: center;
   border: 2px solid ${DADOS.cores.linha}; border-radius: 14px; background: rgba(255,255,255,.78);
   font-size: clamp(11px, 1vw, 14px); font-weight: 800;
@@ -127,7 +182,7 @@ button { font-family: inherit; }
   font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .jogos { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
 }
 
@@ -154,11 +209,28 @@ button { font-family: inherit; }
   .marca-texto p { font-size: 9px; margin-top: 1px; }
   .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
   
-  .destaques { margin: 12px 0; padding: 18px 14px; border-radius: 16px; }
+  .area-menu { padding: 0 16px; }
+  .destaques { margin: 15px 16px; padding: 18px 14px; border-radius: 16px; }
+  .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
+
+  .anos { grid-template-columns: 1fr; gap: 10px; width: 100%; }
+  .botao-ano { 
+    height: 90px; 
+    padding: 8px 14px; 
+    gap: 10px; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+    border-radius: 12px; 
+    width: 100%;
+  }
+  .icone-ano { width: 48px; height: 48px; flex: 0 0 48px; }
+  .nome-ano { font-size: 17px; text-align: left; }
+  .idade-ano { font-size: 11px; margin-top: 2px; text-align: left; }
+  
+  .titulo-destaques { margin: 0 10px 18px; gap: 15px; }
   .jogos { grid-template-columns: repeat(3, 1fr); row-gap: 12px; column-gap: 8px; }
   .nome-jogo { font-size: 11px; min-height: 20px; }
   .estrelas { font-size: 10px; margin-top: 3px; }
-  .rodape { margin-top: 10px; padding: 8px 12px; font-size: 11px; }
   
   .info {
     width: 22px !important;
@@ -180,15 +252,47 @@ function preencherTextos() {
 
   const marca = document.querySelector("[data-marca]");
   const submarca = document.querySelector("[data-submarca]");
+  const titulo = document.querySelector("[data-titulo-menu]");
   const mensagem = document.querySelector("[data-mensagem]");
   const informacoes = document.querySelectorAll("[data-informacao]");
 
   if (marca) marca.textContent = DADOS.pagina.titulo;
   if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
+  if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
   if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
   
   informacoes.forEach(el => {
     el.textContent = DADOS.pagina.informacao;
+  });
+}
+
+function criarCartoesAno() {
+  const recipiente = document.getElementById("anos");
+  const modelo = document.getElementById("modelo-ano");
+  if (!recipiente || !modelo) return;
+
+  recipiente.innerHTML = "";
+  DADOS.anos.forEach(ano => {
+    const cartao = modelo.content.cloneNode(true);
+    const botao = cartao.querySelector(".botao-ano");
+    const icone = cartao.querySelector(".icone-ano");
+    const texto = cartao.querySelector(".nome-ano");
+    const idade = cartao.querySelector(".idade-ano");
+
+    botao.style.setProperty("--cor-1", ano.cor);
+    botao.style.setProperty("--cor-2", ano.cor2);
+
+    const imagem = document.createElement("img");
+    imagem.src = DADOS.icons.anos[ano.icon];
+    imagem.alt = ano.nome;
+    imagem.draggable = false;
+    icone.appendChild(imagem);
+
+    texto.textContent = ano.nome;
+    idade.textContent = ano.idade;
+
+    botao.addEventListener("click", () => { window.location.href = ano.pagina; });
+    recipiente.appendChild(cartao);
   });
 }
 
@@ -238,55 +342,40 @@ function configurarMenu() {
   }
 }
 
-function criarSeccoesJogos() {
-  const container = document.getElementById("container-seccoes");
-  const modeloSeccao = document.getElementById("modelo-seccao");
-  const modeloJogo = document.getElementById("modelo-jogo");
+function criarDestaques() {
+  const recipiente = document.getElementById("jogos");
+  const modelo = document.getElementById("modelo-jogo");
+  if (!recipiente || !modelo) return;
 
-  if (!container || !modeloSeccao || !modeloJogo) return;
+  recipiente.innerHTML = "";
+  DADOS.destaques.forEach(jogo => {
+    const item = modelo.content.cloneNode(true);
+    const imagem = item.querySelector(".icone-jogo img");
+    const nome = item.querySelector(".nome-jogo");
+    const estrelas = item.querySelector(".estrelas");
 
-  container.innerHTML = "";
+    imagem.src = DADOS.icons.destaques[jogo.icon];
+    imagem.alt = jogo.nome;
+    imagem.draggable = false;
 
-  DADOS.seccoesJogos.forEach(seccao => {
-    const blocoSeccao = modeloSeccao.content.cloneNode(true);
-    const iconeSec = blocoSeccao.querySelector(".icone-seccao");
-    const nomeSec = blocoSeccao.querySelector(".nome-seccao");
-    const grelhaJogos = blocoSeccao.querySelector(".jogos");
+    nome.textContent = jogo.nome;
+    estrelas.textContent = "★".repeat(jogo.estrelas);
 
-    if (iconeSec) iconeSec.textContent = seccao.iconeTitulo || "⭐";
-    if (nomeSec) nomeSec.textContent = seccao.titulo;
-
-    seccao.jogos.forEach(jogo => {
-      const itemJogo = modeloJogo.content.cloneNode(true);
-      const imagem = itemJogo.querySelector(".icone-jogo img");
-      const nome = itemJogo.querySelector(".nome-jogo");
-      const estrelas = itemJogo.querySelector(".estrelas");
-
-      // Caminho correto para a pasta iconjogos na mesma diretoria do index.html
-      imagem.src = `iconjogos/${jogo.icon}`;
-      imagem.alt = jogo.nome;
-      imagem.draggable = false;
-
-      nome.textContent = jogo.nome;
-      estrelas.textContent = "★".repeat(jogo.estrelas);
-
-      if (jogo.pagina) {
-        const cartao = itemJogo.querySelector(".jogo");
-        if (cartao) {
-          cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
-        }
+    if (jogo.pagina) {
+      const cartao = item.querySelector(".jogo");
+      if (cartao) {
+        cartao.addEventListener("click", () => { window.location.href = jogo.pagina; });
       }
-      grelhaJogos.appendChild(itemJogo);
-    });
-
-    container.appendChild(blocoSeccao);
+    }
+    recipiente.appendChild(item);
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   inserirCSS();
   preencherTextos();
+  criarCartoesAno();
   criarMenuAnos();
   configurarMenu();
-  criarSeccoesJogos();
+  criarDestaques();
 });
