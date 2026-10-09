@@ -37,13 +37,13 @@ const DADOS = {
 
   cores: {
     fundo: "#F6F2FC",
-    ceu1: "#D6B6F9",
-    ceu2: "#EFE0FD",
-    header: "#EFE0FD",
-    headerTopo: "#D6B6F9",
-    azulHeader: "#833BC9",
-    texto: "#551C8C",
-    textoEscuro: "#2F0B52",
+    ceu1: "#E1C8F6",
+    ceu2: "#F0E1FC",
+    header: "#F0E1FC",
+    headerTopo: "#E1C8F6",
+    azulHeader: "#833BC8",
+    texto: "#3E1761",
+    textoEscuro: "#220C35",
     branco: "#FFFFFF",
     portugues: "#11CBFC",
     portugues2: "#079BC8",
@@ -57,15 +57,15 @@ const DADOS = {
     azul2: "#087AC9",
     verde: "#45C83D",
     verde2: "#169A3A",
-    roxo: "#833BC9",
-    roxo2: "#512080",
+    roxo: "#833BC8",
+    roxo2: "#5E2591",
     rosa: "#F43A9D",
     rosa2: "#C81970",
-    creme: "#F4EBFD",
-    creme2: "#D2A6F0",
-    linha: "#DFC1F8",
-    sombra: "rgba(131,59,201,.18)",
-    sombraForte: "rgba(131,59,201,.28)"
+    creme: "#EEDBFA",
+    creme2: "#C69BF0",
+    linha: "#D6B6F4",
+    sombra: "rgba(131,59,200,.18)",
+    sombraForte: "rgba(131,59,200,.28)"
   },
 
   dimensoes: {
@@ -90,7 +90,7 @@ const DADOS = {
     {
       id: "matematica",
       nome: "Matemática",
-      idade: "",
+      idade: "8 - 9 anos",
       icon: "matematica",
       cor: "#FD6746",
       cor2: "#D94328",
@@ -99,7 +99,7 @@ const DADOS = {
     {
       id: "estudoMeio",
       nome: "Estudo do Meio",
-      idade: "",
+      idade: "8 - 9 anos",
       icon: "estudoMeio",
       cor: "#62D733",
       cor2: "#36A918",
@@ -117,11 +117,11 @@ const DADOS = {
   ],
 
   destaques: [
-    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jogos/rastros/index.html" },
-    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jogos/gatos-caes/index.html" },
-    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jogos/dominio/index.html" },
-    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jogos/semaforo/index.html" },
-    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jogos/quelhas/index.html" },
-    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jogos/avanco/index.html" }
+    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jd/rastros/" },
+    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jd/gatos-caes" },
+    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jd/dominorio/" },
+    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jd/semaforo/" },
+    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jd/quelhas/" },
+    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jd/avanco/" }
   ]
 };
