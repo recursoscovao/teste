@@ -289,8 +289,8 @@
       .menu-acordeao { top: 62px; left: 12px; width: calc(100vw - 24px); max-width: 280px; }
     }
 
-    /* TELEMÓVEL / PORTRAIT: Cartões mais altos e espaço seguro para título e imagem */
-    @media (max-width: 900px) and (orientation: portrait), (max-width: 600px) {
+    /* TELEMÓVEL E TABLET VERTICAL (PORTRAIT): 2 colunas, cartões altos com espaço seguro */
+    @media (max-width: 900px) {
       .cabecalho { height: 62px; }
       .botao-menu, .botao-seta { width: 42px; height: 42px; }
       .botao-menu { left: 10px; }
@@ -311,9 +311,7 @@
       }
       .icone-ano { width: calc(100% - 6px); height: 110px; flex: 0 0 110px; }
       
-      /* Altura e espaçamento adequados para o título não sobrepor a imagem */
       .nome-ano { font-size: 15px; text-align: center; white-space: normal; line-height: 1.2; padding: 2px 0; }
-      
       .idade-ano { display: none; }
       
       .info {
