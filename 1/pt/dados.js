@@ -40,9 +40,20 @@ const DADOS = {
 
   dimensoes: {
     larguraMaxima: 1200,
-    alturaAnoDesktop: 209,
     raioAno: 23,
-    tamanhoIconAnoDesktop: 130
+    // Podes alterar facilmente as dimensões para cada dispositivo aqui:
+    desktop: {
+      alturaCartao: 209,
+      tamanhoIcone: 125
+    },
+    tabletVertical: {
+      alturaCartao: 380,
+      tamanhoIcone: 260
+    },
+    telemovel: {
+      alturaCartao: 200,
+      tamanhoIcone: 110
+    }
   },
 
   fases: [
