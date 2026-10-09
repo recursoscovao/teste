@@ -47,8 +47,8 @@ const DADOS = {
       tamanhoIcone: 125
     },
     tabletVertical: {
-      alturaCartao: 380,
-      tamanhoIcone: 260
+      alturaCartao: 200,
+      tamanhoIcone: 110
     },
     telemovel: {
       alturaCartao: 200,
