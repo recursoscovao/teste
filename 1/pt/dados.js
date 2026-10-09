@@ -69,7 +69,7 @@ const DADOS = {
     // 5. Tablet Horizontal
     tabletHorizontal: {
       alturaCartao: 210,
-      tamanhoIcone: 130
+      tamanhoIcone: 120
     }
   },
 
