@@ -1,15 +1,15 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "1.º Ano - Recursos Educativos",
-    titulo: "1.º Ano",
+    browserTitulo: "2.º Ano - Recursos Educativos",
+    titulo: "2.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 1.º ano"
+    informacao: "Recursos educativos para o 2.º ano"
   },
 
   icons: {
-    cabecalho: "../icons/icon1.png",
+    cabecalho: "../icons/icon2.png",
     menu: "../icons/menu.png",
     seta: "../icons/seta.png",
     anos: {
@@ -36,14 +36,14 @@ const DADOS = {
   },
 
   cores: {
-    fundo: "#F2F8FC",
-    ceu1: "#B6E2F9",
-    ceu2: "#DEF3FF",
-    header: "#DEF3FF",
-    headerTopo: "#B6E2F9",
-    azulHeader: "#0F8BD3",
-    texto: "#0B4B71",
-    textoEscuro: "#062B42",
+    fundo: "#F2FBF4",
+    ceu1: "#C8F6CE",
+    ceu2: "#E1FCE4",
+    header: "#E1FCE4",
+    headerTopo: "#C8F6CE",
+    azulHeader: "#2AAD3B",
+    texto: "#114B18",
+    textoEscuro: "#072B0C",
     branco: "#FFFFFF",
     portugues: "#11CBFC",
     portugues2: "#079BC8",
@@ -55,17 +55,17 @@ const DADOS = {
     amarelo2: "#EF8709",
     azul: "#20B9EF",
     azul2: "#087AC9",
-    verde: "#45C83D",
-    verde2: "#169A3A",
-    roxo: "#0F8BD3",
-    roxo2: "#0A5B8A",
+    verde: "#2AAD3B",
+    verde2: "#1D7C28",
+    roxo: "#2AAD3B",
+    roxo2: "#1D7C28",
     rosa: "#F43A9D",
     rosa2: "#C81970",
-    creme: "#E1F2FA",
-    creme2: "#96D5F0",
-    linha: "#B4E4F8",
-    sombra: "rgba(15,139,211,.18)",
-    sombraForte: "rgba(15,139,211,.28)"
+    creme: "#D8FADF",
+    creme2: "#9EEFB1",
+    linha: "#B6F4BE",
+    sombra: "rgba(42,173,59,.18)",
+    sombraForte: "rgba(42,173,59,.28)"
   },
 
   dimensoes: {
@@ -81,7 +81,7 @@ const DADOS = {
     {
       id: "portugues",
       nome: "Português",
-      idade: "6 - 7 anos",
+      idade: "7 - 8 anos",
       icon: "portugues",
       cor: "#11CBFC",
       cor2: "#079BC8",
@@ -90,7 +90,7 @@ const DADOS = {
     {
       id: "matematica",
       nome: "Matemática",
-      idade: "6 - 7 anos",
+      idade: "7 - 8 anos",
       icon: "matematica",
       cor: "#FD6746",
       cor2: "#D94328",
@@ -99,7 +99,7 @@ const DADOS = {
     {
       id: "estudoMeio",
       nome: "Estudo do Meio",
-      idade: "6 - 7 anos",
+      idade: "7 - 8 anos",
       icon: "estudoMeio",
       cor: "#62D733",
       cor2: "#36A918",
