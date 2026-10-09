@@ -41,16 +41,21 @@ const DADOS = {
   dimensoes: {
     larguraMaxima: 1200,
     raioAno: 23,
-    // Podes alterar facilmente as dimensões para cada dispositivo aqui:
-    desktop: {
+    
+    // Definições para PC
+    pc: {
       alturaCartao: 209,
       tamanhoIcone: 125
     },
-    tabletVertical: {
-      alturaCartao: 200,
-      tamanhoIcone: 110
+
+    // Definições para Telemóvel e Tablet Vertical
+    vertical: {
+      alturaCartao: 380,
+      tamanhoIcone: 260
     },
-    telemovel: {
+
+    // Definições para Telemóvel e Tablet Horizontal
+    horizontal: {
       alturaCartao: 200,
       tamanhoIcone: 110
     }
