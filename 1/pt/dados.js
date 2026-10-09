@@ -42,22 +42,34 @@ const DADOS = {
     larguraMaxima: 1200,
     raioAno: 23,
     
-    // Definições para PC
+    // 1. PC
     pc: {
       alturaCartao: 209,
       tamanhoIcone: 125
     },
 
-    // Definições para Telemóvel e Tablet Vertical
-    vertical: {
+    // 2. Telemóvel Vertical
+    telemovelVertical: {
+      alturaCartao: 200,
+      tamanhoIcone: 110
+    },
+
+    // 3. Telemóvel Horizontal
+    telemovelHorizontal: {
+      alturaCartao: 180,
+      tamanhoIcone: 95
+    },
+
+    // 4. Tablet Vertical
+    tabletVertical: {
       alturaCartao: 380,
       tamanhoIcone: 260
     },
 
-    // Definições para Telemóvel e Tablet Horizontal
-    horizontal: {
-      alturaCartao: 200,
-      tamanhoIcone: 110
+    // 5. Tablet Horizontal
+    tabletHorizontal: {
+      alturaCartao: 210,
+      tamanhoIcone: 130
     }
   },
 
