@@ -1,98 +1,127 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "2.º Ano - Jogos Educativos",
-    titulo: "2.º Ano",
-    subtitulo: "Aprender • Jogar • Descobrir",
-    tituloMenu: "Escolhe o Jogo",
-    mensagem: "Escolhe um jogo e diverte-te a aprender!",
-    informacao: "Jogos educativos para o 2.º ano"
+    browserTitulo: "1.º Ano - Recursos Educativos",
+    titulo: "1.º Ano",
+    subtitulo: "Aprender • Explorar • Descobrir",
+    tituloMenu: "Escolhe a área",
+    mensagem: "Escolhe a área e comece a aprender!",
+    informacao: "Recursos educativos para o 1.º ano"
   },
 
   icons: {
-    cabecalho: "../../icons/icon2.png",
-    menu: "../../icons/menu.png",
-    seta: "../../icons/seta.png",
+    cabecalho: "../icons/icon1.png",
+    menu: "../icons/menu.png",
+    seta: "../icons/seta.png",
+    anos: {
+      portugues: "../icons/pt.png",
+      matematica: "../icons/mat.png",
+      estudoMeio: "../icons/em.png"
+    },
     menuAnos: {
-      inicio: "../../icons/inicio.png",
-      pre: "../../icons/iconpre.png",
-      ano1: "../../icons/icon1.png",
-      ano2: "../../icons/icon2.png",
-      ano3: "../../icons/icon3.png",
-      ano4: "../../icons/icon4.png"
+      inicio: "../icons/inicio.png",
+      pre: "../icons/iconpre.png",
+      ano1: "../icons/icon1.png",
+      ano2: "../icons/icon2.png",
+      ano3: "../icons/icon3.png",
+      ano4: "../icons/icon4.png"
+    },
+    destaques: {
+      rastros: "../icons/rastros.png",
+      gatosCaes: "../icons/gatos&caes.png",
+      dominorio: "../icons/dominorio.png",
+      semaforo: "../icons/semaforo.png",
+      quelhas: "../icons/quelhas.png",
+      avanco: "../icons/avanco.png"
     }
   },
 
   cores: {
-    fundo: "#F2FBF3",
-    ceu1: "#CEF0D0",
-    ceu2: "#E6F8E7",
-    header: "#E6F8E7",
-    headerTopo: "#CEF0D0",
-    azulHeader: "#54C359",
-    texto: "#18521B",
-    textoEscuro: "#0B260D",
+    fundo: "#F2F8FC",
+    ceu1: "#B6E2F9",
+    ceu2: "#DEF3FF",
+    header: "#DEF3FF",
+    headerTopo: "#B6E2F9",
+    azulHeader: "#0F8BD3",
+    texto: "#0B4B71",
+    textoEscuro: "#062B42",
     branco: "#FFFFFF",
-    creme: "#D9F4DA",
-    linha: "#B2E8B5",
-    sombra: "rgba(84,195,89,.18)",
-    sombraForte: "rgba(84,195,89,.28)"
+    portugues: "#11CBFC",
+    portugues2: "#079BC8",
+    matematica: "#FD6746",
+    matematica2: "#D94328",
+    estudoMeio: "#62D733",
+    estudoMeio2: "#36A918",
+    amarelo: "#FFBA16",
+    amarelo2: "#EF8709",
+    azul: "#20B9EF",
+    azul2: "#087AC9",
+    verde: "#45C83D",
+    verde2: "#169A3A",
+    roxo: "#0F8BD3",
+    roxo2: "#0A5B8A",
+    rosa: "#F43A9D",
+    rosa2: "#C81970",
+    creme: "#E1F2FA",
+    creme2: "#96D5F0",
+    linha: "#B4E4F8",
+    sombra: "rgba(15,139,211,.18)",
+    sombraForte: "rgba(15,139,211,.28)"
   },
 
   dimensoes: {
     larguraMaxima: 1200,
-    alturaAnoDesktop: 209,
+    alturaAnoDesktop: 270,
     raioAno: 23,
-    tamanhoIconAnoDesktop: 130
+    raioDestaques: 26,
+    tamanhoIconAnoDesktop: 153,
+    tamanhoIconJogo: 76
   },
 
-  fases: [
+  anos: [
     {
-      tituloFase: "Fase 1",
-      jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo1/" },
-        { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo2/" },
-        { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo3/" },
-        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo4/" },
-        { nome: "Jogo 5", idade: "Subtítulo 5", imagem: "iconjogos/jogo5.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo5/" },
-        { nome: "Jogo 6", idade: "Subtítulo 6", imagem: "iconjogos/jogo6.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo6/" }
-      ]
+      id: "portugues",
+      nome: "Português",
+      idade: "6 - 7 anos",
+      icon: "portugues",
+      cor: "#11CBFC",
+      cor2: "#079BC8",
+      pagina: "pt/"
     },
     {
-      tituloFase: "Fase 2",
-      jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo1/" },
-        { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
-        { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
-        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" },
-        { nome: "Jogo 5", idade: "Subtítulo 5", imagem: "iconjogos/jogo5.png", cor: "#9B51E0", cor2: "#7B39C8", pagina: "jogo5/" }
-      ]
+      id: "matematica",
+      nome: "Matemática",
+      idade: "6 - 7 anos",
+      icon: "matematica",
+      cor: "#FD6746",
+      cor2: "#D94328",
+      pagina: "mat/"
     },
     {
-      tituloFase: "Fase 3",
-      jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo1/" },
-        { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
-        { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
-        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" }
-      ]
-    },
-    {
-      tituloFase: "Fase 4",
-      jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#54C359", cor2: "#3A953E", pagina: "jogo1/" },
-        { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
-        { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
-        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" }
-      ]
+      id: "estudoMeio",
+      nome: "Estudo do Meio",
+      idade: "6 - 7 anos",
+      icon: "estudoMeio",
+      cor: "#62D733",
+      cor2: "#36A918",
+      pagina: "em/"
     }
   ],
 
   menuAnos: [
-    { id: "inicio", nome: "Início", icon: "inicio", pagina: "../../" },
-    { id: "pre", nome: "Pré-Escolar", icon: "pre", pagina: "../../pre/" },
-    { id: "ano1", nome: "1.º Ano", icon: "ano1", pagina: "../../1/" },
-    { id: "ano2", nome: "2.º Ano", icon: "ano2", pagina: "../../2/" },
-    { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../../3/" },
-    { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../../4/" }
+    { id: "inicio", nome: "Início", icon: "inicio", pagina: "../" },
+    { id: "pre", nome: "Pré-Escolar", icon: "pre", pagina: "../pre/" },
+    { id: "ano1", nome: "1.º Ano", icon: "ano1", pagina: "../1/" },
+    { id: "ano2", nome: "2.º Ano", icon: "ano2", pagina: "../2/" },
+    { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../3/" },
+    { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../4/" }
+  ],
+
+  destaques: [
+    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jd/rastros/" },
+    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jd/gatos-caes" },
+    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jd/dominorio/" },
+    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jd/semaforo/" },
+    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jd/quelhas/" },
+    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jd/avanco/" }
   ]
 };
