@@ -1,11 +1,15 @@
 const DADOS = {
   pagina: {
     browserTitulo: "1.º Ano - Jogos Educativos",
-    titulo: "Estudo do Meio",
-    subtitulo: "Aprender • Jogar • Descobrir",
+    titulo: "Português",
+    subtitulo: "Atividades • 1º Ano",
     tituloMenu: "Escolhe o Jogo",
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
-    informacao: "Jogos educativos para o 1.º ano"
+    informacao: "Jogos educativos para o 1.º ano",
+    tituloMenuAcordeao: "Menu",
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i"
   },
 
   icons: {
@@ -40,27 +44,55 @@ const DADOS = {
 
   dimensoes: {
     larguraMaxima: 1200,
-    alturaAnoDesktop: 209,
     raioAno: 23,
-    tamanhoIconAnoDesktop: 130
+    
+    // 1. PC
+    pc: {
+      alturaCartao: 209,
+      tamanhoIcone: 125
+    },
+
+    // 2. Telemóvel Vertical
+    telemovelVertical: {
+      alturaCartao: 200,
+      tamanhoIcone: 110
+    },
+
+    // 3. Telemóvel Horizontal
+    telemovelHorizontal: {
+      alturaCartao: 140,
+      tamanhoIcone: 75
+    },
+
+    // 4. Tablet Vertical (3 colunas)
+    tabletVertical: {
+      alturaCartao: 240,
+      tamanhoIcone: 110
+    },
+
+    // 5. Tablet Horizontal (5 colunas)
+    tabletHorizontal: {
+      alturaCartao: 220,
+      tamanhoIcone: 130
+    }
   },
 
   fases: [
     {
       tituloFase: "Fase 1",
       jogos: [
-        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#4BBF25", cor2: "#339215", pagina: "f1_jogo01pt/" },
-        { nome: "Grafismos", idade: "Linhas curvas", imagem: "iconjogos/f1_jogo02pt.png", cor: "#4BBF25", cor2: "#339215", pagina: "f1_jogo02pt/" },
-        { nome: "Grafismos", idade: "Letras", imagem: "iconjogos/f1_jogo03pt.png", cor: "#4BBF25", cor2: "#339215", pagina: "f1_jogo03pt/" },
-        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#4BBF25", cor2: "#339215", pagina: "jogo4/" },
-        { nome: "Jogo 5", idade: "Subtítulo 5", imagem: "iconjogos/jogo5.png", cor: "#4BBF25", cor2: "#339215", pagina: "jogo5/" },
-        { nome: "Jogo 6", idade: "Subtítulo 6", imagem: "iconjogos/jogo6.png", cor: "#4BBF25", cor2: "#339215", pagina: "jogo6/" }
+        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" },
+        { nome: "Grafismos", idade: "Linhas curvas", imagem: "iconjogos/f1_jogo02pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo02pt/" },
+        { nome: "Grafismos", idade: "Letras", imagem: "iconjogos/f1_jogo03pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo03pt/" },
+        { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo4/" },
+        { nome: "Jogo 5", idade: "Subtítulo 5", imagem: "iconjogos/jogo5.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo5/" },
+        { nome: "Jogo 6", idade: "Subtítulo 6", imagem: "iconjogos/jogo6.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo6/" }
       ]
     },
     {
       tituloFase: "Fase 2",
       jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#4BBF25", cor2: "#339215", pagina: "jogo1/" },
+        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
         { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
         { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
         { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" },
@@ -70,7 +102,7 @@ const DADOS = {
     {
       tituloFase: "Fase 3",
       jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#4BBF25", cor2: "#339215", pagina: "jogo1/" },
+        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
         { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
         { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
         { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" }
@@ -79,7 +111,7 @@ const DADOS = {
     {
       tituloFase: "Fase 4",
       jogos: [
-        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#4BBF25", cor2: "#339215", pagina: "jogo1/" },
+        { nome: "Jogo 1", idade: "Subtítulo 1", imagem: "iconjogos/jogo1.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo1/" },
         { nome: "Jogo 2", idade: "Subtítulo 2", imagem: "iconjogos/jogo2.png", cor: "#FD6746", cor2: "#D94328", pagina: "jogo2/" },
         { nome: "Jogo 3", idade: "Subtítulo 3", imagem: "iconjogos/jogo3.png", cor: "#62D733", cor2: "#36A918", pagina: "jogo3/" },
         { nome: "Jogo 4", idade: "Subtítulo 4", imagem: "iconjogos/jogo4.png", cor: "#FFB400", cor2: "#E09A00", pagina: "jogo4/" }
