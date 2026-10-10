@@ -13,16 +13,16 @@ const DADOS = {
   },
 
   icons: {
-    cabecalho: "../../icons/icon1.png",
-    menu: "../../icons/menu.png",
-    seta: "../../icons/seta.png",
+    cabecalho: "../../../../icons/icon1.png",
+    menu: "../../../../icons/menu.png",
+    seta: "../../../../icons/seta.png",
     menuAnos: {
-      inicio: "../../icons/inicio.png",
-      pre: "../../icons/iconpre.png",
-      ano1: "../../icons/icon1.png",
-      ano2: "../../icons/icon2.png",
-      ano3: "../../icons/icon3.png",
-      ano4: "../../icons/icon4.png"
+      inicio: "../../../../icons/inicio.png",
+      pre: "../../../../icons/iconpre.png",
+      ano1: "../../../../icons/icon1.png",
+      ano2: "../../../../icons/icon2.png",
+      ano3: "../../../../icons/icon3.png",
+      ano4: "../../../../icons/icon4.png"
     }
   },
 
@@ -45,24 +45,23 @@ const DADOS = {
   dimensoes: {
     larguraMaxima: 1200,
     raioAno: 23,
-    pc: { alturaCartao: 209, tamanhoIcone: 125 },
-    telemovelVertical: { alturaCartao: 200, tamanhoIcone: 110 },
+    pc: { alturaCartao: 280, tamanhoIcone: 150 },
+    telemovelVertical: { alturaCartao: 220, tamanhoIcone: 120 },
     telemovelHorizontal: { alturaCartao: 140, tamanhoIcone: 75 },
     tabletVertical: { alturaCartao: 240, tamanhoIcone: 110 },
     tabletHorizontal: { alturaCartao: 220, tamanhoIcone: 130 }
   },
 
-  // Apenas a lista de jogos direta, sem fases
   jogos: [
-    { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" }
+    { nome: "Grafismos", idade: "Linhas Retas", imagem: "../../../../icons/gatos&caes.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" }
   ],
 
   menuAnos: [
-    { id: "inicio", nome: "Início", icon: "inicio", pagina: "../../" },
-    { id: "pre", nome: "Pré-Escolar", icon: "pre", pagina: "../../pre/" },
-    { id: "ano1", nome: "1.º Ano", icon: "ano1", pagina: "../../1/" },
-    { id: "ano2", nome: "2.º Ano", icon: "ano2", pagina: "../../2/" },
-    { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../../3/" },
-    { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../../4/" }
+    { id: "inicio", nome: "Início", icon: "inicio", pagina: "../../../../" },
+    { id: "pre", nome: "Pré-Escolar", icon: "pre", pagina: "../../../pre/" },
+    { id: "ano1", nome: "1.º Ano", icon: "ano1", pagina: "../../" },
+    { id: "ano2", nome: "2.º Ano", icon: "ano2", pagina: "../../../2/" },
+    { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../../../3/" },
+    { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../../../4/" }
   ]
 };
