@@ -27,7 +27,7 @@
     <!-- MENU ACORDEÃO -->
     <nav id="menu-acordeao" class="menu-acordeao" aria-hidden="true">
       <div class="menu-acordeao-topo">
-        <div class="menu-acordeao-titulo">Menu</div>
+        <div class="menu-acordeao-titulo" data-titulo-menu-acordeao></div>
         <div class="menu-acordeao-subtitulo" data-informacao></div>
       </div>
       <div id="menu-anos" class="menu-anos"></div>
@@ -368,11 +368,13 @@
       const titulo = document.querySelector("[data-titulo-menu]");
       const mensagem = document.querySelector("[data-mensagem]");
       const informacoes = document.querySelectorAll("[data-informacao]");
+      const tituloMenuAcordeao = document.querySelector("[data-titulo-menu-acordeao]");
 
       if (marca) marca.textContent = DADOS.pagina.titulo;
       if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
       if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
       if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
+      if (tituloMenuAcordeao) tituloMenuAcordeao.textContent = DADOS.pagina.tituloMenuAcordeao;
       
       informacoes.forEach(el => {
         el.textContent = DADOS.pagina.informacao;
@@ -463,7 +465,7 @@
       }
 
       if (botaoSeta) {
-        botaoSeta.addEventListener("click", () => { window.location.href = "../"; });
+        botaoSeta.addEventListener("click", () => { window.location.href = DADOS.pagina.urlVoltar; });
       }
     }
 
