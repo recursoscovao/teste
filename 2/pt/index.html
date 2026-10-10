@@ -7,11 +7,90 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-  <!-- DADOS CARREGADOS ANTES DO CSS -->
+  <!-- CABEÇALHO A OCUPAR A LARGURA TOTAL DO ECRÃ -->
+  <header class="cabecalho">
+    <button class="botao-menu" aria-label="Menu Principal" aria-expanded="false" aria-controls="menu-acordeao"></button>
+    
+    <div class="marca">
+      <div class="marca-sol" aria-hidden="true"></div>
+      <div class="marca-texto">
+        <h1 data-marca></h1>
+        <p data-submarca></p>
+      </div>
+    </div>
+
+    <button class="botao-seta" aria-label="Voltar"></button>
+
+    <!-- MENU ACORDEÃO -->
+    <nav id="menu-acordeao" class="menu-acordeao" aria-hidden="true">
+      <div class="menu-acordeao-topo">
+        <div class="menu-acordeao-titulo">Menu</div>
+        <div class="menu-acordeao-subtitulo" data-informacao></div>
+      </div>
+      <div id="menu-anos" class="menu-anos"></div>
+    </nav>
+  </header>
+
+  <div id="app">
+    <!-- ÁREA PRINCIPAL / FASES COM CARTÕES -->
+    <main class="area-menu">
+      <div class="titulo-menu">
+        <h2 data-titulo-menu></h2>
+      </div>
+
+      <div id="fases-container"></div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+      <div class="rodape-item">
+        <span class="estrela">★</span>
+        <span data-mensagem></span>
+      </div>
+      <div class="rodape-item rodape-info">
+        <span data-informacao></span>
+        <div class="info">i</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- TEMPLATES -->
+  <template id="modelo-fase">
+    <section class="secao-fase">
+      <h3 class="titulo-fase"></h3>
+      <div class="anos"></div>
+    </section>
+  </template>
+
+  <template id="modelo-ano">
+    <div class="ano">
+      <button class="botao-ano">
+        <div class="icone-ano"></div>
+        <div class="texto-ano">
+          <div class="nome-ano"></div>
+          <div class="idade-ano"></div>
+        </div>
+      </button>
+    </div>
+  </template>
+
+  <template id="modelo-menu-ano">
+    <button class="menu-ano">
+      <div class="menu-ano-icon"></div>
+      <span class="menu-ano-nome"></span>
+    </button>
+  </template>
+
+  <!-- DADOS E LÓGICA -->
   <script src="dados.js"></script>
+  <script>
+    function inserirCSS() {
+      const estilo = document.createElement("style");
 
-  <style>
+      estilo.textContent = `
     * { box-sizing: border-box; }
     html, body {
       margin: 0; padding: 0; width: 100%; min-height: 100vh;
@@ -19,7 +98,7 @@
     }
 
     html {
-      background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19\%, #F2F8FC 38\%, ${DADOS.cores.fundo} 100%);
+      background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19%, #F2F8FC 38%, ${DADOS.cores.fundo} 100%);
       background-attachment: fixed;
     }
 
@@ -43,7 +122,7 @@
 
     .cabecalho {
       position: relative; width: 100%; height: 82px;
-      background: linear-gradient(180deg, ${DADOS.cores.headerTopo} 0\%,${DADOS.cores.header} 100%);
+      background: linear-gradient(180deg, ${DADOS.cores.headerTopo} 0%, ${DADOS.cores.header} 100%);
       display: flex; align-items: center; justify-content: center;
       border-bottom: 2px solid rgba(255,255,255,.65);
       box-shadow: 0 3px 10px rgba(15,139,211,.12); z-index: 20;
@@ -212,7 +291,7 @@
         height: ${DADOS.dimensoes.telemovelVertical.alturaCartao}px; padding: 14px 8px; gap: 8px; 
         flex-direction: column; justify-content: space-between; border-radius: 16px; width: 100%;
       }
-      .icone-ano { width: calc(100% - 4px); height: ${DADOS.dimensoes.telemovelVertical.tamanhoIcone}px; flex: 0 0${DADOS.dimensoes.telemovelVertical.tamanhoIcone}px; }
+      .icone-ano { width: calc(100% - 4px); height: ${DADOS.dimensoes.telemovelVertical.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.telemovelVertical.tamanhoIcone}px; }
       .nome-ano { font-size: 14px; text-align: center; white-space: normal; line-height: 1.15; padding: 2px 0; }
       .idade-ano { display: none; }
     }
@@ -224,7 +303,7 @@
         height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px; padding: 10px 8px;
       }
       .icone-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px; flex: 0 0${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px;
+        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px;
       }
       .nome-ano { font-size: 13px; }
       .idade-ano { display: none; }
@@ -237,7 +316,7 @@
         height: ${DADOS.dimensoes.tabletVertical.alturaCartao}px; padding: 20px 12px; gap: 12px; 
         flex-direction: column; justify-content: space-between; border-radius: 22px; width: 100%;
       }
-      .icone-ano { width: calc(100% - 8px); height: ${DADOS.dimensoes.tabletVertical.tamanhoIcone}px; flex: 0 0${DADOS.dimensoes.tabletVertical.tamanhoIcone}px; }
+      .icone-ano { width: calc(100% - 8px); height: ${DADOS.dimensoes.tabletVertical.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.tabletVertical.tamanhoIcone}px; }
       .nome-ano { font-size: 18px; text-align: center; white-space: normal; line-height: 1.25; padding: 3px 0; }
       .idade-ano { display: none; }
     }
@@ -249,7 +328,7 @@
         height: ${DADOS.dimensoes.tabletHorizontal.alturaCartao}px; padding: 12px 10px;
       }
       .icone-ano {
-        height: ${DADOS.dimensoes.tabletHorizontal.tamanhoIcone}px; flex: 0 0${DADOS.dimensoes.tabletHorizontal.tamanhoIcone}px;
+        height: ${DADOS.dimensoes.tabletHorizontal.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.tabletHorizontal.tamanhoIcone}px;
       }
       .nome-ano { font-size: 15px; }
     }
@@ -274,26 +353,127 @@
         border-radius: 50% !important;
       }
     }
-  </style>
-</head>
-<body>
+      `;
 
-  <!-- CABEÇALHO A OCUPAR A LARGURA TOTAL DO ECRÃ -->
-  <header class="cabecalho">
-    <button class="botao-menu" aria-label="Menu Principal" aria-expanded="false" aria-controls="menu-acordeao"></button>
-    
-    <div class="marca">
-      <div class="marca-sol" aria-hidden="true"></div>
-      <div class="marca-texto">
-        <h1 data-marca></h1>
-        <p data-submarca></p>
-      </div>
-    </div>
+      document.head.appendChild(estilo);
+    }
 
-    <button class="botao-seta" aria-label="Voltar"></button>
+    function preencherTextos() {
+      if (DADOS.pagina.browserTitulo) {
+        document.title = DADOS.pagina.browserTitulo;
+      }
 
-    <!-- MENU ACORDEÃO -->
-    <nav id="menu-acordeao" class="menu-acordeao" aria-hidden="true">
-      <div class="menu-acordeao-topo">
-        <div class="menu-acordeao-titulo">Menu</div>
-        <div class="menu-acordeao-subtitulo" data-informacao></div>
+      const marca = document.querySelector("[data-marca]");
+      const submarca = document.querySelector("[data-submarca]");
+      const titulo = document.querySelector("[data-titulo-menu]");
+      const mensagem = document.querySelector("[data-mensagem]");
+      const informacoes = document.querySelectorAll("[data-informacao]");
+
+      if (marca) marca.textContent = DADOS.pagina.titulo;
+      if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
+      if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
+      if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
+      
+      informacoes.forEach(el => {
+        el.textContent = DADOS.pagina.informacao;
+      });
+    }
+
+    function criarFasesECartoes() {
+      const recipienteContainer = document.getElementById("fases-container");
+      const modeloFase = document.getElementById("modelo-fase");
+      const modeloAno = document.getElementById("modelo-ano");
+      if (!recipienteContainer || !modeloFase || !modeloAno) return;
+
+      recipienteContainer.innerHTML = "";
+
+      DADOS.fases.forEach(fase => {
+        const cloneFase = modeloFase.content.cloneNode(true);
+        const tituloFaseEl = cloneFase.querySelector(".titulo-fase");
+        const containerJogos = cloneFase.querySelector(".anos");
+
+        tituloFaseEl.textContent = fase.tituloFase;
+
+        fase.jogos.forEach(jogo => {
+          const cartao = modeloAno.content.cloneNode(true);
+          const botao = cartao.querySelector(".botao-ano");
+          const icone = cartao.querySelector(".icone-ano");
+          const texto = cartao.querySelector(".nome-ano");
+          const idade = cartao.querySelector(".idade-ano");
+
+          botao.style.setProperty("--cor-1", jogo.cor);
+          botao.style.setProperty("--cor-2", jogo.cor2);
+
+          const imagem = document.createElement("img");
+          imagem.src = jogo.imagem;
+          imagem.alt = jogo.nome;
+          imagem.draggable = false;
+          icone.appendChild(imagem);
+
+          texto.textContent = jogo.nome;
+          idade.textContent = jogo.idade;
+
+          botao.addEventListener("click", () => { window.location.href = jogo.pagina; });
+          containerJogos.appendChild(cartao);
+        });
+
+        recipienteContainer.appendChild(cloneFase);
+      });
+    }
+
+    function criarMenuAnos() {
+      const recipiente = document.getElementById("menu-anos");
+      const modelo = document.getElementById("modelo-menu-ano");
+      if (!recipiente || !modelo) return;
+
+      recipiente.innerHTML = "";
+      DADOS.menuAnos.forEach(ano => {
+        const item = modelo.content.cloneNode(true);
+        const botao = item.querySelector(".menu-ano");
+        const icone = item.querySelector(".menu-ano-icon");
+        const nome = item.querySelector(".menu-ano-nome");
+
+        const imagem = document.createElement("img");
+        imagem.src = DADOS.icons.menuAnos[ano.icon];
+        imagem.alt = "";
+        imagem.draggable = false;
+        icone.appendChild(imagem);
+
+        nome.textContent = ano.nome;
+        botao.addEventListener("click", () => { window.location.href = ano.pagina; });
+        recipiente.appendChild(item);
+      });
+    }
+
+    function configurarMenu() {
+      const botaoMenu = document.querySelector(".botao-menu");
+      const menu = document.querySelector(".menu-acordeao");
+      const botaoSeta = document.querySelector(".botao-seta");
+
+      if (botaoMenu && menu) {
+        botaoMenu.addEventListener("click", event => {
+          event.stopPropagation();
+          menu.classList.toggle("aberto");
+        });
+        document.addEventListener("click", event => {
+          if (menu.classList.contains("aberto") && !menu.contains(event.target) && !botaoMenu.contains(event.target)) {
+            menu.classList.remove("aberto");
+          }
+        });
+      }
+
+      if (botaoSeta) {
+        botaoSeta.addEventListener("click", () => { window.location.href = "../"; });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      inserirCSS();
+      preencherTextos();
+      criarFasesECartoes();
+      criarMenuAnos();
+      configurarMenu();
+    });
+  </script>
+</body>
+</html>
