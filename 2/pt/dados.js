@@ -1,17 +1,17 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "1.º Ano - Jogos Educativos",
+    browserTitulo: "2.º Ano - Jogos Educativos",
     titulo: "Português",
     subtitulo: "Aprender • Jogar • Descobrir",
     tituloMenu: "Escolhe o Jogo",
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
-    informacao: "Jogos educativos para o 1.º ano",
+    informacao: "Jogos educativos para o 2.º ano",
     tituloMenuAcordeao: "Menu",
     urlVoltar: "../"
   },
 
   icons: {
-    cabecalho: "../../icons/icon1.png",
+    cabecalho: "../../icons/icon2.png",
     menu: "../../icons/menu.png",
     seta: "../../icons/seta.png",
     menuAnos: {
