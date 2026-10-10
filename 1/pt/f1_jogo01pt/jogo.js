@@ -4,7 +4,6 @@
 let jogoAtivo = false;
 let rondaAtual = 1, totalRondas = 10, certos = 0, erros = 0, ajudasUsadas = 0;
 let itemDestaque = null;
-let audioInstrucoes = null;
 
 let canvas, ctx;
 let isDrawing = false;
@@ -18,7 +17,7 @@ let simuTimer = null;
 let sequenciaNiveis = [];
 
 // ==========================================
-// ESTILOS ESPECÍFICOS DO JOGO (CANVAS E ÁREA)
+// ESTILOS ESPECÍFICOS DO JOGO
 // ==========================================
 const styleJogo = document.createElement('style');
 styleJogo.innerHTML = `
@@ -45,17 +44,39 @@ styleJogo.innerHTML = `
 document.head.appendChild(styleJogo);
 
 // ==========================================
-// ATUALIZAÇÃO DA BARRA DE ESTADO NO INDEX
+// ATUALIZAÇÃO DA BARRA DE ESTADO (MODO JOGO VS CAPA)
 // ==========================================
-function atualizarBarraEstado() {
-    const progressoPercent = ((rondaAtual - 1) / totalRondas) * 100;
-    const barraInt = document.getElementById('barra-progresso-interna');
-    const rondasEl = document.getElementById('contador-rondas');
-    const pontosEl = document.getElementById('pontos-jogo');
-    
-    if (barraInt) barraInt.style.width = `${progressoPercent}%`;
-    if (rondasEl) rondasEl.textContent = `${rondaAtual}/${totalRondas}`;
-    if (pontosEl) pontosEl.textContent = certos * 10;
+function atualizarBarraEstado(modoCapa = false) {
+    const barra = document.getElementById('barra-inferior');
+    if (!barra) return;
+
+    if (modoCapa) {
+        barra.innerHTML = `
+            <div class="botoes-acao-jogo">
+              <button class="botao-acao-jogo" onclick="tocarAudioInstrucoes()" aria-label="Som">🔊</button>
+            </div>
+            <button class="btn-jogar-capa" onclick="iniciarJogo()">JOGAR</button>
+        `;
+    } else {
+        const progressoPercent = ((rondaAtual - 1) / totalRondas) * 100;
+        barra.innerHTML = `
+          <div class="bloco-estrelas-pontos">
+            <span>⭐</span>
+            <span id="pontos-jogo">${certos * 10}</span>
+          </div>
+          <div class="estrelas-nivel" id="estrelas-container">
+            <span class="ativa">⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+          </div>
+          <div class="container-progresso-jogo">
+            <div class="barra-progresso-interna" id="barra-progresso-interna" style="width: ${progressoPercent}%"></div>
+          </div>
+          <div class="contador-rondas" id="contador-rondas">${rondaAtual}/${totalRondas}</div>
+          <div class="botoes-acao-jogo">
+            <button class="botao-acao-jogo" onclick="tocarAudioInstrucoes()" aria-label="Som">🔊</button>
+            <button class="botao-acao-jogo" onclick="darAjuda()" aria-label="Ajuda">❓</button>
+          </div>
+        `;
+    }
 }
 
 // ==========================================
@@ -67,19 +88,19 @@ function carregarCapaJogo() {
 
   contentor.innerHTML = `
     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%;">
-        <div class="grafismo-area" id="simu-area" style="transform: scale(0.9); height: 190px; margin-bottom: 10px;">
+        <div class="grafismo-area" id="simu-area" style="transform: scale(0.9); height: 210px; margin-bottom: 5px;">
             <div class="ponto-inicio" id="simu-inicio"></div>
             <canvas id="simu-canvas"></canvas>
             <div class="ponto-fim" id="simu-fim">➡️</div>
             <div id="simu-hand" style="position:absolute; font-size:2.5rem; z-index:100; pointer-events:none; transition: opacity 0.3s;">👆</div>
         </div>
-        <p style="color:#062B42; font-weight:800; text-align:center; font-size:1.05rem; max-width: 500px; margin-bottom: 15px;">
+        <p style="color:#062B42; font-weight:800; text-align:center; font-size:1.05rem; max-width: 500px; margin: 0;">
             Começa na bola e arrasta o dedo pela linha até à seta, sem saíres do traço!
         </p>
-        <button onclick="iniciarJogo()" style="padding: 12px 35px; border-radius: 25px; background: #0F8BD3; color: white; border: none; font-size: 1.3rem; font-weight: 900; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">JOGAR</button>
     </div>
   `;
 
+  atualizarBarraEstado(true); // Mostra apenas Som e Botão Jogar na barra
   setTimeout(iniciarSimulacaoAnimada, 100);
 }
 
@@ -169,7 +190,7 @@ function proximaRonda() {
       </div>
     `;
 
-    atualizarBarraEstado();
+    atualizarBarraEstado(false); // Ativa a barra completa do jogo
     setTimeout(configurarCanvas, 100); 
 }
 
@@ -341,7 +362,7 @@ function avaliarJogada() {
         erros++; 
         ctx.clearRect(0, 0, canvas.width, canvas.height); 
         desenharGuiasJogo(); 
-        atualizarBarraEstado();
+        atualizarBarraEstado(false);
     }
 }
 
@@ -403,6 +424,8 @@ function finalizarJogo() {
         <button onclick="carregarCapaJogo()" style="padding: 12px 30px; border-radius: 25px; background: #0F8BD3; color: #fff; border: none; font-weight: 900; font-size: 1.1rem; cursor: pointer;">Recomeçar</button>
       </div>
     `;
+    const barra = document.getElementById('barra-inferior');
+    if (barra) barra.innerHTML = '';
 }
 
 document.addEventListener("DOMContentLoaded", () => {
