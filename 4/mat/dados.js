@@ -132,6 +132,4 @@ const DADOS = {
     { id: "ano3", nome: "3.º Ano", icon: "ano3", pagina: "../../3/" },
     { id: "ano4", nome: "4.º Ano", icon: "ano4", pagina: "../../4/" }
   ]
-};4.º Ano", icon: "ano4", pagina: "../../4/" }
-  ]
 };
