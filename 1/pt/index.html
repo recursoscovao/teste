@@ -159,7 +159,7 @@
     .marca-texto p { margin: 3px 0 0; font-size: clamp(12px, 1.1vw, 16px); line-height: 1.1; font-weight: 800; color: ${DADOS.cores.texto}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     .menu-acordeao {
-      position: absolute; top: 72px; left: 18px; width: 280px; padding: 0;
+      position: absolute; top: 72px; left: 18px; width: 300px; padding: 0;
       background: rgba(255,255,255,.98); border: 2px solid ${DADOS.cores.linha};
       border-top: 4px solid ${DADOS.cores.azulHeader}; border-radius: 0 0 20px 20px;
       box-shadow: 0 10px 25px rgba(15,139,211,.24);
@@ -168,19 +168,19 @@
       z-index: 30;
     }
     .menu-acordeao.aberto { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-    .menu-acordeao-topo { padding: 8px 12px 6px; background: linear-gradient(180deg, #E6F4FA, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
-    .menu-acordeao-titulo { font-size: 16px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
-    .menu-acordeao-subtitulo { margin-top: 2px; font-size: 11px; font-weight: 700; color: #0F8BD3; }
+    .menu-acordeao-topo { padding: 15px 18px 13px; background: linear-gradient(180deg, #E6F4FA, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
+    .menu-acordeao-titulo { font-size: 19px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
+    .menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #0F8BD3; }
     
-    /* MENU ANOS SEM SCROLL */
-    .menu-anos { display: flex; flex-direction: column; padding: 4px; gap: 3px; overflow: visible; }
+    /* MENU ANOS PADRÃO (COM SCROLL NORMAL PARA PC/TABLET/VERTICAL) */
+    .menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; max-height: 60vh; overflow-y: auto; }
     .menu-ano {
-      width: 100%; min-height: 38px; display: flex; align-items: center; gap: 10px; padding: 3px 8px;
-      border: 0; border-radius: 10px; background: #FFFFFF; color: ${DADOS.cores.textoEscuro};
-      font-size: 13px; font-weight: 800; text-align: left; cursor: pointer; transition: background .16s ease;
+      width: 100%; min-height: 54px; display: flex; align-items: center; gap: 13px; padding: 6px 11px;
+      border: 0; border-radius: 13px; background: #FFFFFF; color: ${DADOS.cores.textoEscuro};
+      font-size: 15px; font-weight: 800; text-align: left; cursor: pointer; transition: background .16s ease;
     }
     .menu-ano:hover { background: #E6F4FA; transform: translateX(3px); }
-    .menu-ano-icon { width: 30px; height: 30px; flex: 0 0 30px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #F0F9FC; }
+    .menu-ano-icon { width: 45px; height: 45px; flex: 0 0 45px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #F0F9FC; }
     .menu-ano-icon img { width: 100%; height: 100%; object-fit: contain; }
     .menu-ano-nome { flex: 1; }
 
@@ -298,7 +298,7 @@
       .idade-ano { display: none; }
     }
 
-    /* 3. TELEMÓVEL HORIZONTAL (4 colunas - Altura real reduzida e compacta) */
+    /* 3. TELEMÓVEL HORIZONTAL (4 colunas - Altura real reduzida + Menu sem scroll apenas aqui) */
     @media (max-height: 550px) and (max-width: 900px) {
       .anos { grid-template-columns: repeat(4, 1fr); gap: 8px; }
       .botao-ano {
@@ -315,6 +315,14 @@
       }
       .nome-ano { font-size: 10px !important; line-height: 1 !important; }
       .idade-ano { display: none; }
+
+      /* Ajustes específicos do menu acordeão só para telemóvel horizontal */
+      .menu-acordeao { width: 280px; top: 54px; }
+      .menu-acordeao-topo { padding: 6px 12px 4px; }
+      .menu-acordeao-titulo { font-size: 15px; }
+      .menu-anos { padding: 3px; gap: 2px; overflow-y: visible; max-height: none; }
+      .menu-ano { min-height: 34px; padding: 2px 8px; font-size: 12px; border-radius: 8px; gap: 8px; }
+      .menu-ano-icon { width: 28px; height: 28px; flex: 0 0 28px; border-radius: 6px; }
     }
 
     /* 4. TABLET VERTICAL (3 colunas) */
@@ -350,7 +358,6 @@
       .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
       .marca-texto h1 { font-size: 16px; }
       .marca-texto p { font-size: 9px; margin-top: 1px; }
-      .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 250px; }
       
       .area-menu { padding: 0 16px; }
       .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
