@@ -47,12 +47,12 @@
     <!-- RODAPÉ -->
     <footer class="rodape">
       <div class="rodape-item">
-        <span class="estrela">★</span>
+        <span class="estrela" data-icone-estrela></span>
         <span data-mensagem></span>
       </div>
       <div class="rodape-item rodape-info">
         <span data-informacao></span>
-        <div class="info">i</div>
+        <div class="info" data-icone-info></div>
       </div>
     </footer>
   </div>
@@ -171,6 +171,8 @@
     .menu-acordeao-topo { padding: 15px 18px 13px; background: linear-gradient(180deg, #E6F4FA, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
     .menu-acordeao-titulo { font-size: 19px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
     .menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #0F8BD3; }
+    
+    /* MENU ANOS PADRÃO (COM SCROLL NORMAL PARA PC/TABLET/VERTICAL) */
     .menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; max-height: 60vh; overflow-y: auto; }
     .menu-ano {
       width: 100%; min-height: 54px; display: flex; align-items: center; gap: 13px; padding: 6px 11px;
@@ -296,17 +298,31 @@
       .idade-ano { display: none; }
     }
 
-    /* 3. TELEMÓVEL HORIZONTAL (4 colunas) */
+    /* 3. TELEMÓVEL HORIZONTAL (4 colunas - Altura real reduzida + Menu sem scroll apenas aqui) */
     @media (max-height: 550px) and (max-width: 900px) {
-      .anos { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+      .anos { grid-template-columns: repeat(4, 1fr); gap: 8px; }
       .botao-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px; padding: 10px 8px;
+        height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px !important; 
+        padding: 4px 4px !important; 
+        justify-content: space-between !important; 
+        border-radius: 12px !important;
       }
       .icone-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px;
+        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important; 
+        flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
       }
-      .nome-ano { font-size: 13px; }
+      .nome-ano { font-size: 10px !important; line-height: 1 !important; }
       .idade-ano { display: none; }
+
+      /* Ajustes específicos do menu acordeão só para telemóvel horizontal */
+      .menu-acordeao { width: 280px; top: 54px; }
+      .menu-acordeao-topo { padding: 6px 12px 4px; }
+      .menu-acordeao-titulo { font-size: 15px; }
+      .menu-anos { padding: 3px; gap: 2px; overflow-y: visible; max-height: none; }
+      .menu-ano { min-height: 34px; padding: 2px 8px; font-size: 12px; border-radius: 8px; gap: 8px; }
+      .menu-ano-icon { width: 28px; height: 28px; flex: 0 0 28px; border-radius: 6px; }
     }
 
     /* 4. TABLET VERTICAL (3 colunas) */
@@ -342,7 +358,6 @@
       .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
       .marca-texto h1 { font-size: 16px; }
       .marca-texto p { font-size: 9px; margin-top: 1px; }
-      .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
       
       .area-menu { padding: 0 16px; }
       .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
@@ -369,12 +384,16 @@
       const mensagem = document.querySelector("[data-mensagem]");
       const informacoes = document.querySelectorAll("[data-informacao]");
       const tituloMenuAcordeao = document.querySelector("[data-titulo-menu-acordeao]");
+      const iconeEstrela = document.querySelector("[data-icone-estrela]");
+      const iconeInfo = document.querySelector("[data-icone-info]");
 
       if (marca) marca.textContent = DADOS.pagina.titulo;
       if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
       if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
       if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
       if (tituloMenuAcordeao) tituloMenuAcordeao.textContent = DADOS.pagina.tituloMenuAcordeao;
+      if (iconeEstrela) iconeEstrela.textContent = DADOS.pagina.iconeEstrela;
+      if (iconeInfo) iconeInfo.textContent = DADOS.pagina.iconeInfo;
       
       informacoes.forEach(el => {
         el.textContent = DADOS.pagina.informacao;
