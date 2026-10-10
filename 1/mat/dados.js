@@ -26,20 +26,20 @@ const DADOS = {
     }
   },
 
-  cores: {
-    fundo: "#F2F8FC",
-    ceu1: "#B6E2F9",
-    ceu2: "#DEF3FF",
-    header: "#DEF3FF",
-    headerTopo: "#B6E2F9",
-    azulHeader: "#0F8BD3",
-    texto: "#0B4B71",
-    textoEscuro: "#062B42",
+   cores: {
+    fundo: "#FCF4F2",
+    ceu1: "#F8CBC3",
+    ceu2: "#FCE4E0",
+    header: "#FCE4E0",
+    headerTopo: "#F8CBC3",
+    azulHeader: "#E34D30",
+    texto: "#681D0F",
+    textoEscuro: "#391008",
     branco: "#FFFFFF",
-    creme: "#E1F2FA",
-    linha: "#B4E4F8",
-    sombra: "rgba(15,139,211,.18)",
-    sombraForte: "rgba(15,139,211,.28)"
+    creme: "#FAD8D2",
+    linha: "#F4B5A8",
+    sombra: "rgba(227,77,48,.18)",
+    sombraForte: "rgba(227,77,48,.28)"
   },
 
   dimensoes: {
