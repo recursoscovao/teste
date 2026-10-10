@@ -5,7 +5,13 @@ const DADOS = {
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 1.º ano"
+    informacao: "Recursos educativos para o 1.º ano",
+    tituloMenuAcordeao: "Menu",
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i",
+    tituloDestaques: "Jogos em destaque",
+    emojiDestaques: "🎮"
   },
 
   icons: {
