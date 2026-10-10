@@ -7,7 +7,9 @@ const DADOS = {
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
     informacao: "Jogos educativos para o 2.º ano",
     tituloMenuAcordeao: "Menu",
-    urlVoltar: "../"
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i"
   },
 
   icons: {
@@ -58,8 +60,8 @@ const DADOS = {
 
     // 3. Telemóvel Horizontal
     telemovelHorizontal: {
-      alturaCartao: 190,
-      tamanhoIcone: 125
+      alturaCartao: 140,
+      tamanhoIcone: 75
     },
 
     // 4. Tablet Vertical (3 colunas)
