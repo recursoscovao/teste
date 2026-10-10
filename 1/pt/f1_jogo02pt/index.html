@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <!-- Botão de voltar ajustado para sair do fullscreen -->
+    <!-- Botão de voltar para sair do fullscreen e regressar -->
     <button class="botao-seta" aria-label="Voltar" onclick="sairFullscreenEVoltar()"></button>
 
     <!-- MENU ACORDEÃO -->
@@ -96,7 +96,7 @@
           font-family: "Nunito", "Quicksand", "Arial Rounded MT Bold", sans-serif;
         }
         html {
-          background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19\%, #F2F8FC 38\%, ${DADOS.cores.fundo} 100%);
+          background: linear-gradient(180deg, ${DADOS.cores.ceu1} 0%, ${DADOS.cores.ceu2} 19%, #F2F8FC 38%, ${DADOS.cores.fundo} 100%);
           background-attachment: fixed;
         }
         body { background: transparent; color: ${DADOS.cores.texto}; overflow-x: hidden; }
@@ -110,7 +110,7 @@
 
         .cabecalho {
           position: relative; width: 100%; height: 82px; min-height: 82px;
-          background: linear-gradient(180deg, ${DADOS.cores.headerTopo} 0\%,${DADOS.cores.header} 100%);
+          background: linear-gradient(180deg, ${DADOS.cores.headerTopo} 0%, ${DADOS.cores.header} 100%);
           display: flex; align-items: center; justify-content: center;
           border-bottom: 2px solid rgba(255,255,255,.65);
           box-shadow: 0 3px 10px rgba(15,139,211,.12); z-index: 20;
@@ -205,4 +205,57 @@
           flex: 1; max-width: 180px; height: 14px; background: rgba(0,0,0,0.15);
           border-radius: 10px; overflow: hidden; position: relative;
         }
-        .barra-progresso-interna { width: 0%; height: 100%;
+        .barra-progresso-interna { width: 0%; height: 100%; background: #FFB400; border-radius: 10px; transition: width 0.3s ease; }
+        .contador-rondas { background: rgba(0,0,0,0.15); color: #FFFFFF; padding: 5px 12px; border-radius: 15px; font-weight: 900; font-size: 14px; }
+
+        .botoes-acao-jogo { display: flex; gap: 6px; }
+        .botao-acao-jogo {
+          width: 38px; height: 38px; border-radius: 50%; border: none;
+          background: rgba(0,0,0,0.2); color: #FFFFFF; font-size: 16px;
+          display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.1s ease;
+        }
+        .botao-acao-jogo:active { transform: scale(0.92); }
+
+        .btn-jogar-capa {
+          padding: 8px 25px; border-radius: 20px; background: #FFFFFF; color: ${DADOS.cores.azulHeader};
+          border: none; font-size: 1.1rem; font-weight: 900; cursor: pointer; box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+          transition: transform 0.1s ease;
+        }
+        .btn-jogar-capa:active { transform: scale(0.95); }
+
+        .rodape {
+          width: calc(100% - 40px); min-height: 53px; margin: 10px 20px 0; padding: 8px 17px;
+          display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-items: center;
+          border: 2px solid ${DADOS.cores.linha}; border-radius: 14px; background: rgba(255,255,255,.78);
+          font-size: clamp(11px, 1vw, 14px); font-weight: 800;
+        }
+        .rodape-item { display: flex; align-items: center; gap: 8px; }
+        .rodape-info { justify-content: flex-end; }
+        .estrela { color: #FFB400; font-size: 25px; }
+        .info { 
+          width: 25px; height: 25px; min-width: 25px; min-height: 25px;
+          display: inline-flex; align-items: center; justify-content: center; 
+          border-radius: 50% !important; color: #fff; background: ${DADOS.cores.azulHeader}; 
+          font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
+        }
+      `;
+      document.head.appendChild(estilo);
+    }
+
+    function preencherTextos() {
+      if (DADOS.pagina.browserTitulo) document.title = DADOS.pagina.browserTitulo;
+      const marca = document.querySelector("[data-marca]");
+      const submarca = document.querySelector("[data-submarca]");
+      const titulo = document.querySelector("[data-titulo-menu]");
+      const mensagem = document.querySelector("[data-mensagem]");
+      const informacoes = document.querySelectorAll("[data-informacao]");
+      const tituloMenuAcordeao = document.querySelector("[data-titulo-menu-acordeao]");
+      const iconeEstrela = document.querySelector("[data-icone-estrela]");
+      const iconeInfo = document.querySelector("[data-icone-info]");
+
+      if (marca) marca.textContent = DADOS.pagina.titulo;
+      if (submarca) submarca.textContent = DADOS.pagina.subtitulo;
+      if (titulo) titulo.textContent = DADOS.pagina.tituloMenu;
+      if (mensagem) mensagem.textContent = DADOS.pagina.mensagem;
+      if (tituloMenuAcordeao) tituloMenuAcordeao.textContent = DADOS.pagina.tituloMenuAcordeao;
+      if (iconeEstrela
