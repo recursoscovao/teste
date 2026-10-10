@@ -87,7 +87,7 @@ const DADOS = {
     {
       id: "portugues",
       nome: "Português",
-      idade: "6 - 7 anos",
+      idade: "7 - 8 anos",
       icon: "portugues",
       cor: "#11CBFC",
       cor2: "#079BC8",
@@ -96,7 +96,7 @@ const DADOS = {
     {
       id: "matematica",
       nome: "Matemática",
-      idade: "6 - 7 anos",
+      idade: "7 - 8 anos",
       icon: "matematica",
       cor: "#FD6746",
       cor2: "#D94328",
@@ -105,7 +105,7 @@ const DADOS = {
     {
       id: "estudoMeio",
       nome: "Estudo do Meio",
-      idade: "6 - 7 anos",
+      idade: "7 - 8 anos",
       icon: "estudoMeio",
       cor: "#62D733",
       cor2: "#36A918",
@@ -123,11 +123,11 @@ const DADOS = {
   ],
 
   destaques: [
-    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jd/rastros/" },
-    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jd/gatos-caes" },
-    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jd/dominorio/" },
-    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jd/semaforo/" },
-    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jd/quelhas/" },
-    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jd/avanco/" }
+    { id: "rastros", nome: "Rastros", icon: "rastros", pagina: "jd/rastros/" },
+    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", pagina: "jd/gatos-caes" },
+    { id: "dominio", nome: "Dominório", icon: "dominorio", pagina: "jd/dominorio/" },
+    { id: "semaforo", nome: "Semáforo", icon: "semaforo",  pagina: "jd/semaforo/" },
+    { id: "quelhas", nome: "Quellhas", icon: "quelhas", pagina: "jd/quelhas/" },
+    { id: "avanco", nome: "Avanço", icon: "avanco", pagina: "jd/avanco/" }
   ]
 };
