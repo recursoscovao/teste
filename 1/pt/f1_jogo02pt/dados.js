@@ -3,7 +3,7 @@ const DADOS = {
     browserTitulo: "1.º Ano - Jogos Educativos",
     titulo: "Português",
     subtitulo: "Atividades • 1º Ano",
-    tituloMenu: "Grafismos - linhas retas",
+    tituloMenu: "Escolhe o Jogo",
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
     informacao: "Jogos educativos para o 1.º ano",
     tituloMenuAcordeao: "Menu",
@@ -51,10 +51,6 @@ const DADOS = {
     tabletVertical: { alturaCartao: 400, tamanhoIcone: 190 },
     tabletHorizontal: { alturaCartao: 380, tamanhoIcone: 180 }
   },
-
-  jogos: [
-    { nome: "Grafismos", idade: "Linhas Retas", imagem: "../../../icons/gatos&caes.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "jogo.js" }
-  ],
 
   menuAnos: [
     { id: "inicio", nome: "Início", icon: "inicio", pagina: "../../../" },
