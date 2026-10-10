@@ -60,7 +60,7 @@ const DADOS = {
 
     // 3. Telemóvel Horizontal
     telemovelHorizontal: {
-      alturaCartao: 130,
+      alturaCartao: 140,
       tamanhoIcone: 75
     },
 
