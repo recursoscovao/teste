@@ -286,7 +286,7 @@
 
     /* 2. TELEMÓVEL VERTICAL (2 colunas) */
     @media (max-width: 576px) and (orientation: portrait) {
-      .anos { grid-template-columns: repeat(2, 1fr); gap: 14px; width: 100%; }
+      .anos { grid-template-columns: repeat(2, 1fr) !important; gap: 14px; width: 100%; }
       .botao-ano { 
         height: ${DADOS.dimensoes.telemovelVertical.alturaCartao}px; padding: 14px 8px; gap: 8px; 
         flex-direction: column; justify-content: space-between; border-radius: 16px; width: 100%;
@@ -296,17 +296,25 @@
       .idade-ano { display: none; }
     }
 
-    /* 3. TELEMÓVEL HORIZONTAL (4 colunas) */
-    @media (max-height: 550px) and (max-width: 900px) {
-      .anos { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    /* 3. TELEMÓVEL HORIZONTAL (Dispositivos móveis em paisagem com altura reduzida) */
+    @media (max-height: 550px) and (max-width: 900px) and (orientation: landscape) {
+      .anos { grid-template-columns: repeat(4, 1fr) !important; gap: 10px; }
       .botao-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px; padding: 10px 8px;
+        height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px !important; 
+        padding: 8px 6px !important; 
+        flex-direction: row !important; 
+        align-items: center !important; 
+        justify-content: flex-start !important;
+        gap: 10px !important;
       }
       .icone-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px;
+        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important; 
+        width: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important;
+        flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important;
       }
-      .nome-ano { font-size: 13px; }
-      .idade-ano { display: none; }
+      .texto-ano { text-align: left !important; }
+      .nome-ano { font-size: 14px; white-space: nowrap; }
+      .idade-ano { display: block !important; font-size: 11px; }
     }
 
     /* 4. TABLET VERTICAL (3 colunas) */
