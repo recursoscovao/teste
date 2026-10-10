@@ -2,16 +2,18 @@ const DADOS = {
   pagina: {
     browserTitulo: "3.º Ano - Jogos Educativos",
     titulo: "Português",
-    subtitulo: "Aprender • Jogar • Descobrir",
+    subtitulo: "Atividades • 3º Ano",
     tituloMenu: "Escolhe o Jogo",
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
     informacao: "Jogos educativos para o 3.º ano",
     tituloMenuAcordeao: "Menu",
-    urlVoltar: "../"
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i"
   },
 
   icons: {
-    cabecalho: "../../icons/icon3.png",
+    cabecalho: "../../icons/icon1.png",
     menu: "../../icons/menu.png",
     seta: "../../icons/seta.png",
     menuAnos: {
@@ -58,8 +60,8 @@ const DADOS = {
 
     // 3. Telemóvel Horizontal
     telemovelHorizontal: {
-      alturaCartao: 190,
-      tamanhoIcone: 125
+      alturaCartao: 140,
+      tamanhoIcone: 75
     },
 
     // 4. Tablet Vertical (3 colunas)
