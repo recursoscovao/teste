@@ -1,15 +1,21 @@
 const DADOS = {
   pagina: {
-    browserTitulo: "2.º Ano - Recursos Educativos",
-    titulo: "2.º Ano",
+    browserTitulo: "1.º Ano - Recursos Educativos",
+    titulo: "1.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 2.º ano"
+    informacao: "Recursos educativos para o 1.º ano",
+    tituloMenuAcordeao: "Menu",
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i",
+    tituloDestaques: "Jogos em destaque",
+    emojiDestaques: "🎮"
   },
 
   icons: {
-    cabecalho: "../icons/icon2.png",
+    cabecalho: "../icons/icon1.png",
     menu: "../icons/menu.png",
     seta: "../icons/seta.png",
     anos: {
@@ -35,7 +41,7 @@ const DADOS = {
     }
   },
 
-  cores: {
+   cores: {
     fundo: "#F2FBF4",
     ceu1: "#C8F6CE",
     ceu2: "#E1FCE4",
@@ -81,7 +87,7 @@ const DADOS = {
     {
       id: "portugues",
       nome: "Português",
-      idade: "7 - 8 anos",
+      idade: "6 - 7 anos",
       icon: "portugues",
       cor: "#11CBFC",
       cor2: "#079BC8",
@@ -90,7 +96,7 @@ const DADOS = {
     {
       id: "matematica",
       nome: "Matemática",
-      idade: "7 - 8 anos",
+      idade: "6 - 7 anos",
       icon: "matematica",
       cor: "#FD6746",
       cor2: "#D94328",
@@ -99,7 +105,7 @@ const DADOS = {
     {
       id: "estudoMeio",
       nome: "Estudo do Meio",
-      idade: "7 - 8 anos",
+      idade: "6 - 7 anos",
       icon: "estudoMeio",
       cor: "#62D733",
       cor2: "#36A918",
