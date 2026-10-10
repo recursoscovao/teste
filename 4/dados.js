@@ -5,7 +5,13 @@ const DADOS = {
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 4.º ano"
+    informacao: "Recursos educativos para o 4.º ano",
+    tituloMenuAcordeao: "Menu",
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i",
+    tituloDestaques: "Jogos em destaque",
+    emojiDestaques: "🎮"
   },
 
   icons: {
@@ -36,14 +42,14 @@ const DADOS = {
   },
 
   cores: {
-    fundo: "#F2F9F9",
+    fundo: "#F1F9F9",
     ceu1: "#C5ECEE",
-    ceu2: "#DDF4F5",
-    header: "#DDF4F5",
+    ceu2: "#E2F6F7",
+    header: "#E2F6F7",
     headerTopo: "#C5ECEE",
-    azulHeader: "#097D83",
-    texto: "#0B474A",
-    textoEscuro: "#042527",
+    azulHeader: "#097E84",
+    texto: "#06464A",
+    textoEscuro: "#032527",
     branco: "#FFFFFF",
     portugues: "#11CBFC",
     portugues2: "#079BC8",
@@ -57,15 +63,15 @@ const DADOS = {
     azul2: "#087AC9",
     verde: "#45C83D",
     verde2: "#169A3A",
-    roxo: "#097D83",
+    roxo: "#097E84",
     roxo2: "#055257",
     rosa: "#F43A9D",
     rosa2: "#C81970",
-    creme: "#D3EDEE",
-    creme2: "#88D7DA",
-    linha: "#A8E3E5",
-    sombra: "rgba(9,125,131,.18)",
-    sombraForte: "rgba(9,125,131,.28)"
+    creme: "#D3F0F2",
+    creme2: "#91DCE0",
+    linha: "#B2E7EA",
+    sombra: "rgba(9,126,132,.18)",
+    sombraForte: "rgba(9,126,132,.28)"
   },
 
   dimensoes: {
@@ -117,11 +123,11 @@ const DADOS = {
   ],
 
   destaques: [
-    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jd/rastros/" },
-    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jd/gatos-caes" },
-    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jd/dominorio/" },
-    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jd/semaforo/" },
-    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jd/quelhas/" },
-    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jd/avanco/" }
+    { id: "rastros", nome: "Rastros", icon: "rastros", pagina: "jd/rastros/" },
+    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", pagina: "jd/gatos-caes" },
+    { id: "dominio", nome: "Dominório", icon: "dominorio", pagina: "jd/dominorio/" },
+    { id: "semaforo", nome: "Semáforo", icon: "semaforo", pagina: "jd/semaforo/" },
+    { id: "quelhas", nome: "Quellhas", icon: "quelhas", pagina: "jd/quelhas/" },
+    { id: "avanco", nome: "Avanço", icon: "avanco", pagina: "jd/avanco/" }
   ]
 };
