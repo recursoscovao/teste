@@ -159,7 +159,7 @@
     .marca-texto p { margin: 3px 0 0; font-size: clamp(12px, 1.1vw, 16px); line-height: 1.1; font-weight: 800; color: ${DADOS.cores.texto}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     .menu-acordeao {
-      position: absolute; top: 72px; left: 18px; width: 300px; padding: 0;
+      position: absolute; top: 72px; left: 18px; width: 280px; padding: 0;
       background: rgba(255,255,255,.98); border: 2px solid ${DADOS.cores.linha};
       border-top: 4px solid ${DADOS.cores.azulHeader}; border-radius: 0 0 20px 20px;
       box-shadow: 0 10px 25px rgba(15,139,211,.24);
@@ -168,17 +168,19 @@
       z-index: 30;
     }
     .menu-acordeao.aberto { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-    .menu-acordeao-topo { padding: 12px 18px 10px; background: linear-gradient(180deg, #E6F4FA, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
-    .menu-acordeao-titulo { font-size: 19px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
-    .menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #0F8BD3; }
-    .menu-anos { display: flex; flex-direction: column; padding: 6px; gap: 4px; max-height: 50vh; overflow-y: auto; }
+    .menu-acordeao-topo { padding: 8px 12px 6px; background: linear-gradient(180deg, #E6F4FA, #FFFFFF); border-bottom: 1px solid ${DADOS.cores.linha}; }
+    .menu-acordeao-titulo { font-size: 16px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
+    .menu-acordeao-subtitulo { margin-top: 2px; font-size: 11px; font-weight: 700; color: #0F8BD3; }
+    
+    /* MENU ANOS SEM SCROLL */
+    .menu-anos { display: flex; flex-direction: column; padding: 4px; gap: 3px; overflow: visible; }
     .menu-ano {
-      width: 100%; min-height: 48px; display: flex; align-items: center; gap: 12px; padding: 5px 10px;
-      border: 0; border-radius: 12px; background: #FFFFFF; color: ${DADOS.cores.textoEscuro};
-      font-size: 14px; font-weight: 800; text-align: left; cursor: pointer; transition: background .16s ease;
+      width: 100%; min-height: 38px; display: flex; align-items: center; gap: 10px; padding: 3px 8px;
+      border: 0; border-radius: 10px; background: #FFFFFF; color: ${DADOS.cores.textoEscuro};
+      font-size: 13px; font-weight: 800; text-align: left; cursor: pointer; transition: background .16s ease;
     }
     .menu-ano:hover { background: #E6F4FA; transform: translateX(3px); }
-    .menu-ano-icon { width: 38px; height: 38px; flex: 0 0 38px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: #F0F9FC; }
+    .menu-ano-icon { width: 30px; height: 30px; flex: 0 0 30px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #F0F9FC; }
     .menu-ano-icon img { width: 100%; height: 100%; object-fit: contain; }
     .menu-ano-nome { flex: 1; }
 
@@ -296,16 +298,22 @@
       .idade-ano { display: none; }
     }
 
-    /* 3. TELEMÓVEL HORIZONTAL (4 colunas - Altura e padding otimizados) */
+    /* 3. TELEMÓVEL HORIZONTAL (4 colunas - Altura real reduzida e compacta) */
     @media (max-height: 550px) and (max-width: 900px) {
       .anos { grid-template-columns: repeat(4, 1fr); gap: 8px; }
       .botao-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px; padding: 6px 4px; justify-content: center; gap: 4px;
+        height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px !important; 
+        padding: 4px 4px !important; 
+        justify-content: space-between !important; 
+        border-radius: 12px !important;
       }
       .icone-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px;
+        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important; 
+        flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
       }
-      .nome-ano { font-size: 11px; line-height: 1; }
+      .nome-ano { font-size: 10px !important; line-height: 1 !important; }
       .idade-ano { display: none; }
     }
 
@@ -342,7 +350,7 @@
       .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
       .marca-texto h1 { font-size: 16px; }
       .marca-texto p { font-size: 9px; margin-top: 1px; }
-      .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 260px; }
+      .menu-acordeao { top: 54px; left: 10px; width: calc(100vw - 20px); max-width: 250px; }
       
       .area-menu { padding: 0 16px; }
       .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
