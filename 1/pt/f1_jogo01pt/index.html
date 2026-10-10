@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <!-- CABEÇALHO A OCUPAR A LARGURA TOTAL DO ECRÃ -->
+  <!-- CABEÇALHO -->
   <header class="cabecalho">
     <button class="botao-menu" aria-label="Menu Principal" aria-expanded="false" aria-controls="menu-acordeao"></button>
     
@@ -35,13 +35,14 @@
   </header>
 
   <div id="app">
-    <!-- ÁREA PRINCIPAL / FASES COM CARTÕES -->
+    <!-- ÁREA PRINCIPAL -->
     <main class="area-menu">
       <div class="titulo-menu">
         <h2 data-titulo-menu></h2>
       </div>
 
-      <div id="fases-container"></div>
+      <!-- Contentor adaptado para expandir o cartão único -->
+      <div id="jogos-container" class="cartao-unico-container"></div>
     </main>
 
     <!-- RODAPÉ -->
@@ -57,14 +58,7 @@
     </footer>
   </div>
 
-  <!-- TEMPLATES -->
-  <template id="modelo-fase">
-    <section class="secao-fase">
-      <h3 class="titulo-fase"></h3>
-      <div class="anos"></div>
-    </section>
-  </template>
-
+  <!-- TEMPLATE DO CARTÃO -->
   <template id="modelo-ano">
     <div class="ano">
       <button class="botao-ano">
@@ -102,11 +96,7 @@
       background-attachment: fixed;
     }
 
-    body { 
-      background: transparent; 
-      color: ${DADOS.cores.texto}; 
-      overflow-x: hidden; 
-    }
+    body { background: transparent; color: ${DADOS.cores.texto}; overflow-x: hidden; }
 
     button { font-family: inherit; }
 
@@ -172,7 +162,6 @@
     .menu-acordeao-titulo { font-size: 19px; font-weight: 900; color: ${DADOS.cores.textoEscuro}; }
     .menu-acordeao-subtitulo { margin-top: 3px; font-size: 12px; font-weight: 700; color: #0F8BD3; }
     
-    /* MENU ANOS PADRÃO (COM SCROLL NORMAL PARA PC/TABLET/VERTICAL) */
     .menu-anos { display: flex; flex-direction: column; padding: 8px; gap: 5px; max-height: 60vh; overflow-y: auto; }
     .menu-ano {
       width: 100%; min-height: 54px; display: flex; align-items: center; gap: 13px; padding: 6px 11px;
@@ -193,70 +182,51 @@
     }
     .titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-    /* ESTILOS DAS FASES E CARTÕES */
-    .secao-fase { margin-bottom: 25px; }
-    .titulo-fase {
-      font-size: clamp(16px, 1.5vw, 22px);
-      font-weight: 900;
-      color: ${DADOS.cores.textoEscuro};
-      margin: 0 0 12px 4px;
-      text-shadow: 0 1px 1px rgba(255,255,255,.8);
-    }
-
-    /* PC: 6 colunas por defeito */
-    .anos { 
-      width: 100%; 
-      display: grid; 
-      grid-template-columns: repeat(6, 1fr); 
-      gap: 12px; 
-      justify-content: flex-start; 
-    }
-
-    .ano {
+    /* ESTILO PARA EXPANDIR O CARTÃO ÚNICO */
+    .cartao-unico-container {
       width: 100%;
-      min-width: 0;
+      max-width: 650px;
+      margin: 0 auto;
     }
 
-    /* 1. PC (Padrão) */
+    .ano { width: 100%; min-width: 0; }
+
     .botao-ano {
-      position: relative; width: 100%; height: ${DADOS.dimensoes.pc.alturaCartao}px;
-      padding: 10px 10px 8px; border: 3px solid rgba(255,255,255,.94);
+      position: relative; width: 100%; height: 280px;
+      padding: 20px; border: 3px solid rgba(255,255,255,.94);
       border-radius: ${DADOS.dimensoes.raioAno}px;
       background: linear-gradient(145deg, var(--cor-1) 0%, var(--cor-2) 100%);
       display: flex; flex-direction: column; align-items: center; justify-content: space-between;
       color: #FFFFFF; cursor: pointer; overflow: hidden;
-      box-shadow: 0 9px 15px ${DADOS.cores.sombra};
-      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 12px 22px ${DADOS.cores.sombraForte};
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
     .botao-ano::before {
-      content: ""; position: absolute; top: -30px; left: -30px; width: 180px; height: 180px;
-      background: radial-gradient(circle, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 70%);
+      content: ""; position: absolute; top: -40px; left: -40px; width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
       border-radius: 50%; pointer-events: none; z-index: 0;
     }
 
     .botao-ano::after {
-      content: ""; position: absolute; top: -20px; right: -20px; width: 130px; height: 130px;
+      content: ""; position: absolute; top: -20px; right: -20px; width: 160px; height: 160px;
       background: rgba(255, 255, 255, 0.15); border-radius: 50%; pointer-events: none; z-index: 0;
     }
 
-    .botao-ano:hover { transform: translateY(-4px); box-shadow: 0 13px 20px ${DADOS.cores.sombraForte}; }
+    .botao-ano:hover { transform: scale(1.02); box-shadow: 0 16px 28px ${DADOS.cores.sombraForte}; }
     
     .icone-ano {
-      width: calc(100% - 20px); 
-      height: ${DADOS.dimensoes.pc.tamanhoIcone}px;
-      flex: 0 0 ${DADOS.dimensoes.pc.tamanhoIcone}px; 
-      display: grid; 
-      place-items: center; 
-      position: relative; 
-      z-index: 1;
+      width: 100%; 
+      height: 150px;
+      flex: 0 0 150px; 
+      display: grid; place-items: center; position: relative; z-index: 1;
       margin: 0 auto;
     }
-    .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 3px rgba(0,0,0,.16)); }
+    .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 4px rgba(0,0,0,.18)); }
     .texto-ano { position: relative; z-index: 1; text-align: center; width: 100%; }
 
-    .nome-ano { font-size: clamp(15px, 1.3vw, 21px); font-weight: 900; text-shadow: 0 2px 1px rgba(0,0,0,.17); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .idade-ano { margin-top: 2px; font-size: clamp(11px, 1vw, 14px); font-weight: 800; text-shadow: 0 1px 1px rgba(0,0,0,.12); opacity: 0.95; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nome-ano { font-size: clamp(20px, 2.2vw, 28px); font-weight: 900; text-shadow: 0 2px 2px rgba(0,0,0,.2); }
+    .idade-ano { margin-top: 4px; font-size: clamp(14px, 1.4vw, 18px); font-weight: 800; text-shadow: 0 1px 1px rgba(0,0,0,.15); opacity: 0.95; }
 
     .rodape {
       width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
@@ -273,110 +243,13 @@
       border-radius: 50% !important; color: #fff; background: ${DADOS.cores.azulHeader}; 
       font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
     }
-
-    @media (max-width: 768px) {
-      .cabecalho { height: 70px; }
-      .botao-menu, .botao-seta { width: 48px; height: 48px; }
-      .botao-menu { left: 12px; }
-      .botao-seta { right: 12px; }
-      .marca { padding: 0 44px; gap: 8px; max-width: 72%; }
-      .marca-sol { width: 42px; height: 42px; flex: 0 0 42px; }
-      .marca-texto h1 { font-size: 20px; }
-      .marca-texto p { font-size: 10px; }
-      .menu-acordeao { top: 62px; left: 12px; width: calc(100vw - 24px); max-width: 280px; }
-    }
-
-    /* 2. TELEMÓVEL VERTICAL (2 colunas) */
-    @media (max-width: 576px) and (orientation: portrait) {
-      .anos { grid-template-columns: repeat(2, 1fr); gap: 14px; width: 100%; }
-      .botao-ano { 
-        height: ${DADOS.dimensoes.telemovelVertical.alturaCartao}px; padding: 14px 8px; gap: 8px; 
-        flex-direction: column; justify-content: space-between; border-radius: 16px; width: 100%;
-      }
-      .icone-ano { width: calc(100% - 4px); height: ${DADOS.dimensoes.telemovelVertical.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.telemovelVertical.tamanhoIcone}px; }
-      .nome-ano { font-size: 14px; text-align: center; white-space: normal; line-height: 1.15; padding: 2px 0; }
-      .idade-ano { display: none; }
-    }
-
-    /* 3. TELEMÓVEL HORIZONTAL (4 colunas - Altura real reduzida + Menu sem scroll apenas aqui) */
-    @media (max-height: 550px) and (max-width: 900px) {
-      .anos { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-      .botao-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.alturaCartao}px !important; 
-        padding: 4px 4px !important; 
-        justify-content: space-between !important; 
-        border-radius: 12px !important;
-      }
-      .icone-ano {
-        height: ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important; 
-        flex: 0 0 ${DADOS.dimensoes.telemovelHorizontal.tamanhoIcone}px !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-      }
-      .nome-ano { font-size: 10px !important; line-height: 1 !important; }
-      .idade-ano { display: none; }
-
-      /* Ajustes específicos do menu acordeão só para telemóvel horizontal */
-      .menu-acordeao { width: 280px; top: 54px; }
-      .menu-acordeao-topo { padding: 6px 12px 4px; }
-      .menu-acordeao-titulo { font-size: 15px; }
-      .menu-anos { padding: 3px; gap: 2px; overflow-y: visible; max-height: none; }
-      .menu-ano { min-height: 34px; padding: 2px 8px; font-size: 12px; border-radius: 8px; gap: 8px; }
-      .menu-ano-icon { width: 28px; height: 28px; flex: 0 0 28px; border-radius: 6px; }
-    }
-
-    /* 4. TABLET VERTICAL (3 colunas) */
-    @media (min-width: 577px) and (max-width: 1024px) and (orientation: portrait) {
-      .anos { grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%; }
-      .botao-ano { 
-        height: ${DADOS.dimensoes.tabletVertical.alturaCartao}px; padding: 20px 12px; gap: 12px; 
-        flex-direction: column; justify-content: space-between; border-radius: 22px; width: 100%;
-      }
-      .icone-ano { width: calc(100% - 8px); height: ${DADOS.dimensoes.tabletVertical.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.tabletVertical.tamanhoIcone}px; }
-      .nome-ano { font-size: 18px; text-align: center; white-space: normal; line-height: 1.25; padding: 3px 0; }
-      .idade-ano { display: none; }
-    }
-
-    /* 5. TABLET HORIZONTAL (5 colunas) */
-    @media (min-width: 768px) and (max-width: 1200px) and (orientation: landscape) {
-      .anos { grid-template-columns: repeat(5, 1fr); gap: 12px; }
-      .botao-ano {
-        height: ${DADOS.dimensoes.tabletHorizontal.alturaCartao}px; padding: 12px 10px;
-      }
-      .icone-ano {
-        height: ${DADOS.dimensoes.tabletHorizontal.tamanhoIcone}px; flex: 0 0 ${DADOS.dimensoes.tabletHorizontal.tamanhoIcone}px;
-      }
-      .nome-ano { font-size: 15px; }
-    }
-
-    @media (max-width: 900px) {
-      .cabecalho { height: 62px; }
-      .botao-menu, .botao-seta { width: 42px; height: 42px; }
-      .botao-menu { left: 10px; }
-      .botao-seta { right: 10px; }
-      .marca { padding: 0 38px; gap: 6px; max-width: 70%; }
-      .marca-sol { width: 36px; height: 36px; flex: 0 0 36px; }
-      .marca-texto h1 { font-size: 16px; }
-      .marca-texto p { font-size: 9px; margin-top: 1px; }
-      
-      .area-menu { padding: 0 16px; }
-      .rodape { width: calc(100% - 32px); margin: 10px 16px 0; padding: 8px 12px; font-size: 11px; }
-      
-      .info {
-        width: 22px !important; height: 22px !important;
-        min-width: 22px !important; min-height: 22px !important;
-        border-radius: 50% !important;
-      }
-    }
       `;
 
       document.head.appendChild(estilo);
     }
 
     function preencherTextos() {
-      if (DADOS.pagina.browserTitulo) {
-        document.title = DADOS.pagina.browserTitulo;
-      }
+      if (DADOS.pagina.browserTitulo) document.title = DADOS.pagina.browserTitulo;
 
       const marca = document.querySelector("[data-marca]");
       const submarca = document.querySelector("[data-submarca]");
@@ -395,50 +268,37 @@
       if (iconeEstrela) iconeEstrela.textContent = DADOS.pagina.iconeEstrela;
       if (iconeInfo) iconeInfo.textContent = DADOS.pagina.iconeInfo;
       
-      informacoes.forEach(el => {
-        el.textContent = DADOS.pagina.informacao;
-      });
+      informacoes.forEach(el => { el.textContent = DADOS.pagina.informacao; });
     }
 
-    function criarFasesECartoes() {
-      const recipienteContainer = document.getElementById("fases-container");
-      const modeloFase = document.getElementById("modelo-fase");
+    function criarCartoes() {
+      const containerJogos = document.getElementById("jogos-container");
       const modeloAno = document.getElementById("modelo-ano");
-      if (!recipienteContainer || !modeloFase || !modeloAno) return;
+      if (!containerJogos || !modeloAno) return;
 
-      recipienteContainer.innerHTML = "";
+      containerJogos.innerHTML = "";
 
-      DADOS.fases.forEach(fase => {
-        const cloneFase = modeloFase.content.cloneNode(true);
-        const tituloFaseEl = cloneFase.querySelector(".titulo-fase");
-        const containerJogos = cloneFase.querySelector(".anos");
+      DADOS.jogos.forEach(jogo => {
+        const cartao = modeloAno.content.cloneNode(true);
+        const botao = cartao.querySelector(".botao-ano");
+        const icone = cartao.querySelector(".icone-ano");
+        const texto = cartao.querySelector(".nome-ano");
+        const idade = cartao.querySelector(".idade-ano");
 
-        tituloFaseEl.textContent = fase.tituloFase;
+        botao.style.setProperty("--cor-1", jogo.cor);
+        botao.style.setProperty("--cor-2", jogo.cor2);
 
-        fase.jogos.forEach(jogo => {
-          const cartao = modeloAno.content.cloneNode(true);
-          const botao = cartao.querySelector(".botao-ano");
-          const icone = cartao.querySelector(".icone-ano");
-          const texto = cartao.querySelector(".nome-ano");
-          const idade = cartao.querySelector(".idade-ano");
+        const imagem = document.createElement("img");
+        imagem.src = jogo.imagem;
+        imagem.alt = jogo.nome;
+        imagem.draggable = false;
+        icone.appendChild(imagem);
 
-          botao.style.setProperty("--cor-1", jogo.cor);
-          botao.style.setProperty("--cor-2", jogo.cor2);
+        texto.textContent = jogo.nome;
+        idade.textContent = jogo.idade;
 
-          const imagem = document.createElement("img");
-          imagem.src = jogo.imagem;
-          imagem.alt = jogo.nome;
-          imagem.draggable = false;
-          icone.appendChild(imagem);
-
-          texto.textContent = jogo.nome;
-          idade.textContent = jogo.idade;
-
-          botao.addEventListener("click", () => { window.location.href = jogo.pagina; });
-          containerJogos.appendChild(cartao);
-        });
-
-        recipienteContainer.appendChild(cloneFase);
+        botao.addEventListener("click", () => { window.location.href = jogo.pagina; });
+        containerJogos.appendChild(cartao);
       });
     }
 
@@ -491,7 +351,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       inserirCSS();
       preencherTextos();
-      criarFasesECartoes();
+      criarCartoes();
       criarMenuAnos();
       configurarMenu();
     });
