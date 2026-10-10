@@ -45,7 +45,6 @@ const DADOS = {
   dimensoes: {
     larguraMaxima: 1200,
     raioAno: 23,
-    
     pc: { alturaCartao: 209, tamanhoIcone: 125 },
     telemovelVertical: { alturaCartao: 200, tamanhoIcone: 110 },
     telemovelHorizontal: { alturaCartao: 140, tamanhoIcone: 75 },
@@ -53,31 +52,9 @@ const DADOS = {
     tabletHorizontal: { alturaCartao: 220, tamanhoIcone: 130 }
   },
 
-  fases: [
-    {
-      tituloFase: "Fase 1",
-      jogos: [
-        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" }
-      ]
-    },
-    {
-      tituloFase: "Fase 2",
-      jogos: [
-        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" }
-      ]
-    },
-    {
-      tituloFase: "Fase 3",
-      jogos: [
-        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" }
-      ]
-    },
-    {
-      tituloFase: "Fase 4",
-      jogos: [
-        { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" }
-      ]
-    }
+  // Apenas a lista de jogos direta, sem fases
+  jogos: [
+    { nome: "Grafismos", idade: "Linhas Retas", imagem: "iconjogos/f1_jogo01pt.png", cor: "#11CBFC", cor2: "#079BC8", pagina: "f1_jogo01pt/" }
   ],
 
   menuAnos: [
