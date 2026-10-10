@@ -7,11 +7,90 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Quicksand:wght@700&display=swap" rel="stylesheet">
-  
-  <!-- CARREGA OS DADOS PRIMEIRO NO HEAD PARA ESTAREM DISPONÍVEIS -->
-  <script src="dados.js"></script>
+</head>
+<body>
 
-  <style>
+  <!-- CABEÇALHO A OCUPAR A LARGURA TOTAL DO ECRÃ -->
+  <header class="cabecalho">
+    <button class="botao-menu" aria-label="Menu Principal" aria-expanded="false" aria-controls="menu-acordeao"></button>
+    
+    <div class="marca">
+      <div class="marca-sol" aria-hidden="true"></div>
+      <div class="marca-texto">
+        <h1 data-marca></h1>
+        <p data-submarca></p>
+      </div>
+    </div>
+
+    <button class="botao-seta" aria-label="Voltar"></button>
+
+    <!-- MENU ACORDEÃO -->
+    <nav id="menu-acordeao" class="menu-acordeao" aria-hidden="true">
+      <div class="menu-acordeao-topo">
+        <div class="menu-acordeao-titulo">Menu</div>
+        <div class="menu-acordeao-subtitulo" data-informacao></div>
+      </div>
+      <div id="menu-anos" class="menu-anos"></div>
+    </nav>
+  </header>
+
+  <div id="app">
+    <!-- ÁREA PRINCIPAL / FASES COM CARTÕES -->
+    <main class="area-menu">
+      <div class="titulo-menu">
+        <h2 data-titulo-menu></h2>
+      </div>
+
+      <div id="fases-container"></div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+      <div class="rodape-item">
+        <span class="estrela">★</span>
+        <span data-mensagem></span>
+      </div>
+      <div class="rodape-item rodape-info">
+        <span data-informacao></span>
+        <div class="info">i</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- TEMPLATES -->
+  <template id="modelo-fase">
+    <section class="secao-fase">
+      <h3 class="titulo-fase"></h3>
+      <div class="anos"></div>
+    </section>
+  </template>
+
+  <template id="modelo-ano">
+    <div class="ano">
+      <button class="botao-ano">
+        <div class="icone-ano"></div>
+        <div class="texto-ano">
+          <div class="nome-ano"></div>
+          <div class="idade-ano"></div>
+        </div>
+      </button>
+    </div>
+  </template>
+
+  <template id="modelo-menu-ano">
+    <button class="menu-ano">
+      <div class="menu-ano-icon"></div>
+      <span class="menu-ano-nome"></span>
+    </button>
+  </template>
+
+  <!-- DADOS E LÓGICA -->
+  <script src="dados.js"></script>
+  <script>
+    function inserirCSS() {
+      const estilo = document.createElement("style");
+
+      estilo.textContent = `
     * { box-sizing: border-box; }
     html, body {
       margin: 0; padding: 0; width: 100%; min-height: 100vh;
@@ -274,86 +353,11 @@
         border-radius: 50% !important;
       }
     }
-  </style>
-</head>
-<body>
+      `;
 
-  <!-- CABEÇALHO A OCUPAR A LARGURA TOTAL DO ECRÃ -->
-  <header class="cabecalho">
-    <button class="botao-menu" aria-label="Menu Principal" aria-expanded="false" aria-controls="menu-acordeao"></button>
-    
-    <div class="marca">
-      <div class="marca-sol" aria-hidden="true"></div>
-      <div class="marca-texto">
-        <h1 data-marca></h1>
-        <p data-submarca></p>
-      </div>
-    </div>
+      document.head.appendChild(estilo);
+    }
 
-    <button class="botao-seta" aria-label="Voltar"></button>
-
-    <!-- MENU ACORDEÃO -->
-    <nav id="menu-acordeao" class="menu-acordeao" aria-hidden="true">
-      <div class="menu-acordeao-topo">
-        <div class="menu-acordeao-titulo">Menu</div>
-        <div class="menu-acordeao-subtitulo" data-informacao></div>
-      </div>
-      <div id="menu-anos" class="menu-anos"></div>
-    </nav>
-  </header>
-
-  <div id="app">
-    <!-- ÁREA PRINCIPAL / FASES COM CARTÕES -->
-    <main class="area-menu">
-      <div class="titulo-menu">
-        <h2 data-titulo-menu></h2>
-      </div>
-
-      <div id="fases-container"></div>
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer class="rodape">
-      <div class="rodape-item">
-        <span class="estrela">★</span>
-        <span data-mensagem></span>
-      </div>
-      <div class="rodape-item rodape-info">
-        <span data-informacao></span>
-        <div class="info">i</div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- TEMPLATES -->
-  <template id="modelo-fase">
-    <section class="secao-fase">
-      <h3 class="titulo-fase"></h3>
-      <div class="anos"></div>
-    </section>
-  </template>
-
-  <template id="modelo-ano">
-    <div class="ano">
-      <button class="botao-ano">
-        <div class="icone-ano"></div>
-        <div class="texto-ano">
-          <div class="nome-ano"></div>
-          <div class="idade-ano"></div>
-        </div>
-      </button>
-    </div>
-  </template>
-
-  <template id="modelo-menu-ano">
-    <button class="menu-ano">
-      <div class="menu-ano-icon"></div>
-      <span class="menu-ano-nome"></span>
-    </button>
-  </template>
-
-  <!-- LÓGICA -->
-  <script>
     function preencherTextos() {
       if (DADOS.pagina.browserTitulo) {
         document.title = DADOS.pagina.browserTitulo;
@@ -464,6 +468,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
+      inserirCSS();
       preencherTextos();
       criarFasesECartoes();
       criarMenuAnos();
