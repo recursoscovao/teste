@@ -1,65 +1,67 @@
-// Lista de palavras de Português de Portugal com contagem de sílabas
-const listaPalavras = [
-  { palavra: "Pão", silabas: 1 },
-  { sol: "Sol", palavra: "Sol", silabas: 1 },
-  { palavra: "Mão", silabas: 1 },
-  { palavra: "Bola", silabas: 2 },
-  { palavra: "Gato", silabas: 2 },
-  { palavra: "Casa", silabas: 2 },
-  { palavra: "Janela", silabas: 3 },
-  { palavra: "Boneca", silabas: 3 },
-  { palavra: "Caneta", silabas: 3 },
-  { palavra: "Computador", silabas: 4 },
-  { palavra: "Elefante", silabas: 4 },
-  { palavra: "Borboleta", silabas: 4 }
-];
-
-let indiceAtual = 0;
+let rondaAtual = 1;
 let pontuacao = 0;
-let palavraAtual = {};
+let indicePalavra = 0;
 
-function iniciarJogo() {
-  // Baralhar as palavras para tornar o jogo dinâmico
-  listaPalavras.sort(() => Math.random() - 0.5);
-  indiceAtual = 0;
-  pontuacao = 0;
-  atualizarPontuacao();
-  carregarNovaPalavra();
+function inicializarJogo() {
+  document.getElementById("nome-jogo").textContent = DADOS_JOGO.informacoes.tituloJogo;
+  carregarRonda();
 }
 
-function carregarNovaPalavra() {
-  if (indiceAtual >= listaPalavras.length) {
-    indiceAtual = 0; // Reinicia o ciclo se acabar
-    listaPalavras.sort(() => Math.random() - 0.5);
+function carregarRonda() {
+  if (rondaAtual > DADOS_JOGO.informacoes.totalRondas) {
+    mostrarFimJogo();
+    return;
   }
 
-  palavraAtual = listaPalavras[indiceAtual];
-  document.getElementById("palavra-alvo").textContent = palavraAtual.palavra;
+  const item = DADOS_JOGO.palavras[indicePalavra % DADOS_JOGO.palavras.length];
+  document.getElementById("palavra-alvo").textContent = item.palavra;
   document.getElementById("feedback").textContent = "";
+
+  atualizarBarraProgresso();
 }
 
-function verificarResposta(silabasEscolhidas) {
+function responder(opcaoseleccionada) {
+  const item = DADOS_JOGO.palavras[indicePalavra % DADOS_JOGO.palavras.length];
   const feedbackEl = document.getElementById("feedback");
 
-  if (silabasEscolhidas === palavraAtual.silabas) {
+  if (opcaoseleccionada === item.silabas) {
     pontuacao += 10;
+    document.getElementById("pontos-contador").textContent = pontuacao;
     feedbackEl.style.color = "#28A745";
-    feedbackEl.textContent = "🎉 Muito bem! Resposta certa!";
-    atualizarPontuacao();
+    feedbackEl.textContent = "🎉 Certo! Muito bem!";
 
     setTimeout(() => {
-      indiceAtual++;
-      carregarNovaPalavra();
-    }, 1200);
+      rondaAtual++;
+      indicePalavra++;
+      carregarRonda();
+    }, 1000);
   } else {
-    feedbackEl.style.color = "#DC3545";
-    feedbackEl.textContent = `❌ Quase! Tem ${palavraAtual.silabas} sílabas. Tenta outra!`;
+    feedbackEl.style.color = "#E74C3C";
+    feedbackEl.textContent = "❌ Tenta outra vez!";
   }
 }
 
-function atualizarPontuacao() {
-  document.getElementById("pontuacao").textContent = `Pontos: ${pontuacao}`;
+function atualizarBarraProgresso() {
+  const total = DADOS_JOGO.informacoes.totalRondas;
+  const percentagem = (rondaAtual / total) * 100;
+  document.getElementById("barra-progresso").style.width = percentagem + "%";
+  document.getElementById("texto-ronda").textContent = `${rondaAtual}/${total}`;
 }
 
-// Iniciar o jogo quando a página estiver pronta
-document.addEventListener("DOMContentLoaded", iniciarJogo);
+function mostrarFimJogo() {
+  const recetor = document.querySelector(".recetor-jogo");
+  recetor.innerHTML = `
+    <h2>🏆 Parabéns!</h2>
+    <p class="instrucao">Completaste as ${DADOS_JOGO.informacoes.totalRondas} rondas!</p>
+    <p style="font-size:24px; font-weight:900; color:#0F8BD3; margin-bottom:20px;">Pontuação Final: ${pontuacao} pontos</p>
+    <button class="botao-resposta" onclick="location.reload()">Jogar Novamente</button>
+  `;
+}
+
+function tocarSom() {
+  alert("A reproduzir áudio da palavra...");
+}
+
+function mostrarAjuda() {
+  alert("Conta quantas vezes abres a boca para pronunciar a palavra!");
+}
