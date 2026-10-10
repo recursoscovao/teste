@@ -1,7 +1,7 @@
 const DADOS = {
   pagina: {
     browserTitulo: "3.º Ano - Jogos Educativos",
-    titulo: "Português",
+    titulo: "Estudo do Meio",
     subtitulo: "Atividades • 3º Ano",
     tituloMenu: "Escolhe o Jogo",
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
