@@ -41,7 +41,7 @@
         <h2 data-titulo-menu></h2>
       </div>
 
-      <!-- Contentor adaptado para expandir o cartão único -->
+      <!-- Contentor para o cartão expandido -->
       <div id="jogos-container" class="cartao-unico-container"></div>
     </main>
 
@@ -106,12 +106,14 @@
       margin: 0 auto;
       padding: 0 0 16px;
       position: relative;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background: transparent;
     }
 
     .cabecalho {
-      position: relative; width: 100%; height: 82px;
+      position: relative; width: 100%; height: 82px; min-height: 82px;
       background: linear-gradient(180deg, ${DADOS.cores.headerTopo} 0%, ${DADOS.cores.header} 100%);
       display: flex; align-items: center; justify-content: center;
       border-bottom: 2px solid rgba(255,255,255,.65);
@@ -173,63 +175,68 @@
     .menu-ano-icon img { width: 100%; height: 100%; object-fit: contain; }
     .menu-ano-nome { flex: 1; }
 
-    .area-menu { position: relative; width: 100%; margin-top: 20px; padding: 0 20px; }
+    .area-menu { 
+      position: relative; width: 100%; flex: 1; display: flex; flex-direction: column; 
+      justify-content: center; align-items: center; padding: 15px 20px; 
+    }
     .titulo-menu {
-      width: fit-content; margin: 1px auto 19px; padding: 8px 30px;
-      border: 2px solid rgba(15,139,211,.32); border-radius: 16px;
+      width: fit-content; margin: 0 auto 15px; padding: 6px 24px;
+      border: 2px solid rgba(15,139,211,.32); border-radius: 14px;
       background: linear-gradient(180deg, #FFFFFF, ${DADOS.cores.creme});
       box-shadow: 0 3px 7px rgba(15,139,211,.12);
     }
-    .titulo-menu h2 { margin: 0; font-size: clamp(18px, 1.7vw, 27px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
+    .titulo-menu h2 { margin: 0; font-size: clamp(16px, 1.5vw, 24px); font-weight: 900; color: ${DADOS.cores.textoEscuro}; text-align: center; }
 
-    /* ESTILO PARA EXPANDIR O CARTÃO ÚNICO */
+    /* CARTÃO EXPANDIDO EM ALTURA */
     .cartao-unico-container {
       width: 100%;
-      max-width: 650px;
-      margin: 0 auto;
+      max-width: 750px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    .ano { width: 100%; min-width: 0; }
+    .ano { width: 100%; height: 100%; display: flex; flex-direction: column; }
 
     .botao-ano {
-      position: relative; width: 100%; height: 280px;
-      padding: 20px; border: 3px solid rgba(255,255,255,.94);
+      position: relative; width: 100%; flex: 1; min-height: ${DADOS.dimensoes.pc.alturaCartao}px;
+      padding: 24px; border: 3px solid rgba(255,255,255,.94);
       border-radius: ${DADOS.dimensoes.raioAno}px;
       background: linear-gradient(145deg, var(--cor-1) 0%, var(--cor-2) 100%);
       display: flex; flex-direction: column; align-items: center; justify-content: space-between;
       color: #FFFFFF; cursor: pointer; overflow: hidden;
-      box-shadow: 0 12px 22px ${DADOS.cores.sombraForte};
+      box-shadow: 0 12px 25px ${DADOS.cores.sombraForte};
       transition: transform .2s ease, box-shadow .2s ease;
     }
 
     .botao-ano::before {
-      content: ""; position: absolute; top: -40px; left: -40px; width: 220px; height: 220px;
+      content: ""; position: absolute; top: -50px; left: -50px; width: 250px; height: 250px;
       background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
       border-radius: 50%; pointer-events: none; z-index: 0;
     }
 
     .botao-ano::after {
-      content: ""; position: absolute; top: -20px; right: -20px; width: 160px; height: 160px;
+      content: ""; position: absolute; top: -30px; right: -30px; width: 180px; height: 180px;
       background: rgba(255, 255, 255, 0.15); border-radius: 50%; pointer-events: none; z-index: 0;
     }
 
-    .botao-ano:hover { transform: scale(1.02); box-shadow: 0 16px 28px ${DADOS.cores.sombraForte}; }
+    .botao-ano:hover { transform: scale(1.015); box-shadow: 0 16px 30px ${DADOS.cores.sombraForte}; }
     
     .icone-ano {
       width: 100%; 
-      height: 150px;
-      flex: 0 0 150px; 
+      height: ${DADOS.dimensoes.pc.tamanhoIcone}px;
+      flex: 0 0 ${DADOS.dimensoes.pc.tamanhoIcone}px; 
       display: grid; place-items: center; position: relative; z-index: 1;
-      margin: 0 auto;
+      margin: auto 0;
     }
-    .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 4px rgba(0,0,0,.18)); }
+    .icone-ano img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 5px rgba(0,0,0,.18)); }
     .texto-ano { position: relative; z-index: 1; text-align: center; width: 100%; }
 
-    .nome-ano { font-size: clamp(20px, 2.2vw, 28px); font-weight: 900; text-shadow: 0 2px 2px rgba(0,0,0,.2); }
-    .idade-ano { margin-top: 4px; font-size: clamp(14px, 1.4vw, 18px); font-weight: 800; text-shadow: 0 1px 1px rgba(0,0,0,.15); opacity: 0.95; }
+    .nome-ano { font-size: clamp(22px, 2.4vw, 32px); font-weight: 900; text-shadow: 0 2px 2px rgba(0,0,0,.2); }
+    .idade-ano { margin-top: 4px; font-size: clamp(15px, 1.5vw, 20px); font-weight: 800; text-shadow: 0 1px 1px rgba(0,0,0,.15); opacity: 0.95; }
 
     .rodape {
-      width: calc(100% - 40px); min-height: 53px; margin: 15px 20px 0; padding: 8px 17px;
+      width: calc(100% - 40px); min-height: 53px; margin: 0 20px; padding: 8px 17px;
       display: grid; grid-template-columns: 1fr 1fr; gap: 15px; align-items: center;
       border: 2px solid ${DADOS.cores.linha}; border-radius: 14px; background: rgba(255,255,255,.78);
       font-size: clamp(11px, 1vw, 14px); font-weight: 800;
@@ -242,6 +249,17 @@
       display: inline-flex; align-items: center; justify-content: center; 
       border-radius: 50% !important; color: #fff; background: ${DADOS.cores.azulHeader}; 
       font-size: 12px; font-weight: 900; overflow: hidden; flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .cabecalho { height: 72px; min-height: 72px; }
+      .botao-menu, .botao-seta { width: 48px; height: 48px; }
+      .botao-menu { left: 12px; }
+      .botao-seta { right: 12px; }
+      .marca { padding: 0 44px; gap: 8px; max-width: 70%; }
+      .marca-sol { width: 42px; height: 42px; flex: 0 0 42px; }
+      .marca-texto h1 { font-size: 20px; }
+      .marca-texto p { font-size: 10px; }
     }
       `;
 
