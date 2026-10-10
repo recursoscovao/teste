@@ -2,10 +2,14 @@ const DADOS = {
   pagina: {
     browserTitulo: "1.º Ano - Jogos Educativos",
     titulo: "Português",
-    subtitulo: "Atividades • 1º Ano",
+    subtitulo: "Aprender • Jogar • Descobrir",
     tituloMenu: "Escolhe o Jogo",
     mensagem: "Escolhe um jogo e diverte-te a aprender!",
-    informacao: "Jogos educativos para o 1.º ano"
+    informacao: "Jogos educativos para o 1.º ano",
+    tituloMenuAcordeao: "Menu",
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i"
   },
 
   icons: {
@@ -54,10 +58,10 @@ const DADOS = {
       tamanhoIcone: 110
     },
 
-    // 3. Telemóvel Horizontal
+    // 3. Telemóvel Horizontal (Altura do cartão otimizada e mais compacta)
     telemovelHorizontal: {
-      alturaCartao: 190,
-      tamanhoIcone: 125
+      alturaCartao: 135,
+      tamanhoIcone: 85
     },
 
     // 4. Tablet Vertical (3 colunas)
