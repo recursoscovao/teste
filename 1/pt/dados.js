@@ -56,8 +56,8 @@ const DADOS = {
 
     // 3. Telemóvel Horizontal
     telemovelHorizontal: {
-      alturaCartao: 180,
-      tamanhoIcone: 95
+      alturaCartao: 209,
+      tamanhoIcone: 125
     },
 
     // 4. Tablet Vertical (3 colunas)
