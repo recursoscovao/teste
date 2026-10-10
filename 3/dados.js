@@ -1,11 +1,17 @@
 const DADOS = {
   pagina: {
     browserTitulo: "3.º Ano - Recursos Educativos",
-    titulo: "3.º Ano",
+    titulo: "2.º Ano",
     subtitulo: "Aprender • Explorar • Descobrir",
     tituloMenu: "Escolhe a área",
     mensagem: "Escolhe a área e comece a aprender!",
-    informacao: "Recursos educativos para o 3.º ano"
+    informacao: "Recursos educativos para o 3.º ano",
+    tituloMenuAcordeao: "Menu",
+    urlVoltar: "../",
+    iconeEstrela: "★",
+    iconeInfo: "i",
+    tituloDestaques: "Jogos em destaque",
+    emojiDestaques: "🎮"
   },
 
   icons: {
@@ -117,11 +123,11 @@ const DADOS = {
   ],
 
   destaques: [
-    { id: "rastros", nome: "Rastros", icon: "rastros", estrelas: 5, pagina: "jd/rastros/" },
-    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", estrelas: 5, pagina: "jd/gatos-caes" },
-    { id: "dominio", nome: "Dominório", icon: "dominorio", estrelas: 5, pagina: "jd/dominorio/" },
-    { id: "semaforo", nome: "Semáforo", icon: "semaforo", estrelas: 5, pagina: "jd/semaforo/" },
-    { id: "quelhas", nome: "Quellhas", icon: "quelhas", estrelas: 5, pagina: "jd/quelhas/" },
-    { id: "avanco", nome: "Avanço", icon: "avanco", estrelas: 5, pagina: "jd/avanco/" }
+    { id: "rastros", nome: "Rastros", icon: "rastros", pagina: "jd/rastros/" },
+    { id: "gatosCaes", nome: "Gatos&Cães", icon: "gatosCaes", pagina: "jd/gatos-caes" },
+    { id: "dominio", nome: "Dominório", icon: "dominorio", pagina: "jd/dominorio/" },
+    { id: "semaforo", nome: "Semáforo", icon: "semaforo",  pagina: "jd/semaforo/" },
+    { id: "quelhas", nome: "Quellhas", icon: "quelhas", pagina: "jd/quelhas/" },
+    { id: "avanco", nome: "Avanço", icon: "avanco", pagina: "jd/avanco/" }
   ]
 };
