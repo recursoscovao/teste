@@ -100,8 +100,8 @@ function carregarCapaJogo() {
     </div>
   `;
 
-  atualizarBarraEstado(true); // Mostra apenas Som e Botão Jogar na barra
-  setTimeout(iniciarSimulacaoAnimada, 100);
+  atualizarBarraEstado(true);
+  setTimeout(iniciarSimulacaoAnimada, 150);
 }
 
 function iniciarSimulacaoAnimada() {
@@ -109,6 +109,7 @@ function iniciarSimulacaoAnimada() {
     if(!sCanvas) return;
     const sCtx = sCanvas.getContext('2d');
     const sArea = document.getElementById('simu-area');
+    if(!sArea) return;
     
     sCanvas.width = sArea.clientWidth; sCanvas.height = sArea.clientHeight;
     const startEl = document.getElementById('simu-inicio');
@@ -190,7 +191,7 @@ function proximaRonda() {
       </div>
     `;
 
-    atualizarBarraEstado(false); // Ativa a barra completa do jogo
+    atualizarBarraEstado(false);
     setTimeout(configurarCanvas, 100); 
 }
 
@@ -428,6 +429,5 @@ function finalizarJogo() {
     if (barra) barra.innerHTML = '';
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(carregarCapaJogo, 200);
-});
+// Dispara o carregamento assim que o script é lido e injetado pelo index.html
+carregarCapaJogo();
