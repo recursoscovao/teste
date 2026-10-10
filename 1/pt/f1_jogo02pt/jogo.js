@@ -447,4 +447,11 @@ function finalizarJogo() {
     if (barra) barra.innerHTML = '';
 }
 
-carregarCapaJogo();
+// Garante que a capa e a animação só arrancam após o DOM estar pronto
+document.addEventListener("DOMContentLoaded", () => {
+  carregarCapaJogo();
+});
+
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  carregarCapaJogo();
+}
