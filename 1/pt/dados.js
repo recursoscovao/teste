@@ -62,7 +62,7 @@ const DADOS = {
 
     // 4. Tablet Vertical (3 colunas)
     tabletVertical: {
-      alturaCartao: 220,
+      alturaCartao: 240,
       tamanhoIcone: 110
     },
 
